@@ -1,6 +1,10 @@
 <?php
+require("model/config/setup.php");
+require("model/router/router.php");
+require("controller/controller.php");
 
-require("model/config/create_db.php");
+$dbName = 'CamagruDb';
+$url = $_SERVER['REQUEST_URI'];
 
-$db = new Data_base;
-$db->create_db();
+$serveur = new Controller($dbName, $url);
+
