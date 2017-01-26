@@ -8,12 +8,11 @@ class Database
 	private $_dbPassword;
 	private $_pdo;
 	
-	public function __construct($dbName, $dbHost = 'localhost', $dbUser = 'root',
-								$dbPassword = 'root') {
-		$this->$dbName =		$_dbName;
-		$this->_dbHost =		$_dbHost;
-		$this->_dbUser =		$_dbUser;
-		$this->_dbPassword =	$_dbPassword;
+	public function __construct($dbName) {
+		$this->$dbName =		$dbName;
+		$this->_dbHost =		'localhost';
+		$this->_dbUser =		'root';
+		$this->_dbPassword =	'root';
 		$this->_pdo = 			$this->_createDb($dbName);
 		$this->_pdo =			$this->_createTables($dbName);
 	}
@@ -53,6 +52,7 @@ class Database
 				`name` VARCHAR(255) NULL ,
 				`file` TEXT NULL ,
 				`created` DATETIME NULL ,
+				`type` VARCHAR(255) NULL ,
 				`user_id` INT NULL ,
 				PRIMARY KEY (`id`) ,
 				INDEX `fk_posts_users_idx` (`user_id` ASC))

@@ -1,10 +1,16 @@
 <?php
-require("model/config/setup.php");
-require("model/router/router.php");
-require("controller/controller.php");
+define('DS', DIRECTORY_SEPARATOR);
+define('WEBROOT', "webroot");
+define('ROOT', dirname(WEBROOT));
+define('CORE', ROOT.DS.'core');
+define('CONFIG', ROOT.DS.'model'.DS.'config');
+define('BASE_URL', dirname($_SERVER['SCRIPT_NAME']));
 
-$dbName = 'CamagruDb';
-$url = $_SERVER['REQUEST_URI'];
+require CORE.DS.'includes.php';
 
-$serveur = new Controller($dbName, $url);
+$_SERVER['debug'] = 1;
+// Creation de la bdd si inexistante
+new Database('CamagruDb');
 
+// Parse l'URL et envoi directement sur le bon Controller
+new dispatcher();
