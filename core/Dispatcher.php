@@ -50,7 +50,6 @@ class Dispatcher {
 		if (!file_exists($file))
 		{
 			throw new InvalidArgumentException("Le controller ".DS.$name. " n'existe pas, retour vers index", 42);
-			
 			$index = new ErrorController();
 		}
 		require $file;

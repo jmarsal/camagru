@@ -15,11 +15,22 @@ class Controller {
 			return FALSE;
 		}
 		extract($this->_vars);
+		if ($view === 'pages/index') {
+			$view = '/pages/index';
+		}
 		if (strpos($view, '/') === 0)
 		{
 			$view = ROOT.DS.'view'.$view.'.php';
 		} else {
 			$view = ROOT.DS.'view'.DS.$this->request->controller.DS.$view.'.php';
+		}
+	var_dump($view);
+		if (strstr($view, "./view/pages/index")) {
+			echo 'ici';
+			$cssDir = WEBROOT.DS."css".DS."style.css";
+		} else {
+			echo 'la';
+			$cssDir = "..".DS."..".DS.WEBROOT.DS."css".DS."style.css";
 		}
 		ob_start();
 		require($view);
