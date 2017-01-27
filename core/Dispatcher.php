@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start();
 class Dispatcher {
 	
 	var $request;
@@ -7,7 +8,6 @@ class Dispatcher {
 		// Recupere l'URL et la parse
 		$this->request = new Request();
 		Router::parse($this->request->url, $this->request);
-
 		// Charge le controller correspondant, si erreur, renvoi sur Controller 404
 		try {
 			$controller = $this->loadController();
@@ -25,11 +25,12 @@ class Dispatcher {
 		}
 
 		// Appel de la fonction qui correspond a l'action dans le controller
-		if ((!empty($this->request->params)) || (empty($this->request->params) && empty($this->request->controller))) {
+		// if ((!empty($this->request->params)) || (empty($this->request->params) && empty($this->request->controller))) {
 			call_user_func_array(array($controller, $this->request->action), $this->request->params);
 			$controller->render($this->request->action);
-		} else {
-			$this->error('Le controller '.$this->request->controller.' a besoin de parametres !');
+		// } else { 
+			if ($this->request->controller === 'PagesController' && !empty($this->request->params)) {
+				$this->error('Le controller '.$this->request->controller.' a besoin de parametres !');
 		}
 	}
 	

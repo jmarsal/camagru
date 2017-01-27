@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start();
 class Controller {
 
 	public	$request;
@@ -13,7 +14,6 @@ class Controller {
 	public function render($view, $layout = NULL) {
 		if ($layout === NULL){
 			$layout = $this->layout;
-			// var_dump($layout);
 		}
 		if ($this->rendered) {
 			return FALSE;
