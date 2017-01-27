@@ -31,8 +31,6 @@ class Dispatcher {
 		} else {
 			$this->error('Le controller '.$this->request->controller.' a besoin de parametres !');
 		}
-
-		// Affichage de la vue demander
 	}
 	
 	function error($message) {
@@ -44,7 +42,7 @@ class Dispatcher {
 		if ($this->request->url !== "") {
 			$name = ucfirst($this->request->controller).'Controller';
 		} else {
-			$name = 'IndexController';
+			$name = 'AccueilController';
 		}
 		$file = ROOT.DS.'controller'.DS.$name.'.php';
 		if (!file_exists($file))

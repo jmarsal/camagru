@@ -10,37 +10,30 @@ class Controller {
 		$this->request = $request;
 	}
 	
-	public function render($view) {
+	public function render($view, $layout = NULL) {
+		if ($layout === NULL){
+			$layout = $this->layout;
+			// var_dump($layout);
+		}
 		if ($this->rendered) {
 			return FALSE;
 		}
 		extract($this->_vars);
-		if ($view === 'pages/index') {
-			$view = '/pages/index';
-		}
 		if (strpos($view, '/') === 0)
 		{
 			$view = ROOT.DS.'view'.$view.'.php';
 		} else {
-			$view = ROOT.DS.'view'.DS.$this->request->controller.DS.$view.'.php';
-		}
-	var_dump($view);
-		if (strstr($view, "./view/pages/index")) {
-			echo 'ici';
-			$cssDir = WEBROOT.DS."css".DS."style.css";
-		} else {
-			echo 'la';
-			$cssDir = "..".DS."..".DS.WEBROOT.DS."css".DS."style.css";
+			$view = ROOT.DS.'view'.DS.$this->request->controller.$view.'.php';
 		}
 		ob_start();
 		require($view);
 		$content_for_layout = ob_get_clean();
-		require ROOT.DS.'view'.DS.'layout'.DS.$this->layout.'.php';
+		require(ROOT.DS.'view'.DS.'layout'.DS.$layout.'.php');
 		$this->rendered = TRUE;
 	}
 	
 	public function set($key, $value=NULL) {
-		if ($_SERVER['debug'] == 1) {
+		if ($_SERVER['debug'] === 1) {
 			if (is_array($key)) {
 				$this->_vars += $key;
 			} else {

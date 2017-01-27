@@ -12,7 +12,7 @@ class Router {
 		// $params = array_filter($params);
 		
 		$request->controller = $params[0];
-		$request->action = isset($params[1]) ? $params[1] : 'index';
+		$request->action = isset($params[1]) ? $params[1] : 'accueil';
 		$request->params = array_slice($params, 2);
 		
 		return TRUE;
