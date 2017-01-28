@@ -19,4 +19,6 @@
 		<input type="submit" name="submit" value="Login">
 	</p>
 </form>
+<?php  //Check ici que les champs sont remplis correctement et test avec la class
+		//User que l'utilisateur se trouve dans la bdd  ?>
 <a class="registered" href="#">Not yet registered ?</a>
