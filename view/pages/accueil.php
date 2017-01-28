@@ -18,6 +18,5 @@
 	<p class="button1">
 		<input type="submit" name="submit" value="Login">
 	</p>
-
 </form>
 <a class="registered" href="#">Not yet registered ?</a>
