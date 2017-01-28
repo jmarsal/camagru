@@ -10,7 +10,7 @@ define('CSS_DEFAULT', BASE_URL.DS.'webroot'.DS.'css'.DS.'style.css');
 
 require CORE.DS.'includes.php';
 
-$_SERVER['debug'] = 1;
+$_SERVER['debug'] = 0;
 // Creation de la bdd si inexistante
 new Database('CamagruDb');
 

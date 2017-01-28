@@ -1,5 +1,4 @@
 <?php
-session_start();
 class Controller {
 
 	public	$request;
@@ -23,7 +22,7 @@ class Controller {
 		{
 			$view = ROOT.DS.'view'.$view.'.php';
 		} else {
-			$view = ROOT.DS.'view'.DS.$this->request->controller.$view.'.php';
+			$view = ROOT.DS.'view'.DS.$this->request->controller.DS.$view.'.php';
 		}
 		ob_start();
 		require($view);
@@ -55,7 +54,7 @@ class Controller {
 	function e404($message) {
 		header("HTTP/1.0 404 Not Found");
 		$this->set('message', $message);
-		$this->render('/errors/404');
+		$this->render('/errors/404', '404_layout');
 		die();
 	}
 }

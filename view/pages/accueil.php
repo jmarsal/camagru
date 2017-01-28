@@ -1,11 +1,10 @@
 <?php
-session_start();
 ?>
 <div class="logo">
 		<h1>CAMAGRU</h1>
 		<img class="img_logo" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS.'photo-camera.png' ?>" alt="logo">
 </div>
-<form action="<?php echo BASE_URL.DS.'camagru/camagru' ?>" methode="POST">
+<form action="<?php echo "/camagru/pages/camagru" ?>" method="POST">
 	<div class="log_accueil_but">
 		Login:<br>
 		<input type="text" name="login" value="">
@@ -17,8 +16,8 @@ session_start();
 		<br>
 	</div>
 	<p class="button1">
-		<input type="submit" name="submit" value="Se connecter">
+		<input type="submit" name="submit" value="Login">
 	</p>
 
 </form>
-<a href="#">Not yet registered ?</a>
+<a class="registered" href="#">Not yet registered ?</a>

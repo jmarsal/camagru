@@ -21,8 +21,7 @@
 	<div class="container">
 	</div>
 		<div class="post">
-			<?php echo $content_for_layout;
-?>
+			<?php echo $content_for_layout;?>
 		</div>
 	</body>
 </html>
