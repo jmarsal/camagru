@@ -34,9 +34,39 @@
 </form>
 <?php
 	if ($user->formOk === 1){
-		echo "ca marche !";
-		$user->addUser($user->login, $user->email, $user->hashPasswd);
+		$user->addUser($user->login, $user->email, $user->hashPasswd);?>
 
+		<div id="popup" class="popup">
+			<div>
+				En attente de confirmation...
+			</div>
+			<div>
+				Bienvenue <?php echo $user->login ?>
+			</div>
+			<div>
+				Un email de confirmation de compte viens de vous etre envoyer a l'adresse <?php echo $user->email ?>
+			</div>
+			<div>
+				Merci de bien vouloir cliquer sur le lien d'activation se trouvant dans le mail.
+			</div>
+			<p class="button2" onclick="hidePopup()">
+				<span class="button">Fermer</span>
+			</p>
+		</div>
+		<div id="overlay" class="overlay"></div>
+		<script type="text/javascript">
+			function showPopup(){
+				document.getElementById("popup").style.display = "block";
+				document.getElementById("overlay").style.display = "block";
+			}
+			showPopup();
+			function hidePopup(){
+				document.getElementById("popup").style.display = "none";
+				document.getElementById("overlay").style.display = "none";
+			}
+
+		</script>
+		<?php
 	}
 	echo $user->mess_error;
 ?>

@@ -45,6 +45,8 @@ class Database
 				`login` VARCHAR(255) NULL DEFAULT NULL ,
 				`password` VARCHAR(255) NULL DEFAULT NULL ,
 				`email` VARCHAR(255) NULL DEFAULT NULL ,
+				`cle` VARCHAR(255) NULL ,
+				`actif` INT DEFAULT 0,
 				PRIMARY KEY (`id`))
 				ENGINE = MyISAM');
 			// $requete = $pdo->exec(INSERT INTO `users` (`id`, `login`, `password`, `email`) 

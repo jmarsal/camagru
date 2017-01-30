@@ -1,0 +1,123 @@
+/* line 5, ../sass/button_flat.scss */
+section p {
+  padding-bottom: 60px; }
+
+/* line 8, ../sass/button_flat.scss */
+.button1 {
+  margin: 50px; }
+  /* line 10, ../sass/button_flat.scss */
+  .button1 input {
+    cursor: pointer;
+    width: 35%;
+    background: indianred;
+    color: #FFF;
+    text-decoration: none;
+    position: relative;
+    font-size: 1.5vw;
+    padding: 10px;
+    border: solid 1px #952e2e;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: inset 0px 1px 1px #e5aaaa;
+    -webkit-box-shadow: inset 0px 1px 1px #e5aaaa;
+    box-shadow: inset 0px 1px 1px #e5aaaa;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NkNWM1YyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2JjM2EzYSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #cd5c5c), color-stop(100%, #bc3a3a));
+    background-image: -moz-linear-gradient(top, #cd5c5c, #bc3a3a);
+    background-image: -webkit-linear-gradient(top, #cd5c5c, #bc3a3a);
+    background-image: linear-gradient(to bottom, #cd5c5c, #bc3a3a); }
+    /* line 11, ../sass/button_flat.scss */
+    .button1 input:hover {
+      opacity: .8; }
+  /* line 27, ../sass/button_flat.scss */
+  .button1 input:active {
+    opacity: 1;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjEuMCIgeDI9IjAuNSIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NkNWM1YyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2JjM2EzYSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #cd5c5c), color-stop(100%, #bc3a3a));
+    background-image: -moz-linear-gradient(bottom, #cd5c5c, #bc3a3a);
+    background-image: -webkit-linear-gradient(bottom, #cd5c5c, #bc3a3a);
+    background-image: linear-gradient(to top, #cd5c5c, #bc3a3a);
+    -moz-box-shadow: inset 0px 0px 0px #e5aaaa;
+    -webkit-box-shadow: inset 0px 0px 0px #e5aaaa;
+    box-shadow: inset 0px 0px 0px #e5aaaa; }
+  /* line 32, ../sass/button_flat.scss */
+  .button1 input:before {
+    content: '';
+    background-color: #ccd0d5;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    top: -8px;
+    left: -8px;
+    z-index: -1;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -moz-box-shadow: inset 8px 1px 1px #909193, 0px 1px 0px #FFF;
+    -webkit-box-shadow: inset 8px 1px 1px #909193, 0px 1px 0px #FFF;
+    box-shadow: inset 8px 1px 1px #909193, 0px 1px 0px #FFF; }
+
+/* line 47, ../sass/button_flat.scss */
+section p {
+  padding-bottom: 60px; }
+
+/* line 50, ../sass/button_flat.scss */
+.button2 {
+  margin: 50px; }
+  /* line 52, ../sass/button_flat.scss */
+  .button2 span {
+    cursor: pointer;
+    width: 35%;
+    background: indianred;
+    color: #FFF;
+    text-decoration: none;
+    position: relative;
+    font-size: 1.5vw;
+    padding: 10px;
+    border: solid 1px #952e2e;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: inset 0px 1px 1px #e5aaaa;
+    -webkit-box-shadow: inset 0px 1px 1px #e5aaaa;
+    box-shadow: inset 0px 1px 1px #e5aaaa;
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NkNWM1YyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2JjM2EzYSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #cd5c5c), color-stop(100%, #bc3a3a));
+    background-image: -moz-linear-gradient(top, #cd5c5c, #bc3a3a);
+    background-image: -webkit-linear-gradient(top, #cd5c5c, #bc3a3a);
+    background-image: linear-gradient(to bottom, #cd5c5c, #bc3a3a); }
+  /* line 66, ../sass/button_flat.scss */
+  .button2 span:active {
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjEuMCIgeDI9IjAuNSIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NkNWM1YyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2JjM2EzYSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #cd5c5c), color-stop(100%, #bc3a3a));
+    background-image: -moz-linear-gradient(bottom, #cd5c5c, #bc3a3a);
+    background-image: -webkit-linear-gradient(bottom, #cd5c5c, #bc3a3a);
+    background-image: linear-gradient(to top, #cd5c5c, #bc3a3a);
+    -moz-box-shadow: inset 0px 0px 0px #e5aaaa;
+    -webkit-box-shadow: inset 0px 0px 0px #e5aaaa;
+    box-shadow: inset 0px 0px 0px #e5aaaa; }
+  /* line 70, ../sass/button_flat.scss */
+  .button2 span:before {
+    content: '';
+    background-color: #ccd0d5;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 8px;
+    top: -8px;
+    left: -8px;
+    z-index: -1;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -moz-box-shadow: inset 8px 1px 1px #909193, 0px 1px 0px #FFF;
+    -webkit-box-shadow: inset 8px 1px 1px #909193, 0px 1px 0px #FFF;
+    box-shadow: inset 8px 1px 1px #909193, 0px 1px 0px #FFF; }

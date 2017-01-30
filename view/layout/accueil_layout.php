@@ -11,6 +11,8 @@
 <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Cairo|Indie+Flower" rel="stylesheet">
 	<link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'AccueilStyle.css';?> >
 	<link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'404Style.css';?> >
+	<link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'button_flat.css';?> >
+	<link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'form.css';?> >
 	</head>
 	<body>
 	<div class="container">

@@ -49,7 +49,7 @@ class User extends Model {
 			if (isset($_POST['email']) && $_POST['submit'] === 'Inscription') {
 				if (!empty($_POST['email'])){
 					$this->email = htmlspecialchars($_POST['email']);
-					if ($this->validEmail($this->email) !== TRUE){
+					if (Mail::validEmail($this->email) !== TRUE){
 						$this->mess_error = '<p class="form_error">Veuillez renseigner une adresse email valide!</p>';
 						$this->formOk = 0;
 					}
@@ -84,55 +84,33 @@ class User extends Model {
 		}
 	}
 
-	// verifie que l'adresse email est valide
-	function validEmail($email){
-	$isValid = true;
-	$atIndex = strrpos($email, "@");
 
-	if (is_bool($atIndex) && !$atIndex){
-		$isValid = false;
-	}
-	else{
-		$domain = substr($email, $atIndex+1);
-		$local = substr($email, 0, $atIndex);
-		$localLen = strlen($local);
-		$domainLen = strlen($domain);
-		if ($localLen < 1 || $localLen > 64){
-			// local part length exceeded
-			$isValid = false;
-		}else if ($domainLen < 1 || $domainLen > 255){
-			// domain part length exceeded
-			$isValid = false;
-		}else if ($local[0] == '.' || $local[$localLen-1] == '.'){
-			// local part starts or ends with '.'
-			$isValid = false;
-		}else if (preg_match('/\\.\\./', $local)){
-			// local part has two consecutive dots
-			$isValid = false;
-		}else if (!preg_match('/^[A-Za-z0-9\\-\\.]+$/', $domain)){
-			// character not valid in domain part
-			$isValid = false;
-		}else if (preg_match('/\\.\\./', $domain)){
-			// domain part has two consecutive dots
-			$isValid = false;
-		}else if (!preg_match('/^(\\\\.|[A-Za-z0-9!#%&`_=\\/$\'*+?^{}|~.-])+$/', str_replace("\\\\","",$local))){
-			// character not valid in local part unless
-			// local part is quoted
-			if (!preg_match('/^"(\\\\"|[^"])+"$/', str_replace("\\\\","",$local))){
-				$isValid = false;
-			}
-		}if ($isValid && !(checkdnsrr($domain,"MX") || checkdnsrr($domain,"A"))){
-			// domain not found in DNS
-			$isValid = false;
-		}
-	}
-	return $isValid;
-}
-
-
-	// Enregistre un nouvel user dans la bdd
+	// Enregistre un nouvel user dans la bdd + send mail de confirmation
 	public function addUser($login, $email, $passwd) {
-		echo "Enregistre un nouvel user dans la bdd, ouvir accueil.php, register.php, User.php, egalement, voir ce site : http://m-gut.developpez.com/tutoriels/php/mail-confirmation/";
+		$con = new Model;
+		$cle = hash(sha256, microtime(TRUE)*100000);
+
+		$st = $con->db->query("SELECT COUNT(*) FROM users 
+									WHERE login='".$this->login."'")->fetch();
+			if ($st['COUNT(*)'] == 1){
+				$this->mess_error = '<p class="form_error">Ce Login est deja utilise !</p>';
+				return (FALSE);
+			}
+		$req = $con->db->prepare("INSERT INTO `users`(`login`, `password`, `email`, `cle`) 
+									VALUES (:login, :password, :email, :cle)");
+		if ($req->execute(array(
+            "login" => $login, 
+            "password" => $passwd,
+            "email" => $email,
+			"cle" => $cle))){
+				Mail::sendMailConfirmation($email, $login, $cle);
+				return (TRUE);
+			}else{
+				if ($_SERVER['debug'] === 1)
+					$this->mess_error = "<p>l'insertion n'a pas marche!</p>";
+					return (FALSE);
+			}
+		// echo "Enregistre un nouvel user dans la bdd, ouvir accueil.php, register.php, User.php, egalement, voir ce site : http://m-gut.developpez.com/tutoriels/php/mail-confirmation/";
 	}
 }
 ?>
