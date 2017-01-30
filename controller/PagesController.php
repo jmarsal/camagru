@@ -15,9 +15,6 @@ class PagesController extends Controller{
 		));
 		$this->set($d);
 	}
-	public function camagru(){
-		// print_r($_POST);
-	}
 }
 
 

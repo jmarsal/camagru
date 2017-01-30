@@ -47,6 +47,10 @@ class Database
 				`email` VARCHAR(255) NULL DEFAULT NULL ,
 				PRIMARY KEY (`id`))
 				ENGINE = MyISAM');
+			// $requete = $pdo->exec(INSERT INTO `users` (`id`, `login`, `password`, `email`) 
+			// 					VALUES (NULL, 'jb', 
+			// 					'da114fe251e57acdab774919e86f16f09e9341d913db8ad4ae808ac63ea9f2c7',
+			// 					'jmarsal@student.42.fr'));
 			$requete = $pdo->exec('CREATE TABLE IF NOT EXISTS '."$dbName".'.`posts` (
 				`id` INT NOT NULL AUTO_INCREMENT ,
 				`name` VARCHAR(255) NULL ,

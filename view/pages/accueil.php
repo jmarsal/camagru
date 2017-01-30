@@ -1,24 +1,34 @@
 <?php
+	 $user = new User;
 ?>
 <div class="logo">
 		<h1>CAMAGRU</h1>
 		<img class="img_logo" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS.'photo-camera.png' ?>" alt="logo">
 </div>
-<form action="<?php echo "/camagru/pages/camagru" ?>" method="POST">
+<form action="#" method="POST">
 	<div class="log_accueil_but">
 		Login:<br>
-		<input type="text" name="login" value="">
+		<input type="text" name="login" value="<?php echo $user->login ?>">
 		<br>	
 	</div>
 	<div class="paswrd_accueil_but">
 		Password:<br>
-		<input type="password" name="passwd" value="">
+		<input type="password" name="passwd" value="<?php echo $user->passwd ?>">
 		<br>
 	</div>
 	<p class="button1">
 		<input type="submit" name="submit" value="Login">
 	</p>
 </form>
-<?php  //Check ici que les champs sont remplis correctement et test avec la class
-		//User que l'utilisateur se trouve dans la bdd  ?>
-<a class="registered" href="#">Not yet registered ?</a>
+<?php
+	if ($user->formOk === 1){
+		if ($user->checkLogin($user->login, $user->hashPasswd) === TRUE){
+			if ($_SESSION['loged'] === 1){
+				require_once('controller/AppController.php');
+				new AppController();
+			}
+		}
+	}
+	 echo $user->mess_error;
+	?>
+<a class="registered" href="register/">Not yet registered ?</a>

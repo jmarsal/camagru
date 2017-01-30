@@ -8,9 +8,9 @@ define('CONFIG', ROOT.DS.'model'.DS.'config');
 define('BASE_URL', dirname($_SERVER['SCRIPT_NAME']));
 define('CSS_DEFAULT', BASE_URL.DS.'webroot'.DS.'css'.DS.'style.css');
 
-require CORE.DS.'includes.php';
+require_once CORE.DS.'includes.php';
 
-$_SERVER['debug'] = 0;
+$_SERVER['debug'] = 1;
 // Creation de la bdd si inexistante
 new Database('CamagruDb');
 

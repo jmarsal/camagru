@@ -123,3 +123,7 @@ section p {
     -moz-box-shadow: inset 8px 1px 1px #909193, 0px 1px 0px #FFF;
     -webkit-box-shadow: inset 8px 1px 1px #909193, 0px 1px 0px #FFF;
     box-shadow: inset 8px 1px 1px #909193, 0px 1px 0px #FFF; }
+
+.form_error{
+  color: indianred;
+}

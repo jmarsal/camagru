@@ -1,3 +1,7 @@
+<?php
+	if (isset($_SESSION['loged']) && $_SESSION['loged'] === 1){
+		$_SESSION['loged'] = 0;}
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang ="fr">
 	<head>
