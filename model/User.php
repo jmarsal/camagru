@@ -88,7 +88,7 @@ class User extends Model {
 	// Enregistre un nouvel user dans la bdd + send mail de confirmation
 	public function addUser($login, $email, $passwd) {
 		$con = new Model;
-		$cle = hash(sha256, microtime(TRUE)*100000);
+		$cle = hash('sha256', microtime(TRUE)*100000);
 
 		$st = $con->db->query("SELECT COUNT(*) FROM users 
 									WHERE login='".$this->login."'")->fetch();
