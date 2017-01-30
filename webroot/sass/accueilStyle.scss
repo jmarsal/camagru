@@ -1,0 +1,75 @@
+body {
+	background-color: #222222;
+	font-family: 'Cabin Sketch', cursive;
+	color: #262626;
+	font-size: 2.5vw;
+}
+
+.container{
+	display: block;
+	position: relative;
+  margin-top: 130px;
+	margin-left: 150px;
+}
+
+
+.accueil_log{
+	position: relative;
+	margin-left: 35%;
+	width: 35%;
+	/*max-height: 400px;*/
+	background-color: white;
+	text-align: center;
+	box-shadow: 0px 0px 1px rgb(0, 34, 62);
+}
+
+textarea, select {
+	padding: 3px;
+	border: 1px solid #222222;
+	border-radius: 5px;
+	width: 60%;
+	height: 150%;
+	box-shadow: 1px 0px 5px #222222 inset;
+	font-family: 'Cairo', sans-serif;
+ }
+
+.logo {
+	padding-top: 5px;
+	display: block;
+	position: relative;
+	width:100%;
+	margin-bottom: 22%;
+}
+
+h1{
+	position: relative;
+	width: 100%;
+	background-color: indianred; 
+	font-size: 1.5em;
+}
+
+.img_logo{
+	left: 7%;
+    position: absolute;
+    width: 11%;
+	top: 44%;
+}
+
+.paswrd_accueil_but{
+  margin-top: 15px; 
+}
+
+.registered{
+  color: indigo;
+  padding-bottom: 45px;
+  display: block;
+  text-decoration: none;
+}
+
+.registered:hover{
+  color: indianred;
+}
+
+.form_error{
+  color: indianred;
+}
