@@ -5,6 +5,7 @@
 		<h1>CAMAGRU</h1>
 		<img class="img_logo" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS.'photo-camera.png' ?>" alt="logo">
 </div>
+<hr>
 <form action="#" method="POST">
 	<div class="log_accueil_but">
 		Login:<br>
@@ -16,7 +17,7 @@
 		<input type="password" name="passwd" value="<?php echo $user->passwd ?>">
 		<br>
 	</div>
-	<p class="button1">
+	<p class="button2">
 		<input type="submit" name="submit" value="Login">
 	</p>
 </form>
@@ -31,4 +32,6 @@
 	}
 	 echo $user->mess_error;
 	?>
+<hr>
 <a class="registered" href="register/">Not yet registered ?</a>
+<div class="footer"></div>

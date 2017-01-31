@@ -3,7 +3,7 @@ class Controller {
 
 	public	$request;
 	private	$_vars = array();
-	public	$layout = 'default';
+	public	$layout = 'accueil_layout';
 	private	$rendered = FALSE;
 	
 	function __construct($request) {

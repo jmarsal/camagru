@@ -32,7 +32,7 @@ class Database
 	private function _createDb($dbName) {
 		$pdo = $this->_getPod();
 		$requete = 'CREATE DATABASE IF NOT EXISTS '."$dbName".
-					' DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci';
+					' DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci';
 		$pdo->prepare($requete)->execute();
 		return $pdo;
 	}

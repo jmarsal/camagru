@@ -6,6 +6,7 @@
 	<h1>CAMAGRU</h1>
 	<img class="img_logo" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS.'photo-camera.png' ?>" alt="logo">
 </div>
+<hr>
 <h4>Inscrivez-vous pour voir les photos de vos amis.</h4>
 <form action="#" method="POST">
 	<div class="log_register_but">
@@ -28,29 +29,35 @@
 		<input type="password" name="repPasswd" value="<?php echo $user->repPasswd ?>">
 		<br>
 	</div>
-	<p class="button1">
-		<input type="submit" name="submit" value="Inscription">
+	<p class="button2">
+		<input class ="button"type="submit" name="submit" value="Inscription">
 	</p>
 </form>
 <?php
 	if ($user->formOk === 1){
-		$user->addUser($user->login, $user->email, $user->hashPasswd);?>
+		if ($user->addUser($user->login, $user->email, $user->hashPasswd) == TRUE){?>
 
 		<div id="popup" class="popup">
-			<div>
-				En attente de confirmation...
+			<div class="logo-pop">
+				<h1>CAMAGRU</h1>
+				<img class="img_logo" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS.'photo-camera.png' ?>" alt="logo">
 			</div>
-			<div>
+				<hr>
+			<div id="waiting" class="waiting">
+				En attente de confirmation...
+				<hr>
+			</div>
+			<div id="login" class="login">
 				Bienvenue <?php echo $user->login ?>
 			</div>
-			<div>
-				Un email de confirmation de compte viens de vous etre envoyer a l'adresse <?php echo $user->email ?>
+			<div id="mail_confirm" class="mail_confirm">
+				Un email de confirmation de compte viens de vous etre envoyer a l'adresse <div class ="mail"><?php echo $user->email ?></div>
 			</div>
-			<div>
+			<div id="text" class="text">
 				Merci de bien vouloir cliquer sur le lien d'activation se trouvant dans le mail.
 			</div>
 			<p class="button2" onclick="hidePopup()">
-				<span class="button">Fermer</span>
+				<a class="button" href="">Fermer</a>
 			</p>
 		</div>
 		<div id="overlay" class="overlay"></div>
@@ -67,7 +74,14 @@
 
 		</script>
 		<?php
+		}
 	}
 	echo $user->mess_error;
+// 
 ?>
-<p>Vous avez un compte ?<a href="../">Connecter-vous</a></p>
+<hr>
+<p class='a-connect'>Vous avez un compte ?</p>
+<p class="button2">
+	<a class="button" href="../">Connection</a>
+</p>
+<div class="footer"></div>

@@ -1,3 +1,8 @@
+@import 'compass';
+
+$color_back: snow;
+$color_text: #006796;
+
 body {
 	background-color: #222222;
 	font-family: 'Cabin Sketch', cursive;
@@ -38,7 +43,7 @@ textarea, select {
 	display: block;
 	position: relative;
 	width:100%;
-	margin-bottom: 22%;
+	margin-bottom: 6%;
 }
 
 h1{
@@ -60,8 +65,7 @@ h1{
 }
 
 .registered{
-  color: indigo;
-  padding-bottom: 45px;
+  color: $color_text;
   display: block;
   text-decoration: none;
 }
@@ -70,6 +74,6 @@ h1{
   color: indianred;
 }
 
-.form_error{
-  color: indianred;
+.footer{
+	height: 45px;
 }

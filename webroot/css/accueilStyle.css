@@ -1,18 +1,18 @@
-/* line 1, ../sass/accueilStyle.scss */
+/* line 6, ../sass/accueilStyle.scss */
 body {
   background-color: #222222;
   font-family: 'Cabin Sketch', cursive;
   color: #262626;
   font-size: 2.5vw; }
 
-/* line 8, ../sass/accueilStyle.scss */
+/* line 13, ../sass/accueilStyle.scss */
 .container {
   display: block;
   position: relative;
   margin-top: 130px;
   margin-left: 150px; }
 
-/* line 16, ../sass/accueilStyle.scss */
+/* line 21, ../sass/accueilStyle.scss */
 .accueil_log {
   position: relative;
   margin-left: 35%;
@@ -22,7 +22,7 @@ body {
   text-align: center;
   box-shadow: 0px 0px 1px #00223e; }
 
-/* line 26, ../sass/accueilStyle.scss */
+/* line 31, ../sass/accueilStyle.scss */
 textarea, select {
   padding: 3px;
   border: 1px solid #222222;
@@ -32,43 +32,42 @@ textarea, select {
   box-shadow: 1px 0px 5px #222222 inset;
   font-family: 'Cairo', sans-serif; }
 
-/* line 36, ../sass/accueilStyle.scss */
+/* line 41, ../sass/accueilStyle.scss */
 .logo {
   padding-top: 5px;
   display: block;
   position: relative;
   width: 100%;
-  margin-bottom: 22%; }
+  margin-bottom: 6%; }
 
-/* line 44, ../sass/accueilStyle.scss */
+/* line 49, ../sass/accueilStyle.scss */
 h1 {
   position: relative;
   width: 100%;
   background-color: indianred;
   font-size: 1.5em; }
 
-/* line 51, ../sass/accueilStyle.scss */
+/* line 56, ../sass/accueilStyle.scss */
 .img_logo {
   left: 7%;
   position: absolute;
   width: 11%;
   top: 44%; }
 
-/* line 58, ../sass/accueilStyle.scss */
+/* line 63, ../sass/accueilStyle.scss */
 .paswrd_accueil_but {
   margin-top: 15px; }
 
-/* line 62, ../sass/accueilStyle.scss */
+/* line 67, ../sass/accueilStyle.scss */
 .registered {
-  color: indigo;
-  padding-bottom: 45px;
+  color: #006796;
   display: block;
   text-decoration: none; }
 
-/* line 69, ../sass/accueilStyle.scss */
+/* line 73, ../sass/accueilStyle.scss */
 .registered:hover {
   color: indianred; }
 
-/* line 73, ../sass/accueilStyle.scss */
-.form_error {
-  color: indianred; }
+/* line 77, ../sass/accueilStyle.scss */
+.footer {
+  height: 45px; }

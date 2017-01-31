@@ -3,6 +3,7 @@
 $color_back: snow;
 $color_text: #006796;
 
+
 form input{
 	background-color: $color_back;
 	color: $color_text;
@@ -16,7 +17,7 @@ form input{
 
 .popup{
 	display: none;
-	@include box-shadow(0px 0px 10px darken(black, 20));
+	@include box-shadow(0px 0px 10px darken(indianred, 20));
 	position: absolute;
 	background: snow;
 	padding: 10px;
@@ -26,7 +27,7 @@ form input{
 	z-index: 1;
 }
 
-.overlay{
+.popup .overlay{
 	position: absolute;
 	display: none;
 	left: 0;
@@ -36,4 +37,68 @@ form input{
 	background: black;
 	z-index: 0;
 	opacity: .5;
+}
+
+.popup .waiting {
+	padding-bottom: 15px;
+}
+
+.popup .login{
+	color: indianred;
+    padding-bottom: 55px;
+}
+
+.popup, .mail_confirm, .text{
+	font-family: 'Raleway', cursive;
+	font-size: 1.5vw;
+}
+
+.popup .img_logo{
+	left: 15%;
+    position: absolute;
+    width: 8%;
+    top: 48.4%;
+}
+
+.popup .mail{
+	color: indianred;
+    padding-top: 5%;
+    padding-bottom: 98%;
+}
+
+.popup .text{
+	padding-bottom: 10%;
+}
+
+.form_error{
+	background: indianred;
+	color: snow;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	font-family: 'Raleway', cursive;
+	font-size: 1.5vw;
+}
+
+.connect{
+	font-size: 2vw;
+	color: $color_text;
+	display: block;
+	text-decoration: none;
+}
+
+.connect:hover{
+  color: indianred;
+}
+
+.a-connect{
+	font-size: 2vw;
+	color: $color_text;
+}
+
+.logo-pop{
+	padding-top: 5px;
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 6%;
 }
