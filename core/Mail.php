@@ -52,8 +52,14 @@ class Mail {
 return $isValid;
 }
 
-// Envoi du mail de confirmation
+	// Envoi du mail de confirmation
 	static function sendMailConfirmation($email, $login, $cle){
+		$logo = 'http://localhost:8080/workspace/camagru/webroot/images/logo/download.jpeg';
+		$subject = 'Inscription a CAMAGRU';
+		$h1 = '<h1>Bienvenue ".$login." sur CAMAGRU</h1>';
+		$content = '<p>Pour activer votre compte, veuillez cliquer sur le lien ci dessous.</p>';
+		$link = '<a href="http://"'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'validation?log='.urlencode($login).'&cle='.urlencode($cle).'>Cliquer pour activer</a>';
+		
 		//----------------------------------
 		// Construction de l'entête
 		//----------------------------------
@@ -61,10 +67,12 @@ return $isValid;
 		$entete = "MIME-Version: 1.0\r\n";
 		$entete .= "Content-Type: multipart/related; boundary=\"$delimiteur\"\r\n";
 		$entete .= "\r\n";
+
 		//--------------------------------------------------
 		// Construction du message proprement dit
 		//--------------------------------------------------
 		$msg = "Je vous informe que ceci est un message au format MIME 1.0 multipart/mixed.\r\n";
+		
 		//---------------------------------
 		// 1ère partie du message
 		// Le code HTML
@@ -73,45 +81,30 @@ return $isValid;
 		$msg .= "Content-Type: text/html; charset=\"iso-8859-1\"\r\n";
 		$msg .= "Content-Transfer-Encoding:8bit\r\n";
 		$msg .= "\r\n";
-		$msg .= "<html><body>Image 1:<img src='http://localhost:8080/workspace/camagru/webroot/images/logo/download.jpeg'>";
-		$msg .= "<br /><h1>Bienvenue ".$login." sur CAMAGRU</h1><br />";
-		$msg .= "<p>Pour activer votre compte, veuillez cliquer sur le lien ci dessous ou copier/coller dans votre navigateur internet.</p><br />";
-		$msg .= '<a href="http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'validation?log='.urlencode($login).'&cle='.urlencode($cle).'>Cliquer pour activer</a>';
+		$msg .= "<html><body>Image 1:<img src='$logo'>";
+		$msg .= "<br />".$h1."<br />";
+		$msg .= $content.'<br />';
+		$msg .= $link;
 		$msg .= "</body></html>\r\n";
 		$msg .= "\r\n";
-		//---------------------------------
-		// 2nde partie du message
-		// Le 1er fichier (inline)
-		//---------------------------------
-		$msg .= "--$delimiteur\r\n";
-		$msg .= "\r\n\r\n";
+		
+		// //---------------------------------
+		// // 2nde partie du message
+		// // Le 1er fichier (inline)
+		// //---------------------------------
+		// $msg .= "--$delimiteur\r\n";
+		// $msg .= "\r\n\r\n";
 
 		$destinataire = $email;
 		$expediteur   = 'inscription@Camagru.com';
 		$reponse      = $expediteur;
+		$reply = "Reply-to: $reponse\r\nFrom: $expediteur\r\n".$entete;
 		echo "Ce script envoie un mail au format HTML avec 1 image à $login";
 		mail($destinataire,
-		     'Inscription a CAMAGRU',
+		     $subject,
 		     $msg,
-		     "Reply-to: $reponse\r\nFrom: $expediteur\r\n".$entete);
+		     $reply);
 	}
-		// Préparation du mail contenant le lien d'activation
-// 		$destinataire = $email;
-// $sujet = "Activer votre compte" ;
-// $entete = "From: inscription@Camagru.com" ;
-
-// // Le lien d'activation est composé du login(log) et de la clé(cle)
-// 		$message = 'Bienvenue '.$login.' sur CAMAGRU,
-
-// Pour activer votre compte, veuillez cliquer sur le lien ci dessous
-// 		ou copier/coller dans votre navigateur internet.
-
-// http://'.$_SERVER['HTTP_HOST'].'/'.$_SERVER['REQUEST_URI'].'validation?log='.urlencode($login).'&cle='.urlencode($cle).'
-// 		---------------
-// 		Ceci est un mail automatique, Merci de ne pas y répondre.';
-
-// mail($destinataire, $sujet, $message, $entete) ;
-// Envoi du mail
 }
 
 ?>
