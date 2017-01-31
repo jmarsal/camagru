@@ -70,13 +70,13 @@ return $isValid;
 		// Le code HTML
 		//---------------------------------
 		$msg .= "--$delimiteur\r\n";
-		$msg .= "Content-Type: text/html; charset=\"utf-8\"\r\n";
+		$msg .= "Content-Type: text/html; charset=\"iso-8859-1\"\r\n";
 		$msg .= "Content-Transfer-Encoding:8bit\r\n";
 		$msg .= "\r\n";
-		$msg .= "<html><body>Image 1:<img src='http://".$_SERVER['HTTP_HOST']."webroot/images/logo/photo-camera.png'>";
+		$msg .= "<html><body>Image 1:<img src='http://localhost:8080/workspace/camagru/webroot/images/logo/download.jpeg'>";
 		$msg .= "<br /><h1>Bienvenue ".$login." sur CAMAGRU</h1><br />";
 		$msg .= "<p>Pour activer votre compte, veuillez cliquer sur le lien ci dessous ou copier/coller dans votre navigateur internet.</p><br />";
-		$msg .= '<a href="http://'.$_SERVER['HTTP_HOST'].'/'.$_SERVER['REQUEST_URI'].'validation?log='.urlencode($login).'&cle='.urlencode($cle).'>Cliquer pour activer</a>';
+		$msg .= '<a href="http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'validation?log='.urlencode($login).'&cle='.urlencode($cle).'>Cliquer pour activer</a>';
 		$msg .= "</body></html>\r\n";
 		$msg .= "\r\n";
 		//---------------------------------
