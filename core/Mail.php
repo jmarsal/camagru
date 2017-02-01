@@ -63,8 +63,33 @@ return $isValid;
 					</div>';
 		$h2 = '<h2>Bienvenue sur CAMAGRU '.ucfirst($login).' </h2>';
 		$content = '<h3>Pour activer votre compte, veuillez cliquer sur le lien ci dessous.</h3>';
-		$link = '<a href="http://'.$base_url.'validation?log='.urlencode($login).'&cle='.urlencode($cle).'">Cliquer pour activer</a>';
+		$link = '<a href="http://'.$base_url.'register/validation?log='.urlencode($login).'&cle='.urlencode($cle).'">Cliquer pour activer</a>';
+		
+		//----------------------------------
+		// Construction de l'entête
+		//----------------------------------
+		$delimiteur = "-----=".md5(uniqid(rand()));
+		$entete = "MIME-Version: 1.0\r\n";
+		$entete .= "Content-Type: multipart/related; boundary=\"$delimiteur\"\r\n";
+		$entete .= "\r\n";
 
+		//--------------------------------------------------
+		// Construction du message proprement dit
+		//--------------------------------------------------
+		$msg = "Je vous informe que ceci est un message au format MIME 1.0 multipart/mixed.\r\n";
+		
+		//---------------------------------
+		// 1ère partie du message
+		// Le code HTML
+		//---------------------------------
+		$msg .= "--$delimiteur\r\n";
+		$msg .= "Content-Type: text/html; charset=\"iso-8859-1\"\r\n";
+		$msg .= "Content-Transfer-Encoding:8bit\r\n";
+		$msg .= "\r\n";
+
+		// ---------------------------
+		// Content message
+		// ---------------------------
 		$style = '<style>
 					.container{
 						font-family: "Cairo";
@@ -93,32 +118,6 @@ return $isValid;
 					}
 				</style>
 				';
-		
-		//----------------------------------
-		// Construction de l'entête
-		//----------------------------------
-		$delimiteur = "-----=".md5(uniqid(rand()));
-		$entete = "MIME-Version: 1.0\r\n";
-		$entete .= "Content-Type: multipart/related; boundary=\"$delimiteur\"\r\n";
-		$entete .= "\r\n";
-
-		//--------------------------------------------------
-		// Construction du message proprement dit
-		//--------------------------------------------------
-		$msg = "Je vous informe que ceci est un message au format MIME 1.0 multipart/mixed.\r\n";
-		
-		//---------------------------------
-		// 1ère partie du message
-		// Le code HTML
-		//---------------------------------
-		$msg .= "--$delimiteur\r\n";
-		$msg .= "Content-Type: text/html; charset=\"iso-8859-1\"\r\n";
-		$msg .= "Content-Transfer-Encoding:8bit\r\n";
-		$msg .= "\r\n";
-
-		// ---------------------------
-		// Content message
-		// ---------------------------
 		$msg .= "<html>
 					<head>
 						<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />

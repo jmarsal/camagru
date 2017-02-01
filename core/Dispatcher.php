@@ -7,7 +7,6 @@ class Dispatcher {
 		// Recupere l'URL et la parse
 		$this->request = new Request();
 		Router::parse($this->request->url, $this->request);
-
 		// Charge le controller correspondant, si erreur, renvoi sur Controller 404
 		try {
 			$controller = $this->loadController();
@@ -20,6 +19,9 @@ class Dispatcher {
 		}
 
 		// Verifie que l'action existe dans les methodes du controller
+
+
+
 		if (!in_array($this->request->action, get_class_methods($controller))) {
 			$this->error('Le controller '.$this->request->controller.' n\'a pas de methode '.$this->request->action);
 		}
