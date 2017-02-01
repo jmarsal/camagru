@@ -54,11 +54,45 @@ return $isValid;
 
 	// Envoi du mail de confirmation
 	static function sendMailConfirmation($email, $login, $cle){
-		$logo = 'http://localhost:8080/workspace/camagru/webroot/images/logo/download.jpeg';
+
+		$base_url = $_SERVER['HTTP_HOST'].substr($_SERVER['SCRIPT_NAME'], 0, strrpos($_SERVER['SCRIPT_NAME'], "/") + 1);
+		$logo = 'webroot/images/logo/photo-camera.png';
 		$subject = 'Inscription a CAMAGRU';
-		$h1 = '<h1>Bienvenue ".$login." sur CAMAGRU</h1>';
-		$content = '<p>Pour activer votre compte, veuillez cliquer sur le lien ci dessous.</p>';
-		$link = '<a href="http://"'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'validation?log='.urlencode($login).'&cle='.urlencode($cle).'>Cliquer pour activer</a>';
+		$div_logo = '<div class="logo">
+						<h1><img class=" img_logo" src="cid:logo">CAMAGRU</h1>
+					</div>';
+		$h2 = '<h2>Bienvenue sur CAMAGRU '.ucfirst($login).' </h2>';
+		$content = '<h3>Pour activer votre compte, veuillez cliquer sur le lien ci dessous.</h3>';
+		$link = '<a href="http://'.$base_url.'validation?log='.urlencode($login).'&cle='.urlencode($cle).'">Cliquer pour activer</a>';
+
+		$style = '<style>
+					.container{
+						font-family: "Cairo";
+					}
+
+					.logo {
+						padding-top: 5px;
+						display: inline-block;
+						position: relative;
+						width:100%;
+						margin-bottom: 6%;
+						}
+
+					h1{
+						text-align: center;
+						position: relative;
+						width: 100%;
+						background-color: indianred; 
+						font-size: 3.5vw;
+					}
+
+					.img_logo{
+						vertical-align: middle;
+						margin-right: 3%;
+						width: 6%;
+					}
+				</style>
+				';
 		
 		//----------------------------------
 		// Construction de l'entête
@@ -81,25 +115,52 @@ return $isValid;
 		$msg .= "Content-Type: text/html; charset=\"iso-8859-1\"\r\n";
 		$msg .= "Content-Transfer-Encoding:8bit\r\n";
 		$msg .= "\r\n";
-		$msg .= "<html><body>Image 1:<img src='$logo'>";
-		$msg .= "<br />".$h1."<br />";
-		$msg .= $content.'<br />';
-		$msg .= $link;
-		$msg .= "</body></html>\r\n";
-		$msg .= "\r\n";
-		
-		// //---------------------------------
-		// // 2nde partie du message
-		// // Le 1er fichier (inline)
-		// //---------------------------------
-		// $msg .= "--$delimiteur\r\n";
-		// $msg .= "\r\n\r\n";
 
+		// ---------------------------
+		// Content message
+		// ---------------------------
+		$msg .= "<html>
+					<head>
+						<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+						<link href='https://fonts.googleapis.com/css?family=Cabin+Sketch|Cairo|Indie+Flower' rel='stylesheet'>
+						<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>"
+						.$style.
+					"</head>
+					<body>
+						<div class='container' align='center'>"
+							.$div_logo
+							.$h2."<br />"
+							.$content.'<br />'
+							.$link.
+						"</div>
+					</body>
+				</html>
+				\r\n\r\n";
+		
+		//---------------------------------
+		// 2nde partie du message
+		// Le 1er fichier (inline)
+		//---------------------------------
+		$fichier = $logo;
+		$fp = fopen($fichier, "r");
+		$fichierattache = fread($fp, filesize($fichier));
+		fclose($fp);
+		$fichierattache = chunk_split(base64_encode($fichierattache));
+		$msg .= "--$delimiteur\r\n";
+		$msg .= "Content-Type: application/octet-stream; name=\"$fichier\"\r\n";
+		$msg .= "Content-Transfer-Encoding: base64\r\n";
+		$msg .= "Content-ID: <logo>\r\n";
+		$msg .= "\r\n";
+		$msg .= $fichierattache . "\r\n";
+		$msg .= "\r\n\r\n";
+
+		// --------------
+		// Send
+		// --------------
 		$destinataire = $email;
 		$expediteur   = 'inscription@Camagru.com';
 		$reponse      = $expediteur;
 		$reply = "Reply-to: $reponse\r\nFrom: $expediteur\r\n".$entete;
-		echo "Ce script envoie un mail au format HTML avec 1 image à $login";
 		mail($destinataire,
 		     $subject,
 		     $msg,

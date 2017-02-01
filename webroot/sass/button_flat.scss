@@ -4,9 +4,8 @@
  $color2 : #952e2e;
 
  .button2 {
-	input, span, .button {
+	input, .button {
 		&:hover{
-			// opacity: 0.8;
 			background: $color2;
 		}
 		cursor: pointer;
