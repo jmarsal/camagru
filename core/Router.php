@@ -11,7 +11,9 @@ class Router {
 		$params = explode('/', $url);
 		$request->controller = $params[0];
 		if ($request->controller === 'register'){
-			$tmpAction = explode('?', $params[1]);
+			if (!empty($params[1])){
+				$tmpAction = explode('?', $params[1]);
+			}
 			if (isset($tmpAction[0]) && $tmpAction[0] === 'validation'){
 				$params[1] = $tmpAction[0];
 				$request->params = array_slice($_GET, 0);
