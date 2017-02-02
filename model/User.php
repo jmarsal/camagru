@@ -9,6 +9,7 @@ class User extends Model {
 	public $passwd = "";
 	public $repPasswd = "";
 	public $hashPasswd = "";
+	private $_mailCon;
 
 	// Check dans la table user si le login et le passwd == ce que je recois de
 	// $_POST et so ok -> va sur la page Camagru, sinon propose de creer un compte.
@@ -49,7 +50,8 @@ class User extends Model {
 			if (isset($_POST['email']) && $_POST['submit'] === 'Inscription') {
 				if (!empty($_POST['email'])){
 					$this->email = htmlentities($_POST['email']);
-					if (Mail::validEmail($this->email) !== TRUE){
+					$this->_mailCon = new Mail($this->email, $this->login);
+					if ($this->_mailCon->validEmail($this->email) !== TRUE){
 						$this->mess_error = '<p class="form_error">Veuillez renseigner une adresse email valide!</p>';
 						$this->formOk = 0;
 					}
@@ -106,11 +108,19 @@ class User extends Model {
 			$req = $con->db->prepare("INSERT INTO `users`(`login`, `password`, `email`, `cle`) 
 										VALUES (:login, :password, :email, :cle)");
 			if ($req->execute(array(
-				"login" => $login, 
+				"login" => $login,
 				"password" => $passwd,
 				"email" => $email,
 				"cle" => $cle))){
-				Mail::sendMailConfirmation($email, $login, $cle);
+
+				$subject = 'Inscription a CAMAGRU';
+				$title = 'Bienvenue sur Camagru !';
+				$message = 'Bravo '.ucfirst($this->login).', tu as demander a 
+				t\'inscrire sur Camagru et je t\'en remercie. Plus qu\'une seule etape pour demarrer l\'experience!';
+				$from = 'insciption@camagru.com';
+
+				$sender = new MailSender($this->email, $this->login, $subject, $title, $message, $from, $cle);
+				$sender->confirmSubscribeMail();
 				return (TRUE);
 			}else{
 				if ($_SERVER['debug'] === 1)
@@ -121,8 +131,6 @@ class User extends Model {
 			$this->mess_error = '<p class="form_error">Votre login doit faire entre trois et seize caracteres et les caracteres speciaux ne sont pas autorises !</p>';
 			return (FALSE);
 		}
-		
-		// echo "Enregistre un nouvel user dans la bdd, ouvir accueil.php, register.php, User.php, egalement, voir ce site : http://m-gut.developpez.com/tutoriels/php/mail-confirmation/";
 	}
 }
 ?>
