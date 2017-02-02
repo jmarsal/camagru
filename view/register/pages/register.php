@@ -1,7 +1,7 @@
 <?php
 	require_once("model/User.php");
 	$user = new User;
-	$user->login = jibe;
+	$user->login = 'jibe';
 	$user->email="jb.marsal@gmail.com";
 	$user->hashPasswd ="13sh18ry4jury53j1s5ag4e6r8hs4s";
 	$user->formOk = 1;

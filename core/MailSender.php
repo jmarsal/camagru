@@ -58,42 +58,45 @@ $from, $cle = NULL)
 		// Content message
 		// ---------------------------
 
-		$this->_msg .= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-				"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-				 <html xmlns:v="urn:shemas-microsoft-com:vml">
+		$this->_msg .= '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"';
+		$this->_msg .= '"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
+		$this->_msg .= "<html xmlns:v=".'urn:shemas-microsoft-com:vml'.">";
+		$this->_msg .= '<head>';
+    	$this->_msg .=	'<meta http-equiv="content-type" content="text/html; charset=UTF-8">';
+		$this->_msg .=	'<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">';
+		$this->_msg .=	'<link href=\'https://fonts.googleapis.com/css?family=Cabin+Sketch|Cairo|Indie+Flower\' rel=\'stylesheet\'>';
+		$this->_msg .=	'<link href=\'https://fonts.googleapis.com/css?family=Raleway\' rel=\'stylesheet\'>"';
+		$this->_msg .=	'</head>';
 
-				<head>
-    			<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-				<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-				<link href=\'https://fonts.googleapis.com/css?family=Cabin+Sketch|Cairo|Indie+Flower\' rel=\'stylesheet\'>
-				<link href=\'https://fonts.googleapis.com/css?family=Raleway\' rel=\'stylesheet\'>"
-				</head>
+		$this->_msg .=	'	<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">';
+		$this->_msg .=	'		<table bgcolor="#3c454d" cellpadding="0" cellspacing="0" border="0" width="100%">';
+		$this->_msg .=	'			<tbody>';
+		$this->_msg .=	'				<tr>';
+		$this->_msg .=	'					<td background="http://www.htmlcsscolor.com/preview/128x128/5E6C78.png" bgcolor="#3c454d" valign="top">';
+		$this->_msg .=	'						<!--[if gte mso 9]>';
+		$this->_msg .=	'						<v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="mso-width-percent:1000;">';
+		$this->_msg .=	'						<v:fill type="tile" src="http://www.htmlcsscolor.com/preview/128x128/5E6C78.png" color="#3c454d" />';
+		$this->_msg .=	'						<v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">';
+		$this->_msg .=	'						<![endif]-->';
+		$this->_msg .=	'							<div>';
+		$this->_msg .=	'								<table align="center" cellpadding="0" cellspacing="0" border="0" width="590">';
+		$this->_msg .=	'									<tbody>';
+		$this->_msg .=											$this->trSeparator;
+		$this->_msg .=	'										<tr>';
+		$this->_msg .=	'											<td align="center" style="text-align: center;">';
+		$this->_msg .=	'												<img src="https://www.lycee-louis-vincent.fr/images/icons/puddingcam-logo.png" alt="logo" width="43" border="0">';
+		$this->_msg .=	'											</td>';
+		$this->_msg .=	'										</tr>';
+		$this->_msg .=											$this->trSeparator;
+		$this->_msg .=	'										<tr>';
+		$this->_msg .=	'											<td align="center" style="font-family: Cairo, Helvetica, sans-serif; text-align: center; font-size: 40px; color: #f3f3f3; mso-line-height-rule: exactly; line-height: 28px;">';
+		$_SESSION['msg'] = $this->_msg;
 
-				<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-					<table bgcolor="#3c454d" cellpadding="0" cellspacing="0" border="0" width="100%">
-						<tbody>
-							<tr>
-								<td background="http://www.htmlcsscolor.com/preview/128x128/5E6C78.png" bgcolor="#3c454d" valign="top">
-								<!--[if gte mso 9]>
-								<v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="mso-width-percent:1000;">
-								<v:fill type="tile" src="http://www.htmlcsscolor.com/preview/128x128/5E6C78.png" color="#3c454d" />
-								<v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
-								<![endif]-->
-									<div>
-										<table align="center" cellpadding="0" cellspacing="0" border="0" width="590">
-											<tbody>
-												' . $this->trSeparator . '
-												<tr>
-													<td align="center" style="text-align: center;">
-														<img src="https://www.lycee-louis-vincent.fr/images/icons/puddingcam-logo.png" alt="logo" width="43" border="0">
-													</td>
-												</tr>
-												' . $this->trSeparator . '
-												<tr>
-													<td align="center" style="font-family: Cairo, Helvetica, sans-serif; text-align: center; font-size: 40px; color: #f3f3f3; mso-line-height-rule: exactly; line-height: 28px;">';
 	}
 
 	public function classicMail(){
+//		A voir si besoin du $_SESSION
+//		$this->_msg .= $_SESSION['msg'];
 		$this->_msg .= 									$this->title.'
 														<hr color="#F39237">
 													</td>
@@ -127,13 +130,14 @@ $from, $cle = NULL)
 		// Send
 		// --------------
 		$this->SendMail();
+
 	}
 
 	public function confirmSubscribeMail(){
 
 		$_link = $this->base_url . 'register/validation?log=' .
 			urlencode($this->login) . '&cle=' . urlencode($this->_cle);
-
+//		$this->_msg .= $_SESSION['msg'];
 		$this->_msg .= 									$this->title.'
 														<hr color="#F39237">
 													</td>
@@ -180,9 +184,10 @@ $from, $cle = NULL)
 					</table>
 				</body>
 			</html>';
-		$this->_msg .= "\r\n\r\n";
-		$this->SendMail();
 
+		$this->_msg .= "\r\n\r\n";
+		echo $this->_msg;
+		$this->SendMail();
 	}
 
 	public function SendMail(){
@@ -195,5 +200,6 @@ $from, $cle = NULL)
 			$this->subject,
 			$this->_msg,
 			$reply);
+//		$_SESSION['msg'] = NULL;
 	}
 }
