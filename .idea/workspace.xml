@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3cf18211-c964-4c97-b25c-5e56eae70c5c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/camagru.iml" afterPath="$PROJECT_DIR$/.idea/camagru.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/MailSender.php" afterPath="$PROJECT_DIR$/core/MailSender.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/register/pages/register.php" afterPath="$PROJECT_DIR$/view/register/pages/register.php" />
-    </list>
+    <list default="true" id="3cf18211-c964-4c97-b25c-5e56eae70c5c" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +85,7 @@
           <file leaf-file-name="MailSender.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/core/MailSender.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1123">
+                <state relative-caret-position="1633">
                   <caret line="203" column="5" lean-forward="true" selection-start-line="203" selection-start-column="5" selection-end-line="203" selection-end-column="5" />
                   <folding>
                     <marker date="1486079129000" expanded="true" signature="148:246" ph="..." />
@@ -401,12 +397,12 @@
       <updated>1486030211790</updated>
       <workItem from="1486030213847" duration="221000" />
       <workItem from="1486030532853" duration="15116000" />
-      <workItem from="1486068965858" duration="4684000" />
+      <workItem from="1486068965858" duration="5062000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20021000" />
+    <option name="totallyTimeSpent" value="20399000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -603,7 +599,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/MailSender.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1123">
+        <state relative-caret-position="1633">
           <caret line="203" column="5" lean-forward="true" selection-start-line="203" selection-start-column="5" selection-end-line="203" selection-end-column="5" />
           <folding>
             <marker date="1486079129000" expanded="true" signature="148:246" ph="..." />
