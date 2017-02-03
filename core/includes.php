@@ -6,7 +6,7 @@ require "Router.php";
 require "Controller.php";
 require "Model.php";
 require 'Dispatcher.php';
-require 'Mail.php';
-require 'MailSender.php';
+require 'Mail/Mail.php';
+require 'Mail/MailSender.php';
 
 ?>

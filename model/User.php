@@ -93,25 +93,25 @@ class User extends Model {
 		$cle = hash('sha256', microtime(TRUE)*100000);
 
 		if (preg_match('/^[a-zA-Z0-9_]{3,16}$/', $this->login)){
-			$st = $con->db->query("SELECT COUNT(*) FROM users 
-									WHERE login='".$this->login."'")->fetch();
-			if ($st['COUNT(*)'] == 1){
-				$this->mess_error = '<p class="form_error">Ce Login est deja utilise !</p>';
-				return (FALSE);
-			}
-			$st = $con->db->query("SELECT COUNT(*) FROM users 
-									WHERE email='".$this->email."'")->fetch();
-			if ($st['COUNT(*)'] == 1){
-				$this->mess_error = '<p class="form_error">Cet email est deja utilise !</p>';
-				return (FALSE);
-			}
-			$req = $con->db->prepare("INSERT INTO `users`(`login`, `password`, `email`, `cle`) 
-										VALUES (:login, :password, :email, :cle)");
-			if ($req->execute(array(
-				"login" => $login,
-				"password" => $passwd,
-				"email" => $email,
-				"cle" => $cle))){
+//			$st = $con->db->query("SELECT COUNT(*) FROM users
+//									WHERE login='".$this->login."'")->fetch();
+//			if ($st['COUNT(*)'] == 1){
+//				$this->mess_error = '<p class="form_error">Ce Login est deja utilise !</p>';
+//				return (FALSE);
+//			}
+//			$st = $con->db->query("SELECT COUNT(*) FROM users
+//									WHERE email='".$this->email."'")->fetch();
+//			if ($st['COUNT(*)'] == 1){
+//				$this->mess_error = '<p class="form_error">Cet email est deja utilise !</p>';
+//				return (FALSE);
+//			}
+//			$req = $con->db->prepare("INSERT INTO `users`(`login`, `password`, `email`, `cle`)
+//										VALUES (:login, :password, :email, :cle)");
+//			if ($req->execute(array(
+//				"login" => $login,
+//				"password" => $passwd,
+//				"email" => $email,
+//				"cle" => $cle))){
 
 				$subject = 'Inscription a CAMAGRU';
 				$title = 'Bienvenue sur Camagru !';
@@ -121,12 +121,13 @@ class User extends Model {
 
 				$sender = new MailSender($this->email, $this->login, $subject, $title, $message, $from, $cle);
 				$sender->confirmSubscribeMail();
-				return (TRUE);
-			}else{
-				if ($_SERVER['debug'] === 1)
-					$this->mess_error = '<p class="form_error">l\'insertion n\'a pas marche!</p>';
-					return (FALSE);
-			}
+//				$sender->classicMail();
+//				return (TRUE);
+//			}else{
+//				if ($_SERVER['debug'] === 1)
+//					$this->mess_error = '<p class="form_error">l\'insertion n\'a pas marche!</p>';
+//					return (FALSE);
+//			}
 		}else{
 			$this->mess_error = '<p class="form_error">Votre login doit faire entre trois et seize caracteres et les caracteres speciaux ne sont pas autorises !</p>';
 			return (FALSE);
