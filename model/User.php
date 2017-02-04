@@ -121,7 +121,7 @@ class User extends Model {
 
 				$sender = new MailSender($this->email, $this->login, $subject, $title, $message, $from, $cle);
 				$sender->confirmSubscribeMail();
-//				$sender->classicMail();
+//				$sender->newaMail();
 //				return (TRUE);
 //			}else{
 //				if ($_SERVER['debug'] === 1)
