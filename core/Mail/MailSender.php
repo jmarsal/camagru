@@ -72,6 +72,7 @@ class MailSender
 
 		$_link = $this->base_url . 'register/validation?log=' .
 			urlencode($this->login) . '&cle=' . urlencode($this->_cle);
+		echo $_link;die();
 		$this->_msg .= file_get_contents("core/Mail/template/subscribeMail.html");
 
 		$this->_msg .= "\r\n\r\n";
