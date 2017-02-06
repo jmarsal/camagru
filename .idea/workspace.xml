@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cf18211-c964-4c97-b25c-5e56eae70c5c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Mail/MailSender.php" afterPath="$PROJECT_DIR$/core/Mail/MailSender.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Mail/template/newsMail.html" afterPath="$PROJECT_DIR$/core/Mail/template/newsMail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Mail/template/subscribeMail.html" afterPath="$PROJECT_DIR$/core/Mail/template/subscribeMail.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Router.php" afterPath="$PROJECT_DIR$/core/Router.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/User.php" afterPath="$PROJECT_DIR$/model/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/config/setup.php" afterPath="$PROJECT_DIR$/model/config/setup.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,13 +43,13 @@
           <file leaf-file-name="Router.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/core/Router.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="714">
-                  <caret line="34" column="32" lean-forward="false" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
+                <state relative-caret-position="567">
+                  <caret line="27" column="42" lean-forward="true" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
                   <folding>
-                    <marker date="1486397156000" expanded="true" signature="570:630" ph="SELECT COUNT... users" />
-                    <marker date="1486397156000" expanded="true" signature="682:696" ph="SELECT COUNT... users" />
-                    <marker date="1486397156000" expanded="true" signature="682:761" ph="SELECT COUNT... users" />
-                    <marker date="1486397156000" expanded="true" signature="788:847" ph="UPDATE users... " />
+                    <marker date="1486397498000" expanded="true" signature="570:626" ph="SELECT COUNT... users" />
+                    <marker date="1486397498000" expanded="true" signature="678:692" ph="SELECT COUNT... users" />
+                    <marker date="1486397498000" expanded="true" signature="678:757" ph="SELECT COUNT... users" />
+                    <marker date="1486397498000" expanded="true" signature="784:837" ph="UPDATE users... " />
                   </folding>
                 </state>
               </provider>
@@ -427,12 +421,12 @@
       <workItem from="1486380142906" duration="360000" />
       <workItem from="1486380724642" duration="5725000" />
       <workItem from="1486389836677" duration="111000" />
-      <workItem from="1486389991186" duration="5874000" />
+      <workItem from="1486389991186" duration="6152000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12539000" />
+    <option name="totallyTimeSpent" value="12817000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -806,13 +800,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/Router.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="34" column="32" lean-forward="false" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
+        <state relative-caret-position="567">
+          <caret line="27" column="42" lean-forward="true" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
           <folding>
-            <marker date="1486397156000" expanded="true" signature="570:630" ph="SELECT COUNT... users" />
-            <marker date="1486397156000" expanded="true" signature="682:696" ph="SELECT COUNT... users" />
-            <marker date="1486397156000" expanded="true" signature="682:761" ph="SELECT COUNT... users" />
-            <marker date="1486397156000" expanded="true" signature="788:847" ph="UPDATE users... " />
+            <marker date="1486397498000" expanded="true" signature="570:626" ph="SELECT COUNT... users" />
+            <marker date="1486397498000" expanded="true" signature="678:692" ph="SELECT COUNT... users" />
+            <marker date="1486397498000" expanded="true" signature="678:757" ph="SELECT COUNT... users" />
+            <marker date="1486397498000" expanded="true" signature="784:837" ph="UPDATE users... " />
           </folding>
         </state>
       </provider>

@@ -21,14 +21,14 @@ class Router {
 				$login = $_GET['log'];
 				$cle = $_GET['cle'];
 				$sql = "SELECT COUNT(*) FROM users
-						WHERE login='?' AND cle='?'";
+						WHERE login=? AND cle=?";
 				$st = $con->db->prepare($sql);
 				$d = array($login, $cle);
 				$st->execute($d);
 //				die(var_dump(count($st)));
 				if (count($st)) {
-					$sql = "UPDATE users SET actif ='?' WHERE login='?'
-				AND cle='?'";
+					$sql = "UPDATE users SET actif =? WHERE login=?
+				AND cle=?";
 					$st = $con->db->prepare($sql);
 					$d = array(1, $login, $cle);
 					$st->execute($d);
