@@ -18,18 +18,21 @@ class Router {
 				$params[1] = $tmpAction[0];
 				$con = new Model;
 				var_dump($_GET);
-				$st = $con->db->query("SELECT COUNT(*) FROM users 
-								WHERE login='" . $_GET['login'] . "' 
-								AND cle='" . $_GET['cle'] . "'")->fetch();
-				if ($st['COUNT(*)'] == 1) {
-					$req = $con->db->prepare("UPDATE `users` SET `actif`= :actif, WHERE `login`= :login");
-					$req->bindValue('actif', 1, PDO::PARAM_INT);
-					$req->bindValue('login', $_GET['login'],
-						PDO::PARAM_VARCHAR);
-					$req->execute();
+				$login = $_GET['log'];
+				$cle = $_GET['cle'];
+				$sql = "SELECT COUNT(*) FROM users
+						WHERE login='?' AND cle='?'";
+				$st = $con->db->prepare($sql);
+				$d = array($login, $cle);
+				$st->execute($d);
+//				die(var_dump(count($st)));
+				if (count($st)) {
+					$sql = "UPDATE users SET actif ='?' WHERE login='?'
+				AND cle='?'";
+					$st = $con->db->prepare($sql);
+					$d = array(1, $login, $cle);
+					$st->execute($d);
 					return TRUE;
-				}else{
-					return FALSE;
 				}
 			}
 		}

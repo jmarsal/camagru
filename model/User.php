@@ -113,15 +113,17 @@ class User extends Model {
 				"email" => $email,
 				"cle" => $cle))){
 
-				$subject = 'Inscription a CAMAGRU';
-				$title = 'Bienvenue sur Camagru !';
-				$message = 'Bravo '.ucfirst($this->login).', tu as demander a 
-				t\'inscrire sur Camagru et je t\'en remercie. Plus qu\'une seule etape pour demarrer l\'experience!';
-				$from = 'insciption@camagru.com';
+				$options = array(
+					'email' => $this->email,
+					'login' => $this->login,
+					'subject' => 'Inscription a CAMAGRU',
+					'message' => '',
+					'title' => '',
+					'from' => '',
+					'cle' => $cle);
 
-				$sender = new MailSender($this->email, $this->login, $subject, $title, $message, $from, $cle);
-//				$sender->confirmSubscribeMail();
-				$sender->newsMail();
+				$sender = new MailSender($options);
+				$sender->confirmSubscribeMail();
 				return (TRUE);
 			}else{
 				if ($_SERVER['debug'] === 1)
