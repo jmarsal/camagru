@@ -28,7 +28,7 @@ class Router {
 			$params[1] = $tmpAction[0];
 			$con = new Model;
 			try{
-				$sql = "SELECT COUNT(*) FROM users
+				$sql = "SELECT * FROM users
 							WHERE login=? AND cle=?";
 				$st = $con->db->prepare($sql);
 				$d = array($_GET['log'], $_GET['cle']);

@@ -21,6 +21,10 @@
 		<input type="submit" name="submit" value="Login">
 	</p>
 </form>
+    <p class="forgetPass">
+        <a class="forgetPass" href="forgetPass/">Forget Password ?</a>
+    </p>
+
 <?php
 	if ($user->formOk === 1){
 		if ($user->checkLogin($user->login, $user->hashPasswd) === TRUE){
@@ -30,6 +34,7 @@
 			}
 		}
 	}
+
 	 echo $user->mess_error;
 	?>
 <hr>

@@ -9,7 +9,7 @@ class User extends Model {
 	public $passwd = "";
 	public $repPasswd = "";
 	public $hashPasswd = "";
-	private $_mailCon;
+//	private $_mailCon;
 
 	// Check dans la table user si le login et le passwd == ce que je recois de
 	// $_POST et so ok -> va sur la page Camagru, sinon propose de creer un compte.
@@ -50,8 +50,8 @@ class User extends Model {
 			if (isset($_POST['email']) && $_POST['submit'] === 'Inscription') {
 				if (!empty($_POST['email'])){
 					$this->email = htmlentities($_POST['email']);
-					$this->_mailCon = new Mail($this->email, $this->login);
-					if ($this->_mailCon->validEmail($this->email) !== TRUE){
+//					$this->_mailCon = new Mail($this->email, $this->login);
+					if (Mail::validEmail($this->email) !== TRUE){
 						$this->mess_error = '<p class="form_error">Veuillez renseigner une adresse email valide!</p>';
 						$this->formOk = 0;
 					}

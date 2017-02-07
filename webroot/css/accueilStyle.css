@@ -59,15 +59,30 @@ h1 {
   margin-top: 15px; }
 
 /* line 67, ../sass/accueilStyle.scss */
+.forgetPass a {
+  color: #006796;
+  display: block;
+  text-decoration: none;
+  font-size: 1.2vw; }
+
+/* line 74, ../sass/accueilStyle.scss */
+.forgetPass:hover {
+  color: indianred; }
+
+/* line 78, ../sass/accueilStyle.scss */
 .registered {
   color: #006796;
   display: block;
   text-decoration: none; }
 
-/* line 73, ../sass/accueilStyle.scss */
+/* line 84, ../sass/accueilStyle.scss */
 .registered:hover {
   color: indianred; }
 
-/* line 77, ../sass/accueilStyle.scss */
+/* line 88, ../sass/accueilStyle.scss */
 .footer {
   height: 45px; }
+
+/* line 92, ../sass/accueilStyle.scss */
+.forget_but {
+  font-size: 1.5vw; }
