@@ -18,7 +18,7 @@ class Model {
 			$conf['password'],
 			array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
 			);
-			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 			Model::$connections[$this->conf] = $pdo;
 			$this->db = $pdo;

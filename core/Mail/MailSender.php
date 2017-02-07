@@ -100,7 +100,7 @@ class MailSender
 		$expediteur = $this->from;
 		$reponse = $expediteur;
 		$reply = "Reply-to: $reponse\r\nFrom: $expediteur\r\n" . $this->_entete;
-//		echo $this->_msg;
+
 		mail($destinataire,
 			$this->subject,
 			$this->_msg,
