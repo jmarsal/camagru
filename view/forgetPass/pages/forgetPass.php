@@ -22,47 +22,48 @@
 		<input type="submit" name="submit" value="Réinitialiser">
 	</p>
 </form>
-<?php
-	if (isset($_POST['login']) && $_POST['submit'] === 'Réinitialiser' && !empty
-	($_POST['login'])){
-		$check = htmlentities($_POST['login']);
-		if (Mail::validEmail($check)){
-			$sql = "SELECT * FROM users
-							WHERE email=?";
-			$err = "mail";
-		}else{
-			$sql = "SELECT * FROM users
-							WHERE login=?";
-			$err = "login";
-		}
-		$con = new Model;
-		try{
-			$st = $con->db->prepare($sql);
-			$d = array($check);
-			$st->execute($d);
-			$user_exist = $st->rowCount();
-		}catch (PDOexception $e){
-			print "Erreur : ".$e->getMessage()."";
-			die();
-		}
-		if ($user_exist === 1){
-			echo "trouve!";
-		}else if ($err === "mail"){
-			echo '<p class="form_error">Cette adresse mail ne correspond à aucun
-			utilisateur!</p>';
-		}else if ($err === 'login'){
-			echo '<p class="form_error">Ce login ne correspond à aucun
-			utilisateur!</p>';
-		}
-	}else if (isset($_POST['login']) && $_POST['submit'] === 'Réinitialiser'
-		&& empty
-		($_POST['login'])){
-		echo "<p class=\"form_error\">Veuillez renseigner un login ou une adresse mail !</p>";
-	}
-?>
+<div id="popup" class="popup">
+    <div class="logo-pop">
+        <h1>CAMAGRU</h1>
+        <img class="img_logo" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS.'photo-camera.png' ?>" alt="logo">
+    </div>
+    <hr>
+    <div id="waiting" class="waiting">
+        En attente de confirmation...
+        <hr>
+    </div>
+    <div id="login" class="login">
+        Bienvenue <?php echo 'Jibe' ?>
+    </div>
+    <div id="mail_confirm" class="mail_confirm">
+        Un email de confirmation de compte viens de vous etre envoyer a l'adresse <div class ="mail"><?php echo 'jb.marsal@gmail.com' ?></div>
+    </div>
+    <div id="text" class="text">
+        Merci de bien vouloir cliquer sur le lien d'activation se trouvant dans le mail.
+    </div>
+    <p class="button2" onclick="hidePopup()">
+        <a class="button" href="">Fermer</a>
+    </p>
+</div>
 <hr>
 <p class="registered">
 	<a class="registered" href="../">Retour accueil</a>
 </p>
 <a class="registered" href="../register/">Not yet registered ?</a>
 <div class="footer"></div>
+
+
+
+<div id="overlay" class="overlay"></div>
+<script type="text/javascript">
+    function showPopup(){
+        document.getElementById("popup").style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+    }
+    showPopup();
+    function hidePopup(){
+        document.getElementById("popup").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+    }
+
+</script>
