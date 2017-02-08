@@ -6,6 +6,7 @@
  * Date: 2/7/17
  * Time: 3:00 PM
  */
+
 class ForgetPassController extends Controller
 {
 	public function accueil(){
@@ -17,16 +18,8 @@ class ForgetPassController extends Controller
 		if (isset($_POST['login']) && $_POST['submit'] === 'Réinitialiser' && !empty
 			($_POST['login'])){
 			$check = htmlentities($_POST['login']);
-
-			if (($user_exist  = $this->requestLoginMail($check)) === 1){
-				?>
-				<script>
-					var x;
-					if (confirm("Si vous cliquer sur OK, un mail de reinitialisation va vous etre envoyer sur votre adresse email !") == true) {
-						x = <?php echo"Un mail viens de vous etre envoyer"; ?>
-						}
-				</script>
-				<?php
+			if (($user_exist = $this->_requestLoginMail($check)) === 1){
+				echo "<script>showPopup();</script>";
 			}else if ($user_exist === "mail"){
 				echo '<p class="form_error">Cette adresse mail ne correspond à aucun
 			utilisateur!</p>';
@@ -40,7 +33,7 @@ class ForgetPassController extends Controller
 		}
 	}
 
-	private function requestLoginMail($toCheck){
+	private function _requestLoginMail($toCheck){
 		if (Mail::validEmail($toCheck)){
 			$sql = "SELECT * FROM users
 							WHERE email=?";
@@ -56,6 +49,13 @@ class ForgetPassController extends Controller
 			$d = array($toCheck);
 			$st->execute($d);
 			$user_exist = $st->rowCount();
+			if ($user_exist === 1 && $err === 'mail'){
+				$_SESSION['EmailForgetPass'] = $toCheck;
+				$this->_getLoginByEmail($con, $toCheck);
+			}else if ($user_exist === 1 && $err === 'login'){
+				$_SESSION['UserForgetPass'] = $toCheck;
+				$this->_getEmailByLogin($con, $toCheck);
+			}
 		}catch (PDOexception $e){
 			print "Erreur : ".$e->getMessage()."";
 			die();
@@ -64,5 +64,31 @@ class ForgetPassController extends Controller
 			return $err;
 		}
 		return $user_exist;
+	}
+
+	private function _getLoginByEmail($conBdd, $toCheck){
+		try{
+			$query = $conBdd->db->prepare("SELECT login FROM users WHERE email=?");
+			$d = array($toCheck);
+			$query->execute($d);
+			$row = $query->fetch();
+			$_SESSION['UserForgetPass'] = $row[0];
+		}catch (PDOexception $e){
+			print "Erreur : ".$e->getMessage()."";
+			die();
+		}
+	}
+
+	private function _getEmailByLogin($conBdd, $toCheck){
+		try{
+			$query = $conBdd->db->prepare("SELECT email FROM users WHERE login=?");
+			$d = array($toCheck);
+			$query->execute($d);
+			$row = $query->fetch();
+			$_SESSION['EmailForgetPass'] = $row[0];
+		}catch (PDOexception $e){
+			print "Erreur : ".$e->getMessage()."";
+			die();
+		}
 	}
 }

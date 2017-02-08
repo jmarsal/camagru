@@ -67,6 +67,9 @@ class MailSender
 		if (empty($this->from)){
 			$this->from = 'newsletter@camagru.com';
 		}
+		if (empty($this->subject)){
+			$this->subject = $this->title;
+		}
 		$this->_msg .= str_replace('^^title^^', $this->title,
 			file_get_contents("core/Mail/template/newsMail.html"));
 		$this->_msg .= "\r\n\r\n";
@@ -79,7 +82,10 @@ class MailSender
 			$this->title = 'Bienvenue sur Camagru !';
 		}
 		if (empty($this->from)){
-			$this->from = 'insciption@camagru.com';
+			$this->from = 'inscription@camagru.com';
+		}
+		if (empty($this->subject)){
+			$this->subject = 'Inscription a CAMAGRU';
 		}
 		$_link = $this->base_url . 'register/validation?log=' .
 			urlencode($this->login) . '&cle=' . urlencode($this->_cle);
@@ -89,6 +95,29 @@ class MailSender
 			str_replace('^^link^^',
 			$_link, file_get_contents
 		("core/Mail/template/subscribeMail.html"))));
+
+		$this->_msg .= "\r\n\r\n";
+		$this->SendMail();
+	}
+
+	public function reinitPassMail(){
+		if (empty($this->title)){
+			$this->title = 'Reinitialisation <br/> <br/>de Mot de Passe ...';
+		}
+		if (empty($this->from)){
+			$this->from = 'docteur@camagru.com';
+		}
+		if (empty($this->subject)){
+			$this->subject = 'Docteur Camagru reinitialisation bonjour !';
+		}
+		$_link = $this->base_url . 'forgetPass/reinit?log=' .
+			urlencode($this->login) . '&cle=' . urlencode($this->_cle);
+		$this->_msg .= str_replace('^^title^^', $this->title, str_replace('^^login^^',
+			ucfirst
+			($this->login) ,
+			str_replace('^^link^^',
+				$_link, file_get_contents
+				("core/Mail/template/reinitPassMail.html"))));
 
 		$this->_msg .= "\r\n\r\n";
 		$this->SendMail();

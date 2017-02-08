@@ -66,8 +66,29 @@ form input{
     padding-bottom: 98%;
 }
 
+.popup .mail_reinit{
+	color: indianred;
+	padding-top: 5%;
+	padding-bottom: 30%;
+}
+
 .popup .text{
 	padding-bottom: 10%;
+}
+
+.popup .buttons-reinit{
+	display: inline-block;
+}
+.button-cancel{
+	position: relative;
+	display: inline-block;
+	left: -15%;
+}
+
+.button-confirm{
+	position: relative;
+	display: inline-block;
+	right: -15%;
 }
 
 .form_error{

@@ -50,7 +50,6 @@ class User extends Model {
 			if (isset($_POST['email']) && $_POST['submit'] === 'Inscription') {
 				if (!empty($_POST['email'])){
 					$this->email = htmlentities($_POST['email']);
-//					$this->_mailCon = new Mail($this->email, $this->login);
 					if (Mail::validEmail($this->email) !== TRUE){
 						$this->mess_error = '<p class="form_error">Veuillez renseigner une adresse email valide!</p>';
 						$this->formOk = 0;
