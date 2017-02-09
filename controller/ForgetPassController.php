@@ -1,17 +1,40 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: jmarsal
  * Date: 2/7/17
  * Time: 3:00 PM
  */
-
 class ForgetPassController extends Controller
 {
 	public function accueil(){
 		$this->render('pages/forgetPass');
 		$this->checkLoginMail();
+		if (isset($_GET['confirm']) && $_GET['confirm'] === '1'){
+			if (!empty($_SESSION['EmailForgetPass']) && !empty
+				($_SESSION['UserForgetPass'])){
+				$options = array('email' => $_SESSION['EmailForgetPass'],
+					'login' => $_SESSION['UserForgetPass'],
+					'subject' => '',
+					'message' => '',
+					'title' => '',
+					'from' => '',
+					'cle' => '');
+				$reinitMail = new MailSender($options);
+				$reinitMail->reinitPassMail();
+				echo file_get_contents('view/forgetPass/pages/sendMessPop.html');
+				?>
+				<script>
+                    setTimeout(changePage, 2000);
+                    function changePage(){
+                        document.location.href="<?php echo BASE_URL ?>";
+					}
+				</script>
+				<?php
+			}else{
+				echo "Probleme pour send le mail...";
+			}
+		}
 	}
 
 	public function checkLoginMail(){
@@ -19,7 +42,14 @@ class ForgetPassController extends Controller
 			($_POST['login'])){
 			$check = htmlentities($_POST['login']);
 			if (($user_exist = $this->_requestLoginMail($check)) === 1){
-				echo "<script>showPopup();</script>";
+//				Ne doit afficher la popup que si les champs sont charges...
+				if (isset($_SESSION['EmailForgetPass']) && isset($_SESSION['UserForgetPass'])){
+//					A croire que la popup s'affiche avant le retour des infos
+// 					de la bdd.
+//					ob_get_contents();
+					echo "<script>showPopup();</script>";
+//					ob_start();
+				}
 			}else if ($user_exist === "mail"){
 				echo '<p class="form_error">Cette adresse mail ne correspond à aucun
 			utilisateur!</p>';

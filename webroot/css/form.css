@@ -105,22 +105,36 @@ form input {
   font-size: 1.5vw; }
 
 /* line 103, ../sass/form.scss */
+.form_error2 {
+  position: relative;
+  width: 35%;
+  top: 49%;
+  left: 35%;
+  text-align: center;
+  background: indianred;
+  color: snow;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-family: 'Raleway', cursive;
+  font-size: 1.5vw; }
+
+/* line 117, ../sass/form.scss */
 .connect {
   font-size: 2vw;
   color: #006796;
   display: block;
   text-decoration: none; }
 
-/* line 110, ../sass/form.scss */
+/* line 124, ../sass/form.scss */
 .connect:hover {
   color: indianred; }
 
-/* line 114, ../sass/form.scss */
+/* line 128, ../sass/form.scss */
 .a-connect {
   font-size: 2vw;
   color: #006796; }
 
-/* line 119, ../sass/form.scss */
+/* line 133, ../sass/form.scss */
 .logo-pop {
   padding-top: 5px;
   display: block;

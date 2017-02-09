@@ -6,7 +6,6 @@
  * Time: 2:57 PM
  */
 
-//$_SESSION['sendReinitMail'] = 0;
 ?>
 
 <div class="logo">
@@ -24,7 +23,7 @@
 		<input type="submit" name="submit" value="Réinitialiser">
 	</p>
 </form>
-<div id="popup" class="popup">
+    <div id="popup" class="popup">
     <div class="logo-pop">
         <h1>CAMAGRU</h1>
         <img class="img_logo" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS.'photo-camera.png' ?>" alt="logo">
@@ -34,12 +33,14 @@
         Voulez-vous vraiment réinitialiser votre mot de passe ?
         <hr>
     </div>
+<!--        pb ici si clear cache google-->
     <div id="login" class="login">
-        Bienvenue <?php echo $_SESSION['UserForgetPass'] ?>
+        Bienvenue <?php echo $_SESSION['UserForgetPass']; ?>
     </div>
     <div id="mail_confirm" class="mail_confirm">
         Si vous confirmer, <br>
-        un email de confirmation de compte va vous etre envoyer a l'adresse <div class ="mail_reinit"><?php echo $_SESSION['EmailForgetPass'] ?></div>
+<!--        ET ici ...-->
+        un email de confirmation de compte va vous etre envoyer a l'adresse <div class ="mail_reinit"><?php echo $_SESSION['EmailForgetPass']; ?></div>
     </div>
     <div class="buttons-reinit">
         <div class="button-cancel">
@@ -48,8 +49,8 @@
             </p>
         </div>
         <div class="button-confirm">
-            <p class="button2" onclick="hidePopupSend()">
-                <a class="button" href="">Confirmer</a>
+            <p class="button2">
+                <a class="button" href="accueil/?confirm=1">Confirmer</a>
             </p>
         </div>
     </div>
@@ -73,32 +74,7 @@
         document.getElementById("popup").style.display = "none";
         document.getElementById("overlay").style.display = "none";
     }
-    var exec_php = function () {
-        var xhttp = new XMLHttpRequest();
-        xhttp.open("GET", "<?php $_SESSION['sendReinitMail'] = 'send';
-			?>", true);
-        xhttp.send();
-    }
-    function hidePopupSend() {
-        hidePopup();
-        console.log("coucou");
-//        setInterval(exec_php, 5000);
-            exec_php();
+    function RedirectionJavascript(){
+        document.location.href="accueil";
     }
 </script>
-
-<?php
-  echo $_SESSION['sendReinitMail'];
-if ($_SESSION['sendReinitMail'] === 'send'){
-$options = array('email' => $_SESSION['EmailForgetPass'],
-'login' => $_SESSION['UserForgetPass'],
-'subject' => '',
-'message' => '',
-'title' => '',
-'from' => '',
-'cle' => '');
-$reinitMail = new MailSender($options);
-$reinitMail->reinitPassMail();
-}
-
-?>
