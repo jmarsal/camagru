@@ -5,7 +5,6 @@
  * Date: 2/7/17
  * Time: 2:57 PM
  */
-
 ?>
 
 <div class="logo">
@@ -35,12 +34,12 @@
     </div>
 <!--        pb ici si clear cache google-->
     <div id="login" class="login">
-        Bienvenue <?php echo $_SESSION['UserForgetPass']; ?>
+        Bienvenue <?php echo $_SESSION['user']; ?>
     </div>
     <div id="mail_confirm" class="mail_confirm">
         Si vous confirmer, <br>
 <!--        ET ici ...-->
-        un email de confirmation de compte va vous etre envoyer a l'adresse <div class ="mail_reinit"><?php echo $_SESSION['EmailForgetPass']; ?></div>
+        un email de confirmation de compte va vous etre envoyer a l'adresse <div class ="mail_reinit"><?php echo $_SESSION['email']; ?></div>
     </div>
     <div class="buttons-reinit">
         <div class="button-cancel">
@@ -50,7 +49,9 @@
         </div>
         <div class="button-confirm">
             <p class="button2">
-                <a class="button" href="accueil/?confirm=1">Confirmer</a>
+                <a class="button" href="<?php echo BASE_URL."/forgetpass/accueil/?confirm=1" ?>">
+                    Confirmer
+                </a>
             </p>
         </div>
     </div>

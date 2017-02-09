@@ -7,14 +7,16 @@
  */
 class ForgetPassController extends Controller
 {
+	public $login;
+	public $email;
+
 	public function accueil(){
 		$this->render('pages/forgetPass');
 		$this->checkLoginMail();
 		if (isset($_GET['confirm']) && $_GET['confirm'] === '1'){
-			if (!empty($_SESSION['EmailForgetPass']) && !empty
-				($_SESSION['UserForgetPass'])){
-				$options = array('email' => $_SESSION['EmailForgetPass'],
-					'login' => $_SESSION['UserForgetPass'],
+			if (!empty($this->email) && !empty($this->login)){
+				$options = array('email' => $this->email,
+					'login' => $this->login,
 					'subject' => '',
 					'message' => '',
 					'title' => '',
@@ -43,12 +45,11 @@ class ForgetPassController extends Controller
 			$check = htmlentities($_POST['login']);
 			if (($user_exist = $this->_requestLoginMail($check)) === 1){
 //				Ne doit afficher la popup que si les champs sont charges...
-				if (isset($_SESSION['EmailForgetPass']) && isset($_SESSION['UserForgetPass'])){
-//					A croire que la popup s'affiche avant le retour des infos
-// 					de la bdd.
-//					ob_get_contents();
+				if (isset($this->email) && isset($this->login) &&
+					!empty($this->email) && !empty($this->login)){
+				    $_SESSION['user'] = $this->login;
+				    $_SESSION['email'] = $this->email;
 					echo "<script>showPopup();</script>";
-//					ob_start();
 				}
 			}else if ($user_exist === "mail"){
 				echo '<p class="form_error">Cette adresse mail ne correspond à aucun
@@ -80,10 +81,10 @@ class ForgetPassController extends Controller
 			$st->execute($d);
 			$user_exist = $st->rowCount();
 			if ($user_exist === 1 && $err === 'mail'){
-				$_SESSION['EmailForgetPass'] = $toCheck;
+				$this->email = $toCheck;
 				$this->_getLoginByEmail($con, $toCheck);
 			}else if ($user_exist === 1 && $err === 'login'){
-				$_SESSION['UserForgetPass'] = $toCheck;
+				$this->login = $toCheck;
 				$this->_getEmailByLogin($con, $toCheck);
 			}
 		}catch (PDOexception $e){
@@ -102,7 +103,7 @@ class ForgetPassController extends Controller
 			$d = array($toCheck);
 			$query->execute($d);
 			$row = $query->fetch();
-			$_SESSION['UserForgetPass'] = $row[0];
+			$this->login = $row[0];
 		}catch (PDOexception $e){
 			print "Erreur : ".$e->getMessage()."";
 			die();
@@ -115,7 +116,7 @@ class ForgetPassController extends Controller
 			$d = array($toCheck);
 			$query->execute($d);
 			$row = $query->fetch();
-			$_SESSION['EmailForgetPass'] = $row[0];
+			$this->email = $row[0];
 		}catch (PDOexception $e){
 			print "Erreur : ".$e->getMessage()."";
 			die();
