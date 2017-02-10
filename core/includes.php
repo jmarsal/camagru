@@ -1,5 +1,5 @@
 <?php
-require ROOT.DS.'config'.DS.'conf.php';
+require ROOT.DS.'config'.DS.'database.php';
 require CONFIG.DS.'setup.php';
 require 'Request.php';
 require "Router.php";

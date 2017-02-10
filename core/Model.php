@@ -35,7 +35,7 @@ class Model {
 	}
 
 	public function find($req) {
-		
+
 		$sql = 'SELECT * FROM '.$this->table.' as '.get_class($this).' ';
 
 		if (isset($req['conditions'])) {
