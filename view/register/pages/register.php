@@ -1,11 +1,7 @@
 <?php
 	require_once("model/User.php");
 	$user = new User;
-//	$user->login = 'jibe';
-//	$user->email="jb.marsal@gmail.com";
-//	$user->hashPasswd ="13sh18ry4jury53j1s5ag4e6r8hs4s";
-//	$user->formOk = 1;
-?>forget_but
+?>
 <div class="logo">
 	<h1>CAMAGRU</h1>
 	<img class="img_logo" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS.'photo-camera.png' ?>" alt="logo">

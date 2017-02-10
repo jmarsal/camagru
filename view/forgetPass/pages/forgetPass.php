@@ -15,11 +15,11 @@
 <form action="#" method="POST">
 	<p>Vous avez perdu <br>votre mot de passe ou login ?</p>
 	<div class="forget_but">
-		Veuillez renseigner votre Login ou adresse mail :<br><br>
-		<input type="text" name="login"><br>
+		Veuillez renseigner adresse mail :<br><br>
+		<input type="text" name="email"><br>
 	</div>
 	<p class="button2">
-		<input type="submit" name="submit" value="Réinitialiser">
+		<input type="submit" name="submit" value="Récuperer">
 	</p>
 </form>
     <div id="popup" class="popup">
@@ -29,17 +29,15 @@
     </div>
     <hr>
     <div id="waiting" class="waiting">
-        Voulez-vous vraiment réinitialiser votre mot de passe ?
+        Voulez-vous vraiment récuperer vos identifiants ?
         <hr>
     </div>
-<!--        pb ici si clear cache google-->
     <div id="login" class="login">
-        Bienvenue <?php echo $_SESSION['user']; ?>
+        Bienvenue <?php echo $_ENV['login']; ?>
     </div>
     <div id="mail_confirm" class="mail_confirm">
         Si vous confirmer, <br>
-<!--        ET ici ...-->
-        un email de confirmation de compte va vous etre envoyer a l'adresse <div class ="mail_reinit"><?php echo $_SESSION['email']; ?></div>
+        un email de confirmation de compte va vous etre envoyer a l'adresse <div class ="mail_reinit"><?php echo $_ENV['email']; ?></div>
     </div>
     <div class="buttons-reinit">
         <div class="button-cancel">
@@ -49,7 +47,7 @@
         </div>
         <div class="button-confirm">
             <p class="button2">
-                <a class="button" href="<?php echo BASE_URL."/forgetpass/accueil/?confirm=1" ?>">
+                <a class="button" onclick="RedirectionJavascript()">
                     Confirmer
                 </a>
             </p>
@@ -76,6 +74,22 @@
         document.getElementById("overlay").style.display = "none";
     }
     function RedirectionJavascript(){
-        document.location.href="accueil";
+        <?php
+		$options = array('email' => $_ENV['email'],
+			'login' => $_ENV['login'],
+			'subject' => '',
+			'message' => '',
+			'title' => '',
+			'from' => '',
+			'cle' => '');
+		$reinitMail = new MailSender($options);
+		$reinitMail->reinitPassMail();
+		echo file_get_contents('view/forgetPass/pages/sendMessPop.html');
+        ?>
+        showPopup();
+        setTimeout(changePage, 2000);
+        function changePage(){
+            document.location.href="<?php echo BASE_URL ?>";
+        }
     }
 </script>
