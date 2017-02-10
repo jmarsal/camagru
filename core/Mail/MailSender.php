@@ -110,7 +110,7 @@ class MailSender
 		if (empty($this->subject)){
 			$this->subject = 'Docteur Camagru reinitialisation bonjour !';
 		}
-		$_link = $this->base_url . 'forgetPass/reinit?log=' .
+		$_link = $this->base_url . 'forgetId/reinit?log=' .
 			urlencode($this->login) . '&cle=' . urlencode($this->_cle);
 		$this->_msg .= str_replace('^^title^^', $this->title, str_replace('^^login^^',
 			ucfirst

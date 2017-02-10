@@ -22,7 +22,7 @@
 	</p>
 </form>
     <p class="forgetPass">
-        <a class="forgetPass" href="forgetPass/">Forget Password ?</a>
+        <a class="forgetPass" href="forgetId/">Forget Password ?</a>
     </p>
 
 <?php

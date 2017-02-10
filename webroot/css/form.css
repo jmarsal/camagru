@@ -106,6 +106,7 @@ form input {
 
 /* line 103, ../sass/form.scss */
 .form_error2 {
+    display: none;
   position: relative;
   width: 35%;
   top: 49%;
