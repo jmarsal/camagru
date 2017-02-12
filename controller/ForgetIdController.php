@@ -7,8 +7,6 @@
  */
 class ForgetIdController extends Controller
 {
-	public $login;
-	public $email;
 
 	public function accueil(){
 		$this->loadModel('User');
