@@ -47,10 +47,9 @@ echo $this->popup;
 			'cle' => '');
 		$reinitMail = new MailSender($options);
 		$reinitMail->reinitPassMail();
-
         ?>
         document.getElementById("mess-redirection").style.display = "block";
-        setTimeout(changePage, 2000);
+        setTimeout(changePage, 3000);
         function changePage(){
             document.location.href="<?php echo BASE_URL ?>";
         }
