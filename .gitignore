@@ -1,1 +1,3 @@
 *.xml
+/.sass-cache/
+/.idea/
