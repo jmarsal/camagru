@@ -8,6 +8,7 @@ class AppController extends Controller
 	}
 
 	public function appCamagru(){
-		$this->content_for_layout = 'blabla';
+//		$this->content_for_layout = 'blabla';
+		$this->render('camagru');
 	}
 }

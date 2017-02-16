@@ -12,3 +12,8 @@ function hidePopup(){
     document.getElementById("popup").style.display = "none";
     document.getElementById("overlay").style.display = "none";
 }
+
+function changePageForApp(){
+    document.location.href="<?php echo" +
+        " BASE_URL.DS.'controller'.DS.'AppController' ?>";
+}

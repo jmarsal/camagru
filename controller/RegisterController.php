@@ -86,5 +86,29 @@ class RegisterController extends Controller
 		}
 		return TRUE;
 	}
+
+	public function validation(){
+		$this->loadModel('User');
+		if (isset($_GET['log'], $_GET['cle']) &&
+			!empty($_GET['log']) && !empty($_GET['cle'])){
+			$log = htmlentities(trim($_GET['log']));
+			$cle = htmlentities(trim($_GET['cle']));
+			if (($this->User->checkValueOfGetForValidation($log, $cle)) ===
+				TRUE){
+				$this->User->changeKeyUser($log);
+				$this->User->changeActifUser($log);
+				$_SESSION['log'] = 1;
+				$_SESSION['login'] = $log;
+				require_once('controller/AppController.php');
+				new AppController();
+			}else{
+				echo $this->mess_error = 'Le Login ne correspond pas a la cle de validation';
+				die();
+			}
+		}else{
+			echo $this->mess_error = 'Le Login et / ou la cle de validation sont vides';
+			die();
+		}
+	}
 }
 ?>

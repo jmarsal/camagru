@@ -49,8 +49,10 @@ echo $this->popup;
 		$reinitMail->reinitPassMail();
         ?>
         document.getElementById("mess-redirection").style.display = "block";
-        setTimeout(changePage, 3000);
-        function changePage(){
+        document.getElementById("cancel").style.display = "none";
+        document.getElementById("confirm").style.display = "none";
+        setTimeout(changePageForAccueil, 3000);
+        function changePageForAccueil(){
             document.location.href="<?php echo BASE_URL ?>";
         }
     }
