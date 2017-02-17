@@ -1,5 +1,3 @@
-<?php session_start();?>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang ="fr">
 	<head>
@@ -15,7 +13,7 @@
 			<div class="container">
 				<h3><a href="../../">Logout</a></h3>
 				<ul class="nav">
-					<li><a href="#" title="">Ma Deuxieme page</a></li>
+					<li><a href="#" title="">Galerie Photos</a></li>
 				</ul>
 			</div>
 			</div>
@@ -24,8 +22,7 @@
 	<div class="container">
 	</div>
 		<div class="post">
-			<?php 
-			require("../app/camagru.php"); ?>
+
 		</div>
 	</body>
 </html>

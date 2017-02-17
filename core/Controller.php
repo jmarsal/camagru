@@ -1,10 +1,10 @@
 <?php
-class Controller {
+abstract class Controller {
 
 	public	$request;
 	private	$_vars = array();
 	public	$layout = 'accueil_layout';
-	private	$rendered = FALSE;
+	private	$_rendered = FALSE;
 	
 	function __construct($request) {
 		$this->request = $request;
@@ -14,7 +14,7 @@ class Controller {
 		if ($layout === NULL){
 			$layout = $this->layout;
 		}
-		if ($this->rendered) {
+		if ($this->_rendered) {
 			return FALSE;
 		}
 		extract($this->_vars);
@@ -28,7 +28,7 @@ class Controller {
 		require($view);
 		$content_for_layout = ob_get_clean();
 		require(ROOT.DS.'view'.DS.'layout'.DS.$layout.'.php');
-		$this->rendered = TRUE;
+		$this->_rendered = TRUE;
 	}
 	
 	public function set($key, $value=NULL) {
@@ -51,11 +51,31 @@ class Controller {
 		}
 	}
 
-	function e404($message) {
+	public function e404($message) {
 		header("HTTP/1.0 404 Not Found");
 		$this->set('message', $message);
 		$this->render('/errors/404', '404_layout');
 		die();
+	}
+
+	public function redirection($newRequest, $newAction){
+		ob_get_clean();
+		$this->request->url = ucfirst($newRequest.DS.$newAction);
+		$this->request->controller = $newRequest;
+		$this->request->action = $newAction;
+		$name = ucfirst($this->request->controller).'Controller';
+		$file = ROOT.DS.'controller'.DS.$name.'.php';
+		if (!file_exists($file))
+		{
+			throw new InvalidArgumentException("Le controller ".DS.$name. " n'existe pas, retour vers index", 42);
+			$index = new ErrorController();
+		}
+		require $file;
+//		var_dump($name);
+//		echo "-->".var_dump($this->request);
+//		die();
+		$redirect = new $name($this->request);
+		$redirect->$newAction();
 	}
 }
 ?>

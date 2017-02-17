@@ -15,7 +15,7 @@
 <form action="#" method="POST">
 	<p>Vous avez perdu <br>votre mot de passe ou login ?</p>
 	<div class="forget_but">
-		Veuillez renseigner adresse mail :<br><br>
+		Veuillez renseigner une adresse mail :<br><br>
 		<input type="text" name="email"><br>
 	</div>
 	<p class="button2">

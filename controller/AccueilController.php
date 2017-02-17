@@ -19,8 +19,7 @@ class AccueilController extends Controller
 					$this->hashPasswd)) === TRUE){
 					if ($_SESSION['loged'] === 1){
 //						Si il match, ouvre page principal de l'app
-						require_once('controller/AppController.php');
-						new AppController();
+						$this->redirection('app', 'appCamagru');
 					}
 				}
 			}
