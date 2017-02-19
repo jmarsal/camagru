@@ -70,6 +70,9 @@ abstract class Controller {
 			throw new InvalidArgumentException("Le controller ".DS.$name. " n'existe pas, retour vers index", 42);
 			$index = new ErrorController();
 		}
+//		var_dump($name);
+//		echo PHP_EOL;
+//		die($file);
 		require $file;
 		$redirect = new $name($this->request);
 		$redirect->$newAction();

@@ -108,11 +108,14 @@ class ForgetIdController extends Controller
 			$cle = htmlentities(trim($_GET['cle']));
 			if (($this->User->checkValueOfGetForValidation($log, $cle)) ===
 				TRUE){
+//			    Si tout c'est bien passer, je change la key user et redirige
+//              vers l'app...
 				if (($this->reinitForm($log)) === TRUE){
 					$this->User->changeKeyUser($log);
 					$_SESSION['log'] = 1;
 					$_SESSION['login'] = $log;
-//					$this->redirection('./app', 'appCamagru'); // Pb de
+					$this->redirection('app', 'appCamagru'); // Pb de
+//					header('location: '.BASE_URL.DS.'view'.DS.'app'.DS.'appCamagru.php');
 //                  redirection ici !!!!!!!!!!!!
 				}
 			}else{
@@ -132,7 +135,9 @@ class ForgetIdController extends Controller
             ($_POST['repNewPass']) && !empty($_POST['repNewPass'])){
 			if ($_POST['newPass'] === $_POST['repNewPass']){
 				$this->newPasswd = hash('sha256', trim(htmlentities($_POST['repNewPass'])));
+				$this->User->changeActifUser($log);
 //				Ici changer mot de passe dans la bdd depuis le model User
+				$this->User->changePasswdUser($log, $this->newPasswd);
 				return TRUE;
 			}else{
 				$this->newPasswd = $_POST['newPass'];

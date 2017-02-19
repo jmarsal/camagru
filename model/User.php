@@ -78,7 +78,7 @@ class User extends Model {
 
 	public function requestMail($email){
 		if (Mail::validEmail($email)){
-			$sql = "SELECT * FROM users
+			$sql = "SELECT email FROM users
 							WHERE email=?";
 			try{
 				$query = $this->db->prepare($sql);
@@ -170,17 +170,18 @@ class User extends Model {
 
 	//	Change le ststus user (actif 1 ou 0)
 	public function changeActifUser($log){
-		$sql = "SELECT actif FROM users WHERE login=?";
-		try{
-			$query = $this->db->prepare($sql);
-			$d = array($log);
-			$query->execute($d);
-			$row = $query->fetch();
-		}catch (PDOexception $e){
-			print "Erreur : ".$e->getMessage()."";
-			die();
-		}
-		$actif = ($row[0] == 1) ? 0 : 1;
+//		$sql = "SELECT actif FROM users WHERE login=?";
+//		try{
+//			$query = $this->db->prepare($sql);
+//			$d = array($log);
+//			$query->execute($d);
+//			$row = $query->fetch();
+//		}catch (PDOexception $e){
+//			print "Erreur : ".$e->getMessage()."";
+//			die();
+//		}
+//		$actif = ($row[0] == 1) ? 0 : 1;
+		$actif = 1;
 		$sql = "UPDATE users SET actif=? WHERE login=?";
 		try{
 			$query = $this->db->prepare($sql);
@@ -192,6 +193,18 @@ class User extends Model {
 		}
 	}
 
+	//	Change la cle user
+	public function changePasswdUser($log, $newPasswd){
+		$sql = "UPDATE users SET password=? WHERE login=?";
+		try{
+			$query = $this->db->prepare($sql);
+			$d = array($newPasswd, $log);
+			$query->execute($d);
+		}catch (PDOexception $e){
+			print "Erreur : ".$e->getMessage()."";
+			die();
+		}
+	}
 }
 
 ?>
