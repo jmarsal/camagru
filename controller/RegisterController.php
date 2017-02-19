@@ -95,7 +95,7 @@ class RegisterController extends Controller
 			$cle = htmlentities(trim($_GET['cle']));
 			if (($this->User->checkValueOfGetForValidation($log, $cle)) ===
 				TRUE){
-//				$this->User->changeKeyUser($log);
+				$this->User->changeKeyUser($log);
 				$this->User->changeActifUser($log);
 				$_SESSION['log'] = 1;
 				$_SESSION['login'] = $log;

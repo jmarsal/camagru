@@ -71,9 +71,6 @@ abstract class Controller {
 			$index = new ErrorController();
 		}
 		require $file;
-//		var_dump($name);
-//		echo "-->".var_dump($this->request);
-//		die();
 		$redirect = new $name($this->request);
 		$redirect->$newAction();
 	}

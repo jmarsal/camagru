@@ -86,7 +86,9 @@ class User extends Model {
 				$query->execute($d);
 				$user_exist = $query->rowCount();
 				if ($user_exist === 1){
-					$login = $this->getLoginByEmail($email);
+					$options = array();
+					$options['login'] = $this->getLoginByEmail($email);
+					$options['cle'] = $this->getCleByEmail($email);
 				}
 			}catch (PDOexception $e){
 				print "Erreur : ".$e->getMessage()."";
@@ -95,7 +97,7 @@ class User extends Model {
 			if ($user_exist !== 1){
 				return FALSE;
 			}
-			return $login;
+			return $options;
 		}
 		return "Veuillez renseigner une adresse mail valide";
 	}
@@ -106,7 +108,20 @@ class User extends Model {
 			$d = array($email);
 			$query->execute($d);
 			$row = $query->fetch();
-			return $this->login = $row[0];
+			return $row[0];
+		}catch (PDOexception $e){
+			print "Erreur : ".$e->getMessage()."";
+			die();
+		}
+	}
+
+	public function getCleByEmail($email){
+		try{
+			$query = $this->db->prepare("SELECT cle FROM users WHERE email=?");
+			$d = array($email);
+			$query->execute($d);
+			$row = $query->fetch();
+			return $row[0];
 		}catch (PDOexception $e){
 			print "Erreur : ".$e->getMessage()."";
 			die();

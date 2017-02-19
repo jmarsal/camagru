@@ -37,17 +37,8 @@ echo $this->popup;
 
 <script type="text/javascript">
     function RedirectionJavascript(){
-        <?php
-		$options = array('email' => $_ENV['email'],
-			'login' => $_ENV['login'],
-			'subject' => '',
-			'message' => '',
-			'title' => '',
-			'from' => '',
-			'cle' => '');
-		$reinitMail = new MailSender($options);
-		$reinitMail->reinitPassMail();
-        ?>
+        var send = 1;
+        <?php $_ENV['sendReinit']?> = send;
         document.getElementById("mess-redirection").style.display = "block";
         document.getElementById("cancel").style.display = "none";
         document.getElementById("confirm").style.display = "none";

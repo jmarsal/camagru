@@ -22,6 +22,7 @@
 			<?php echo $content_for_layout;?>
 		</div>
     <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'
-    .DS.'popup.js';?>"></script>
+    .DS.'popup.js';?>" >
+        </script>
 	</body>
 </html>
