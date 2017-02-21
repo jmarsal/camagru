@@ -70,10 +70,32 @@ form input {
   padding-bottom: 98%; }
 
 /* line 69, ../sass/form.scss */
+.popup .mail_reinit {
+  color: indianred;
+  padding-top: 5%;
+  padding-bottom: 20%; }
+
+/* line 75, ../sass/form.scss */
 .popup .text {
   padding-bottom: 10%; }
 
-/* line 73, ../sass/form.scss */
+/* line 79, ../sass/form.scss */
+.popup .buttons-reinit {
+  display: inline-block; }
+
+/* line 82, ../sass/form.scss */
+.button-cancel {
+  position: relative;
+  display: inline-block;
+  left: -15%; }
+
+/* line 88, ../sass/form.scss */
+.button-confirm {
+  position: relative;
+  display: inline-block;
+  right: -15%; }
+
+/* line 94, ../sass/form.scss */
 .form_error {
   background: indianred;
   color: snow;
@@ -82,23 +104,36 @@ form input {
   font-family: 'Raleway', cursive;
   font-size: 1.5vw; }
 
-/* line 82, ../sass/form.scss */
+/* line 103, ../sass/form.scss */
+.form_error2 {
+  display: block;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  background: indianred;
+  color: snow;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-family: 'Raleway', cursive;
+  font-size: 1.5vw; }
+
+/* line 116, ../sass/form.scss */
 .connect {
   font-size: 2vw;
   color: #006796;
   display: block;
   text-decoration: none; }
 
-/* line 89, ../sass/form.scss */
+/* line 123, ../sass/form.scss */
 .connect:hover {
   color: indianred; }
 
-/* line 93, ../sass/form.scss */
+/* line 127, ../sass/form.scss */
 .a-connect {
   font-size: 2vw;
   color: #006796; }
 
-/* line 98, ../sass/form.scss */
+/* line 132, ../sass/form.scss */
 .logo-pop {
   padding-top: 5px;
   display: block;

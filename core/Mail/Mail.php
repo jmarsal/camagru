@@ -2,22 +2,12 @@
 
 class Mail
 {
-	public $email;
-	public $login;
-	public $from;
-
-	public function __construct($email, $login)
-	{
-		$this->email = $email;
-		$this->login = $login;
-	}
-
 	/**
 	 * Class MailCheckAdress
 	 * @param $email l'adresse a verifier
 	 * @return false si erreur
 	 */
-	function validEmail($email)
+	static function validEmail($email)
 	{
 		$isValid = true;
 		$atIndex = strrpos($email, "@");

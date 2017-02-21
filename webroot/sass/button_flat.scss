@@ -3,7 +3,7 @@
  $color : indianred;
  $color2 : #952e2e;
 
- .button2 {
+ .button2, input .button {
 	input, .button {
 		&:hover{
 			background: $color2;

@@ -3,10 +3,14 @@ class Dispatcher {
 	
 	var $request;
 	
-	function __construct() {
+	function __construct($redirect = NULL) {
 		// Recupere l'URL et la parse
-		$this->request = new Request();
-		Router::parse($this->request->url, $this->request);
+		if (!$redirect){
+			$this->request = new Request();
+			Router::parse($this->request->url, $this->request);
+		}else{
+			$this->request = $redirect;
+		}
 		// Charge le controller correspondant, si erreur, renvoi sur Controller 404
 		try {
 			$controller = $this->loadController();
@@ -35,7 +39,9 @@ class Dispatcher {
 	}
 	
 	function error($message) {
-		$controller = new Controller($this->request);
+//		$controller = new Controller($this->request);
+		$this->request->url = "";
+		$controller = $this->loadController();
 		$controller->e404($message);
 	}
 	

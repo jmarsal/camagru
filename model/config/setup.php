@@ -9,8 +9,9 @@ class Database
 	private $_pdo;
 	
 	public function __construct($dbName) {
+//		die(phpinfo());
 		$this->$dbName =		$dbName;
-		$this->_dbHost =		'localhost';
+		$this->_dbHost =		$_SERVER['SERVER_NAME'];
 		$this->_dbUser =		'root';
 		$this->_dbPassword =	'root';
 		$this->_pdo = 			$this->_createDb($dbName);
