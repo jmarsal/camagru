@@ -1,0 +1,24 @@
+@import "compass";
+
+$color_text_black: #222222;
+$color_text: #f3f3f3;
+
+.logo {
+  padding-top: 5px;
+  display: block;
+  position: relative;
+  width:100%;
+  margin-bottom: 6%;
+  color: $color_text;
+}
+
+.logo h1{
+  position: relative;
+  width: 100%;
+  font-size: 1.5em;
+}
+
+.img_logo_Principal{
+  border: 0;
+  width: 10%;
+}

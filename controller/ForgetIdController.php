@@ -114,9 +114,7 @@ class ForgetIdController extends Controller
 					$this->User->changeKeyUser($log);
 					$_SESSION['log'] = 1;
 					$_SESSION['login'] = $log;
-					$this->redirection('app', 'appCamagru'); // Pb de
-//					header('location: '.BASE_URL.DS.'view'.DS.'app'.DS.'appCamagru.php');
-//                  redirection ici !!!!!!!!!!!!
+					$this->redirection('app', 'appCamagru');
 				}
 			}else{
 				$this->mess_error = 'Le Login ne correspond pas a la cle de validation';

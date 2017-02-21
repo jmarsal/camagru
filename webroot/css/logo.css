@@ -1,0 +1,19 @@
+/* line 6, ../sass/logo.scss */
+.logo {
+  padding-top: 5px;
+  display: block;
+  position: relative;
+  width: 100%;
+  margin-bottom: 6%;
+  color: #f3f3f3; }
+
+/* line 15, ../sass/logo.scss */
+.logo h1 {
+  position: relative;
+  width: 100%;
+  font-size: 1.5em; }
+
+/* line 21, ../sass/logo.scss */
+.img_logo_Principal {
+  border: 0;
+  width: 10%; }

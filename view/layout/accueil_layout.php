@@ -10,19 +10,21 @@
 	</title>
 	<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Cairo|Indie+Flower" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-	<link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'AccueilStyle.css';?> >
+	<link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'accueilStyle.css';?> >
+    <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'logo.css';?> >
 	<link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'404Style.css';?> >
 	<link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'button_flat.css';?> >
 	<link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'form.css';?> >
 	</head>
 	<body>
 	<div class="container">
-	</div>
-		<div class="accueil_log">
-			<?php echo $content_for_layout;?>
+    </div>
+    <div class="accueil_form">
+        <div class="containerForm">
+                <?php echo $content_for_layout;?>
+            </div>
 		</div>
-    <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'
-    .DS.'popup.js';?>" >
+    <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'popup.js';?>" >
         </script>
 	</body>
 </html>

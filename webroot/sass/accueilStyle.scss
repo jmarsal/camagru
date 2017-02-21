@@ -1,64 +1,61 @@
 @import 'compass';
 
-$color_back: snow;
-$color_text: #006796;
+$color_back_back: #222222;
+$color_back: #5e6c78;
+$color_text: #f3f3f3;
+$color_text_black: #222222;
+$hrColor: #F39237;
 
 body {
-	background-color: #222222;
+  height: 100%;
+  background-image: url(../images/backgroundAccueilGiphy.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+	//background-color: $color_back_back;
 	font-family: 'Cabin Sketch', cursive;
-	color: #262626;
+	color: $color_text;
 	font-size: 2.5vw;
 }
 
 .container{
 	display: block;
 	position: relative;
-  margin-top: 130px;
+    margin-top: 5%;
 	margin-left: 150px;
 }
 
+hr{
+  color: $hrColor;
+  background-color: $hrColor;
+  border: none;
+  height: 0.2vw;
+}
 
-.accueil_log{
+.accueil_form{
 	position: relative;
-	margin-left: 35%;
-	width: 35%;
+	margin-left: 24%;
+    width: 65%;
+	max-width: 55%;
 	/*max-height: 400px;*/
-	background-color: white;
+	background-color: rgba($color_back, 0.7);
 	text-align: center;
 	box-shadow: 0px 0px 1px rgb(0, 34, 62);
 }
 
+.containerForm{
+  margin-left: 10%;
+  max-width: 80%;
+}
+
 textarea, select {
 	padding: 3px;
-	border: 1px solid #222222;
+	border: 1px solid $color_text_black;
 	border-radius: 5px;
 	width: 60%;
 	height: 150%;
-	box-shadow: 1px 0px 5px #222222 inset;
+	box-shadow: 1px 0px 5px $color_text_black inset;
 	font-family: 'Cairo', sans-serif;
  }
-
-.logo {
-	padding-top: 5px;
-	display: block;
-	position: relative;
-	width:100%;
-	margin-bottom: 6%;
-}
-
-h1{
-	position: relative;
-	width: 100%;
-	background-color: indianred; 
-	font-size: 1.5em;
-}
-
-.img_logo{
-	left: 7%;
-    position: absolute;
-    width: 11%;
-	top: 44%;
-}
 
 .paswrd_accueil_but{
   margin-top: 15px; 

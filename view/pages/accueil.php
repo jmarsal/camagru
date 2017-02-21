@@ -1,6 +1,6 @@
 <div class="logo">
+        <img class="img_logo_Principal" src="https://www.lycee-louis-vincent.fr/images/icons/puddingcam-logo.png" alt="logo">
 		<h1>CAMAGRU</h1>
-		<img class="img_logo" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS.'photo-camera.png' ?>" alt="logo">
 </div>
 <hr>
 <form action="#" method="POST">

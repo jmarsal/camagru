@@ -51,6 +51,9 @@ abstract class Controller {
 		}
 	}
 
+	/**
+	 * @param $message string Message d'erreur a afficher
+	 */
 	public function e404($message) {
 		header("HTTP/1.0 404 Not Found");
 		$this->set('message', $message);
@@ -58,6 +61,11 @@ abstract class Controller {
 		die();
 	}
 
+	/**
+	 * @param $newRequest string Le Controller vers lequel on souhaite se
+	 * redirige
+	 * @param $newAction string La methode que l'on cherche a atteindre
+	 */
 	public function redirection($newRequest, $newAction){
 		ob_get_clean();
 		$this->request->url = ucfirst($newRequest.DS.$newAction);
@@ -70,12 +78,10 @@ abstract class Controller {
 			throw new InvalidArgumentException("Le controller ".DS.$name. " n'existe pas, retour vers index", 42);
 			$index = new ErrorController();
 		}
-//		var_dump($name);
-//		echo PHP_EOL;
-//		die($file);
 		require $file;
 		$redirect = new $name($this->request);
 		$redirect->$newAction();
+		exit();
 	}
 }
 ?>
