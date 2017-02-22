@@ -118,7 +118,7 @@ class MailSender
 	public function SendMail(){
 
 		$destinataire = $this->email;
-		$expediteur = 'inscription@camagru.com';
+		$expediteur = $this->from;
 		$reponse = $expediteur;
 		$reply = "Reply-to: $reponse\r\nFrom: $expediteur\r\n" . $this->_entete;
 

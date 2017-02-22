@@ -13,7 +13,8 @@
 </div>
 <hr>
 <form action="#" method="POST">
-	<p>Vous avez perdu <br>votre mot de passe ou login ?</p>
+	<p>Vous avez perdu <br>votre mot de passe, login,<br>
+        ou votre compte n'est pas actif ?</p>
 	<div class="forget_but">
 		Veuillez renseigner une adresse mail :<br><br>
 		<input type="text" name="email"><br>

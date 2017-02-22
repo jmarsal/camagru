@@ -3,15 +3,18 @@ class User extends Model {
 
 	public $table = 'users';
 
-	// check si dans la bdd et envoie vers l'app si existant...
+	//
 	//	return message d'erreur si probleme
 	/**
-	 * @param $login
-	 * @param $passwd
-	 * @return string
+	 * check dans la bdd si le login et le passwd match et envoie vers l'app
+	 * si existant.
+	 * @param $login string le login a check
+	 * @param $passwd string le passwd a check
+	 * @return bool|string true si ca match, message d'erreur au contraire
 	 */
 	public function checkLogin($login, $passwd)
 	{
+//		cherche dans la DB si un user a ce login et passwd
 		$sql = "SELECT COUNT(*) FROM users
 							WHERE login=? AND password=?";
 		try {
@@ -32,7 +35,8 @@ class User extends Model {
 						$_SESSION['loged'] = 1;
 						return (TRUE);
 					} else {
-						return ("Le compte n'est pas valide");
+						return ("Le compte n'est pas actif!<br/>Clique sur 'Forget Password or Account not 
+								Active'<br/>pour obtenir un mail avec un nouveau lien d'activation! ");
 					}
 				} catch (PDOexception $e) {
 					print "Erreur : " . $e->getMessage() . "";
@@ -63,10 +67,16 @@ class User extends Model {
 	}
 
 
-	// Enregistre un nouvel user dans la bdd + send mail de confirmation
+	/**
+	 * Enregistre un nouvel user dans la bdd + send mail de confirmation
+	 * @param $login string le login user.
+	 * @param $email string l'email user.
+	 * @param $passwd string le password user (recu en parametre deja hash).
+	 * @return bool|string return true si tout c'est bien passe, False pour
+	 * le contraire, ou un message d'erreur.
+	 */
 	public function addUser($login, $email, $passwd) {
 		$cle = uniqid('', true);
-
 		if (preg_match('/^[a-zA-Z0-9_]{3,16}$/', $login)){
 			$query = $this->db->query("SELECT COUNT(*) FROM users
 									WHERE login='".$login."'")->fetch();
@@ -99,6 +109,12 @@ class User extends Model {
 		}
 	}
 
+	/**
+	 * Envoie un mail au nouvel utilisateur
+	 * @param $cle string la cle de verification qui sera placer dans le mail.
+	 * @param $email l'email de l'user.
+	 * @param $login le login de l'user qui sera placer dans le mail.
+	 */
 	private function _sendMailRegister($cle, $email, $login){
 		$options = array(
 			'email' => $email,
@@ -113,6 +129,17 @@ class User extends Model {
 		$sender->confirmSubscribeMail();
 	}
 
+	/**
+	 * Verifie que le param email est valide, verifie que le user existe,
+	 * auquel cas renvoi un array contenant le login et la cle correspondant
+	 * a l'email.
+	 * Return False si l'user n'existe pas.
+	 * Return message d'erreur si l'adresse mail n'est pas valide.
+	 * @param $email string l'adresse mail a chercher dans la DB
+	 * @return array|bool|string Array contenant login et cle si tout c'est
+	 * bien passer, False si l'user n'existe pas et un message d'erreur si le
+	 * mail n'est pas valide.
+	 */
 	public function requestMail($email){
 		if (Mail::validEmail($email)){
 			$sql = "SELECT email FROM users
@@ -139,6 +166,11 @@ class User extends Model {
 		return "Veuillez renseigner une adresse mail valide";
 	}
 
+	/**
+	 * Trouve a quel user correspond l'email
+	 * @param $email string l'email a rechercher dans la DB
+	 * @return mixed return le login qui correspond a l'email
+	 */
 	public function getLoginByEmail($email){
 		try{
 			$query = $this->db->prepare("SELECT login FROM users WHERE email=?");
@@ -152,6 +184,11 @@ class User extends Model {
 		}
 	}
 
+	/**
+	 * Return la cle user de par son email
+	 * @param $email string l'email a chercher dans la bdd
+	 * @return mixed return la cle dans la DB
+	 */
 	public function getCleByEmail($email){
 		try{
 			$query = $this->db->prepare("SELECT cle FROM users WHERE email=?");
@@ -165,7 +202,12 @@ class User extends Model {
 		}
 	}
 
-//	Check si le login et la cle correspondent dans la bdd
+	/**
+	 * Check si le login et la cle correspondent dans la bdd
+	 * @param $login string le nom de l'user a update
+	 * @param $cle string la cle a verifier
+	 * @return bool return TRUE si trouve dans la DB, FALSE autrement.
+	 */
 	public function checkValueOfGetForValidation($login, $cle){
 		$sql = "SELECT cle FROM users
 							WHERE login=?";
@@ -191,7 +233,10 @@ class User extends Model {
 			}
 	}
 
-	//	Change la cle user
+	/**
+	 * Change la cle user
+	 * @param $log string le nom de l'user a mettre actif
+	 */
 	public function changeKeyUser($log){
 		$newcle = uniqid('', true);
 		$sql = "UPDATE users SET cle=? WHERE login=?";
@@ -205,19 +250,11 @@ class User extends Model {
 		}
 	}
 
-	//	Change le ststus user (actif 1 ou 0)
+	/**
+	 * Change l'etat de l'user a actif
+	 * @param $log string le nom de l'user a mettre actif
+	 */
 	public function changeActifUser($log){
-//		$sql = "SELECT actif FROM users WHERE login=?";
-//		try{
-//			$query = $this->db->prepare($sql);
-//			$d = array($log);
-//			$query->execute($d);
-//			$row = $query->fetch();
-//		}catch (PDOexception $e){
-//			print "Erreur : ".$e->getMessage()."";
-//			die();
-//		}
-//		$actif = ($row[0] == 1) ? 0 : 1;
 		$actif = 1;
 		$sql = "UPDATE users SET actif=? WHERE login=?";
 		try{
@@ -230,13 +267,39 @@ class User extends Model {
 		}
 	}
 
-	//	Change la cle user
+	/**
+	 * Change la cle user
+	 * @param $log string le nom de l'user a update
+	 * @param $newPasswd string le nouveau password a update
+	 */
 	public function changePasswdUser($log, $newPasswd){
 		$sql = "UPDATE users SET password=? WHERE login=?";
 		try{
 			$query = $this->db->prepare($sql);
 			$d = array($newPasswd, $log);
 			$query->execute($d);
+		}catch (PDOexception $e){
+			print "Erreur : ".$e->getMessage()."";
+			die();
+		}
+	}
+
+	/**
+	 * Check si User a valider son compte
+	 * @param $login string le login a check
+	 * @return bool true si compte valide, false autrement.
+	 */
+	public function checkIfUserActif($login){
+		$sql = "SELECT actif FROM users WHERE login=?";
+		try{
+			$query = $this->db->prepare($sql);
+			$d = array($login);
+			$query->execute($d);
+			if (($query->rowCount()) == 1){
+				return TRUE;
+			}else {
+				return FALSE;
+			}
 		}catch (PDOexception $e){
 			print "Erreur : ".$e->getMessage()."";
 			die();

@@ -6,7 +6,7 @@ form input{
 	color: $color_input_text;
 	text-align: center;
 	width: 57%;
-	font-size: 1vw;
+	font-size: 1rem;
 	border: solid 1px darken($color_input_back, 5);
 	@include border-radius(5px);
 	@include background-image( linear-gradient(top, $color_input_back, darken($color_input_back, 5)));

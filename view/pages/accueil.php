@@ -20,7 +20,7 @@
 	</p>
 </form>
     <p class="forgetPass">
-        <a class="forgetPass" href="forgetId/">Forget Password ?</a>
+        <a class="forgetPass" href="forgetId/">Forget Password or Account not Active ?</a>
     </p>
 <hr>
 <a class="registered" href="register/">Not yet registered ?</a>
