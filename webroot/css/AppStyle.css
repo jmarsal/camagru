@@ -1,3 +1,11 @@
 /* line 5, ../sass/AppStyle.scss */
 body {
   background-color: #5e6c78; }
+
+/* line 9, ../sass/AppStyle.scss */
+.booth {
+  width: 700px;
+  height: 600px;
+  background: #ccc;
+  border: 10px solid #ddd;
+  margin: 0px auto; }

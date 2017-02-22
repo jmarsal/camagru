@@ -5,23 +5,60 @@ class User extends Model {
 
 	// check si dans la bdd et envoie vers l'app si existant...
 	//	return message d'erreur si probleme
-	public function checkLogin($login, $passwd){
-		$query = $this->db->query("SELECT COUNT(*) FROM users 
-								WHERE login='".$login."' 
-								AND password='".$passwd."'")->fetch();
-		if ($query['COUNT(*)'] == 1){
-			$_SESSION['login'] = $login;
-			$_SESSION['loged'] = 1;
-			return (TRUE);
-		}
-		else{
-			$query = $this->db->query("SELECT COUNT(*) FROM users 
-									WHERE login='".$login."'")->fetch();
-			if ($query['COUNT(*)'] == 1){
-				return ("Wrong Password");
-			}else{
-				return ('Le Login n\'existe pas !');
+	/**
+	 * @param $login
+	 * @param $passwd
+	 * @return string
+	 */
+	public function checkLogin($login, $passwd)
+	{
+		$sql = "SELECT COUNT(*) FROM users
+							WHERE login=? AND password=?";
+		try {
+			$query = $this->db->prepare($sql);
+			$d = array($login, $passwd);
+			$query->execute($d);
+			$row = $query->fetch();
+			if ($row['COUNT(*)'] == 1) {
+				$sql = "SELECT actif FROM users
+								WHERE login=?";
+				try {
+					$query = $this->db->prepare($sql);
+					$d = array($login);
+					$query->execute($d);
+					$row = $query->fetch();
+					if ($row[0] == 1) {
+						$_SESSION['login'] = $login;
+						$_SESSION['loged'] = 1;
+						return (TRUE);
+					} else {
+						return ("Le compte n'est pas valide");
+					}
+				} catch (PDOexception $e) {
+					print "Erreur : " . $e->getMessage() . "";
+					die();
+				}
+			} else{
+				$sql = "SELECT COUNT(*) FROM users
+							WHERE login=?";
+				try {
+					$query = $this->db->prepare($sql);
+					$d = array($login);
+					$query->execute($d);
+					$row = $query->fetch();
+					if ($row['COUNT(*)'] == 1) {
+						return ("Wrong Password");
+					}else {
+						return ('Le Login n\'existe pas !');
+					}
+				} catch (PDOexception $e) {
+						print "Erreur : " . $e->getMessage() . "";
+						die();
+					}
 			}
+		} catch (PDOexception $e) {
+			print "Erreur : " . $e->getMessage() . "";
+			die();
 		}
 	}
 

@@ -1,18 +1,15 @@
 @import 'compass';
-
-$color_back: snow;
-$color_text: #006796;
+@import "colors";
 
 
 form input{
-	background-color: $color_back;
-	color: $color_text;
+	color: $color_input_text;
 	text-align: center;
 	width: 57%;
-	font-size: 1.5vw;
-	border: solid 1px darken($color_back, 5);
+	font-size: 2vw;
+	border: solid 1px darken($color_input_back, 5);
 	@include border-radius(5px);
-	@include background-image( linear-gradient(top, $color_back, darken($color_back, 5)));
+	@include background-image( linear-gradient(top, $color_input_back, darken($color_input_back, 5)));
 }
 
 .popup{
@@ -115,7 +112,7 @@ form input{
 
 .connect{
 	font-size: 2vw;
-	color: $color_text;
+	color: $color_input_text;
 	display: block;
 	text-decoration: none;
 }
@@ -126,7 +123,7 @@ form input{
 
 .a-connect{
 	font-size: 2vw;
-	color: $color_text;
+	color: $color_button_hover;
 }
 
 .logo-pop{

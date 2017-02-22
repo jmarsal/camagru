@@ -3,7 +3,6 @@
   <component name="CompassSettings">
     <option name="compassConfigPath" value="~/cursus_42/workspace/camagru/config.rb" />
     <option name="compassExecutableFilePath" value="~/.gem/gems/compass-1.0.3/bin/compass" />
-    <option name="compassSupportEnabled" value="true" />
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
@@ -19,6 +18,5 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" name="compass-library" level="project" />
   </component>
 </module>

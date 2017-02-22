@@ -1,0 +1,25 @@
+@import 'compass';
+@import "colors";
+
+html {
+  margin:0;
+  padding: 0;
+  background: url(../images/background/wallpaper_06.png) no-repeat center fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  font-size: 2vw;
+}
+
+body {
+  height: 100%;
+  font-family: 'Cabin Sketch', cursive;
+  color: $color_text;
+  font-size: 2.5vw;
+}
+
+hr{
+  color: $hrColor;
+  background-color: $hrColor;
+  border: none;
+  height: 0.2vw;
+}

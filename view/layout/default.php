@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title><?php echo isset($title_for_layout) ? $title_for_layout : 'Camagru';?>
 	</title>
-	<link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'style.css';?> >
+	<link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'base.css';?> >
 	</head>
 	<body>
 		<div class="topbar">

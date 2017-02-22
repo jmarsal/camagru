@@ -6,7 +6,6 @@ define('ROOT', dirname(WEBROOT));
 define('CORE', ROOT.DS.'core');
 define('CONFIG', ROOT.DS.'model'.DS.'config');
 define('BASE_URL', dirname($_SERVER['SCRIPT_NAME']));
-define('CSS_DEFAULT', BASE_URL.DS.'webroot'.DS.'css'.DS.'style.css');
 
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
