@@ -25,7 +25,7 @@ class ForgetIdController extends Controller
 		if (isset($_ENV['email']) && isset($_ENV['login']) &&
 			!empty($_ENV['email']) && !empty($_ENV['login'])){
 			?><script language="javascript" type="text/javascript">
-                var compte = 5;
+                var compte = 3;
                 function decompte()
                 {
                     if(compte <= 1) {
@@ -73,14 +73,9 @@ class ForgetIdController extends Controller
 			    if ($options !== "Veuillez renseigner une adresse mail valide"){
 //				Ne doit afficher la popup que si les champs sont charges...
 					$this->popup = str_replace('^^email^^', $this->email,
-						str_replace
-						('^^login^^', $this->login,
-							str_replace
-							('^^logo^^',$linkImg,
-								file_get_contents
-								(ROOT.DS.'view'.DS
-									.'forgetId'.DS.'pages'.DS.'popupForgetId.html')
-							)));
+						            str_replace('^^login^^', $this->login,
+							        str_replace('^^logo^^',$linkImg,
+								file_get_contents(ROOT.DS.'view'.DS.'forgetId'.DS.'pages'.DS.'popupForgetId.html'))));
 					if (isset($this->email) && isset($this->login) &&
 						!empty($this->email) && !empty($this->login)){
 						$_ENV['login'] = $this->login;

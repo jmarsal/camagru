@@ -32,10 +32,12 @@
 	</p>
 </form>
 <?php
-    if (!empty($this->mess_error)){
+    if (isset($this->mess_error) && !empty($this->mess_error) && $this->mess_error != 1){
 	    echo '<p class="form_error">'.$this->mess_error.'</p>';
     }
-    echo $this->popup;
+    if (isset($_ENV['popup']) && $_ENV['popup'] = 1){
+        echo $this->popup;
+    }
 ?>
 <hr>
 <p class='a-connect'>Vous avez un compte ?</p>

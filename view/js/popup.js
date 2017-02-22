@@ -6,7 +6,6 @@ function showPopup(){
     document.getElementById("popup").style.display = "block";
     document.getElementById("overlay").style.display = "block";
 }
-showPopup();
 
 function hidePopup(){
     document.getElementById("popup").style.display = "none";

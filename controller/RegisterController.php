@@ -23,7 +23,6 @@ class RegisterController extends Controller
 
 	//			Check le formulaire de la page register
 	public function checkFormRegister(){
-	    $linkImg = BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS.'photo-camera.png';
 
 		if ($_POST['submit'] === 'Inscription'){
 			if ($this->_getFormRegister()) {
@@ -40,13 +39,9 @@ class RegisterController extends Controller
 					if (($this->mess_error = $this->User->addUser($this->login,
                         $this->email, $this->hashPasswd)) === TRUE){
 						$this->popup = str_replace('^^email^^', $this->email,
-                        str_replace
-                        ('^^login^^', $this->login,
-                        str_replace
-						('^^logo^^',$linkImg,
-                        file_get_contents
-                        (ROOT.DS.'view'.DS
-                            .'register'.DS.'pages'.DS.'popupRegister.html'))));
+                        str_replace('^^login^^', $this->login,
+                        file_get_contents(ROOT.DS.'view'.DS .'register'.DS.'pages'.DS.'popupRegister.html')));
+						$_ENV['popup'] = 1;
                     }
 				}
 			}

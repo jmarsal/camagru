@@ -106,21 +106,21 @@ body {
   height: 100%;
   font-family: 'Cabin Sketch', cursive;
   color: #f3f3f3;
-  font-size: 2.5vw; }
+  font-size: 1vw; }
 
 /* line 20, ../sass/base.scss */
 hr {
   color: #F39237;
   background-color: #F39237;
   border: none;
-  height: 0.2vw; }
+  height: 0.1vw; }
 
 /* line 5, ../sass/form.scss */
 form input {
   color: #006796;
   text-align: center;
   width: 57%;
-  font-size: 2vw;
+  font-size: 1vw;
   border: solid 1px rgba(202, 82, 4, 0.14);
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -134,19 +134,21 @@ form input {
 
 /* line 15, ../sass/form.scss */
 .popup {
-  display: none;
-  -moz-box-shadow: 0px 0px 10px #952e2e;
-  -webkit-box-shadow: 0px 0px 10px #952e2e;
-  box-shadow: 0px 0px 10px #952e2e;
+  display: block;
+  -moz-box-shadow: 0px 0px 10px #7f3403;
+  -webkit-box-shadow: 0px 0px 10px #7f3403;
+  box-shadow: 0px 0px 10px #7f3403;
   position: absolute;
-  background: snow;
+  background: #5e6c78;
+  width: 98%;
+  height: 115%;
   padding: 10px;
-  left: 20px;
-  top: 20px;
   right: 20px;
-  z-index: 1; }
+  z-index: 1;
+  left: 0%;
+  top: 0%; }
 
-/* line 27, ../sass/form.scss */
+/* line 29, ../sass/form.scss */
 .popup .overlay {
   position: absolute;
   display: none;
@@ -158,60 +160,54 @@ form input {
   z-index: 0;
   opacity: .5; }
 
-/* line 39, ../sass/form.scss */
+/* line 41, ../sass/form.scss */
 .popup .waiting {
   padding-bottom: 15px; }
 
-/* line 43, ../sass/form.scss */
+/* line 45, ../sass/form.scss */
 .popup .login {
-  color: indianred;
+  font-family: 'Raleway', cursive;
+  font-size: 1.3vw;
+  color: #e35c05;
   padding-bottom: 55px; }
 
-/* line 48, ../sass/form.scss */
-.popup, .mail_confirm, .text {
-  font-family: 'Raleway', cursive;
+/* line 52, ../sass/form.scss */
+.popup .text {
+  font-family: 'Cabin Sketch', cursive;
+  color: #f3f3f3;
   font-size: 1.5vw; }
 
-/* line 53, ../sass/form.scss */
-.popup .img_logo {
-  left: 15%;
-  position: absolute;
-  width: 8%;
-  top: 48.4%; }
-
-/* line 60, ../sass/form.scss */
+/* line 58, ../sass/form.scss */
 .popup .mail {
-  color: indianred;
+  font-family: 'Raleway', cursive;
+  font-size: 1.3vw;
+  color: #e35c05;
   padding-top: 5%;
-  padding-bottom: 98%; }
+  padding-bottom: 10%; }
 
 /* line 66, ../sass/form.scss */
 .popup .mail_reinit {
-  color: indianred;
+  color: #e35c05;
   padding-top: 5%;
   padding-bottom: 20%; }
 
 /* line 72, ../sass/form.scss */
+.popup .mail_reinit2 {
+  font-family: 'Raleway', cursive;
+  font-size: 1.3vw;
+  color: #e35c05;
+  padding-top: 5%;
+  padding-bottom: 11%; }
+
+/* line 80, ../sass/form.scss */
 .popup .text {
   padding-bottom: 10%; }
 
-/* line 76, ../sass/form.scss */
+/* line 84, ../sass/form.scss */
 .popup .buttons-reinit {
   display: inline-block; }
 
-/* line 79, ../sass/form.scss */
-.button-cancel {
-  position: relative;
-  display: inline-block;
-  left: -15%; }
-
-/* line 85, ../sass/form.scss */
-.button-confirm {
-  position: relative;
-  display: inline-block;
-  right: -15%; }
-
-/* line 91, ../sass/form.scss */
+/* line 88, ../sass/form.scss */
 .form_error {
   background: indianred;
   color: snow;
@@ -220,7 +216,7 @@ form input {
   font-family: 'Raleway', cursive;
   font-size: 1.5vw; }
 
-/* line 100, ../sass/form.scss */
+/* line 97, ../sass/form.scss */
 .form_error2 {
   display: block;
   position: relative;
@@ -233,46 +229,48 @@ form input {
   font-family: 'Raleway', cursive;
   font-size: 1.5vw; }
 
-/* line 113, ../sass/form.scss */
+/* line 110, ../sass/form.scss */
 .connect {
   font-size: 2vw;
   color: #006796;
   display: block;
   text-decoration: none; }
 
-/* line 120, ../sass/form.scss */
+/* line 117, ../sass/form.scss */
 .connect:hover {
   color: indianred; }
 
-/* line 124, ../sass/form.scss */
+/* line 121, ../sass/form.scss */
 .a-connect {
   font-size: 2vw;
   color: #e35c05; }
 
-/* line 129, ../sass/form.scss */
+/* line 126, ../sass/form.scss */
 .logo-pop {
+  margin: 0% auto;
   padding-top: 5px;
   display: block;
   position: relative;
-  width: 100%;
-  margin-bottom: 6%; }
+  width: 80%;
+  margin-bottom: 3%; }
 
 /* line 4, ../sass/logo.scss */
 .logo {
   padding-top: 5px;
   display: block;
   position: relative;
-  width: 100%;
+  width: 80%;
   margin-bottom: 6%;
-  color: #f3f3f3; }
+  color: #f3f3f3;
+  left: 10%; }
 
-/* line 13, ../sass/logo.scss */
+/* line 14, ../sass/logo.scss */
 .logo h1 {
   position: relative;
   width: 100%;
-  font-size: 1.5em; }
+  font-size: 2.5em; }
 
-/* line 19, ../sass/logo.scss */
+/* line 20, ../sass/logo.scss */
 .img_logo_Principal {
   border: 0;
   width: 10%; }
@@ -286,19 +284,20 @@ form input {
 /* line 16, ../sass/accueilStyle.scss */
 .accueil_form {
   position: relative;
-  margin-left: 24%;
-  width: 65%;
-  max-width: 55%;
+  margin: 0 auto;
+  width: 48%;
+  max-width: 48%;
+  min-width: 700px;
   background-color: rgba(94, 108, 120, 0.9);
   text-align: center;
   box-shadow: 0px 0px 1px #00223e; }
 
-/* line 26, ../sass/accueilStyle.scss */
+/* line 27, ../sass/accueilStyle.scss */
 .containerForm {
   margin-left: 10%;
   max-width: 80%; }
 
-/* line 31, ../sass/accueilStyle.scss */
+/* line 32, ../sass/accueilStyle.scss */
 textarea, select {
   padding: 3px;
   border: 1px solid #222222;
@@ -308,35 +307,35 @@ textarea, select {
   box-shadow: 1px 0px 5px #222222 inset;
   font-family: 'Cairo', sans-serif; }
 
-/* line 41, ../sass/accueilStyle.scss */
+/* line 42, ../sass/accueilStyle.scss */
 .paswrd_accueil_but {
   margin-top: 15px; }
 
-/* line 45, ../sass/accueilStyle.scss */
+/* line 46, ../sass/accueilStyle.scss */
 .forgetPass a {
   color: #f3f3f3;
   display: block;
   text-decoration: none;
   font-size: 1.2vw; }
 
-/* line 52, ../sass/accueilStyle.scss */
+/* line 53, ../sass/accueilStyle.scss */
 .forgetPass:hover {
   color: #e35c05; }
 
-/* line 56, ../sass/accueilStyle.scss */
+/* line 57, ../sass/accueilStyle.scss */
 .registered {
   color: #f3f3f3;
   display: block;
   text-decoration: none; }
 
-/* line 62, ../sass/accueilStyle.scss */
+/* line 63, ../sass/accueilStyle.scss */
 .registered:hover {
   color: #e35c05; }
 
-/* line 66, ../sass/accueilStyle.scss */
+/* line 67, ../sass/accueilStyle.scss */
 .footer {
   height: 45px; }
 
-/* line 70, ../sass/accueilStyle.scss */
+/* line 71, ../sass/accueilStyle.scss */
 .forget_but {
   font-size: 1.5vw; }

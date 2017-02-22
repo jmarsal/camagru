@@ -15,9 +15,10 @@
 
 .accueil_form{
 	position: relative;
-	margin-left: 24%;
-    width: 65%;
-	max-width: 55%;
+	margin: 0 auto;
+    width: 48%;
+	max-width: 48%;
+    min-width: 700px;
 	background-color: rgba($color_back, 0.9);
 	text-align: center;
 	box-shadow: 0px 0px 1px rgb(0, 34, 62);

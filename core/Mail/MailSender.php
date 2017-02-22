@@ -87,37 +87,29 @@ class MailSender
 		if (empty($this->subject)){
 			$this->subject = 'Inscription a CAMAGRU';
 		}
-		$_link = $this->base_url . 'register/validation?log=' .
-			urlencode($this->login) . '&cle=' . urlencode($this->_cle);
-		$this->_msg .= str_replace('^^title^^', $this->title, str_replace('^^login^^',
-			ucfirst
-			($this->login) ,
-			str_replace('^^link^^',
-			$_link, file_get_contents
-		("core/Mail/template/subscribeMail.html"))));
+		$_link = $this->base_url . 'register/validation?log=' . urlencode($this->login) . '&cle=' . urlencode($this->_cle);
+		$this->_msg .= str_replace('^^title^^', $this->title,
+                        str_replace('^^login^^', ucfirst($this->login) ,
+			            str_replace('^^link^^', $_link, file_get_contents("core/Mail/template/subscribeMail.html"))));
 
 		$this->_msg .= "\r\n\r\n";
 		$this->SendMail();
 	}
 
 	public function reinitPassMail(){
-		if (empty($this->title)){
-			$this->title = 'Reinitialisation <br/> <br/>de Mot de Passe ...';
+        if (empty($this->title)){
+			$this->title = '<p>Reinitialisation</p><p>de Mot de Passe ...</p>';
 		}
-		if (empty($this->from)){
-			$this->from = 'docteur@camagru.com';
+        if (empty($this->from)){
+            $this->from = 'inscription@camagru.com';
 		}
-		if (empty($this->subject)){
-			$this->subject = 'Docteur Camagru reinitialisation bonjour !';
+        if (empty($this->subject)){
+            $this->subject = 'Reinitialisation de mot de passe';
 		}
-		$_link = $this->base_url . 'forgetId/reinit?log=' .
-			urlencode($this->login) . '&cle=' . urlencode($this->_cle);
-		$this->_msg .= str_replace('^^title^^', $this->title, str_replace('^^login^^',
-			ucfirst
-			($this->login) ,
-			str_replace('^^link^^',
-				$_link, file_get_contents
-				("core/Mail/template/reinitPassMail.html"))));
+		$_link = $this->base_url . 'forgetId/reinit?log=' . urlencode($this->login) . '&cle=' . urlencode($this->_cle);
+		$this->_msg .= str_replace('^^title^^', $this->title,
+                        str_replace('^^login^^', ucfirst($this->login) ,
+			            str_replace('^^link^^', $_link, file_get_contents("core/Mail/template/reinitPassMail.html"))));
 
 		$this->_msg .= "\r\n\r\n";
 		$this->SendMail();
@@ -126,7 +118,7 @@ class MailSender
 	public function SendMail(){
 
 		$destinataire = $this->email;
-		$expediteur = $this->from;
+		$expediteur = 'inscription@camagru.com';
 		$reponse = $expediteur;
 		$reply = "Reply-to: $reponse\r\nFrom: $expediteur\r\n" . $this->_entete;
 
