@@ -101,7 +101,7 @@ class MailSender
 			$this->title = '<p>Reinitialisation</p><p>de Mot de Passe ...</p>';
 		}
         if (empty($this->from)){
-            $this->from = 'inscription@camagru.com';
+            $this->from = 'camagru@camagru.fr';
 		}
         if (empty($this->subject)){
             $this->subject = 'Reinitialisation de mot de passe';

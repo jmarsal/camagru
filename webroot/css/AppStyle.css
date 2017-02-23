@@ -9,3 +9,7 @@ body {
   background: #ccc;
   border: 10px solid #ddd;
   margin: 0px auto; }
+
+/* line 17, ../sass/AppStyle.scss */
+video {
+  transform: scaleX(-1); }

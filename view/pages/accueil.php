@@ -27,4 +27,4 @@
 <?php if (!empty($this->mess_error)){
     echo '<p class="form_error">'.$this->mess_error.'</p>';
 } ?>
-<div class="footer"></div>
+

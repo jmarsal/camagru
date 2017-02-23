@@ -30,7 +30,7 @@ if (!empty($this->mess_error)){
 echo $this->popup;
 ?>
     <hr>
-    <p class="registered">
+    <p class="back-accueil">
         <a class="registered" href="../">Retour accueil</a>
     </p>
     <a class="registered" href="../register/">Not yet registered ?</a>

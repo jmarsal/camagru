@@ -15,11 +15,16 @@
 		<div class="topbar">
 			<div class="topbar-inner">
 			    <div class="container">
-                    <form action="#" method="POST">
-                        <h3><input class="button2" type="submit" name="logout" value="Logout"></h3>
-                        <h3><input class="button2" type="submit" name="Galerie" value="Galerie Photos"></h3>
-                    </form>
-			    </div>
+                    <div id="menu">
+                        <ul id="onglets">
+                            <li class="active"><a href="<?php echo 'logout'; ?>"> Accueil </a></li>
+                            <li><a href=""> Application </a></li>
+                            <li><a href=""> Galerie </a></li>
+                            <li><a href=""> Mon compte </a></li>
+                            <li><a href="<?php echo 'logout'; ?>"> Delog </a></li>
+                        </ul>
+                    </div>
+                </div>
 			</div>
 		</div>
     	<div class="container">

@@ -1,4 +1,7 @@
 <?php
+if (!isset($_SESSION)){
+    session_start();
+}
 class User extends Model {
 
 	public $table = 'users';
@@ -33,6 +36,7 @@ class User extends Model {
 					if ($row[0] == 1) {
 						$_SESSION['login'] = $login;
 						$_SESSION['loged'] = 1;
+                        setcookie('camagru-log', $login, time() + 3600);
 						return (TRUE);
 					} else {
 						return ("Le compte n'est pas actif!<br/>Clique sur 'Forget Password or Account not 

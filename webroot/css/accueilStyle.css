@@ -325,18 +325,29 @@ textarea, select {
 
 /* line 58, ../sass/accueilStyle.scss */
 .registered {
+  padding-bottom: 5%;
   color: #f3f3f3;
   display: block;
   text-decoration: none; }
 
-/* line 64, ../sass/accueilStyle.scss */
+/* line 65, ../sass/accueilStyle.scss */
 .registered:hover {
   color: #e35c05; }
 
-/* line 68, ../sass/accueilStyle.scss */
+/* line 69, ../sass/accueilStyle.scss */
+.back-accueil {
+  color: #f3f3f3;
+  display: block;
+  text-decoration: none; }
+
+/* line 76, ../sass/accueilStyle.scss */
+.back-accueil:hover {
+  color: #e35c05; }
+
+/* line 80, ../sass/accueilStyle.scss */
 .footer {
   height: 45px; }
 
-/* line 72, ../sass/accueilStyle.scss */
+/* line 84, ../sass/accueilStyle.scss */
 .forget_but {
   font-size: 1.5vw; }

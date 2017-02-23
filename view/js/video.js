@@ -52,7 +52,10 @@
     function takepicture() {
         canvas.width = width;
         canvas.height = height;
-        canvas.getContext('2d').drawImage(video, 0, 0, width, height);
+        var ctx =canvas.getContext('2d');
+        ctx.translate(width,  0);
+        ctx.scale(-1, 1);
+        ctx.drawImage(video, 0, 0, width, height);
         var data = canvas.toDataURL('image/png');
         photo.setAttribute('src', data);
     }

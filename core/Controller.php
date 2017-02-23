@@ -1,4 +1,7 @@
 <?php
+if (!isset($_SESSION)){
+    session_start();
+}
 abstract class Controller {
 
 	public	$request;
@@ -66,22 +69,22 @@ abstract class Controller {
 	 * redirige
 	 * @param $newAction string La methode que l'on cherche a atteindre
 	 */
-	public function redirection($newRequest, $newAction){
+	public function redirection($newRequest=null, $newAction=null){
 		ob_get_clean();
-		$this->request->url = ucfirst($newRequest.DS.$newAction);
-		$this->request->controller = $newRequest;
-		$this->request->action = $newAction;
-		$name = ucfirst($this->request->controller).'Controller';
-		$file = ROOT.DS.'controller'.DS.$name.'.php';
-		if (!file_exists($file))
-		{
-			throw new InvalidArgumentException("Le controller ".DS.$name. " n'existe pas, retour vers index", 42);
-			$index = new ErrorController();
-		}
-		require $file;
-		$redirect = new $name($this->request);
-		$redirect->$newAction();
+		if ($newRequest && $newAction){
+		    header('Location: '.BASE_URL.DS.ucfirst($newRequest).DS.$newAction);
+        } else {
+            header('Location: '.BASE_URL.DS);
+        }
 		exit();
 	}
+
+    public function logout(){
+        if (isset($_SESSION)){
+            $_SESSION = array();
+            session_destroy();
+        }
+        $this->redirection();
+    }
 }
 ?>
