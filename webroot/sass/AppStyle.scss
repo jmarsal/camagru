@@ -1,14 +1,80 @@
 @import 'compass';
+@import 'colors';
 
-$color_back: #5e6c78;
+$menu-width: 250px!default;
 
-body {
+html, body {
+  height: 100%;
+  line-height: 1.4;
+  padding: 0;
+  margin: 0;
   background-color: $color_back;
 }
 
+.post{
+  @include clearfix;
+  padding-top: 66px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.header{
+  top:0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 66px;
+  line-height: 66px;
+
+  background-color: $color_button;
+}
+
+.header__logo{
+  font-size: 25px;
+  font-weight: bold;
+  float: left;
+  padding: 0 25px;
+
+  img{
+    width: 100%;
+  }
+}
+
+.menu {
+  float: left;
+
+  a {
+    padding: 0 10px;
+  }
+  a:hover{
+    color: $color_button_hover;
+  }
+}
+
+@media only screen and (max-width: 2250px) {
+  .menu{
+
+    font-size: 20px;
+    float: left;
+
+    a {
+      padding: 0 10px;
+    }
+    a:hover{
+      color: $color_button_hover;
+    }
+  }
+}
+
+@import "menuResponsive";
+
 .booth{
+  display: block;
   width: 700px;
-  height: 600px;
+  //height: 600px;
   background: #ccc;
   border: 10px solid #ddd;
   margin: 0px auto;
@@ -17,3 +83,15 @@ body {
 video{
   transform: scaleX(-1);
 }
+
+@media only screen and (max-width: 750px) {
+  .booth{
+    //margin-top:350px;
+  }
+  video, .booth {
+    width: 100%;
+  }
+}
+
+
+
