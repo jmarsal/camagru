@@ -19,11 +19,7 @@
     -webkit-transform: translateX(0px);
     transform: translateX(0px); }
 
-  /* line 22, ../sass/menuResponsive.scss */
-  .bienvenue {
-    text-align: center; }
-
-  /* line 25, ../sass/menuResponsive.scss */
+  /* line 21, ../sass/menuResponsive.scss */
   .post {
     padding-top: 0;
     overflow-y: scroll;
@@ -34,11 +30,11 @@
     right: 0;
     -webkit-overflow-scrolling: touch; }
 
-  /* line 35, ../sass/menuResponsive.scss */
+  /* line 31, ../sass/menuResponsive.scss */
   header {
     position: static; }
 
-  /* line 38, ../sass/menuResponsive.scss */
+  /* line 34, ../sass/menuResponsive.scss */
   .header__icon {
     position: relative;
     display: block;
@@ -46,7 +42,7 @@
     width: 50px;
     height: 66px;
     cursor: pointer; }
-    /* line 47, ../sass/menuResponsive.scss */
+    /* line 43, ../sass/menuResponsive.scss */
     .header__icon:after {
       content: '';
       position: absolute;
@@ -59,7 +55,7 @@
       -webkit-box-shadow: 0 10px 0 1px #FFF, 0 16px 0 1px #FFF, 0 22px 0 1px #FFF;
       box-shadow: 0 10px 0 1px #FFF, 0 16px 0 1px #FFF, 0 22px 0 1px #FFF; }
 
-  /* line 59, ../sass/menuResponsive.scss */
+  /* line 55, ../sass/menuResponsive.scss */
   .menu {
     position: absolute;
     left: 0;
@@ -72,7 +68,7 @@
     -ms-transform: translateX(-250px);
     -webkit-transform: translateX(-250px);
     transform: translateX(-250px); }
-    /* line 69, ../sass/menuResponsive.scss */
+    /* line 65, ../sass/menuResponsive.scss */
     .menu a {
       display: block;
       background-color: #f2851f;
@@ -81,13 +77,13 @@
       line-height: 50px;
       border-bottom: 1px solid #F39237; }
 
-  /* line 80, ../sass/menuResponsive.scss */
+  /* line 76, ../sass/menuResponsive.scss */
   .width--sidebar .site-pusher {
     -moz-transform: translateX(250px);
     -ms-transform: translateX(250px);
     -webkit-transform: translateX(250px);
     transform: translateX(250px); }
-  /* line 83, ../sass/menuResponsive.scss */
+  /* line 79, ../sass/menuResponsive.scss */
   .width--sidebar .site-cache {
     position: absolute;
     left: 0;

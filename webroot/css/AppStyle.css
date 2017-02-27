@@ -3,21 +3,20 @@ html, body {
   height: 100%;
   line-height: 1.4;
   padding: 0;
-  margin: 0;
-  background-color: #5e6c78; }
+  margin: 0; }
 
-/* line 14, ../sass/AppStyle.scss */
+/* line 13, ../sass/AppStyle.scss */
 .post {
   overflow: hidden;
   *zoom: 1;
   padding-top: 66px; }
 
-/* line 19, ../sass/AppStyle.scss */
+/* line 18, ../sass/AppStyle.scss */
 a {
   text-decoration: none;
   color: inherit; }
 
-/* line 24, ../sass/AppStyle.scss */
+/* line 23, ../sass/AppStyle.scss */
 .header {
   top: 0;
   position: fixed;
@@ -25,37 +24,38 @@ a {
   right: 0;
   height: 66px;
   line-height: 66px;
+  z-index: 10;
   background-color: #F39237; }
 
-/* line 35, ../sass/AppStyle.scss */
+/* line 34, ../sass/AppStyle.scss */
 .header__logo {
   font-size: 25px;
   font-weight: bold;
   float: left;
   padding: 0 25px; }
-  /* line 41, ../sass/AppStyle.scss */
+  /* line 40, ../sass/AppStyle.scss */
   .header__logo img {
     width: 100%; }
 
-/* line 46, ../sass/AppStyle.scss */
+/* line 45, ../sass/AppStyle.scss */
 .menu {
   float: left; }
-  /* line 49, ../sass/AppStyle.scss */
+  /* line 48, ../sass/AppStyle.scss */
   .menu a {
     padding: 0 10px; }
-  /* line 52, ../sass/AppStyle.scss */
+  /* line 51, ../sass/AppStyle.scss */
   .menu a:hover {
     color: #e35c05; }
 
 @media only screen and (max-width: 2250px) {
-  /* line 58, ../sass/AppStyle.scss */
+  /* line 57, ../sass/AppStyle.scss */
   .menu {
     font-size: 20px;
     float: left; }
-    /* line 63, ../sass/AppStyle.scss */
+    /* line 62, ../sass/AppStyle.scss */
     .menu a {
       padding: 0 10px; }
-    /* line 66, ../sass/AppStyle.scss */
+    /* line 65, ../sass/AppStyle.scss */
     .menu a:hover {
       color: #e35c05; } }
 @media only screen and (max-width: 750px) {
@@ -79,11 +79,7 @@ a {
     -webkit-transform: translateX(0px);
     transform: translateX(0px); }
 
-  /* line 22, ../sass/menuResponsive.scss */
-  .bienvenue {
-    text-align: center; }
-
-  /* line 25, ../sass/menuResponsive.scss */
+  /* line 21, ../sass/menuResponsive.scss */
   .post {
     padding-top: 0;
     overflow-y: scroll;
@@ -94,11 +90,11 @@ a {
     right: 0;
     -webkit-overflow-scrolling: touch; }
 
-  /* line 35, ../sass/menuResponsive.scss */
+  /* line 31, ../sass/menuResponsive.scss */
   header {
     position: static; }
 
-  /* line 38, ../sass/menuResponsive.scss */
+  /* line 34, ../sass/menuResponsive.scss */
   .header__icon {
     position: relative;
     display: block;
@@ -106,7 +102,7 @@ a {
     width: 50px;
     height: 66px;
     cursor: pointer; }
-    /* line 47, ../sass/menuResponsive.scss */
+    /* line 43, ../sass/menuResponsive.scss */
     .header__icon:after {
       content: '';
       position: absolute;
@@ -119,7 +115,7 @@ a {
       -webkit-box-shadow: 0 10px 0 1px #FFF, 0 16px 0 1px #FFF, 0 22px 0 1px #FFF;
       box-shadow: 0 10px 0 1px #FFF, 0 16px 0 1px #FFF, 0 22px 0 1px #FFF; }
 
-  /* line 59, ../sass/menuResponsive.scss */
+  /* line 55, ../sass/menuResponsive.scss */
   .menu {
     position: absolute;
     left: 0;
@@ -132,7 +128,7 @@ a {
     -ms-transform: translateX(-250px);
     -webkit-transform: translateX(-250px);
     transform: translateX(-250px); }
-    /* line 69, ../sass/menuResponsive.scss */
+    /* line 65, ../sass/menuResponsive.scss */
     .menu a {
       display: block;
       background-color: #f2851f;
@@ -141,13 +137,13 @@ a {
       line-height: 50px;
       border-bottom: 1px solid #F39237; }
 
-  /* line 80, ../sass/menuResponsive.scss */
+  /* line 76, ../sass/menuResponsive.scss */
   .width--sidebar .site-pusher {
     -moz-transform: translateX(250px);
     -ms-transform: translateX(250px);
     -webkit-transform: translateX(250px);
     transform: translateX(250px); }
-  /* line 83, ../sass/menuResponsive.scss */
+  /* line 79, ../sass/menuResponsive.scss */
   .width--sidebar .site-cache {
     position: absolute;
     left: 0;
@@ -155,19 +151,27 @@ a {
     bottom: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.6); } }
-/* line 74, ../sass/AppStyle.scss */
+/* line 73, ../sass/AppStyle.scss */
 .booth {
   display: block;
   width: 700px;
-  background: #ccc;
-  border: 10px solid #ddd;
-  margin: 0px auto; }
+  background: rgba(94, 108, 120, 0.9);
+  border: 10px solid #535f6a;
+  margin: 0px auto;
+  z-index: 5; }
 
-/* line 83, ../sass/AppStyle.scss */
+/* line 84, ../sass/AppStyle.scss */
 video {
   transform: scaleX(-1); }
 
 @media only screen and (max-width: 750px) {
-  /* line 91, ../sass/AppStyle.scss */
+  /* line 92, ../sass/AppStyle.scss */
   video, .booth {
-    width: 100%; } }
+    width: 100%; }
+
+  /* line 95, ../sass/AppStyle.scss */
+  .bienvenue {
+    font-size: 15px; } }
+/* line 100, ../sass/AppStyle.scss */
+.bienvenue {
+  text-align: center; }

@@ -1,20 +1,60 @@
-/* line 4, ../sass/logo.scss */
-.logo {
-  padding-top: 5px;
-  display: block;
-  position: relative;
-  width: 80%;
-  margin-bottom: 6%;
-  color: #f3f3f3;
-  left: 10%; }
+/*
+Error: File to import not found or unreadable: compass.
+       Load path: /mnt/d/neard-1.0.22/neard/www/workspace/camagru/webroot/sass
+        on line 1 of sass/logo.scss
 
-/* line 14, ../sass/logo.scss */
-.logo h1 {
-  position: relative;
-  width: 100%;
-  font-size: 2.5em; }
+1: @import "compass";
+2: @import "colors";
+3: 
+4: .logo {
+5:   padding-top: 5px;
+6:   display: block;
 
-/* line 20, ../sass/logo.scss */
-.img_logo_Principal {
-  border: 0;
-  width: 10%; }
+Backtrace:
+sass/logo.scss:1
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/import_node.rb:45:in `import'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/import_node.rb:28:in `imported_file'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/import_node.rb:37:in `css_import?'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:313:in `visit_import'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `block in with_base'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `with_base'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `visit'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:52:in `map'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:169:in `block in visit_children'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:168:in `visit_children'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:188:in `visit_root'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:159:in `visit'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/root_node.rb:36:in `css_tree'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/engine.rb:298:in `render_with_sourcemap'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `each'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:294:in `watch'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/plugin.rb:109:in `method_missing'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/exec/sass_scss.rb:360:in `watch_or_update'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/exec/base.rb:52:in `parse'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/exec/base.rb:19:in `parse!'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/bin/sass:13:in `<top (required)>'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/bin/sass:22:in `load'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/bin/sass:22:in `<main>'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/bin/ruby_executable_hooks:15:in `eval'
+/home/jmarsal/.rvm/gems/ruby-2.4.0/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: compass.\A        Load path: /mnt/d/neard-1.0.22/neard/www/workspace/camagru/webroot/sass\A         on line 1 of sass/logo.scss\A \A 1: @import \"compass\";\A 2: @import \"colors\";\A 3: \A 4: .logo {\A 5:   padding-top: 5px;\A 6:   display: block;"; }

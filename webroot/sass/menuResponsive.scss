@@ -18,10 +18,6 @@ $menu-width: 250px!default;
     @include transition-duration(0.3s);
     @include transform(translateX(0px));
   }
-
-  .bienvenue {
-    text-align: center;
-  }
   .post{
     padding-top: 0;
     overflow-y: scroll;
