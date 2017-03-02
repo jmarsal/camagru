@@ -11,6 +11,7 @@
         <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'button_flat.css';?> />
         <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'form.css';?> />
         <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css' .DS.'AppStyle.css';?> />
+        <link rel="icon" type="image/png" href="https://www.lycee-louis-vincent.fr/images/icons/puddingcam-logo.png"/>
 	</head>
 	<body>
         <div class="site-container">

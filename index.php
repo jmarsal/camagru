@@ -9,6 +9,7 @@ define('ROOT', dirname(WEBROOT));
 define('CORE', ROOT.DS.'core');
 define('CONFIG', ROOT.DS.'model'.DS.'config');
 define('BASE_URL', dirname($_SERVER['SCRIPT_NAME']));
+define('REPO_PHOTO', './photo-users/');
 
 error_reporting(E_ALL);
 ini_set('display_errors', '1');

@@ -6,7 +6,7 @@ form input{
 	color: $color_input_text;
 	text-align: center;
 	width: 57%;
-	font-size: 1rem;
+	font-size: 1em;
 	border: solid 1px darken($color_input_back, 5);
 	@include border-radius(5px);
 	@include background-image( linear-gradient(top, $color_input_back, darken($color_input_back, 5)));
@@ -119,8 +119,8 @@ form input{
 }
 
 .a-connect{
-	font-size: 2vw;
-	color: $color_button_hover;
+  //cursor: pointer;
+  font-size: 2vw;
 }
 
 .logo-pop{

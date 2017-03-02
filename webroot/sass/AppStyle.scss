@@ -73,12 +73,14 @@ a {
 .booth{
   display: block;
   width: 700px;
-  //height: 600px;
   background: rgba($color_back, 0.9);
-  //background: #ccc;
   border: 10px solid darken($color_back, 5);
   margin: 0px auto;
   z-index: 5;
+}
+
+.img-booth, .canvas{
+  display: none;
 }
 
 video{
@@ -99,6 +101,25 @@ video{
 
 .bienvenue {
   text-align: center;
+}
+
+.take-photo{
+  margin: 0% auto;
+  padding: 0;
+  width: 40px;
+  cursor: pointer;
+}
+
+.booth_prev{
+  background: rgba(94, 108, 120, 0.9);
+  border: 10px solid #535f6a;
+  z-index: 5;
+  width: 273px;
+  height: 585px;
+  display: block;
+  right: 42px;
+  top: 134px;
+  position: absolute;
 }
 
 

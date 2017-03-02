@@ -66,3 +66,15 @@
     }, false);
 
 })();
+
+function getSrcImg() {
+    finish = document.getElementById('form-cache-photo'),
+        finish.addEventListener('click', function (ev) {
+            var photo = document.getElementById('photo');
+            var photoSrc = photo.getAttribute('src');
+            var getSrc = document.getElementById("getSrc");
+
+            getSrc.setAttribute('value', photoSrc);
+            setTimeout(document.getElementById('form-cache-photo').submit(), 40);
+        }, false);
+}

@@ -6,8 +6,6 @@ class User extends Model {
 
 	public $table = 'users';
 
-	//
-	//	return message d'erreur si probleme
 	/**
 	 * check dans la bdd si le login et le passwd match et envoie vers l'app
 	 * si existant.

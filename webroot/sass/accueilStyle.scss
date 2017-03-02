@@ -14,7 +14,7 @@
 }
 
 .accueil_form{
-    font-size: 2.2em;
+    font-size: 1em;
 	position: relative;
 	margin: 0 auto;
     width: 48%;
@@ -83,4 +83,62 @@ textarea, select {
 
 .forget_but{
 	font-size: 1.5vw;
+}
+
+@media only screen and (max-width: 1200px) {
+  .logo h1{
+    font-size: 15px;
+  }
+
+  .accueil_form{
+    font-size: 12px;
+    padding: 0;
+  }
+
+  .forgetPass a{
+    font-size: 12px;
+  }
+
+  .a-connect, .forget_but{
+    font-size: 12px;
+  }
+
+}
+
+@media only screen and (max-width: 750px) {
+
+  body{
+    margin: 0% auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .logo h1{
+    font-size: 15px;
+  }
+  .accueil_form{
+    font-size: 12px;
+    padding: 0;
+    min-width: 320px;
+    max-width: 320px;
+    width: 250px;
+    overflow: hidden;
+  }
+  .containerForm{
+    max-width: 320px;
+    width: 250px;
+    overflow: hidden;
+  }
+  .forgetPass a{
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  .a-connect, .forget_but{
+    font-size: 12px;
+  }
+
+  .button2 imput{
+    font-size: 12px;
+  }
 }

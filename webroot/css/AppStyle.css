@@ -160,18 +160,41 @@ a {
   margin: 0px auto;
   z-index: 5; }
 
-/* line 84, ../sass/AppStyle.scss */
+/* line 82, ../sass/AppStyle.scss */
+.img-booth, .canvas {
+  display: none; }
+
+/* line 86, ../sass/AppStyle.scss */
 video {
   transform: scaleX(-1); }
 
 @media only screen and (max-width: 750px) {
-  /* line 92, ../sass/AppStyle.scss */
+  /* line 94, ../sass/AppStyle.scss */
   video, .booth {
     width: 100%; }
 
-  /* line 95, ../sass/AppStyle.scss */
+  /* line 97, ../sass/AppStyle.scss */
   .bienvenue {
     font-size: 15px; } }
-/* line 100, ../sass/AppStyle.scss */
+/* line 102, ../sass/AppStyle.scss */
 .bienvenue {
   text-align: center; }
+
+/* line 106, ../sass/AppStyle.scss */
+.take-photo {
+  margin: 0% auto;
+  padding: 0;
+  width: 40px;
+  cursor: pointer; }
+
+/* line 113, ../sass/AppStyle.scss */
+.booth_prev {
+  background: rgba(94, 108, 120, 0.9);
+  border: 10px solid #535f6a;
+  z-index: 5;
+  width: 273px;
+  height: 585px;
+  display: block;
+  right: 42px;
+  top: 134px;
+  position: absolute; }
