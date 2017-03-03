@@ -4,8 +4,6 @@ if (!isset($_SESSION)){
 }
 class AppController extends Controller
 {
-//	public $content_for_layout;
-
 	public function appCamagru(){
 	    if ((isset($_SESSION['log']) && $_SESSION['log'] == 1) ||
             !empty($_COOKIE['camagru-log'])){
@@ -14,29 +12,34 @@ class AppController extends Controller
             $_SESSION['log'] = 1;
 			$this->render('appCamagru', 'app_layout');
 			$this->_getDataImg();
+			$this->_printPreview();
 		} else {
 	        $this->redirection();
         }
 	}
 
+    /**
+     * Recupere l'image et l'enregistre dans la Db
+     */
 	private function _getDataImg(){
 		if (!empty($_POST)){
-			$this->loadModel('Photo');
-			$this->Photo->createDirectoryIfNotExist();
-			list($type, $data) = explode(';', $_POST['getSrc']);
-			list(, $type) = explode('/',$type);
-			list(, $data) = explode(',', $data);
-//			if(in_array(strtolower($type), $valid_ext))
-//			{
-				$data = base64_decode($data);
-				$image_name = md5(uniqid()).'.'.$type;
-				file_put_contents( REPO_PHOTO.$image_name, $data);
-				$_SESSION['img_name'] = REPO_PHOTO.$image_name;
-				echo "Upload suceed";
-//			}
-//			else
-//				$message = "wrong extension";
+            $idUser = $this->User->getIdUser($_SESSION['login']);
+            $this->loadModel('Photo');
+			$this->Photo->createDirectoryIfNotExist(REPO_PHOTO, 0755);
+            $this->Photo->createDirectoryIfNotExist(REPO_PHOTO.DS.'min', 0755);
+			$this->Photo->savePhotoTmpToDb($idUser, $_POST['getSrc'], REPO_PHOTO);
 			$_POST['getSrc'] = "";
 		}
 	}
+
+	private function _printPreview(){
+//        $this->loadModel('Photo');
+        if (($img = $this->Photo->getPreviewImg()) !== null){
+            echo "<div class=".'prev-img'.">";
+            foreach($img as $v){
+                echo "<img src=".'"'.$v.'"'."/>";
+                echo "<br".">";
+            }
+        }
+    }
 }

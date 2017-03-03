@@ -307,6 +307,25 @@ class User extends Model {
 			die();
 		}
 	}
+
+    /**
+     * Recupere id user par le login.
+     * @param $login string login user.
+     * @return mixed return id user ou die avec erreur.
+     */
+	public function getIdUser($login){
+	    $sql = "SELECT id FROM users WHERE login=?";
+	    try{
+	        $query = $this->db->prepare($sql);
+	        $d = array($login);
+	        $query->execute(($d));
+            $row = $query->fetch();
+            return $row[0];
+        } catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+    }
 }
 
 ?>

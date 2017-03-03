@@ -70,8 +70,17 @@ a {
 
 @import "menuResponsive";
 
+.video-containter{
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+}
+
 .booth{
-  display: block;
+  //position: absolute;
+  display: inline-block;
   width: 700px;
   background: rgba($color_back, 0.9);
   border: 10px solid darken($color_back, 5);
@@ -88,9 +97,6 @@ video{
 }
 
 @media only screen and (max-width: 750px) {
-  .booth{
-    //margin-top:350px;
-  }
   video, .booth {
     width: 100%;
   }
@@ -110,16 +116,27 @@ video{
   cursor: pointer;
 }
 
-.booth_prev{
+.booth_filter{
   background: rgba(94, 108, 120, 0.9);
   border: 10px solid #535f6a;
   z-index: 5;
   width: 273px;
   height: 585px;
-  display: block;
-  right: 42px;
-  top: 134px;
-  position: absolute;
+  display: inline-block;
+  margin-left: 20%;
+  margin-right: 52px;
+}
+
+.booth_prev{
+  //position: absolute;
+  background: rgba(94, 108, 120, 0.9);
+  border: 10px solid #535f6a;
+  z-index: 5;
+  width: 273px;
+  height: 585px;
+  display: inline-block;
+  margin-left: 52px;
+  margin-right: 20%;
 }
 
 
