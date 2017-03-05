@@ -18,6 +18,16 @@ if (!isset($_SESSION)){
             </form>
         </div>
         <div class="booth_prev">
-
+            <div class="prev-img">
+                <?php
+                if (isset($_SESSION['img']) && !empty($_SESSION['img'])){
+				    foreach($_SESSION['img'] as $v){?>
+                        <img src="<?php echo $v[0];?>">
+                        <br>
+                        <?php
+				    }
+                }
+				?>
+            </div>
         </div>
     </div>

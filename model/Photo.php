@@ -64,9 +64,8 @@ class Photo extends Model
 
         file_put_contents( $pathToSaveImg.$image_name, $data);
         $_SESSION['img_name'] = $pathToSaveImg.$image_name;
-        echo "Upload suceed";
 
-        $this->resizeImg($pathToSaveImg.DS.$image_name, $pathToSaveImg.DS.'min', $image_name.'Min');
+        $this->resizeImg($pathToSaveImg.DS.$image_name, $pathToSaveImg.DS.'min', $image_name.'Min', 150, 150);
 //        insertion dans la db
 	    $sql = "INSERT INTO posts (`file`, `created`, `type`, `user_id`)
                       VALUES (:file, :created, :type, :user_id)";
@@ -75,13 +74,14 @@ class Photo extends Model
 	        $query = $this->db->prepare($sql);
 	        $d = array("file" => substr($image_name, 0, -4),
                         "created" => $date,
-                        "type" => 'png',
+                        "type" => 'big',
                         "user_id" => $idUser);
 	        $query->execute($d);
 //	        pour la miniature
-            $d = array("file" => substr($image_name, 0, -4).'Min'.'.jpg',
+            $d = array("file" => BASE_URL.'/photo-users/min/'.substr
+				($image_name, 0, -4).'Min'.'.jpg',
                 "created" => $date,
-                "type" => 'jpg',
+                "type" => 'min',
                 "user_id" => $idUser);
             $query->execute($d);
         } catch (PDOexception $e){
@@ -156,17 +156,37 @@ class Photo extends Model
         return true;
     }
 
-    public function getPreviewImg(){
-        $sql = "SELECT file FROM posts";
-        try {
-            $query = $this->db->prepare($sql);
-            $query->execute();
-            $row = $query->fetch();
-            return $row;
+	public function countPreviewImg(){
+		$sql = "SELECT file FROM posts WHERE `type`=?";
+		try {
+			$query = $this->db->prepare($sql);
+			$min = 'min';
+			$d = array($min);
+			$query->execute($d);
+			$row = $query->fetchAll();
+			$count = count($row);
+			if ($count == 0) {
+				return false;
+			}
+			return true;
 
-        } catch (PDOexception $e){
-            print "Erreur : ".$e->getMessage()."";
-            die();
-        }
-    }
+		} catch (PDOexception $e){
+			print "Erreur : ".$e->getMessage()."";
+			die();
+		}
+	}
+
+	public function getPreviewImg(){
+		$sql = "SELECT file FROM posts WHERE type='min'";
+		try {
+			$query = $this->db->prepare($sql);
+			$query->execute();
+			$row = $query->fetchAll();
+			return $row;
+
+		} catch (PDOexception $e){
+			print "Erreur : ".$e->getMessage()."";
+			die();
+		}
+	}
 }

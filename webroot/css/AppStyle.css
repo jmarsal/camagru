@@ -216,3 +216,7 @@ video {
   display: inline-block;
   margin-left: 52px;
   margin-right: 20%; }
+
+/* line 142, ../sass/AppStyle.scss */
+.prev-img {
+  display: block; }
