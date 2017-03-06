@@ -121,8 +121,9 @@ video{
   border: 10px solid #535f6a;
   z-index: 5;
   width: 273px;
-  height: 585px;
+  height: 600px;
   display: inline-block;
+  display: none;
   margin-left: 20%;
   margin-right: 52px;
 }
@@ -133,14 +134,27 @@ video{
   border: 10px solid #535f6a;
   z-index: 5;
   width: 273px;
-  height: 585px;
+  height: 600px;
   display: inline-block;
   margin-left: 52px;
   margin-right: 20%;
 }
 
 .prev-img{
-  display: block;
+  display: inline-flex;
+  width:695px;
+  //margin-left: 39%;
+  cursor: pointer;
+  overflow-x: scroll;
+
+  img{
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+}
+
+.filters__icon{
+  cursor: pointer;
 }
 
 

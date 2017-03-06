@@ -28,6 +28,28 @@ class Photo extends Model
 		}
 	}
 
+	public function deleteDirectoryIfExist($pathDirectory){
+        if (is_dir($pathDirectory)){
+            $files = array_diff(scandir($pathDirectory), array('.','..'));
+            foreach ($files as $file) {
+                (is_dir("$pathDirectory/$file")) ? delTree("$pathDirectory/$file") : unlink("$pathDirectory/$file");
+            }
+            rmdir($pathDirectory);
+        }
+    }
+
+    public function deletePrevInDb($id){
+        $sql = "DELETE FROM posts WHERE `type`='min' && `user_id`=?";
+        try {
+            $query = $this->db->prepare($sql);
+            $d = array($id);
+            $query->execute($d);
+        } catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+    }
+
     public function is_empty_dir($src)
     {
         $h = opendir($src);
@@ -62,8 +84,8 @@ class Photo extends Model
         $data = base64_decode($data);
         $image_name = md5(uniqid()).'.'.$type;
 
-        file_put_contents( $pathToSaveImg.$image_name, $data);
-        $_SESSION['img_name'] = $pathToSaveImg.$image_name;
+        file_put_contents( $pathToSaveImg.DS.$image_name, $data);
+        $_SESSION['img_name'] = $pathToSaveImg.DS.$image_name;
 
         $this->resizeImg($pathToSaveImg.DS.$image_name, $pathToSaveImg.DS.'min', $image_name.'Min', 150, 150);
 //        insertion dans la db
@@ -72,13 +94,13 @@ class Photo extends Model
 	    try {
 //	        Pour l'image original
 	        $query = $this->db->prepare($sql);
-	        $d = array("file" => substr($image_name, 0, -4),
+	        $d = array("file" => BASE_URL.'/photo-users/'.$idUser.DS.substr($image_name, 0, -4),
                         "created" => $date,
                         "type" => 'big',
                         "user_id" => $idUser);
 	        $query->execute($d);
 //	        pour la miniature
-            $d = array("file" => BASE_URL.'/photo-users/min/'.substr
+            $d = array("file" => BASE_URL.'/photo-users/'.$idUser.DS.'min'.DS.substr
 				($image_name, 0, -4).'Min'.'.jpg',
                 "created" => $date,
                 "type" => 'min',
@@ -156,12 +178,12 @@ class Photo extends Model
         return true;
     }
 
-	public function countPreviewImg(){
-		$sql = "SELECT file FROM posts WHERE `type`=?";
+	public function countPreviewImg($id){
+		$sql = "SELECT file FROM posts WHERE `type`=? && `user_id`=?";
 		try {
 			$query = $this->db->prepare($sql);
 			$min = 'min';
-			$d = array($min);
+			$d = array($min, $id);
 			$query->execute($d);
 			$row = $query->fetchAll();
 			$count = count($row);
@@ -176,11 +198,12 @@ class Photo extends Model
 		}
 	}
 
-	public function getPreviewImg(){
-		$sql = "SELECT file FROM posts WHERE type='min'";
+	public function getPreviewImg($id){
+		$sql = "SELECT file FROM posts WHERE type='min' && `user_id`=?";
 		try {
 			$query = $this->db->prepare($sql);
-			$query->execute();
+            $d = array($id);
+			$query->execute($d);
 			$row = $query->fetchAll();
 			return $row;
 

@@ -201,22 +201,34 @@ video {
   border: 10px solid #535f6a;
   z-index: 5;
   width: 273px;
-  height: 585px;
+  height: 600px;
   display: inline-block;
+  display: none;
   margin-left: 20%;
   margin-right: 52px; }
 
-/* line 130, ../sass/AppStyle.scss */
+/* line 131, ../sass/AppStyle.scss */
 .booth_prev {
   background: rgba(94, 108, 120, 0.9);
   border: 10px solid #535f6a;
   z-index: 5;
   width: 273px;
-  height: 585px;
+  height: 600px;
   display: inline-block;
   margin-left: 52px;
   margin-right: 20%; }
 
-/* line 142, ../sass/AppStyle.scss */
+/* line 143, ../sass/AppStyle.scss */
 .prev-img {
-  display: block; }
+  display: inline-flex;
+  width: 695px;
+  cursor: pointer;
+  overflow-x: scroll; }
+  /* line 150, ../sass/AppStyle.scss */
+  .prev-img img {
+    margin-right: 5px;
+    margin-left: 5px; }
+
+/* line 156, ../sass/AppStyle.scss */
+.filters__icon {
+  cursor: pointer; }

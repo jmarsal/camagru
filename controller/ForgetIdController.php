@@ -104,12 +104,10 @@ class ForgetIdController extends Controller
 			if (($this->User->checkValueOfGetForValidation($log, $cle)) ===
 				TRUE){
 //			    Si tout c'est bien passer, je change la key user et redirige
-//              vers l'app...
+//              vers l'accueil...
 				if (($this->reinitForm($log)) === TRUE){
 					$this->User->changeKeyUser($log);
-					$_SESSION['log'] = 1;
-					$_SESSION['login'] = $log;
-					$this->redirection('app', 'appCamagru');
+                    $this->redirection();
 				}
 			}else{
 				$this->mess_error = 'Le Login ne correspond pas a la cle de validation';

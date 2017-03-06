@@ -1,8 +1,7 @@
 <?php
-session_destroy();
-setcookie('camagru-log', '', time() - 3600);
-unset($_COOKIE['camagru-log']);
-session_start();
+if (!isset($_SESSION)){
+    session_start();
+}
 class AccueilController extends Controller
 {
 	public $formOk = 0;
@@ -11,23 +10,35 @@ class AccueilController extends Controller
 	public $passwd = "";
 	public $hashPasswd = "";
 
-	public function accueil() {
-            $this->loadModel('User');
-            if (isset($_POST['login'])) {
-//			Check le formulaire de la page accueil
-                $this->_checkFormAccueil();
-                if ($this->formOk === 1){
-//				Check dans la bdd si le user existe et si le couple user / pass match
-                    if (($this->mess_error = $this->User->checkLogin($this->login,
-                            $this->hashPasswd)) === TRUE){
-                        if ($_SESSION['loged'] === 1){
-//						Si il match, ouvre page principal de l'app
-                            $this->redirection('app', 'appCamagru');
-                        }
-                    }
+    public function accueil() {
+        $this->loadModel('User');
+        $this->loadModel('Photo');
+        if (isset($_COOKIE['camagru-log'])){
+        $log = $_COOKIE['camagru-log'];
+        }
+        if (isset($log) && !empty($log)){
+//            echo 'la';
+            $idLog = $this->User->getIdUser($log);
+            $this->Photo->deleteDirectoryIfExist(REPO_PHOTO.$idLog.DS.'min');
+            $this->Photo->deletePrevInDb($idLog);
+        }
+        session_destroy();
+        setcookie('camagru-log', '', time() - 3600);
+        unset($_COOKIE['camagru-log']);
+        if (isset($_POST['login'])) {
+//		Check le formulaire de la page accueil
+          $this->_checkFormAccueil();
+          if ($this->formOk === 1){
+//		Check dans la bdd si le user existe et si le couple user / pass match
+            if (($this->mess_error = $this->User->checkLogin($this->login, $this->hashPasswd)) === TRUE){
+                if ($_SESSION['loged'] === 1){
+//				Si il match, ouvre page principal de l'app
+                    $this->redirection('app', 'appCamagru');
                 }
             }
-            $this->render('pages/accueil', 'accueil_layout');
+          }
+        }
+        $this->render('pages/accueil', 'accueil_layout');
 	}
 
 	//	check formulaire de la page accueil

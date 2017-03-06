@@ -92,9 +92,7 @@ class RegisterController extends Controller
 				TRUE){
 				$this->User->changeKeyUser($log);
 				$this->User->changeActifUser($log);
-				$_SESSION['log'] = 1;
-				$_SESSION['login'] = $log;
-				$this->redirection('app', 'appCamagru');
+				$this->redirection();
 			}else{
 				echo $this->mess_error = 'Le Login ne correspond pas a la cle de validation';
 				die();

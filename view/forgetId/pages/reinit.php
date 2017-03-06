@@ -19,7 +19,7 @@
 		Vas-y, tu peux entrer ton nouveau mot de passe :<br><br>
 		<input type="password" name="newPass" value="<?php echo $this->newPasswd ?>">
         <br><br>
-        Une deuxieme fois, histoire d'etre sur ! <img src="https://www.smiley.com/sites/default/files/image/cover/WInky.png" width="30px"> <br><br>
+        Une deuxieme fois, histoire d'etre sur ! <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'reinitPass'.DS.'WInky.png' ?>" width="30px"> <br><br>
         <input type="password" name="repNewPass"><br>
 	</div>
 	<p class="button2">

@@ -5,6 +5,9 @@ if (!isset($_SESSION)){
 ?>
 <h2 class='bienvenue'>Bienvenue <?php echo $_SESSION["login"];?> <h2/>
     <div class="video-containter">
+        <div class="filters">
+            <img class="filters__icon" id="filters__icon" onclick="showhide()" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'color-filters.png';?>"/>
+        </div>
         <div class="booth_filter">
 
         </div>
@@ -16,18 +19,19 @@ if (!isset($_SESSION)){
                 <canvas class="canvas" id="canvas"></canvas>
                 <img class="img-booth" id="photo" alt="photo" src="">
             </form>
-        </div>
-        <div class="booth_prev">
-            <div class="prev-img">
+        <?php
+          if (isset($_SESSION['img']) && !empty($_SESSION['img'])){
+//            echo '<div class="booth_prev">';
+            echo '<div class="prev-img">';
+		    foreach($_SESSION['img'] as $v){?>
+                <img src="<?php echo $v[0];?>">
+<!--                <br>-->
                 <?php
-                if (isset($_SESSION['img']) && !empty($_SESSION['img'])){
-				    foreach($_SESSION['img'] as $v){?>
-                        <img src="<?php echo $v[0];?>">
-                        <br>
-                        <?php
-				    }
-                }
+		    }
+            echo '</div>';
+//        echo '</div>';
+          }
 				?>
-            </div>
         </div>
+
     </div>
