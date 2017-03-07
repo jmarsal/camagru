@@ -114,6 +114,9 @@ video{
   padding: 0;
   width: 40px;
   cursor: pointer;
+  p{
+    display: inline-block;
+  }
 }
 
 .booth_filter{
@@ -123,9 +126,30 @@ video{
   width: 273px;
   height: 600px;
   display: inline-block;
-  display: none;
+  //display: none;
   margin-left: 20%;
   margin-right: 52px;
+}
+
+.filters{
+  margin-left: 300px;
+  margin-right: -300px;
+  a:hover{
+    color: $color_button_hover;
+  }
+}
+
+.menu2{
+  width: 1rem;
+  input{
+    cursor: pointer;
+    background-color: $color_button;
+    border-radius: 30%;
+    width:150px;
+  }
+  input:hover{
+    background-color: $color_button_hover;
+  }
 }
 
 .booth_prev{

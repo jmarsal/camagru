@@ -78,3 +78,7 @@ function getSrcImg() {
             setTimeout(document.getElementById('form-cache-photo').submit(), 40);
         }, false);
 }
+
+function changeFilter(filter){
+    document.getElementById("myvideo").style.filter = filter;
+}
