@@ -1,60 +1,37 @@
-/*
-Error: File to import not found or unreadable: compass.
-       Load path: /mnt/d/neard-1.0.22/neard/www/workspace/camagru/webroot/sass
-        on line 1 of sass/button_flat_other.scss
-
-1:  @import 'compass';
-2:  @import 'colors';
-3: 
-4:  .button2 {
-5: 	a {
-6: 		&:hover{
-
-Backtrace:
-sass/button_flat_other.scss:1
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/import_node.rb:67:in `rescue in import'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/import_node.rb:45:in `import'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/import_node.rb:28:in `imported_file'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/import_node.rb:37:in `css_import?'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:313:in `visit_import'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `block in with_base'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/stack.rb:115:in `with_frame'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/stack.rb:79:in `with_base'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:160:in `visit'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:52:in `map'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:169:in `block in visit_children'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:168:in `visit_children'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:188:in `visit_root'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/base.rb:36:in `visit'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:159:in `visit'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/root_node.rb:36:in `css_tree'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/engine.rb:381:in `_render_with_sourcemap'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/engine.rb:298:in `render_with_sourcemap'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `each'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/plugin/compiler.rb:294:in `watch'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/plugin.rb:109:in `method_missing'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/exec/sass_scss.rb:360:in `watch_or_update'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/exec/sass_scss.rb:51:in `process_result'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/exec/base.rb:52:in `parse'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/lib/sass/exec/base.rb:19:in `parse!'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/gems/sass-3.4.23/bin/sass:13:in `<top (required)>'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/bin/sass:22:in `load'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/bin/sass:22:in `<main>'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/bin/ruby_executable_hooks:15:in `eval'
-/home/jmarsal/.rvm/gems/ruby-2.4.0/bin/ruby_executable_hooks:15:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: File to import not found or unreadable: compass.\A        Load path: /mnt/d/neard-1.0.22/neard/www/workspace/camagru/webroot/sass\A         on line 1 of sass/button_flat_other.scss\A \A 1:  @import 'compass';\A 2:  @import 'colors';\A 3: \A 4:  .button2 {\A 5: 	a {\A 6: 		&:hover{"; }
+/* line 5, ../sass/button_flat_other.scss */
+.button2 a {
+  cursor: pointer;
+  width: 35%;
+  background: #F39237;
+  color: #FFF;
+  text-decoration: none;
+  position: relative;
+  font-size: 1.5vw;
+  padding: 10px;
+  border: solid 1px #b95f0b;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: inset 0px 1px 1px #f9c697;
+  -webkit-box-shadow: inset 0px 1px 1px #f9c697;
+  box-shadow: inset 0px 1px 1px #f9c697;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YzOTIzNyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U5NzgwZSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f39237), color-stop(100%, #e9780e));
+  background-image: -moz-linear-gradient(top, #f39237, #e9780e);
+  background-image: -webkit-linear-gradient(top, #f39237, #e9780e);
+  background-image: linear-gradient(to bottom, #f39237, #e9780e); }
+  /* line 6, ../sass/button_flat_other.scss */
+  .button2 a:hover {
+    background: #e35c05; }
+/* line 22, ../sass/button_flat_other.scss */
+.button2 a:active {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjEuMCIgeDI9IjAuNSIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YzOTIzNyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U5NzgwZSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #f39237), color-stop(100%, #e9780e));
+  background-image: -moz-linear-gradient(bottom, #f39237, #e9780e);
+  background-image: -webkit-linear-gradient(bottom, #f39237, #e9780e);
+  background-image: linear-gradient(to top, #f39237, #e9780e);
+  -moz-box-shadow: inset 0px 0px 0px #f9c697;
+  -webkit-box-shadow: inset 0px 0px 0px #f9c697;
+  box-shadow: inset 0px 0px 0px #f9c697; }

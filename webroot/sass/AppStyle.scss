@@ -132,24 +132,31 @@ video{
 }
 
 .filters{
-  margin-left: 300px;
-  margin-right: -300px;
+  margin-left: 225px;
+  margin-right: -650px;
   a:hover{
     color: $color_button_hover;
+  }
+  img{
+    margin-left: 133px;
   }
 }
 
 .menu2{
-  width: 1rem;
-  input{
-    cursor: pointer;
-    background-color: $color_button;
-    border-radius: 30%;
-    width:150px;
-  }
-  input:hover{
-    background-color: $color_button_hover;
-  }
+    display: flex;
+  .button2{
+    width:450px;
+      }
+//  width: 1rem;
+//  input{
+//    cursor: pointer;
+//    background-color: $color_button;
+//    border-radius: 30%;
+//    width:150px;
+//  }
+//  input:hover{
+//    background-color: $color_button_hover;
+//  }
 }
 
 .booth_prev{

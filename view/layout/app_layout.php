@@ -8,10 +8,11 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"/>
         <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'AccueilStyle.css';?> />
         <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'404Style.css';?> />
-        <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'button_flat.css';?> />
+        <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'colors.css';?> />
+        <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'button_flat_input.css';?> />
         <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'form.css';?> />
-        <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css' .DS.'AppStyle.css';?> />
-        <link rel="icon" type="image/png" href="https://www.lycee-louis-vincent.fr/images/icons/puddingcam-logo.png"/>
+        <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'AppStyle.css';?> />
+        <link rel="icon" type="image/png" href=<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>/>
 	</head>
 	<body>
         <div class="site-container">

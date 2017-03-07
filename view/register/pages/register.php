@@ -1,5 +1,5 @@
 <div class="logo">
-    <img class="img_logo_Principal" src="https://www.lycee-louis-vincent.fr/images/icons/puddingcam-logo.png" alt="logo">
+    <img class="img_logo_Principal" src='<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>' alt="logo">
     <h1>CAMAGRU</h1>
 </div>
 <hr>
