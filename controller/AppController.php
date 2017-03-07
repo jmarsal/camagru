@@ -39,4 +39,13 @@ class AppController extends Controller
 			$_SESSION['img'] = $img;
 		}
 	}
+
+	public function getFilter(){
+//        $this->redirection();
+        echo '<span>' . "coucou" .'</span>';
+        if (isset($_POST['filter']) && $_POST['filter'] === 'Blur'){
+        } else {
+            echo 'KO';
+        }
+    }
 }

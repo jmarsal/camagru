@@ -80,5 +80,9 @@ function getSrcImg() {
 }
 
 function changeFilter(filter){
+    var xhr = new XMLHttpRequest();
     document.getElementById("myvideo").style.filter = filter;
+    xhr.open("POST", "getFilter", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("$_POST['filter']=" + filter);
 }

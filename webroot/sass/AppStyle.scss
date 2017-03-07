@@ -132,31 +132,25 @@ video{
 }
 
 .filters{
-  margin-left: 225px;
+  margin-left: 350px;
   margin-right: -650px;
   a:hover{
     color: $color_button_hover;
   }
   img{
-    margin-left: 133px;
+    margin-left: 115px;
   }
 }
 
 .menu2{
     display: flex;
   .button2{
-    width:450px;
-      }
-//  width: 1rem;
-//  input{
-//    cursor: pointer;
-//    background-color: $color_button;
-//    border-radius: 30%;
-//    width:150px;
-//  }
-//  input:hover{
-//    background-color: $color_button_hover;
-//  }
+    width:280px;
+  }
+  input{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }
 
 .booth_prev{
