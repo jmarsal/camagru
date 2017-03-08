@@ -11,7 +11,7 @@ if (!isset($_SESSION)){
                     <form method="post">
                         <p class="button2">
                             <input class="button2" type="button" name="filter" value="None" onclick="changeFilter('none')">
-                            <input class="button2" type="button" name="filter" value="Blur" onclick="changeFilter('blur(5px)')">
+                            <input class="button2" type="button" id="filter" name="filter" value="Blur" onclick="changeFilter('blur(5px)')">
                             <input class="button2" type="button" name="filter" value="Brightness" onclick="changeFilter('brightness(0.4)')">
                             <input class="button2" type="button" name="filter" value="Grayscale" onclick="changeFilter('grayscale(100%)')">
                             <input class="button2" type="button" name="filter" value="Vert" onclick="changeFilter('hue-rotate(45deg)')">

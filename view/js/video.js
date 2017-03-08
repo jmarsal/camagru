@@ -80,9 +80,43 @@ function getSrcImg() {
 }
 
 function changeFilter(filter){
-    var xhr = new XMLHttpRequest();
     document.getElementById("myvideo").style.filter = filter;
+    // var xhr = new XMLHttpRequest();
+    //         var tmp = "$_POST['filter']=" + filter;
+    //         xhr.open("POST", "getFilter", true);
+    //
+    //         xhr.send(tmp);
+    //         console.log(tmp);
+    var xhr;
+    try {  xhr = new ActiveXObject('Msxml2.XMLHTTP'); alert('connection ok 1');  }
+    catch (e)
+    {
+        try {   xhr = new ActiveXObject('Microsoft.XMLHTTP'); alert('connection ok 2'); }
+        catch (e2)
+        {
+            try {  xhr = new XMLHttpRequest(); alert('connection ok 3'); }
+            catch (e3) {  xhr = false;  alert('connection KO'); }
+        }
+    }
+
+    xhr.onreadystatechange  = function()
+    {
+        if(xhr.readyState  == 4)
+        {
+            alert('readyState = 4');
+            if(xhr.status  == 200){
+                alert('xhrstatus = 200');
+                // document.getElementById('filter').style.display = "none";
+                // document.ajax.dyn="Received:"  + xhr.responseText;
+            }
+            else{
+                alert("Error code " + xhr.status);
+                document.ajax.dyn="Error code " + xhr.status;
+            }
+        }
+    };
+    var tmp = "$_POST['filter']=" + filter;
     xhr.open("POST", "getFilter", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send("$_POST['filter']=" + filter);
+    xhr.send(tmp);
 }

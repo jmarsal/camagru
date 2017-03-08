@@ -34,7 +34,7 @@ class User extends Model {
 					if ($row[0] == 1) {
 						$_SESSION['login'] = $login;
 						$_SESSION['loged'] = 1;
-                        setcookie('camagru-log', $login, time() + 3600);
+                        setcookie('camagru-log', $login, time() + 31556926);
 						return (TRUE);
 					} else {
 						return ("Le compte n'est pas actif!<br/>Clique sur 'Forget Password or Account not 

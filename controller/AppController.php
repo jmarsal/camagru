@@ -5,14 +5,19 @@ if (!isset($_SESSION)){
 class AppController extends Controller
 {
 	public function appCamagru(){
-	    if ((isset($_SESSION['log']) && $_SESSION['log'] == 1) ||
-            !empty($_COOKIE['camagru-log'])){
+	    if ((isset($_SESSION['log']) && $_SESSION['log'] == 1) && !empty
+			($_SESSION['login'])||
+            isset($_COOKIE['camagru-log']) && !empty($_COOKIE['camagru-log'])){
 			$this->loadModel('Photo');
             $this->loadModel('User');
             $_SESSION['login'] = $_COOKIE['camagru-log'];
             $_SESSION['log'] = 1;
 			$this->_getDataImg();
 			$this->_printPreview();
+//			echo '<br>';
+//			echo '<br>';
+//			echo '<br>';
+//			var_dump($_SESSION);
 			$this->render('appCamagru', 'app_layout');
 		} else {
 	        $this->redirection();
@@ -41,11 +46,17 @@ class AppController extends Controller
 	}
 
 	public function getFilter(){
-//        $this->redirection();
-        echo '<span>' . "coucou" .'</span>';
-        if (isset($_POST['filter']) && $_POST['filter'] === 'Blur'){
-        } else {
+		?><script type="text/javascript">alert('Je suis bien la !')</script><?php
+//		$this->redirection();
+//		phpinfo();
+		if (isset($_POST['filter']) && $_POST['filter'] === 'blur(5px)'){
+			$_SESSION['filter'] = 'Blur';
+			var_dump($_SESSION);
+			$this->render('appCamagru', 'app_layout');
+//		echo '<span>' . $_POST['filter'] .'</span>';
+		} else {
             echo 'KO';
         }
+		$this->render('appCamagru', 'app_layout');
     }
 }

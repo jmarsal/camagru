@@ -23,7 +23,7 @@ class AccueilController extends Controller
             $this->Photo->deletePrevInDb($idLog);
         }
         session_destroy();
-        setcookie('camagru-log', '', time() - 3600);
+        setcookie('camagru-log', '', time() - 31556926);
         unset($_COOKIE['camagru-log']);
         if (isset($_POST['login'])) {
 //		Check le formulaire de la page accueil
