@@ -10,16 +10,16 @@ if (!isset($_SESSION)){
                 <nav class="menu2">
                     <form method="post">
                         <p class="button2">
-                            <input class="button2" type="button" name="filter" value="None" onclick="changeFilter('none')">
-                            <input class="button2" type="button" id="filter" name="filter" value="Blur" onclick="changeFilter('blur(5px)')">
-                            <input class="button2" type="button" name="filter" value="Brightness" onclick="changeFilter('brightness(0.4)')">
-                            <input class="button2" type="button" name="filter" value="Grayscale" onclick="changeFilter('grayscale(100%)')">
-                            <input class="button2" type="button" name="filter" value="Vert" onclick="changeFilter('hue-rotate(45deg)')">
-                            <input class="button2" type="button" name="filter" value="Bleu" onclick="changeFilter('hue-rotate(135deg)')">
-                            <input class="button2" type="button" name="filter" value="Mauve" onclick="changeFilter('hue-rotate(220deg)')">
-                            <input class="button2" type="button" name="filter" value="Rose" onclick="changeFilter('hue-rotate(320deg)')">
-                            <input class="button2" type="button" name="filter" value="Invert" onclick="changeFilter('invert(75%)')">
-                            <input class="button2" type="button" name="filter" value="Sepia" onclick="changeFilter('sepia(60%)')">
+                            <input class="button2" type="button" id="none" name="filter" value="None" onclick="changeFilter('none')">
+                            <input class="button2" type="button" id="blur(5px)" name="filter" value="Blur" onclick="changeFilter('blur(5px)')">
+                            <input class="button2" type="button" id="brightness(0.4)" name="filter" value="Brightness" onclick="changeFilter('brightness(0.4)')">
+                            <input class="button2" type="button" id="grayscale(100%)" name="filter" value="Grayscale" onclick="changeFilter('grayscale(100%)')">
+                            <input class="button2" type="button" id="hue-rotate(45deg)" name="filter" value="Vert" onclick="changeFilter('hue-rotate(45deg)')">
+                            <input class="button2" type="button" id="hue-rotate(135deg)" name="filter" value="Bleu" onclick="changeFilter('hue-rotate(135deg)')">
+                            <input class="button2" type="button" id="hue-rotate(220deg)" name="filter" value="Mauve" onclick="changeFilter('hue-rotate(220deg)')">
+                            <input class="button2" type="button" id="hue-rotate(320deg)" name="filter" value="Rose" onclick="changeFilter('hue-rotate(320deg)')">
+                            <input class="button2" type="button" id="invert(75%)" name="filter" value="Invert" onclick="changeFilter('invert(75%)')">
+                            <input class="button2" type="button" id="sepia(60%)" name="filter" value="Sepia" onclick="changeFilter('sepia(60%)')">
                         </p>
                     </form>
                 </nav>
@@ -28,7 +28,7 @@ if (!isset($_SESSION)){
             <video id="myvideo"></video>
             <form class="take-photo" method="post" id="form-cache-photo">
                 <img src='<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>' id="startbutton" class="take-photo" onclick="getSrcImg()" title="Cheeeese !"/>
-                <input id="getSrc" type="hidden" name="getSrc" value="">
+                <input id="getSrc" type="hidden" name="getSrc" value="takePhoto">
                 <canvas class="canvas" id="canvas"></canvas>
                 <img class="img-booth" id="photo" alt="photo" src="">
             </form>

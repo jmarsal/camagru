@@ -68,13 +68,41 @@ class Photo extends Model
             return false;
     }
 
+    public function findFilterAndPowForImg($filter){
+        $arr = array();
+        if ($filter === 'blur(5px)'){
+            $arr[0] = IMG_FILTER_SELECTIVE_BLUR;
+//            $arr['pow'] = '5px';
+        }
+        if ($filter === 'invert(75%)'){
+            $arr[0] = IMG_FILTER_NEGATE;
+            $arr[1] = 75;
+        }
+        if ($filter === 'brightness(0.4)'){
+            $arr[0] = IMG_FILTER_BRIGHTNESS;
+            $arr[1] = 40;
+        }
+        return $arr;
+    }
+
+    public function addFilterOnImg($pathImg, $filter, $pow=null){
+        $im = imagecreatefrompng($pathImg);
+        if ($pow !== null){
+            imagefilter($im, $filter, $pow);
+        } else {
+            imagefilter($im, $filter);
+        }
+        imagepng($im, $pathImg);
+        imagedestroy($im);
+    }
+
     /**
      * Enregistre une image png en base64 dans la Db
      * @param $idUser int Id de l'user a enregistre dans la table.
      * @param $imgPngBase64 string image au format png et en base 64 a enregistre dans la Db.
      * @param $pathToSaveImg string le dossier dans lequel l'image va etre sauvegarde.
      */
-    public function savePhotoTmpToDb($idUser, $imgPngBase64, $pathToSaveImg){
+    public function savePhotoTmpToDb($idUser, $imgPngBase64, $pathToSaveImg, $filter=null){
         date_default_timezone_set('UTC');
         $date = date('Y-m-d H:i:s');
 
@@ -86,6 +114,14 @@ class Photo extends Model
 
         file_put_contents( $pathToSaveImg.DS.$image_name, $data);
         $_SESSION['img_name'] = $pathToSaveImg.DS.$image_name;
+        if ($filter !== 'none'){
+            $arrFilter = $this->findFilterAndPowForImg($filter);
+            die(var_dump($arrFilter));
+            $filter = $arrFilter[0];
+            $pow = $arrFilter[1];
+            die($arrFilter[0]);
+            $this->addFilterOnImg($pathToSaveImg.DS.$image_name, $filter, $pow);
+        }
 
         $this->resizeImg($pathToSaveImg.DS.$image_name, $pathToSaveImg.DS.'min', $image_name.'Min', 150, 150);
 //        insertion dans la db

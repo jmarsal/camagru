@@ -80,43 +80,46 @@ function getSrcImg() {
 }
 
 function changeFilter(filter){
-    document.getElementById("myvideo").style.filter = filter;
-    // var xhr = new XMLHttpRequest();
-    //         var tmp = "$_POST['filter']=" + filter;
-    //         xhr.open("POST", "getFilter", true);
-    //
-    //         xhr.send(tmp);
-    //         console.log(tmp);
-    var xhr;
-    try {  xhr = new ActiveXObject('Msxml2.XMLHTTP'); alert('connection ok 1');  }
-    catch (e)
-    {
-        try {   xhr = new ActiveXObject('Microsoft.XMLHTTP'); alert('connection ok 2'); }
-        catch (e2)
-        {
-            try {  xhr = new XMLHttpRequest(); alert('connection ok 3'); }
-            catch (e3) {  xhr = false;  alert('connection KO'); }
-        }
-    }
+    var xhr = getXMLHttpRequest();
 
-    xhr.onreadystatechange  = function()
+    xhr.onreadystatechange = function()
     {
-        if(xhr.readyState  == 4)
+        if((state = xhr.readyState) == 4)
         {
-            alert('readyState = 4');
-            if(xhr.status  == 200){
-                alert('xhrstatus = 200');
-                // document.getElementById('filter').style.display = "none";
-                // document.ajax.dyn="Received:"  + xhr.responseText;
+           // alert('readyState = 4');
+            if(xhr.status == 200){
+               // alert('xhrstatus = 200');
+                switchColors(filter);
             }
             else{
                 alert("Error code " + xhr.status);
-                document.ajax.dyn="Error code " + xhr.status;
             }
         }
     };
-    var tmp = "$_POST['filter']=" + filter;
-    xhr.open("POST", "getFilter", true);
+
+    function switchColors(filter){
+        color = '#F39237';
+        color_hover = '#e35c05';
+
+        document.getElementById('none').style.background = color;
+        document.getElementById('blur(5px)').style.background = color;
+        document.getElementById('brightness(0.4)').style.background = color;
+        document.getElementById('grayscale(100%)').style.background = color;
+        document.getElementById('hue-rotate(45deg)').style.background = color;
+        document.getElementById('hue-rotate(135deg)').style.background = color;
+        document.getElementById('hue-rotate(220deg)').style.background = color;
+        document.getElementById('hue-rotate(320deg)').style.background = color;
+        document.getElementById('invert(75%)').style.background = color;
+        document.getElementById('sepia(60%)').style.background = color;
+
+        document.getElementById(filter).style.background = color_hover;
+    }
+
+    var tmp = "filter=" + filter;
+    xhr.open("post", "", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(tmp);
+    document.getElementById("myvideo").style.filter = filter;
+    // xhr.open("GET", "getFilter?filter="+filter, true);//Appel du fichier externe
+    // xhr.send();
 }

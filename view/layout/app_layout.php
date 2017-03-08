@@ -14,7 +14,7 @@
         <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'AppStyle.css';?> />
         <link rel="icon" type="image/png" href=<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>/>
 	</head>
-	<body>
+	<body id="demo">
         <div class="site-container">
             <div class="site-pusher">
                 <header class="header">
