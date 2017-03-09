@@ -18,7 +18,7 @@ if (!isset($_SESSION)){
                             <input class="button2" type="button" id="hue-rotate(135deg)" name="filter" value="Bleu" onclick="changeFilter('hue-rotate(135deg)')">
                             <input class="button2" type="button" id="hue-rotate(220deg)" name="filter" value="Mauve" onclick="changeFilter('hue-rotate(220deg)')">
                             <input class="button2" type="button" id="hue-rotate(320deg)" name="filter" value="Rose" onclick="changeFilter('hue-rotate(320deg)')">
-                            <input class="button2" type="button" id="invert(75%)" name="filter" value="Invert" onclick="changeFilter('invert(75%)')">
+                            <input class="button2" type="button" id="invert(100%)" name="filter" value="Invert" onclick="changeFilter('invert(100%)')">
                             <input class="button2" type="button" id="sepia(60%)" name="filter" value="Sepia" onclick="changeFilter('sepia(60%)')">
                         </p>
                     </form>

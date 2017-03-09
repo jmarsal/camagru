@@ -6,6 +6,9 @@
 		&:hover{
 			background: $color_button_hover;
 		}
+		&:focus {
+			outline: none;
+		}
 		cursor: pointer;
 		width: 35%;
 		background: $color_button;

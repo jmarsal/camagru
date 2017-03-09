@@ -71,26 +71,44 @@ class Photo extends Model
     public function findFilterAndPowForImg($filter){
         $arr = array();
         if ($filter === 'blur(5px)'){
-            $arr[0] = IMG_FILTER_SELECTIVE_BLUR;
-//            $arr['pow'] = '5px';
+            $arr[0] = 'blur(5px)';
         }
-        if ($filter === 'invert(75%)'){
+        else if ($filter === 'invert(100%)'){
             $arr[0] = IMG_FILTER_NEGATE;
-            $arr[1] = 75;
         }
-        if ($filter === 'brightness(0.4)'){
+        else if ($filter === 'brightness(0.4)'){
             $arr[0] = IMG_FILTER_BRIGHTNESS;
-            $arr[1] = 40;
+            $arr[1] = -100;
+        }
+        else if ($filter === 'grayscale(100%)'){
+            $arr[0] = IMG_FILTER_GRAYSCALE;
+        }
+        else if ($filter === 'hue-rotate(45deg)'){
+            $arr[0] = IMG_FILTER_COLORIZE;
+            $arr[1] = 0;
+            $arr[2] = 100;
+            $arr[3] = 5;
         }
         return $arr;
     }
 
-    public function addFilterOnImg($pathImg, $filter, $pow=null){
+    public function addFilterOnImg($pathImg, $filter, $pow=null, $pow2=null, $pow3=null){
         $im = imagecreatefrompng($pathImg);
-        if ($pow !== null){
-            imagefilter($im, $filter, $pow);
+        if ($filter !== 'blur(5px)'){
+            if ($pow !== null && !$pow2){
+                imagefilter($im, $filter, $pow);
+            } else if ($pow2 !== null && !$pow3){
+                imagefilter($im, $filter, $pow, $pow2);
+            }  else if ($pow3 !== null){
+                imagefilter($im, $filter, $pow, $pow2, $pow3);
+            }else{
+                imagefilter($im, $filter);
+            }
         } else {
-            imagefilter($im, $filter);
+            imagefilter($im, IMG_FILTER_SMOOTH, 250);
+            imagefilter($im, IMG_FILTER_GAUSSIAN_BLUR);
+            imagefilter($im, IMG_FILTER_SELECTIVE_BLUR);
+            imagefilter($im, IMG_FILTER_GAUSSIAN_BLUR);
         }
         imagepng($im, $pathImg);
         imagedestroy($im);
@@ -116,11 +134,24 @@ class Photo extends Model
         $_SESSION['img_name'] = $pathToSaveImg.DS.$image_name;
         if ($filter !== 'none'){
             $arrFilter = $this->findFilterAndPowForImg($filter);
-//            die(var_dump($arrFilter));
             $filter = $arrFilter[0];
-            $pow = $arrFilter[1];
-//            die($arrFilter[0]);
-            $this->addFilterOnImg($pathToSaveImg.DS.$image_name, $filter, $pow);
+            if (isset($arrFilter[1])){
+                $pow = $arrFilter[1];
+            }else {
+                $pow = null;
+            }
+            if (isset($arrFilter[2])){
+                $pow2 = $arrFilter[2];
+            }else {
+                $pow2 = null;
+            }
+            if (isset($arrFilter[3])){
+                $pow3 = $arrFilter[3];
+            }else {
+                $pow3 = null;
+            }
+
+            $this->addFilterOnImg($pathToSaveImg.DS.$image_name, $filter, $pow, $pow2, $pow3);
         }
 
         $this->resizeImg($pathToSaveImg.DS.$image_name, $pathToSaveImg.DS.'min', $image_name.'Min', 150, 150);
