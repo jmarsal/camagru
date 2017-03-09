@@ -116,10 +116,10 @@ class Photo extends Model
         $_SESSION['img_name'] = $pathToSaveImg.DS.$image_name;
         if ($filter !== 'none'){
             $arrFilter = $this->findFilterAndPowForImg($filter);
-            die(var_dump($arrFilter));
+//            die(var_dump($arrFilter));
             $filter = $arrFilter[0];
             $pow = $arrFilter[1];
-            die($arrFilter[0]);
+//            die($arrFilter[0]);
             $this->addFilterOnImg($pathToSaveImg.DS.$image_name, $filter, $pow);
         }
 
