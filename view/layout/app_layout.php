@@ -35,6 +35,7 @@
         </div>
         <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'oXHR.js';?>" ></script>
         <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'video.js';?>" ></script>
+        <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'filters.js';?>" ></script>
         <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'menu.js';?>" ></script>
     </body>
 </html>

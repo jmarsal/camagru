@@ -96,30 +96,4 @@ function changeFilter(filter){
             }
         }
     };
-
-    function switchColors(filter){
-        color = '#F39237';
-        color_hover = '#e35c05';
-
-        document.getElementById('none').style.background = color;
-        document.getElementById('blur(5px)').style.background = color;
-        document.getElementById('brightness(0.4)').style.background = color;
-        document.getElementById('grayscale(100%)').style.background = color;
-        document.getElementById('hue-rotate(45deg)').style.background = color;
-        document.getElementById('hue-rotate(135deg)').style.background = color;
-        document.getElementById('hue-rotate(220deg)').style.background = color;
-        document.getElementById('hue-rotate(320deg)').style.background = color;
-        document.getElementById('invert(75%)').style.background = color;
-        document.getElementById('sepia(60%)').style.background = color;
-
-        document.getElementById(filter).style.background = color_hover;
-    }
-
-    var tmp = "filter=" + filter;
-    xhr.open("post", "", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send(tmp);
-    document.getElementById("myvideo").style.filter = filter;
-    // xhr.open("GET", "getFilter?filter="+filter, true);//Appel du fichier externe
-    // xhr.send();
 }

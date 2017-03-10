@@ -16,6 +16,9 @@ function changeFilter(filter){
         color = '#F39237';
         color_hover = '#e35c05';
 
+        if (!filter){
+            filter = 'none';
+        }
         document.getElementById('none').style.background = color;
         document.getElementById('blur(5px)').style.background = color;
         document.getElementById('brightness(0.4)').style.background = color;
