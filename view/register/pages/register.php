@@ -27,9 +27,9 @@
         $this->repPasswd ?>">
 		<br>
 	</div>
-	<p class="button2">
-		<input class ="button"type="submit" name="submit" value="Inscription">
-	</p>
+	<div class="log_register_but">
+		<input class="button" type="submit" name="submit" value="Inscription">
+	</div>
 </form>
 <?php
     if (isset($this->mess_error) && !empty($this->mess_error) && $this->mess_error != 1){

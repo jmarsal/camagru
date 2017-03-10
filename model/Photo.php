@@ -266,12 +266,27 @@ class Photo extends Model
 	}
 
 	public function getPreviewImg($id){
-		$sql = "SELECT file FROM posts WHERE type='min' && `user_id`=?";
+		$sql = "SELECT file, created FROM posts WHERE type='min' && `user_id`=?";
 		try {
 			$query = $this->db->prepare($sql);
             $d = array($id);
 			$query->execute($d);
 			$row = $query->fetchAll();
+
+			//trie de mon tab par date;
+            function date_compare($a, $b)
+            {
+                $t1 = strtotime($a['created']);
+                $t2 = strtotime($b['created']);
+                return $t1 - $t2;
+            }
+            usort($row, 'date_compare');
+
+//			foreach ($row as $v){
+//			    var_dump($v);
+//			    echo '<br>';
+//            }
+//			die(var_dump($row));
 			return $row;
 
 		} catch (PDOexception $e){

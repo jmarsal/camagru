@@ -15,9 +15,9 @@
         ?>">
 		<br>
 	</div>
-	<p class="button2">
-		<input type="submit" name="submit" value="Login">
-	</p>
+	<div>
+		<input class="button" type="submit" name="submit" value="Login">
+	</div>
 </form>
     <p class="forgetPass">
         <a class="forgetPass" href="forgetId/">Forget Password or Account not Active ?</a>

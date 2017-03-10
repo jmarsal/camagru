@@ -6,12 +6,12 @@
 
     var streaming = false;
     video = document.getElementById('myvideo');
-    console.log(video);
+    // console.log(video);
     cover = document.getElementById('cover');
     canvas = document.getElementById('canvas');
     photo = document.getElementById('photo');
     startbutton  = document.getElementById('startbutton'),
-        width = 700;
+    width = 700;
     height = 220;
 
     navigator.getMedia = (  navigator.getUserMedia ||
@@ -77,23 +77,4 @@ function getSrcImg() {
             getSrc.setAttribute('value', photoSrc);
             setTimeout(document.getElementById('form-cache-photo').submit(), 40);
         }, false);
-}
-
-function changeFilter(filter){
-    var xhr = getXMLHttpRequest();
-
-    xhr.onreadystatechange = function()
-    {
-        if((state = xhr.readyState) == 4)
-        {
-           // alert('readyState = 4');
-            if(xhr.status == 200){
-               // alert('xhrstatus = 200');
-                switchColors(filter);
-            }
-            else{
-                alert("Error code " + xhr.status);
-            }
-        }
-    };
 }

@@ -36,7 +36,7 @@ class AppController extends Controller
             if (isset($_SESSION['filter']) && !empty($_SESSION['filter'])){
                 $filter = $_SESSION['filter'];
             } else {
-                $filter = null;
+                $filter = 'none';
             }
             $this->Photo->savePhotoTmpToDb($idUser, $_POST['getSrc'], REPO_PHOTO.DS.$idUser, $filter);
             $_POST['getSrc'] = "";
@@ -50,12 +50,4 @@ class AppController extends Controller
 			$_SESSION['img'] = $img;
 		}
 	}
-
-	public function getFilter(){
-		if (isset($_POST['filter']) && $_POST['filter'] === 'blur(5px)') {
-            $_SESSION['filter'] = 'Blur';
-            echo $_SESSION['filter'];
-        }
-//        $this->render('appCamagru', 'app_layout');
-    }
 }

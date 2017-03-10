@@ -19,9 +19,9 @@
 		Veuillez renseigner une adresse mail :<br><br>
 		<input type="text" name="email"><br>
 	</div>
-	<p class="button2">
-		<input type="submit" name="submit" value="Récuperer">
-	</p>
+	<div>
+		<input class="button" type="submit" name="submit" value="Récuperer">
+	</div>
 </form>
 <?php
 if (!empty($this->mess_error)){

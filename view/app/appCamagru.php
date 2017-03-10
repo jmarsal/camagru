@@ -3,25 +3,31 @@ if (!isset($_SESSION)){
     session_start();
 }
 ?>
+<script type="text/javascript">
+    <?php if (!empty($_SESSION['filter'])){ ?>
+        window.addEventListener("DOMContentLoaded", function() {
+            toggleActiveClass("<?php echo $_SESSION['filter'];?>");
+            changeFilter("<?php echo $_SESSION['filter'];?>");
+        });
+    <?php } ?>
+</script>
 <h2 class='bienvenue'>Bienvenue <?php echo $_SESSION["login"];?> <h2/>
     <div class="video-containter">
         <div class="filters">
             <img class="filters__icon" id="filters__icon" title="Filtres" onclick="showhide()" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'color-filters.png';?>"/>
                 <nav class="menu2">
-                    <form method="post">
-                        <p class="button2">
-                            <input class="button2" type="button" id="none" name="filter" value="None" onclick="changeFilter('none')">
-                            <input class="button2" type="button" id="blur(5px)" name="filter" value="Blur" onclick="changeFilter('blur(5px)')">
-                            <input class="button2" type="button" id="brightness(0.4)" name="filter" value="Brightness" onclick="changeFilter('brightness(0.4)')">
-                            <input class="button2" type="button" id="grayscale(100%)" name="filter" value="Grayscale" onclick="changeFilter('grayscale(100%)')">
-                            <input class="button2" type="button" id="hue-rotate(45deg)" name="filter" value="Vert" onclick="changeFilter('hue-rotate(45deg)')">
-                            <input class="button2" type="button" id="hue-rotate(135deg)" name="filter" value="Bleu" onclick="changeFilter('hue-rotate(135deg)')">
-                            <input class="button2" type="button" id="hue-rotate(220deg)" name="filter" value="Mauve" onclick="changeFilter('hue-rotate(220deg)')">
-                            <input class="button2" type="button" id="hue-rotate(320deg)" name="filter" value="Rose" onclick="changeFilter('hue-rotate(320deg)')">
-                            <input class="button2" type="button" id="invert(100%)" name="filter" value="Invert" onclick="changeFilter('invert(100%)')">
-                            <input class="button2" type="button" id="sepia(60%)" name="filter" value="Sepia" onclick="changeFilter('sepia(60%)')">
-                        </p>
-                    </form>
+                    <div>
+                        <div class="button active" id="none" onclick="changeFilter('none')">None</div>
+                        <div class="button" id="blur(5px)" onclick="changeFilter('blur(5px)')">Blur</div>
+                        <div class="button" id="brightness(0.4)" onclick="changeFilter('brightness(0.4)')">Brightness</div>
+                        <div class="button" id="grayscale(100%)" onclick="changeFilter('grayscale(100%)')">Grayscale</div>
+                        <div class="button" id="hue-rotate(45deg)" onclick="changeFilter('hue-rotate(45deg)')">Vert</div>
+                        <div class="button" id="hue-rotate(135deg)" onclick="changeFilter('hue-rotate(135deg)')">Bleu</div>
+                        <div class="button" id="hue-rotate(220deg)" onclick="changeFilter('hue-rotate(220deg)')">Mauve</div>
+                        <div class="button" id="hue-rotate(320deg)" onclick="changeFilter('hue-rotate(320deg)')">Rose</div>
+                        <div class="button" id="invert(100%)" onclick="changeFilter('invert(100%)')">Invert</div>
+                        <div class="button" id="sepia(60%)" onclick="changeFilter('sepia(60%)')">Sepia</div>
+                    </div>
                 </nav>
             </div>
         <div class="booth">

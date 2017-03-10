@@ -9,7 +9,6 @@
         <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'AccueilStyle.css';?> />
         <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'404Style.css';?> />
         <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'colors.css';?> />
-        <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'button_flat_input.css';?> />
         <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'form.css';?> />
         <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'AppStyle.css';?> />
         <link rel="icon" type="image/png" href=<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>/>
@@ -36,6 +35,7 @@
         <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'oXHR.js';?>" ></script>
         <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'video.js';?>" ></script>
         <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'filters.js';?>" ></script>
+        <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'ajaxApp.js';?>" ></script>
         <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'menu.js';?>" ></script>
     </body>
 </html>
