@@ -15,7 +15,7 @@
         ?>">
 		<br>
 	</div>
-	<div>
+	<div class="submit-accueil">
 		<input class="button" type="submit" name="submit" value="Login">
 	</div>
 </form>

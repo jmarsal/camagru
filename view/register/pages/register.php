@@ -41,7 +41,7 @@
 ?>
 <hr>
 <p class='a-connect'>Vous avez un compte ?</p>
-<p class="button2">
+<div class="log_register_but">
 	<a class="button" href="../">Connection</a>
-</p>
+</div>
 <div class="footer"></div>

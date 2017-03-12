@@ -222,7 +222,7 @@ form input {
 
 /* line 121, ../sass/form.scss */
 .a-connect {
-  font-size: 2vw; }
+  font-size: 1vw; }
 
 /* line 126, ../sass/form.scss */
 .logo-pop {
@@ -304,7 +304,7 @@ textarea, select {
 
 /* line 58, ../sass/accueilStyle.scss */
 .registered {
-  padding-bottom: 5%;
+  padding-bottom: 50px;
   color: #f3f3f3;
   display: block;
   text-decoration: none; }
@@ -381,8 +381,10 @@ textarea, select {
 
   /* line 137, ../sass/accueilStyle.scss */
   .a-connect, .forget_but {
-    font-size: 12px; }
-
-  /* line 141, ../sass/accueilStyle.scss */
-  .button2 imput {
     font-size: 12px; } }
+/* line 142, ../sass/accueilStyle.scss */
+.submit-accueil, .button {
+  margin: 0% auto;
+  margin-top: 40px;
+  font-size: 12px;
+  width: 100px; }

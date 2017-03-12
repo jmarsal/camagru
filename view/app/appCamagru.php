@@ -16,7 +16,7 @@ if (!isset($_SESSION)){
         <div class="filters">
             <img class="filters__icon" id="filters__icon" title="Filtres" onclick="showhide()" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'color-filters.png';?>"/>
                 <nav class="menu2">
-                    <div>
+                    <div class="filters-button">
                         <div class="button active" id="none" onclick="changeFilter('none')">None</div>
                         <div class="button" id="blur(5px)" onclick="changeFilter('blur(5px)')">Blur</div>
                         <div class="button" id="brightness(0.4)" onclick="changeFilter('brightness(0.4)')">Brightness</div>

@@ -71,8 +71,8 @@ a {
 @import "menuResponsive";
 
 .video-containter{
-  display: flex;
-  width: 100%;
+  display: inline-flex;
+  width: 77%;
   margin: 0 auto;
   padding: 0;
   position: relative;
@@ -132,13 +132,16 @@ video{
 }
 
 .filters{
-  margin-left: 350px;
-  margin-right: -650px;
+  position: relative;
+  margin: 0% auto;
+  width: 150px;
+  //margin-left: 350px;
+  //margin-right: -650px;
   a:hover{
     color: $color_button_hover;
   }
   img{
-    margin-left: 115px;
+    margin-left: 30px;
   }
 }
 
@@ -180,6 +183,12 @@ video{
 
 .filters__icon{
   cursor: pointer;
+}
+
+.filters-button{
+  .button{
+    margin-top: 0;
+  }
 }
 
 
