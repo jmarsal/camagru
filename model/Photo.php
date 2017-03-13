@@ -160,19 +160,22 @@ class Photo extends Model
                       VALUES (:file, :created, :type, :user_id)";
 	    try {
 //	        Pour l'image original
+            $pathBig = BASE_URL.'/photo-users/'.$idUser.DS.substr($image_name, 0, -4);
 	        $query = $this->db->prepare($sql);
-	        $d = array("file" => BASE_URL.'/photo-users/'.$idUser.DS.substr($image_name, 0, -4),
+	        $d = array("file" => $pathBig,
                         "created" => $date,
                         "type" => 'big',
                         "user_id" => $idUser);
 	        $query->execute($d);
 //	        pour la miniature
-            $d = array("file" => BASE_URL.'/photo-users/'.$idUser.DS.'min'.DS.substr
-				($image_name, 0, -4).'Min'.'.jpg',
+            $pathmin = BASE_URL.'/photo-users/'.$idUser.DS.'min'.DS.substr
+				($image_name, 0, -4).'Min'.'.jpg';
+            $d = array("file" => $pathmin,
                 "created" => $date,
                 "type" => 'min',
                 "user_id" => $idUser);
             $query->execute($d);
+            return $pathmin;
         } catch (PDOexception $e){
             print "Erreur : ".$e->getMessage()."";
             die();

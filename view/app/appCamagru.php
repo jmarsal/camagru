@@ -33,14 +33,14 @@ if (!isset($_SESSION)){
         <div class="booth">
             <video id="myvideo"></video>
             <form class="take-photo" method="post" id="form-cache-photo">
-                <img src='<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>' id="startbutton" class="take-photo" onclick="getSrcImg()" title="Cheeeese !"/>
+                <img src='<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>' id="startbutton" class="take-photo" title="Cheeeese !"/>
                 <input id="getSrc" type="hidden" name="getSrc" value="takePhoto">
                 <canvas class="canvas" id="canvas"></canvas>
                 <img class="img-booth" id="photo" alt="photo" src="">
             </form>
         <?php
           if (isset($_SESSION['img']) && !empty($_SESSION['img'])){
-            echo '<div class="prev-img">';
+            echo '<div class="prev-img" id="prev-img">';
 		    foreach($_SESSION['img'] as $v){?>
                 <img src="<?php echo $v[0];?>">
                 <?php

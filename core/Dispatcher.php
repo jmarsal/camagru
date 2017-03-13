@@ -35,7 +35,9 @@ class Dispatcher {
 
 		// Appel de la fonction qui correspond a l'action dans le controller
 		call_user_func_array(array($controller, $this->request->action), $this->request->params);
-		$controller->render($this->request->action);
+		if(empty($_SERVER['HTTP_X_REQUESTED_WITH'])){
+			$controller->render($this->request->action);
+		}
 		if ($this->request->controller === 'PagesController' && !empty($this->request->params)) {
 			$this->error('Le controller '.$this->request->controller.' a besoin de parametres !');
 		}
