@@ -86,6 +86,12 @@ function ajaxPhoto(data) {
     xhr.onreadystatechange = function() {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
             var data = JSON.parse(xhr.responseText);
+            var img = document.createElement("div");
+            img.className = "prev-img";
+            img.id = "prev-img";
+            img.innerHTML = "<img src=" + data.thumbnail + ">";
+            var insertBeforeDiv = document.getElementById("prev-img");
+            document.body.insertBefore(img, insertBeforeDiv[1]);
 
             // creer un nouvel element img (creer nouvel elem html en js)
             // set data.thumbnail em src de img

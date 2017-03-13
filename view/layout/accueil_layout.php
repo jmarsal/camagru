@@ -19,9 +19,10 @@
     </div>
     <div class="accueil_form">
         <div class="containerForm">
-                <?php echo $content_for_layout;?>
-            </div>
-		</div>
+            <?php echo $content_for_layout;?>
+        </div>
+    </div>
+    <div class="footer" id="footer"></div>
     <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'popup.js';?>" >
         </script>
 	</body>
