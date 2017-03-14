@@ -55,7 +55,6 @@
         ctx.scale(-1, 1);
         ctx.drawImage(video, 0, 0, width, height);
         var data = encodeURIComponent(canvas.toDataURL('image/png'));
-        // photo.setAttribute('src', data);
         ajaxPhoto(data);
     }
 
@@ -65,42 +64,3 @@
     }, false);
 
 })();
-
-function getSrcImg(data) {
-    finish = document.getElementById('form-cache-photo'),
-        finish.addEventListener('click', function(ev) {
-            var photo = document.getElementById('photo');
-            var photoSrc = photo.getAttribute('src');
-
-            ajaxPhoto(data);
-            // var getSrc = document.getElementById("getSrc");
-
-            // getSrc.setAttribute('value', photoSrc);
-
-            // setTimeout(document.getElementById('form-cache-photo').submit(), 40);
-        }, false);
-}
-
-function ajaxPhoto(data) {
-    var xhr = getXMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        if ((state = xhr.readyState) == 4 && xhr.status == 200) {
-            var data = JSON.parse(xhr.responseText);
-            var img = document.createElement("div");
-            img.className = "prev-img";
-            img.id = "prev-img";
-            img.innerHTML = "<img src=" + data.thumbnail + ">";
-            var insertBeforeDiv = document.getElementById("prev-img");
-            document.body.insertBefore(img, insertBeforeDiv[1]);
-
-            // creer un nouvel element img (creer nouvel elem html en js)
-            // set data.thumbnail em src de img
-            // Chopper container prev-img by id
-            // put on first new elem img inside container.
-        }
-    };
-    var tmp = "img64=" + data;
-    xhr.open("post", "uploadAjax", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send(tmp);
-}

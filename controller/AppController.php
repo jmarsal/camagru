@@ -29,10 +29,23 @@ class AppController extends Controller
         if (!empty($_POST['img64'])){
             $this->loadModel('Photo');
             $this->loadModel('User');
+
+//          recupere le tab avec path + id
             $imgPrev = $this->_getDataImg();
-            return $this->json(200, ["thumbnail" => $imgPrev]);
+
+//          Creer methode dans photo pour get l'id
+//          Besoin de la derniere id inseree par pdo.
+                return $this->json(200, [
+                    "thumbnail" => $imgPrev
+//                    ,
+//                    "id" => $id
+                ]);
         }
         return $this->json(400);
+    }
+
+    public function delAjax(){
+        $this->json(200);
     }
 
     /**

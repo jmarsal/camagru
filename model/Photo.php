@@ -156,7 +156,10 @@ class Photo extends Model
 
         $this->resizeImg($pathToSaveImg.DS.$image_name, $pathToSaveImg.DS.'min', $image_name.'Min', 150, 150);
 //        insertion dans la db
-	    $sql = "INSERT INTO posts (`file`, `created`, `type`, `user_id`)
+
+        //regarder lastInsertId()
+        //return un tab avec path photo + id
+        $sql = "INSERT INTO posts (`file`, `created`, `type`, `user_id`)
                       VALUES (:file, :created, :type, :user_id)";
 	    try {
 //	        Pour l'image original
@@ -167,6 +170,7 @@ class Photo extends Model
                         "type" => 'big',
                         "user_id" => $idUser);
 	        $query->execute($d);
+//	        die($this->db->lastInsertId());
 //	        pour la miniature
             $pathmin = BASE_URL.'/photo-users/'.$idUser.DS.'min'.DS.substr
 				($image_name, 0, -4).'Min'.'.jpg';
@@ -281,15 +285,9 @@ class Photo extends Model
             {
                 $t1 = strtotime($a['created']);
                 $t2 = strtotime($b['created']);
-                return $t1 - $t2;
+                return $t2 - $t1;
             }
             usort($row, 'date_compare');
-
-//			foreach ($row as $v){
-//			    var_dump($v);
-//			    echo '<br>';
-//            }
-//			die(var_dump($row));
 			return $row;
 
 		} catch (PDOexception $e){

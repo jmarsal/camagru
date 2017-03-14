@@ -82,7 +82,7 @@ textarea, select {
 }
 
 .forget_but{
-	font-size: 1.5vw;
+	font-size: 1vw;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -144,4 +144,11 @@ textarea, select {
   margin-top: 40px;
   font-size: 12px;
   width:100px;
+}
+
+.button-close{
+  margin: 0% auto;
+  .button{
+    font-size: 30px;
+  }
 }

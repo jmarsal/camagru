@@ -148,7 +148,7 @@ form input {
 .popup .login {
   font-family: 'Raleway', cursive;
   font-size: 1.3vw;
-  color: #e35c05;
+  color: #F39237;
   padding-bottom: 55px; }
 
 /* line 52, ../sass/form.scss */
@@ -161,7 +161,7 @@ form input {
 .popup .mail {
   font-family: 'Raleway', cursive;
   font-size: 1.3vw;
-  color: #e35c05;
+  color: #F39237;
   padding-top: 5%;
   padding-bottom: 10%; }
 
@@ -175,13 +175,13 @@ form input {
 .popup .mail_reinit2 {
   font-family: 'Raleway', cursive;
   font-size: 1.3vw;
-  color: #e35c05;
+  color: #F39237;
   padding-top: 5%;
   padding-bottom: 11%; }
 
 /* line 80, ../sass/form.scss */
 .popup .text {
-  padding-bottom: 10%; }
+  padding-bottom: 4%; }
 
 /* line 84, ../sass/form.scss */
 .popup .buttons-reinit {
@@ -329,7 +329,7 @@ textarea, select {
 
 /* line 84, ../sass/accueilStyle.scss */
 .forget_but {
-  font-size: 1.5vw; }
+  font-size: 1vw; }
 
 @media only screen and (max-width: 1200px) {
   /* line 89, ../sass/accueilStyle.scss */
@@ -388,3 +388,10 @@ textarea, select {
   margin-top: 40px;
   font-size: 12px;
   width: 100px; }
+
+/* line 149, ../sass/accueilStyle.scss */
+.button-close {
+  margin: 0% auto; }
+  /* line 151, ../sass/accueilStyle.scss */
+  .button-close .button {
+    font-size: 30px; }

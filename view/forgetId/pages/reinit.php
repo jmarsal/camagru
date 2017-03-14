@@ -22,9 +22,9 @@
         Une deuxieme fois, histoire d'etre sur ! <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'reinitPass'.DS.'WInky.png' ?>" width="30px"> <br><br>
         <input type="password" name="repNewPass"><br>
 	</div>
-	<p class="button2">
-		<input type="submit" name="submitRe" value="Enregistrer">
-	</p>
+	<div>
+		<input class="button" type="submit" name="submitRe" value="Enregistrer">
+	</div>
 </form>
 <?php
 if (!empty($this->mess_error)){

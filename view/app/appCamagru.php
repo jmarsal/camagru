@@ -11,7 +11,7 @@ if (!isset($_SESSION)){
         });
     <?php } ?>
 </script>
-<h2 class='bienvenue'>Bienvenue <?php echo $_SESSION["login"];?> <h2/>
+<h2 class='bienvenue' onclick="delImg(this)">Bienvenue <?php echo $_SESSION["login"];?> </h2>
     <div class="video-containter">
         <div class="filters">
             <img class="filters__icon" id="filters__icon" title="Filtres" onclick="showhide()" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'color-filters.png';?>"/>
@@ -38,15 +38,18 @@ if (!isset($_SESSION)){
                 <canvas class="canvas" id="canvas"></canvas>
                 <img class="img-booth" id="photo" alt="photo" src="">
             </form>
-        <?php
-          if (isset($_SESSION['img']) && !empty($_SESSION['img'])){
-            echo '<div class="prev-img" id="prev-img">';
-		    foreach($_SESSION['img'] as $v){?>
-                <img src="<?php echo $v[0];?>">
+            <div class="prev-img" id="prev-img">
                 <?php
-		    }
-            echo '</div>';
-          }
-				?>
+//                inserer id par $_SESSION['img'] qui est du coup un tableau
+                if (!empty($_SESSION['img'])){
+//                    echo '<div class="prev-img" id="prev-img">';
+                    foreach($_SESSION['img'] as $v){?>
+                        <img src="<?php echo $v[0];?>">
+                        <?php
+                    }
+//                    echo '</div>';
+                }
+                ?>
+            </div>
         </div>
     </div>
