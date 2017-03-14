@@ -86,6 +86,16 @@ a {
   border: 10px solid darken($color_back, 5);
   margin: 0px auto;
   z-index: 5;
+
+  hr{
+    margin-left: -329px;
+    padding-left: 698px;
+    color: darken($color_button, 10);
+    background-color: darken($color_button, 10);
+  }
+  .bottom-hr{
+    margin-top: 2px;
+  }
 }
 
 .img-booth, .canvas{
@@ -169,15 +179,20 @@ video{
 }
 
 .prev-img{
-  display: inline-flex;
-  width:695px;
-  //margin-left: 39%;
-  cursor: pointer;
+  display: none;
+  width:700px;
   overflow-x: scroll;
 
   img{
-    margin-right: 5px;
-    margin-left: 5px;
+    margin-right: 27px;
+    margin-bottom: 10px;
+  }
+
+  .del-button{
+    cursor: pointer;
+    margin-left: -26px;
+    width: 40px;
+    height: 40px;
   }
 }
 

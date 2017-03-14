@@ -33,7 +33,9 @@ if (!isset($_SESSION)){
         <div class="booth">
             <video id="myvideo"></video>
             <form class="take-photo" method="post" id="form-cache-photo">
+                <hr class="top-hr">
                 <img src='<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>' id="startbutton" class="take-photo" title="Cheeeese !"/>
+                <hr class="bottom-hr">
                 <input id="getSrc" type="hidden" name="getSrc" value="takePhoto">
                 <canvas class="canvas" id="canvas"></canvas>
                 <img class="img-booth" id="photo" alt="photo" src="">
@@ -42,9 +44,14 @@ if (!isset($_SESSION)){
                 <?php
 //                inserer id par $_SESSION['img'] qui est du coup un tableau
                 if (!empty($_SESSION['img'])){
+                    ?><script type="text/javascript">
+                        var container = document.getElementById('prev-img');
+                        container.style.display = "inline-flex";
+                </script><?php
 //                    echo '<div class="prev-img" id="prev-img">';
                     foreach($_SESSION['img'] as $v){?>
                         <img src="<?php echo $v[0];?>">
+                        <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'trash.png'; ?>" class="del-button" id="del-button" title="Supprimer la photo ?"/>
                         <?php
                     }
 //                    echo '</div>';

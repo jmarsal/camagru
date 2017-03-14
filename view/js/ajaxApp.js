@@ -15,11 +15,19 @@ function ajaxPhoto(data) {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
             var data = JSON.parse(xhr.responseText),
                 img = document.createElement('img'),
+                del = document.createElement('img'),
                 container = document.getElementById('prev-img')
             ;
             img.src = data.thumbnail;
+            del.src = "../webroot/images/app/trash.png";
+            del.className = "del-button";
+            del.id = "del-button";
+            del.title = "Supprimer la photo ?";
+
             // img.id = data.id;
+            container.style.display = "inline-flex";
             container.insertBefore(img, container.childNodes[0]);
+            container.insertBefore(del,  container.childNodes[1]);
         }
     };
     var tmp = "img64=" + data;
