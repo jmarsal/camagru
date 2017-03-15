@@ -50,8 +50,9 @@ if (!isset($_SESSION)){
                     foreach($_SESSION['img'] as $v){
                         if (!empty($v['file'])){?>
                             <div class="container-prev" id="<?php echo $v['id'];?>" onclick="delImg(this)">
-                            <img src="<?php echo BASE_URL.$v['file'];?>">
-                            <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'trash.png'; ?>" class="del-button" id="del-button" title="Supprimer la photo ?"/>
+                                <img src="<?php echo BASE_URL.$v['file'];?>">
+                                <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'eyes.png'; ?>" class="see-button" id="see-button" title="Agrandir ?"/>
+                                <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'trash.png'; ?>" class="del-button" id="del-button" title="Supprimer la photo ?"/>
                             </div>
                             <?php
                         }

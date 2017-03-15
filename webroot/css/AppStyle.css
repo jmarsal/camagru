@@ -256,25 +256,35 @@ video {
 .prev-img {
   display: none;
   width: 700px;
-  overflow-x: scroll; }
-  /* line 186, ../sass/AppStyle.scss */
+  overflow-x: scroll;
+  overflow-y: hidden; }
+  /* line 188, ../sass/AppStyle.scss */
+  .prev-img .container-prev {
+    width: 170px; }
+  /* line 191, ../sass/AppStyle.scss */
   .prev-img img {
     margin-right: 27px;
     margin-bottom: 10px; }
-  /* line 191, ../sass/AppStyle.scss */
+  /* line 196, ../sass/AppStyle.scss */
   .prev-img .del-button {
-    display: block;
     cursor: pointer;
-    margin: 0 auto;
+    display: inline;
+    position: relative;
+    width: 34px;
+    top: -18px; }
+  /* line 204, ../sass/AppStyle.scss */
+  .prev-img .see-button {
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 19px;
+    position: relative;
     width: 40px;
-    height: 40px;
-    margin-top: -15px;
-    margin-left: 56px; }
+    top: -15px; }
 
-/* line 202, ../sass/AppStyle.scss */
+/* line 214, ../sass/AppStyle.scss */
 .filters__icon {
   cursor: pointer; }
 
-/* line 207, ../sass/AppStyle.scss */
+/* line 219, ../sass/AppStyle.scss */
 .filters-button .button {
   margin-top: 0; }
