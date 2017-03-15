@@ -13,30 +13,33 @@ function ajaxPhoto(data) {
     var xhr = getXMLHttpRequest();
     xhr.onreadystatechange = function() {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
-            // console.log(xhr.responseText);
             var data = JSON.parse(xhr.responseText),
+                //container = le container de toutes les prev
+                container = document.getElementById('prev-img'),
                 //img = new prev
                 img = document.createElement('img'),
                 //del = img de trash
                 del = document.createElement('img'),
-                //container = le container de toutes les prev
-                container = document.getElementById('prev-img')
-            ;
+                div = document.createElement('div')
+                ;
+
             //Path et id de la prev dans la nouvelle balise img
             img.src = data.thumbnail;
-            img.id = data.id;
+            img.id = data.idMin;
 
             //Path de l'img trash pour supprimer la prev
             del.src = "../webroot/images/app/trash.png";
             del.className = "del-button";
-            del.id = data.id;
+            del.id = data.idMin;
             del.title = "Supprimer la photo ?";
-            del.onclick = delImg(data);
+
+            div.innerHTML += '<div class="container-prev" id="' + del.id + '" onclick="delImg(this)"></div>';
 
             container.style.display = "inline-flex";
-            //creer div container-prev et onclick delImg dessus
-            container.insertBefore(img, container.childNodes[0]);
-            container.insertBefore(del,  container.childNodes[1]);
+            container.insertBefore(div,  container.childNodes[0]);
+            containerPrev = document.getElementById(del.id);
+            containerPrev.insertBefore(img, containerPrev.childNodes[0]);
+            containerPrev.insertBefore(del, containerPrev.childNodes[1]);
         }
     };
     var tmp = "img64=" + data;
@@ -54,6 +57,7 @@ function delImg(element){
         }
     };
     var tmp = "delImg=" + element.id;
+    console.log(element.id);
     xhr.open("post", "delAjax", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(tmp);

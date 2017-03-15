@@ -4,6 +4,8 @@ if (!isset($_SESSION)){
 }
 class AppController extends Controller
 {
+//    private $_tabImg = null;
+
 	public function appCamagru(){
 	    if ((isset($_SESSION['log']) && $_SESSION['log'] == 1) && !empty
 			($_SESSION['login'])||
@@ -30,20 +32,29 @@ class AppController extends Controller
 
 //          recupere le tab avec path + id
             $imgPrev = $this->_getDataImg();
-            $id = $imgPrev['id'];
-            $pathPrev = $imgPrev['path'];
-//          Creer methode dans photo pour get l'id
-//          Besoin de la derniere id inseree par pdo.
-                return $this->json(200, [
-                    "thumbnail" => $pathPrev,
-                    "id" => $id
-                ]);
+            $idMin = $imgPrev['idMin'];
+            $idBig = $imgPrev['idBig'];
+            $thumbnail = $imgPrev['path'];
+            $_SESSION['tabImg'][$idMin]['idMin'] = $idMin;
+            $_SESSION['tabImg'][$idMin]['idBig'] = $idBig;
+            return $this->json(200, [
+                "thumbnail" => $thumbnail,
+                "idMin" => $idMin
+            ]);
         }
         return $this->json(400);
     }
 
     public function delAjax(){
-        $this->json(200);
+        if (!empty($_POST['delImg'])){
+            if (!empty($_SESSION['tabImg'][$_POST['delImg']]['idMin'])){
+                $this->loadModel('Photo');
+
+                $this->Photo->destroyPhoto($_SESSION['tabImg'][$_POST['delImg']]);
+               return $this->json(200);
+            }
+        }
+        return $this->json(400);
     }
 
     /**
@@ -60,9 +71,9 @@ class AppController extends Controller
         } else {
             $filter = 'none';
         }
-        $pathMin = $this->Photo->savePhotoTmpToDb($idUser, $_POST['img64'], REPO_PHOTO.DS.$idUser, $filter);
+        $tabPathId = $this->Photo->savePhotoTmpToDb($idUser, $_POST['img64'], REPO_PHOTO.DS.$idUser, $filter);
         $_POST['img64'] = "";
-        return $pathMin;
+        return $tabPathId;
 	}
 
 	private function _printPreview(){

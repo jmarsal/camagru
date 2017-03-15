@@ -189,10 +189,13 @@ video{
   }
 
   .del-button{
+    display: block;
     cursor: pointer;
-    margin-left: -26px;
+    margin: 0 auto;
     width: 40px;
     height: 40px;
+    margin-top: -15px;
+    margin-left: 56px;
   }
 }
 

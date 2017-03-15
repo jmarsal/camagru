@@ -159,7 +159,6 @@ class Photo extends Model
         $this->resizeImg($pathToSaveImg.DS.$image_name, $pathToSaveImg.DS.'min', $image_name.'Min', 150, 150);
 //        insertion dans la db
 
-        //regarder lastInsertId()
         //return un tab avec path photo + id
         $sql = "INSERT INTO posts (`file`, `created`, `type`, `user_id`)
                       VALUES (:file, :created, :type, :user_id)";
@@ -172,6 +171,7 @@ class Photo extends Model
                         "type" => 'big',
                         "user_id" => $idUser);
 	        $query->execute($d);
+            $pathmin['idBig'] = $this->db->lastInsertId();
 //	        pour la miniature
             $pathmin['path'] = BASE_URL.'/photo-users/'.$idUser.DS.'min'.DS.substr
 				($image_name, 0, -4).'Min'.'.jpg';
@@ -180,7 +180,7 @@ class Photo extends Model
                 "type" => 'min',
                 "user_id" => $idUser);
             $query->execute($d);
-            $pathmin['id'] = $this->db->lastInsertId();
+            $pathmin['idMin'] = $this->db->lastInsertId();
             return $pathmin;
         } catch (PDOexception $e){
             print "Erreur : ".$e->getMessage()."";
@@ -275,7 +275,7 @@ class Photo extends Model
 	}
 
 	public function getPreviewImg($id){
-		$sql = "SELECT file, created FROM posts WHERE type='min' && `user_id`=?";
+		$sql = "SELECT file, created, id FROM posts WHERE type='min' && `user_id`=?";
 		try {
 			$query = $this->db->prepare($sql);
             $d = array($id);
@@ -290,6 +290,7 @@ class Photo extends Model
                 return $t2 - $t1;
             }
             usort($row, 'date_compare');
+//            die(var_dump($row));
 			return $row;
 
 		} catch (PDOexception $e){
@@ -297,4 +298,55 @@ class Photo extends Model
 			die();
 		}
 	}
+
+	public function destroyPhoto($tabIdPhoto){
+	    $idMin = $tabIdPhoto['idMin'];
+	    $idBig = $tabIdPhoto['idBig'];
+
+        $sql = "SELECT file FROM posts WHERE id=?";
+        try {
+            $query = $this->db->prepare($sql);
+            $d = array($idMin);
+            $query->execute($d);
+            $pathMin = $query->fetch();
+        } catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+//        die(var_dump($pathMin));
+
+//        AL'enregistrement de l'image, ne pas mettre BASE_URL mais juste a partir de photo-users!!!!!!!!!!!!!!!
+        if (unlink($pathMin['file'])){
+//        unlink($pathMin['file']);
+            try {
+                $query = $this->db->prepare($sql);
+                $d = array($idBig);
+                $query->execute($d);
+                $pathBig = $query->fetch();
+            } catch (PDOexception $e){
+                print "Erreur : ".$e->getMessage()."";
+                die();
+            }
+            if (unlink($pathBig['file'].'.png')){
+//        unlink($pathBig['file']);
+                $sql = "DELETE FROM posts WHERE id=?";
+                try {
+                    $query = $this->db->prepare($sql);
+                    $d = array($idMin);
+                    $query->execute($d);
+                } catch (PDOexception $e){
+                    print "Erreur : ".$e->getMessage()."";
+                    die();
+                }
+                try {
+                    $query = $this->db->prepare($sql);
+                    $d = array($idBig);
+                    $query->execute($d);
+                } catch (PDOexception $e){
+                    print "Erreur : ".$e->getMessage()."";
+                    die();
+                }
+            }
+        }
+    }
 }

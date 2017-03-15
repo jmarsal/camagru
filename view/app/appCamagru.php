@@ -42,15 +42,14 @@ if (!isset($_SESSION)){
             </form>
             <div class="prev-img" id="prev-img">
                 <?php
-//                inserer id par $_SESSION['img'] qui est du coup un tableau
                 if (!empty($_SESSION['img'])){
                     ?><script type="text/javascript">
                         var container = document.getElementById('prev-img');
                         container.style.display = "inline-flex";
                 </script><?php
                     foreach($_SESSION['img'] as $v){?>
-                        <div class="container-prev" id="container-prev" onclick="delImg(this)">
-                        <img src="<?php echo $v[0];?>">
+                        <div class="container-prev" id="<?php echo $v['id'];?>" onclick="delImg(this)">
+                        <img src="<?php echo BASE_URL.DS.$v['file'];?>">
                         <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'trash.png'; ?>" class="del-button" id="del-button" title="Supprimer la photo ?"/>
                         </div>
                         <?php
