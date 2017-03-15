@@ -164,7 +164,7 @@ class Photo extends Model
                       VALUES (:file, :created, :type, :user_id)";
 	    try {
 //	        Pour l'image original
-            $pathBig = BASE_URL.'/photo-users/'.$idUser.DS.substr($image_name, 0, -4);
+            $pathBig = '/photo-users/'.$idUser.DS.substr($image_name, 0, -4);
 	        $query = $this->db->prepare($sql);
 	        $d = array("file" => $pathBig,
                         "created" => $date,
@@ -173,7 +173,7 @@ class Photo extends Model
 	        $query->execute($d);
             $pathmin['idBig'] = $this->db->lastInsertId();
 //	        pour la miniature
-            $pathmin['path'] = BASE_URL.'/photo-users/'.$idUser.DS.'min'.DS.substr
+            $pathmin['path'] = '/photo-users/'.$idUser.DS.'min'.DS.substr
 				($image_name, 0, -4).'Min'.'.jpg';
             $d = array("file" => $pathmin['path'],
                 "created" => $date,
@@ -313,11 +313,8 @@ class Photo extends Model
             print "Erreur : ".$e->getMessage()."";
             die();
         }
-//        die(var_dump($pathMin));
-
-//        AL'enregistrement de l'image, ne pas mettre BASE_URL mais juste a partir de photo-users!!!!!!!!!!!!!!!
+        $pathMin['file'] = substr($pathMin['file'], 1);
         if (unlink($pathMin['file'])){
-//        unlink($pathMin['file']);
             try {
                 $query = $this->db->prepare($sql);
                 $d = array($idBig);
@@ -327,8 +324,8 @@ class Photo extends Model
                 print "Erreur : ".$e->getMessage()."";
                 die();
             }
+            $pathBig['file'] = substr($pathBig['file'], 1);
             if (unlink($pathBig['file'].'.png')){
-//        unlink($pathBig['file']);
                 $sql = "DELETE FROM posts WHERE id=?";
                 try {
                     $query = $this->db->prepare($sql);

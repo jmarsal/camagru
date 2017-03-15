@@ -51,6 +51,8 @@ class AppController extends Controller
                 $this->loadModel('Photo');
 
                 $this->Photo->destroyPhoto($_SESSION['tabImg'][$_POST['delImg']]);
+                $_SESSION['tabImg'][$_POST['delImg']] = "";
+                unset($_SESSION['tabImg'][$_POST['delImg']]);
                return $this->json(200);
             }
         }

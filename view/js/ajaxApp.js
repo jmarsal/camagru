@@ -24,7 +24,7 @@ function ajaxPhoto(data) {
                 ;
 
             //Path et id de la prev dans la nouvelle balise img
-            img.src = data.thumbnail;
+            img.src = '../' + data.thumbnail;
             img.id = data.idMin;
 
             //Path de l'img trash pour supprimer la prev

@@ -47,12 +47,14 @@ if (!isset($_SESSION)){
                         var container = document.getElementById('prev-img');
                         container.style.display = "inline-flex";
                 </script><?php
-                    foreach($_SESSION['img'] as $v){?>
-                        <div class="container-prev" id="<?php echo $v['id'];?>" onclick="delImg(this)">
-                        <img src="<?php echo BASE_URL.DS.$v['file'];?>">
-                        <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'trash.png'; ?>" class="del-button" id="del-button" title="Supprimer la photo ?"/>
-                        </div>
-                        <?php
+                    foreach($_SESSION['img'] as $v){
+                        if (!empty($v['file'])){?>
+                            <div class="container-prev" id="<?php echo $v['id'];?>" onclick="delImg(this)">
+                            <img src="<?php echo BASE_URL.$v['file'];?>">
+                            <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'trash.png'; ?>" class="del-button" id="del-button" title="Supprimer la photo ?"/>
+                            </div>
+                            <?php
+                        }
                     }
                 }
                 ?>
