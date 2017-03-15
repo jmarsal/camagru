@@ -119,6 +119,8 @@ class Photo extends Model
      * @param $idUser int Id de l'user a enregistre dans la table.
      * @param $imgPngBase64 string image au format png et en base 64 a enregistre dans la Db.
      * @param $pathToSaveImg string le dossier dans lequel l'image va etre sauvegarde.
+     * @param $filter string le filtre a ajouter, par default à null.
+     * @return $pathmin array pathmin['id'] = id de la miniature, pathmin['path'] = le path de la miniature.
      */
     public function savePhotoTmpToDb($idUser, $imgPngBase64, $pathToSaveImg, $filter=null){
         date_default_timezone_set('UTC');
@@ -170,15 +172,15 @@ class Photo extends Model
                         "type" => 'big',
                         "user_id" => $idUser);
 	        $query->execute($d);
-//	        die($this->db->lastInsertId());
 //	        pour la miniature
-            $pathmin = BASE_URL.'/photo-users/'.$idUser.DS.'min'.DS.substr
+            $pathmin['path'] = BASE_URL.'/photo-users/'.$idUser.DS.'min'.DS.substr
 				($image_name, 0, -4).'Min'.'.jpg';
-            $d = array("file" => $pathmin,
+            $d = array("file" => $pathmin['path'],
                 "created" => $date,
                 "type" => 'min',
                 "user_id" => $idUser);
             $query->execute($d);
+            $pathmin['id'] = $this->db->lastInsertId();
             return $pathmin;
         } catch (PDOexception $e){
             print "Erreur : ".$e->getMessage()."";

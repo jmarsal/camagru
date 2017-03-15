@@ -11,7 +11,7 @@ if (!isset($_SESSION)){
         });
     <?php } ?>
 </script>
-<h2 class='bienvenue' onclick="delImg(this)">Bienvenue <?php echo $_SESSION["login"];?> </h2>
+<h2 class='bienvenue'>Bienvenue <?php echo $_SESSION["login"];?> </h2>
     <div class="video-containter">
         <div class="filters">
             <img class="filters__icon" id="filters__icon" title="Filtres" onclick="showhide()" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'color-filters.png';?>"/>
@@ -48,13 +48,13 @@ if (!isset($_SESSION)){
                         var container = document.getElementById('prev-img');
                         container.style.display = "inline-flex";
                 </script><?php
-//                    echo '<div class="prev-img" id="prev-img">';
                     foreach($_SESSION['img'] as $v){?>
+                        <div class="container-prev" id="container-prev" onclick="delImg(this)">
                         <img src="<?php echo $v[0];?>">
                         <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'trash.png'; ?>" class="del-button" id="del-button" title="Supprimer la photo ?"/>
+                        </div>
                         <?php
                     }
-//                    echo '</div>';
                 }
                 ?>
             </div>

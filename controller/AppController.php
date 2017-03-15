@@ -16,9 +16,7 @@ class AppController extends Controller
             $_SESSION['login'] = $_COOKIE['camagru-log'];
             $_SESSION['log'] = 1;
             $this->_printPreview();
-//			var_dump($_SESSION);
-            // die($_SERVER['HTTP_X_REQUESTED_WITH']);
-			    $this->render('appCamagru', 'app_layout');
+            $this->render('appCamagru', 'app_layout');
 		} else {
 	        $this->redirection();
         }
@@ -32,13 +30,13 @@ class AppController extends Controller
 
 //          recupere le tab avec path + id
             $imgPrev = $this->_getDataImg();
-
+            $id = $imgPrev['id'];
+            $pathPrev = $imgPrev['path'];
 //          Creer methode dans photo pour get l'id
 //          Besoin de la derniere id inseree par pdo.
                 return $this->json(200, [
-                    "thumbnail" => $imgPrev
-//                    ,
-//                    "id" => $id
+                    "thumbnail" => $pathPrev,
+                    "id" => $id
                 ]);
         }
         return $this->json(400);
