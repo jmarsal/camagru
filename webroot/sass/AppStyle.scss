@@ -79,7 +79,6 @@ a {
 }
 
 .booth{
-  //position: absolute;
   display: inline-block;
   width: 700px;
   background: rgba($color_back, 0.9);
@@ -136,7 +135,6 @@ video{
   width: 273px;
   height: 600px;
   display: inline-block;
-  //display: none;
   margin-left: 20%;
   margin-right: 52px;
 }
@@ -145,8 +143,6 @@ video{
   position: relative;
   margin: 0% auto;
   width: 150px;
-  //margin-left: 350px;
-  //margin-right: -650px;
   a:hover{
     color: $color_button_hover;
   }
@@ -167,7 +163,6 @@ video{
 }
 
 .booth_prev{
-  //position: absolute;
   background: rgba(94, 108, 120, 0.9);
   border: 10px solid #535f6a;
   z-index: 5;
@@ -180,10 +175,12 @@ video{
 
 .prev-img{
   display: none;
-  width:700px;
+  width:696px;
   overflow-x: scroll;
   overflow-y: hidden;
-  //padding-bottom: 50px;
+  background: darken($color_back, 5);
+  border: 2px solid darken($color_back, 10);
+  padding-top: 20px;
 
   .container-prev{
     width: 170px;

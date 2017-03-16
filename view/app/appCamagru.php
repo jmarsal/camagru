@@ -48,17 +48,17 @@ if (!isset($_SESSION)){
                         container.style.display = "inline-flex";
                 </script><?php
                     foreach($_SESSION['img'] as $v){
+//                        var_dump($v);
                         if (!empty($v['file'])){?>
                             <div class="container-prev" id="<?php echo $v['id'];?>">
-                                <div class="query-select">
-                                    <img src="<?php echo BASE_URL.$v['file'];?>">
-                                    <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'eyes.png'; ?>" class="see-button" id="see-button" title="Agrandir ?"/>
-                                    <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'trash.png'; ?>" class="del-button" id="del-button" title="Supprimer la photo ?" onclick="delImg(<?php echo $v['id'];?>)"/>
-                                </div>
+                                <img src="<?php echo BASE_URL.$v['file'];?>">
+                                <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'eyes.png'; ?>" class="see-button" id="see-button" title="Agrandir ?"/>
+                                <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'trash.png'; ?>" class="del-button" id="del-button" title="Supprimer la photo ?" onclick="delImg(<?php echo $v['id'];?>)"/>
                             </div>
                             <?php
                         }
                     }
+                    unset($_SESSION['img']);
                 }
                 ?>
             </div>

@@ -167,47 +167,47 @@ a {
   border: 10px solid #535f6a;
   margin: 0px auto;
   z-index: 5; }
-  /* line 90, ../sass/AppStyle.scss */
+  /* line 89, ../sass/AppStyle.scss */
   .booth hr {
     margin-left: -329px;
     padding-left: 698px;
     color: #e9780e;
     background-color: #e9780e; }
-  /* line 96, ../sass/AppStyle.scss */
+  /* line 95, ../sass/AppStyle.scss */
   .booth .bottom-hr {
     margin-top: 2px; }
 
-/* line 101, ../sass/AppStyle.scss */
+/* line 100, ../sass/AppStyle.scss */
 .img-booth, .canvas {
   display: none; }
 
-/* line 105, ../sass/AppStyle.scss */
+/* line 104, ../sass/AppStyle.scss */
 video {
   transform: scaleX(-1); }
 
 @media only screen and (max-width: 750px) {
-  /* line 110, ../sass/AppStyle.scss */
+  /* line 109, ../sass/AppStyle.scss */
   video, .booth {
     width: 100%; }
 
-  /* line 113, ../sass/AppStyle.scss */
+  /* line 112, ../sass/AppStyle.scss */
   .bienvenue {
     font-size: 15px; } }
-/* line 118, ../sass/AppStyle.scss */
+/* line 117, ../sass/AppStyle.scss */
 .bienvenue {
   text-align: center; }
 
-/* line 122, ../sass/AppStyle.scss */
+/* line 121, ../sass/AppStyle.scss */
 .take-photo {
   margin: 0% auto;
   padding: 0;
   width: 40px;
   cursor: pointer; }
-  /* line 127, ../sass/AppStyle.scss */
+  /* line 126, ../sass/AppStyle.scss */
   .take-photo p {
     display: inline-block; }
 
-/* line 132, ../sass/AppStyle.scss */
+/* line 131, ../sass/AppStyle.scss */
 .booth_filter {
   background: rgba(94, 108, 120, 0.9);
   border: 10px solid #535f6a;
@@ -218,30 +218,30 @@ video {
   margin-left: 20%;
   margin-right: 52px; }
 
-/* line 144, ../sass/AppStyle.scss */
+/* line 142, ../sass/AppStyle.scss */
 .filters {
   position: relative;
   margin: 0% auto;
   width: 150px; }
-  /* line 150, ../sass/AppStyle.scss */
+  /* line 146, ../sass/AppStyle.scss */
   .filters a:hover {
     color: #e35c05; }
-  /* line 153, ../sass/AppStyle.scss */
+  /* line 149, ../sass/AppStyle.scss */
   .filters img {
     margin-left: 30px; }
 
-/* line 158, ../sass/AppStyle.scss */
+/* line 154, ../sass/AppStyle.scss */
 .menu2 {
   display: flex; }
-  /* line 160, ../sass/AppStyle.scss */
+  /* line 156, ../sass/AppStyle.scss */
   .menu2 .button2 {
     width: 280px; }
-  /* line 163, ../sass/AppStyle.scss */
+  /* line 159, ../sass/AppStyle.scss */
   .menu2 input {
     margin-top: 5px;
     margin-bottom: 5px; }
 
-/* line 169, ../sass/AppStyle.scss */
+/* line 165, ../sass/AppStyle.scss */
 .booth_prev {
   background: rgba(94, 108, 120, 0.9);
   border: 10px solid #535f6a;
@@ -252,27 +252,30 @@ video {
   margin-left: 52px;
   margin-right: 20%; }
 
-/* line 181, ../sass/AppStyle.scss */
+/* line 176, ../sass/AppStyle.scss */
 .prev-img {
   display: none;
-  width: 700px;
+  width: 696px;
   overflow-x: scroll;
-  overflow-y: hidden; }
-  /* line 188, ../sass/AppStyle.scss */
+  overflow-y: hidden;
+  background: #535f6a;
+  border: 2px solid #48525b;
+  padding-top: 20px; }
+  /* line 185, ../sass/AppStyle.scss */
   .prev-img .container-prev {
     width: 170px; }
-  /* line 191, ../sass/AppStyle.scss */
+  /* line 188, ../sass/AppStyle.scss */
   .prev-img img {
     margin-right: 27px;
     margin-bottom: 10px; }
-  /* line 196, ../sass/AppStyle.scss */
+  /* line 193, ../sass/AppStyle.scss */
   .prev-img .del-button {
     cursor: pointer;
     display: inline;
     position: relative;
     width: 34px;
     top: -18px; }
-  /* line 204, ../sass/AppStyle.scss */
+  /* line 201, ../sass/AppStyle.scss */
   .prev-img .see-button {
     cursor: pointer;
     display: inline-block;
@@ -281,10 +284,10 @@ video {
     width: 40px;
     top: -15px; }
 
-/* line 214, ../sass/AppStyle.scss */
+/* line 211, ../sass/AppStyle.scss */
 .filters__icon {
   cursor: pointer; }
 
-/* line 219, ../sass/AppStyle.scss */
+/* line 216, ../sass/AppStyle.scss */
 .filters-button .button {
   margin-top: 0; }
