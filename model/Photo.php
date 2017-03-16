@@ -73,6 +73,9 @@ class Photo extends Model
         if ($filter === 'blur(5px)'){
             $arr[0] = 'blur(5px)';
         }
+        else if ($filter === 'sepia(60%)'){
+            $arr[0] = 'sepia(60%)';
+        }
         else if ($filter === 'invert(100%)'){
             $arr[0] = IMG_FILTER_NEGATE;
         }
@@ -131,7 +134,9 @@ class Photo extends Model
                 imagefilter($im, IMG_FILTER_GAUSSIAN_BLUR);
             }
         }
-        imagepng($im, $pathImg);
+        if (!imagepng($im, $pathImg)){
+            die('probleme');
+        }
         imagedestroy($im);
     }
 
