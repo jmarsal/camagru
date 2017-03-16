@@ -57,6 +57,19 @@ class AppController extends Controller
         return $this->json(400);
     }
 
+    public function enlargeAjax(){
+        if (!empty($_POST['enlargeImg'])){
+            $this->loadModel('Photo');
+            $pathImg = $this->Photo->getImg($_SESSION['tabImg'][$_POST['enlargeImg']]['idBig']);
+
+            return $this->json(200, [
+                "idMin" => $_SESSION['tabImg'][$_POST['enlargeImg']]['idMin'],
+                "idBig" => $pathImg
+            ]);
+        }
+        return $this->json(400);
+    }
+
     /**
      * Recupere l'image et l'enregistre dans la Db
      */

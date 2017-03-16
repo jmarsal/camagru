@@ -346,4 +346,19 @@ class Photo extends Model
             }
         }
     }
+
+    public function getImg($id){
+//	    Recupere file avec id et retourne file;
+        $sql = "SELECT file FROM posts WHERE id=?";
+        try {
+            $query = $this->db->prepare($sql);
+            $d = array($id);
+            $query->execute($d);
+            $pathBig = $query->fetch();
+            return substr($pathBig[0], 1).'.png';
+        } catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+    }
 }

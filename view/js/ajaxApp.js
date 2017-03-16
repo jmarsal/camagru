@@ -42,6 +42,9 @@ function ajaxPhoto(data) {
             see.className = "see-button";
             see.id = "see-button";
             see.title = "Agrandir ?";
+            see.onclick = function () {
+                enlargePhoto(data.idMin);
+            };
 
             divContainer.className = "container-prev";
             divContainer.id = "" + data.idMin + "";
@@ -90,6 +93,64 @@ function delImg(id){
     };
     var tmp = "delImg=" + id;
     xhr.open("post", "delAjax", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(tmp);
+}
+
+function enlargePhoto(id){
+    var xhr = getXMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+        if ((state = xhr.readyState) == 4 && xhr.status == 200) {
+            var data = JSON.parse(xhr.responseText),
+                replaceVideo = document.getElementById('booth'),
+                closeEnlarge = document.getElementById('container-enlarge'),
+                container = document.createElement('div'),
+                img = document.createElement('img'),
+                close = document.createElement('img'),
+                cacheTakePhoto = document.getElementById('form-cache-photo')
+                ;
+
+            if (closeEnlarge != null){
+                closeEnlarge.parentNode.removeChild(closeEnlarge);
+            }
+
+            container.className = "container-enlarge";
+            container.id = "container-enlarge";
+            container.style.display = "inline-block";
+            container.style.zIndex = "50";
+
+            img.src = '../' + data.idBig;
+            img.className = "img-enlarge";
+
+            close.src = "../webroot/images/app/close.png";
+            close.className = "close-enlarge";
+            close.onclick = function () {
+                var close = document.getElementById("container-enlarge"),
+                    video = document.getElementById('myvideo'),
+                    cacheTakePhoto = document.getElementById('form-cache-photo')
+                    ;
+                close.style.display = "none";
+                video.style.display = "inline-block";
+                cacheTakePhoto.style.display = 'block';
+                cacheTakePhoto.style.cursor = 'pointer';
+            }
+            close.title = "Fermer photo ?";
+
+            cacheTakePhoto.style.display = 'none';
+            cacheTakePhoto.style.cursor = 'none';
+            var replace = document.getElementById('myvideo');
+            replace.style.display = "none"
+            replaceVideo.insertBefore(container, replaceVideo.childNodes[0]);
+            var container = document.getElementById('container-enlarge');
+
+            container.insertBefore(img, container.childNodes[0]);
+            container.insertBefore(close, container.childNodes[1]);
+        }
+    };
+
+    var tmp = "enlargeImg=" + id;
+    xhr.open("post", "enlargeAjax", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(tmp);
 }

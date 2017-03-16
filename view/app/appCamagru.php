@@ -30,7 +30,7 @@ if (!isset($_SESSION)){
                     </div>
                 </nav>
             </div>
-        <div class="booth">
+        <div class="booth" id="booth">
             <video id="myvideo"></video>
             <form class="take-photo" method="post" id="form-cache-photo">
                 <hr class="top-hr">
@@ -52,7 +52,7 @@ if (!isset($_SESSION)){
                         if (!empty($v['file'])){?>
                             <div class="container-prev" id="<?php echo $v['id'];?>">
                                 <img src="<?php echo BASE_URL.$v['file'];?>">
-                                <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'eyes.png'; ?>" class="see-button" id="see-button" title="Agrandir ?"/>
+                                <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'eyes.png'; ?>" class="see-button" id="see-button" title="Agrandir ?" onclick="enlargePhoto(<?php echo $v['id'];?>)"/>
                                 <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'trash.png'; ?>" class="del-button" id="del-button" title="Supprimer la photo ?" onclick="delImg(<?php echo $v['id'];?>)"/>
                             </div>
                             <?php

@@ -123,9 +123,6 @@ video{
   padding: 0;
   width: 40px;
   cursor: pointer;
-  p{
-    display: inline-block;
-  }
 }
 
 .booth_filter{
@@ -215,6 +212,25 @@ video{
 .filters-button{
   .button{
     margin-top: 0;
+  }
+}
+
+.container-enlarge{
+  display: inline-block;
+  z-index: 50;
+  width:700px;
+  height: 525px;
+
+  .close-enlarge{
+    position: relative;
+    top: -490px;
+    left: 666px;
+    width: 45px;
+    cursor: pointer;
+  }
+
+  .img-enlarge{
+    margin-bottom: -56px;
   }
 }
 
