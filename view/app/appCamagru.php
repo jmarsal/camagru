@@ -17,7 +17,7 @@ if (!isset($_SESSION)){
             <img class="filters__icon" id="filters__icon" title="Filtres" onclick="showhide()" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'color-filters.png';?>"/>
                 <nav class="menu2">
                     <div class="filters-button">
-                        <div class="button active" id="none" onclick="changeFilter('none')">None</div>
+                        <div class="button" id="none" onclick="changeFilter('none')">None</div>
                         <div class="button" id="blur(5px)" onclick="changeFilter('blur(5px)')">Blur</div>
                         <div class="button" id="brightness(0.4)" onclick="changeFilter('brightness(0.4)')">Brightness</div>
                         <div class="button" id="grayscale(100%)" onclick="changeFilter('grayscale(100%)')">Grayscale</div>
@@ -32,6 +32,7 @@ if (!isset($_SESSION)){
             </div>
         <div class="booth" id="booth">
             <video id="myvideo"></video>
+            <audio id="audioPlayer" src="<?php echo BASE_URL.DS.'webroot'.DS.'sounds'.DS."photo2.ogg";?>"></audio>
             <form class="take-photo" method="post" id="form-cache-photo">
                 <hr class="top-hr">
                 <img src='<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>' id="startbutton" class="take-photo" title="Cheeeese !"/>

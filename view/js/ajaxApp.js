@@ -79,6 +79,16 @@ function delImg(id){
 
     xhr.onreadystatechange = function() {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
+            var closeEnlarge = document.getElementById('container-enlarge'),
+                replaceVideo = document.getElementById('myvideo'),
+                cacheTakePhoto = document.getElementById('form-cache-photo')
+            ;
+            if (closeEnlarge != null){
+                closeEnlarge.parentNode.removeChild(closeEnlarge);
+                replaceVideo.style.display = "inline-block";
+                cacheTakePhoto.style.display = 'block';
+                cacheTakePhoto.style.cursor = 'pointer';
+            }
             imgs.parentNode.removeChild(imgs);
             var countElems = document.querySelectorAll('#prev-img .container-prev img');
 

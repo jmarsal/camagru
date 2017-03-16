@@ -9,6 +9,12 @@ function changeFilter(filter){
     {
         if((state = xhr.readyState) == 4 && xhr.status == 200) {
             toggleActiveClass(filter);
+            var cacheTakePhoto = document.getElementById('form-cache-photo'),
+                takePhoto = document.getElementById('startbutton')
+            ;
+            cacheTakePhoto.style.display = 'block';
+            cacheTakePhoto.style.cursor = 'pointer';
+            takePhoto.style.display = 'block';
         }
     };
 

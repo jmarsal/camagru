@@ -78,7 +78,7 @@ class Photo extends Model
         }
         else if ($filter === 'brightness(0.4)'){
             $arr[0] = IMG_FILTER_BRIGHTNESS;
-            $arr[1] = -100;
+            $arr[1] = -50;
         }
         else if ($filter === 'grayscale(100%)'){
             $arr[0] = IMG_FILTER_GRAYSCALE;
@@ -89,12 +89,30 @@ class Photo extends Model
             $arr[2] = 100;
             $arr[3] = 5;
         }
+        else if ($filter === 'hue-rotate(135deg)'){
+            $arr[0] = IMG_FILTER_COLORIZE;
+            $arr[1] = 0;
+            $arr[2] = 50;
+            $arr[3] = 50;
+        }
+        else if ($filter === 'hue-rotate(220deg)'){
+            $arr[0] = IMG_FILTER_COLORIZE;
+            $arr[1] = 0;
+            $arr[2] = 5;
+            $arr[3] = 100;
+        }
+        else if ($filter === 'hue-rotate(320deg)'){
+            $arr[0] = IMG_FILTER_COLORIZE;
+            $arr[1] = 50;
+            $arr[2] = 5;
+            $arr[3] = 100;
+        }
         return $arr;
     }
 
     public function addFilterOnImg($pathImg, $filter, $pow=null, $pow2=null, $pow3=null){
         $im = imagecreatefrompng($pathImg);
-        if ($filter !== 'blur(5px)'){
+        if ($filter !== 'blur(5px)' && $filter !== 'sepia(60%)'){
             if ($pow !== null && !$pow2){
                 imagefilter($im, $filter, $pow);
             } else if ($pow2 !== null && !$pow3){
@@ -104,11 +122,14 @@ class Photo extends Model
             }else{
                 imagefilter($im, $filter);
             }
+        } else if ($filter === 'sepia(60%)'){
+            imagefilter($im,IMG_FILTER_GRAYSCALE);
+            imagefilter($im,IMG_FILTER_COLORIZE,100,50,0);
         } else {
-            imagefilter($im, IMG_FILTER_SMOOTH, 250);
-            imagefilter($im, IMG_FILTER_GAUSSIAN_BLUR);
-            imagefilter($im, IMG_FILTER_SELECTIVE_BLUR);
-            imagefilter($im, IMG_FILTER_GAUSSIAN_BLUR);
+            for ($i = 0; $i < 25; $i++){
+                imagefilter($im, IMG_FILTER_SMOOTH, 250);
+                imagefilter($im, IMG_FILTER_GAUSSIAN_BLUR);
+            }
         }
         imagepng($im, $pathImg);
         imagedestroy($im);

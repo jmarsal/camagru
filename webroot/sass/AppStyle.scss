@@ -92,9 +92,6 @@ a {
     color: darken($color_button, 10);
     background-color: darken($color_button, 10);
   }
-  .bottom-hr{
-    margin-top: 2px;
-  }
 }
 
 .img-booth, .canvas{
@@ -119,6 +116,7 @@ video{
 }
 
 .take-photo{
+  display: none;
   margin: 0% auto;
   padding: 0;
   width: 40px;

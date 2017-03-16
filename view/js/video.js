@@ -59,6 +59,8 @@
     }
 
     startbutton.addEventListener('click', function(ev) {
+        var player = document.querySelector('#audioPlayer');
+        player.play();
         takepicture();
         ev.preventDefault();
     }, false);
