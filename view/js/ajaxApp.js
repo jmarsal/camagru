@@ -31,18 +31,22 @@ function ajaxPhoto(data) {
             img.id = data.idMin;
 
             //Path de l'img trash pour supprimer la prev
+
+
+            //Revoir ici car le onclick n'est pas dans la balise
             del.src = "../webroot/images/app/trash.png";
             del.className = "del-button";
-            del.id = data.idMin;
+            del.id = "del-button";
             del.title = "Supprimer la photo ?";
-
+            // del.onclick = delImg(data.idMin);
+            del.innerHTML += ' onclick = "delImg(' + data.idMin + ')"';
             //Path de l'img see pour afficher l'image en grand
             see.src = "../webroot/images/app/eyes.png";
             see.className = "see-button";
-            see.id = data.idMin;
+            see.id = "see-button";
             see.title = "Agrandir ?";
 
-            divContainer.innerHTML += '<div class="container-prev" id="' + del.id + '" onclick="delImg(this)"></div>';
+            divContainer.innerHTML += '<div class="container-prev" id="' + del.id + '"></div>';
 
             container.style.display = "inline-flex";
             container.insertBefore(divContainer,  container.childNodes[0]);
@@ -58,16 +62,21 @@ function ajaxPhoto(data) {
     xhr.send(tmp);
 }
 //Probleme car efface meme si click sur image
-function delImg(element){
+function delImg(id){
     var xhr = getXMLHttpRequest();
+    var imgs = document.getElementById(id);
 
+
+    // alert(imgs);
+    // alert(id);
     xhr.onreadystatechange = function() {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
-            element.parentNode.removeChild(element);
+    imgs.parentNode.removeChild(imgs);
+    //         element.parentNode.removeChild(element);
         }
     };
-    var tmp = "delImg=" + element.id;
-    console.log(element.id);
+    var tmp = "delImg=" + id;
+    console.log(id);
     xhr.open("post", "delAjax", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(tmp);
