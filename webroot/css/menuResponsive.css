@@ -90,4 +90,49 @@
     top: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.6); } }
+    background-color: rgba(0, 0, 0, 0.6); }
+
+  /* line 89, ../sass/menuResponsive.scss */
+  .video-containter {
+    margin-left: -125px; }
+
+  /* line 93, ../sass/menuResponsive.scss */
+  .filters__icon {
+    margin-left: 40px;
+    margin-right: 15px; }
+    /* line 94, ../sass/menuResponsive.scss */
+    .filters__icon:hover {
+      filter: invert(100%); }
+
+  /* line 101, ../sass/menuResponsive.scss */
+  .menu2 {
+    display: none; }
+
+  /* line 105, ../sass/menuResponsive.scss */
+  .objets__icon {
+    position: relative;
+    left: -490px;
+    top: 100px;
+    width: 80px; }
+    /* line 106, ../sass/menuResponsive.scss */
+    .objets__icon:hover {
+      filter: invert(100%); }
+
+  /* line 115, ../sass/menuResponsive.scss */
+  .menu-objets {
+    display: none; }
+
+  /* line 120, ../sass/menuResponsive.scss */
+  .objets__icon .menu-objets {
+    display: none; }
+  /* line 123, ../sass/menuResponsive.scss */
+  .objets__icon:hover {
+    filter: invert(100%); }
+
+  /* line 128, ../sass/menuResponsive.scss */
+  video {
+    height: auto; }
+
+  /* line 132, ../sass/menuResponsive.scss */
+  .prev-img {
+    width: 99%; } }

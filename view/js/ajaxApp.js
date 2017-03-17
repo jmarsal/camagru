@@ -32,13 +32,13 @@ function ajaxPhoto(data) {
 
             //Path de l'img trash pour supprimer la prev
             del.className = "del-button";
-            del.src = "../webroot/images/app/trash.png";
+            del.src = "../webroot/images/app/Trash.ico";
             del.id = "del-button";
             del.title = "Supprimer la photo ?";
             del.onclick = function() { delImg(data.idMin); };
 
             //Path de l'img see pour afficher l'image en grand
-            see.src = "../webroot/images/app/eyes.png";
+            see.src = "../webroot/images/app/Loupe.png";
             see.className = "see-button";
             see.id = "see-button";
             see.title = "Agrandir ?";
@@ -133,14 +133,16 @@ function enlargePhoto(id){
             img.src = '../' + data.idBig;
             img.className = "img-enlarge";
 
-            close.src = "../webroot/images/app/close.png";
+            close.src = "../webroot/images/app/close2.png";
             close.className = "close-enlarge";
             close.onclick = function () {
                 var close = document.getElementById("container-enlarge"),
                     video = document.getElementById('myvideo'),
                     cacheTakePhoto = document.getElementById('form-cache-photo')
                     ;
-                close.style.display = "none";
+            close.style.display = "none";
+            close.style.border = "1px solid red";
+
                 video.style.display = "inline-block";
                 cacheTakePhoto.style.display = 'block';
                 cacheTakePhoto.style.cursor = 'pointer';

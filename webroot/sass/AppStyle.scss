@@ -68,7 +68,9 @@ a {
   }
 }
 
-@import "menuResponsive";
+.elems-app{
+  margin-left: 18%;
+}
 
 .video-containter{
   display: inline-flex;
@@ -142,7 +144,7 @@ video{
     color: $color_button_hover;
   }
   img{
-    margin-left: 30px;
+    margin-left: 40px;
   }
 }
 
@@ -221,9 +223,9 @@ video{
 
   .close-enlarge{
     position: relative;
-    top: -490px;
-    left: 666px;
-    width: 45px;
+    top: -465px;
+    left: 648px;
+    width: 30px;
     cursor: pointer;
   }
 
@@ -231,6 +233,32 @@ video{
     margin-bottom: -56px;
   }
 }
+
+.objets-filter{
+  position: relative;
+  margin: 0% auto;
+  width: 150px;
+  a:hover{
+    color: $color_button_hover;
+  }
+  img{
+    margin-left: 30px;
+  }
+}
+
+.objets__icon{
+  cursor: pointer;
+  width:100px;
+  margin-left:15px;
+}
+
+.objets-button{
+  .button{
+    margin-top: 0;
+  }
+}
+
+@import "menuResponsive";
 
 
 

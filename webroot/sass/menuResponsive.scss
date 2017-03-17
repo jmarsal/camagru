@@ -85,4 +85,51 @@ $menu-width: 250px!default;
       background-color: rgba(0,0,0,0.6);
     }
   }
+
+  .video-containter{
+    margin-left: -125px;
+  }
+
+  .filters__icon{
+    &:hover{
+      filter:invert(100%);
+    }
+    margin-left: 40px;
+    margin-right: 15px;
+  }
+
+  .menu2{
+    display: none;
+  }
+
+  .objets__icon{
+    &:hover{
+      filter:invert(100%);
+    }
+    position: relative;
+    left: -490px;
+    top: 100px;
+    width:80px;
+  }
+
+  .menu-objets{
+    display: none;
+  }
+
+  .objets__icon{
+    .menu-objets{
+      display: none;
+    }
+    &:hover{
+      filter:invert(100%);
+    }
+  }
+
+  video{
+    height: auto;
+  }
+
+  .prev-img{
+    width: 99%;
+  }
 }

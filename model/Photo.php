@@ -134,9 +134,7 @@ class Photo extends Model
                 imagefilter($im, IMG_FILTER_GAUSSIAN_BLUR);
             }
         }
-        if (!imagepng($im, $pathImg)){
-            die('probleme');
-        }
+        imagepng($im, $pathImg);
         imagedestroy($im);
     }
 
