@@ -137,25 +137,41 @@ video{
 }
 
 .filters{
+  top:13px;
   position: relative;
   margin: 0% auto;
   width: 150px;
   a:hover{
     color: $color_button_hover;
   }
+
   img{
     margin-left: 40px;
   }
-}
 
-.menu2{
+  .menu2{
     display: flex;
-  .button2{
-    width:280px;
+    margin-left: 10px;
+
+    .button{
+      height:28px;
+      font-size: 20px;
+    }
+    input{
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
   }
-  input{
-    margin-top: 5px;
-    margin-bottom: 5px;
+
+  .filters__icon{
+    cursor: pointer;
+    width:65px;
+  }
+
+  .filters-button{
+    .button{
+      margin-top: 0;
+    }
   }
 }
 
@@ -205,16 +221,6 @@ video{
   }
 }
 
-.filters__icon{
-  cursor: pointer;
-}
-
-.filters-button{
-  .button{
-    margin-top: 0;
-  }
-}
-
 .container-enlarge{
   display: inline-block;
   z-index: 50;
@@ -244,17 +250,27 @@ video{
   img{
     margin-left: 30px;
   }
-}
+  .objets__icon{
+    cursor: pointer;
+    width:75px;
+    margin-left:55px;
+    &:hover{
+      filter: invert(100%);
+    }
+  }
 
-.objets__icon{
-  cursor: pointer;
-  width:100px;
-  margin-left:15px;
-}
-
-.objets-button{
-  .button{
-    margin-top: 0;
+  .objets-button{
+    height: 500px;
+    overflow-y: scroll;
+    margin-right: -20px;
+    overflow-x: hidden;
+    .button{
+      margin-top: 0;
+    }
+    div{
+      margin-left: 30px;
+      font-size: 20px;
+    }
   }
 }
 

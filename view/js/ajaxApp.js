@@ -11,6 +11,7 @@ function getSrcImg(data) {
 
 function ajaxPhoto(data) {
     var xhr = getXMLHttpRequest();
+
     xhr.onreadystatechange = function() {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
             var data = JSON.parse(xhr.responseText),
@@ -118,11 +119,15 @@ function enlargePhoto(id){
                 container = document.createElement('div'),
                 img = document.createElement('img'),
                 close = document.createElement('img'),
-                cacheTakePhoto = document.getElementById('form-cache-photo')
+                cacheTakePhoto = document.getElementById('form-cache-photo'),
+                closeObjFilter = document.getElementById('imgObj')
                 ;
 
             if (closeEnlarge != null){
                 closeEnlarge.parentNode.removeChild(closeEnlarge);
+            }
+            if (closeObjFilter){
+                closeObjFilter.style.display = 'none';
             }
 
             container.className = "container-enlarge";
@@ -135,19 +140,26 @@ function enlargePhoto(id){
 
             close.src = "../webroot/images/app/close2.png";
             close.className = "close-enlarge";
+            close.title = "Fermer photo ?";
             close.onclick = function () {
                 var close = document.getElementById("container-enlarge"),
                     video = document.getElementById('myvideo'),
-                    cacheTakePhoto = document.getElementById('form-cache-photo')
+                    cacheTakePhoto = document.getElementById('form-cache-photo'),
+                    closeObjFilter = document.getElementById('imgObj')
                     ;
-            close.style.display = "none";
-            close.style.border = "1px solid red";
+
+                close.style.display = "none";
+                close.style.border = "1px solid red";
 
                 video.style.display = "inline-block";
+
                 cacheTakePhoto.style.display = 'block';
                 cacheTakePhoto.style.cursor = 'pointer';
+
+                if (closeObjFilter){
+                    closeObjFilter.style.display = 'block';
+                }
             }
-            close.title = "Fermer photo ?";
 
             cacheTakePhoto.style.display = 'none';
             cacheTakePhoto.style.cursor = 'none';

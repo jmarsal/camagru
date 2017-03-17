@@ -8,9 +8,8 @@ class AppController extends Controller
 
 	public function appCamagru(){
 	    if ((isset($_SESSION['log']) && $_SESSION['log'] == 1) && !empty
-			($_SESSION['login'])||
-            isset($_COOKIE['camagru-log']) && !empty($_COOKIE['camagru-log'])){
-            if (isset($_POST['filter']) && !empty($_POST['filter'])) {
+			($_SESSION['login'])|| !empty($_COOKIE['camagru-log'])){
+            if (!empty($_POST['filter'])) {
                 $_SESSION['filter'] = $_POST['filter'];
             }
             $this->loadModel('Photo');
@@ -66,6 +65,16 @@ class AppController extends Controller
                 "idMin" => $_SESSION['tabImg'][$_POST['enlargeImg']]['idMin'],
                 "idBig" => $pathImg
             ]);
+        }
+        return $this->json(400);
+    }
+
+    public function objFilterAjax(){
+        if (!empty($_POST['objFilter'])) {
+            $this->loadModel('Photo');
+            $_SESSION['objFilter'] = $_POST['objFilter'];
+
+            return $this->json(200);
         }
         return $this->json(400);
     }
