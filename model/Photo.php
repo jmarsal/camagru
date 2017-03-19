@@ -113,7 +113,7 @@ class Photo extends Model
         return $arr;
     }
 
-    public function addFilterOnImg($pathImg, $filter, $pow=null, $pow2=null, $pow3=null){
+    private function _addFilterOnImg($pathImg, $filter, $pow=null, $pow2=null, $pow3=null){
         $im = imagecreatefrompng($pathImg);
         if ($filter !== 'blur(5px)' && $filter !== 'sepia(60%)'){
             if ($pow !== null && !$pow2){
@@ -138,6 +138,41 @@ class Photo extends Model
         imagedestroy($im);
     }
 
+    private function _addFilterObjOnImg($pathImg, $filterObj){
+        $pathFilterObj = 'webroot'.DS.'images'.DS.'objets'.DS.$filterObj.'.png';
+
+        $origin = imagecreatefrompng($pathImg);
+        $imgObj = imagecreatefrompng($pathFilterObj);
+        $widthObj = imagesx($imgObj);
+        $heigthObj = imagesy($imgObj);
+
+        imagealphablending($origin, true);
+        imagesavealpha($origin, true);
+        if ($filterObj === 'dog'){
+            imagecopy($origin, $imgObj, -30, 150, 0, 0, $widthObj, $heigthObj);
+        } else if ($filterObj === 'beardMustaches'){
+            imagecopy($origin, $imgObj, 230, 90, 0, 0, $widthObj, $heigthObj);
+        } else if ($filterObj === 'chapeauPirate'){
+            imagecopy($origin, $imgObj, 170, -25, 0, 0, $widthObj, $heigthObj);
+        } else if ($filterObj === 'epee'){
+            imagecopy($origin, $imgObj, 70, 190, 0, 0, $widthObj, $heigthObj);
+        } else if ($filterObj === 'epeeLaser'){
+            imagecopy($origin, $imgObj, 85, 210, 0, 0, $widthObj, $heigthObj);
+        } else if ($filterObj === 'largeMustache'){
+            imagecopy($origin, $imgObj, 210, 180, 0, 0, $widthObj, $heigthObj);
+        } else if ($filterObj === 'lunette'){
+            imagecopy($origin, $imgObj, 220, 85, 0, 0, $widthObj, $heigthObj);
+        } else if ($filterObj === 'monkey'){
+            imagecopy($origin, $imgObj, 130, 135, 0, 0, $widthObj, $heigthObj);
+        } else if ($filterObj === 'policeHat'){
+            imagecopy($origin, $imgObj, 240, -10, 0, 0, $widthObj, $heigthObj);
+        } else if ($filterObj === 'prismaticMustache'){
+            imagecopy($origin, $imgObj, 245, 180, 0, 0, $widthObj, $heigthObj);
+        }
+        imagesavealpha($origin, true);
+        imagepng($origin, $pathImg);
+    }
+
     /**
      * Enregistre une image png en base64 dans la Db
      * @param $idUser int Id de l'user a enregistre dans la table.
@@ -146,7 +181,7 @@ class Photo extends Model
      * @param $filter string le filtre a ajouter, par default à null.
      * @return $pathmin array pathmin['id'] = id de la miniature, pathmin['path'] = le path de la miniature.
      */
-    public function savePhotoTmpToDb($idUser, $imgPngBase64, $pathToSaveImg, $filter=null){
+    public function savePhotoTmpToDb($idUser, $imgPngBase64, $pathToSaveImg, $filter=null, $filterObj = null){
         date_default_timezone_set('UTC');
         $date = date('Y-m-d H:i:s');
 
@@ -156,7 +191,7 @@ class Photo extends Model
         $data = base64_decode($data);
         $image_name = md5(uniqid()).'.'.$type;
 
-        file_put_contents( $pathToSaveImg.DS.$image_name, $data);
+        file_put_contents($pathToSaveImg.DS.$image_name, $data);
         $_SESSION['img_name'] = $pathToSaveImg.DS.$image_name;
         if ($filter !== 'none'){
             $arrFilter = $this->findFilterAndPowForImg($filter);
@@ -177,7 +212,10 @@ class Photo extends Model
                 $pow3 = null;
             }
 
-            $this->addFilterOnImg($pathToSaveImg.DS.$image_name, $filter, $pow, $pow2, $pow3);
+            $this->_addFilterOnImg($pathToSaveImg.DS.$image_name, $filter, $pow, $pow2, $pow3);
+        }
+        if ($filterObj) {
+            $this->_addFilterObjOnImg($pathToSaveImg.DS.$image_name, $filterObj);
         }
 
         $this->resizeImg($pathToSaveImg.DS.$image_name, $pathToSaveImg.DS.'min', $image_name.'Min', 150, 150);

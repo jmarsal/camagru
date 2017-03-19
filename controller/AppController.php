@@ -93,7 +93,12 @@ class AppController extends Controller
         } else {
             $filter = 'none';
         }
-        $tabPathId = $this->Photo->savePhotoTmpToDb($idUser, $_POST['img64'], REPO_PHOTO.DS.$idUser, $filter);
+        if (!empty($_SESSION['objFilter'])){
+            $filterObj = $_SESSION['objFilter'];
+        } else {
+            $filterObj = null;
+        }
+        $tabPathId = $this->Photo->savePhotoTmpToDb($idUser, $_POST['img64'], REPO_PHOTO.DS.$idUser, $filter, $filterObj);
         $_POST['img64'] = "";
         return $tabPathId;
 	}

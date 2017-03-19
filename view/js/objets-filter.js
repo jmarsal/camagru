@@ -46,12 +46,12 @@ function NewObjectImg(filter){
             imgObj.style.marginLeft = "220px";
             imgObj.style.marginTop = "84px";
         } else if (filter === "chapeauPirate"){
-            imgObj.style.width = '20%';
-            imgObj.style.marginLeft = "220px";
+            imgObj.style.width = '35%';
+            imgObj.style.marginLeft = "160px";
             imgObj.style.marginTop = "-25px";
         } else if (filter === "dog"){
             imgObj.style.width = '20%';
-            imgObj.style.marginLeft = "-40px";
+            imgObj.style.marginLeft = "-20px";
             imgObj.style.marginTop = "179px";
         } else if (filter === "epee"){
             imgObj.style.width = '18%';
@@ -66,7 +66,7 @@ function NewObjectImg(filter){
             imgObj.style.marginLeft = "220px";
             imgObj.style.marginTop = "182px";
         } else if (filter === 'lunette'){
-            imgObj.style.width = '10%';
+            imgObj.style.width = '13%';
             imgObj.style.marginLeft = "220px";
             imgObj.style.marginTop = "89px";
         } else if (filter === 'monkey'){
@@ -74,7 +74,7 @@ function NewObjectImg(filter){
             imgObj.style.marginLeft = "141px";
             imgObj.style.marginTop = "137px";
         } else if (filter === 'policeHat'){
-            imgObj.style.width = '15%';
+            imgObj.style.width = '20%';
             imgObj.style.marginLeft = "243px";
             imgObj.style.marginTop = "-4px";
         } else if (filter === 'prismaticMustache'){
