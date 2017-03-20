@@ -20,8 +20,8 @@
                     <a href="#" class="header__icon" id="header__icon" onclick="showhide()"></a>
                     <a class="header__logo" href="#">CAMAGRU</a>
                     <nav class="menu">
-                        <a href="#">Application</a>
-                        <a href="#">Galerie</a>
+                        <a href="appCamagru">Application</a>
+                        <a href="galerieCamagru">Galerie</a>
                         <a href="#">Mon compte</a>
                         <a href="<?php echo 'logout'; ?>">Delog</a>
                     </nav>

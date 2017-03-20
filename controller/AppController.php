@@ -8,7 +8,7 @@ class AppController extends Controller
 
 	public function appCamagru(){
 	    if ((isset($_SESSION['log']) && $_SESSION['log'] == 1) && !empty
-			($_SESSION['login'])|| !empty($_COOKIE['camagru-log'])){
+			($_SESSION['login']) || !empty($_COOKIE['camagru-log'])){
             if (!empty($_POST['filter'])) {
                 $_SESSION['filter'] = $_POST['filter'];
             }
@@ -79,6 +79,9 @@ class AppController extends Controller
         return $this->json(400);
     }
 
+    public function galerieCamagru(){
+        $this->redirection('galerie', 'galerieCamagru');
+    }
     /**
      * Recupere l'image et l'enregistre dans la Db
      */

@@ -50,7 +50,6 @@ if (!isset($_SESSION)){
                         container.style.display = "inline-flex";
                     </script><?php
                 foreach($_SESSION['img'] as $v){
-                //                        var_dump($v);
                 if (!empty($v['file'])){?>
                     <div class="container-prev" id="<?php echo $v['id'];?>">
                         <img src="<?php echo BASE_URL.$v['file'];?>">
