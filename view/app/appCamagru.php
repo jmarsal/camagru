@@ -6,9 +6,7 @@ if (!isset($_SESSION)){
 <script type="text/javascript">
     <?php if (!empty($_SESSION['filter'])){ ?>
         window.addEventListener("DOMContentLoaded", function() {
-            toggleActiveClass("<?php echo $_SESSION['filter'];?>");
             changeFilter("<?php echo $_SESSION['filter'];?>");
-            toggleActiveObjClass("<?php echo $_SESSION['objFilter'];?>");
             changeFilterObjet("<?php echo $_SESSION['objFilter'];?>");
         });
     <?php } ?>

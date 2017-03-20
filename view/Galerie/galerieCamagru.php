@@ -13,6 +13,7 @@
                 if (!empty($v['file'])) {
                     ?>
                     <img src="<?php echo BASE_URL . $v['file'].'.png'; ?>">
+                    <div class="galerie-login"><?php echo $v['login'];?></div>
                     <?php
                 }
             }

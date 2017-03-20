@@ -17,7 +17,6 @@ class AccueilController extends Controller
         $log = $_COOKIE['camagru-log'];
         }
         if (isset($log) && !empty($log)){
-//            echo 'la';
             $idLog = $this->User->getIdUser($log);
             $this->Photo->deleteDirectoryIfExist(REPO_PHOTO.$idLog.DS.'min');
             $this->Photo->deletePrevInDb($idLog);

@@ -39,53 +39,58 @@ function NewObjectImg(filter){
     if (filter === 'noneObj'){
         return null;
     } else {
-        var imgObj = document.createElement('img');
+        var imgObj = document.createElement('img'),
+            enlarge = enlarge = document.getElementById('container-enlarge')
+        ;
 
         if (filter === 'beardMustaches'){
-            imgObj.style.width = '16%';
+            imgObj.style.width = '11%';
             imgObj.style.marginLeft = "220px";
             imgObj.style.marginTop = "84px";
         } else if (filter === "chapeauPirate"){
-            imgObj.style.width = '35%';
-            imgObj.style.marginLeft = "160px";
+            imgObj.style.width = '25%';
+            imgObj.style.marginLeft = "150px";
             imgObj.style.marginTop = "-25px";
         } else if (filter === "dog"){
-            imgObj.style.width = '20%';
+            imgObj.style.width = '15%';
             imgObj.style.marginLeft = "-20px";
             imgObj.style.marginTop = "179px";
         } else if (filter === "epee"){
-            imgObj.style.width = '18%';
+            imgObj.style.width = '15%';
             imgObj.style.marginLeft = "61px";
             imgObj.style.marginTop = "201px";
         } else if (filter === "epeeLaser"){
-            imgObj.style.width = '26%';
+            imgObj.style.width = '17%';
             imgObj.style.marginLeft = "61px";
             imgObj.style.marginTop = "201px";
         } else if (filter === 'largeMustache'){
-            imgObj.style.width = '10%';
+            imgObj.style.width = '8%';
             imgObj.style.marginLeft = "220px";
             imgObj.style.marginTop = "182px";
         } else if (filter === 'lunette'){
-            imgObj.style.width = '13%';
+            imgObj.style.width = '10%';
             imgObj.style.marginLeft = "220px";
             imgObj.style.marginTop = "89px";
         } else if (filter === 'monkey'){
-            imgObj.style.width = '10%';
+            imgObj.style.width = '7%';
             imgObj.style.marginLeft = "141px";
             imgObj.style.marginTop = "137px";
         } else if (filter === 'policeHat'){
-            imgObj.style.width = '20%';
+            imgObj.style.width = '16%';
             imgObj.style.marginLeft = "243px";
             imgObj.style.marginTop = "-4px";
         } else if (filter === 'prismaticMustache'){
-            imgObj.style.width = '11%';
+            imgObj.style.width = '8%';
             imgObj.style.marginLeft = "243px";
             imgObj.style.marginTop = "181px";
         }
         imgObj.src = '../webroot/images/objets/' + filter + '.png';
         imgObj.style.position = 'absolute';
-        imgObj.style.zIndex = '50';
+        imgObj.style.zIndex = '1';
         imgObj.id = 'imgObj';
+        if (enlarge){
+            imgObj.style.display = 'none';
+        }
     }
 
     return imgObj;

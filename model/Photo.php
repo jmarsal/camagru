@@ -149,23 +149,23 @@ class Photo extends Model
         imagealphablending($origin, true);
         imagesavealpha($origin, true);
         if ($filterObj === 'dog'){
-            imagecopy($origin, $imgObj, -30, 150, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, -30, 170, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'beardMustaches'){
-            imagecopy($origin, $imgObj, 230, 90, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 220, 85, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'chapeauPirate'){
-            imagecopy($origin, $imgObj, 170, -25, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 150, -25, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'epee'){
-            imagecopy($origin, $imgObj, 70, 190, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 90, 200, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'epeeLaser'){
-            imagecopy($origin, $imgObj, 85, 210, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 60, 200, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'largeMustache'){
-            imagecopy($origin, $imgObj, 210, 180, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 220, 185, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'lunette'){
             imagecopy($origin, $imgObj, 220, 85, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'monkey'){
-            imagecopy($origin, $imgObj, 130, 135, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 140, 135, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'policeHat'){
-            imagecopy($origin, $imgObj, 240, -10, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 240, 0, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'prismaticMustache'){
             imagecopy($origin, $imgObj, 245, 180, 0, 0, $widthObj, $heigthObj);
         }

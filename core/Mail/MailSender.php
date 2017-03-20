@@ -82,7 +82,7 @@ class MailSender
 			$this->title = 'Bienvenue sur Camagru !';
 		}
 		if (empty($this->from)){
-			$this->from = 'inscription@camagru.com';
+			$this->from = 'camagru@camagru.fr';
 		}
 		if (empty($this->subject)){
 			$this->subject = 'Inscription a CAMAGRU';

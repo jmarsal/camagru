@@ -9,9 +9,8 @@ class Database
 	private $_pdo;
 	
 	public function __construct($dbName) {
-//		die(phpinfo());
 		$this->$dbName =		$dbName;
-		$this->_dbHost =		$_SERVER['SERVER_NAME'];
+		$this->_dbHost =		'localhost';
 		$this->_dbUser =		'root';
 		$this->_dbPassword =	'root';
 		$this->_pdo = 			$this->_createDb($dbName);
@@ -19,9 +18,9 @@ class Database
 	}
 
 	private function _getPod() {
-		if ($this->_pdo === NULL) {
-			$pdo = new PDO('mysql:host='.$this->_dbHost.';
-								dbname='.$this->_dbName.'',
+		if ($this->_pdo === null) {
+		    $dsn = 'mysql:host='.$this->_dbHost.';dbname='.$this->_dbName;
+			$pdo = new PDO(     $dsn,
 								$this->_dbUser,
 								$this->_dbPassword);
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -70,6 +69,15 @@ class Database
 				`message` TEXT NULL ,
 				`from` VARCHAR(255) NULL ,
 				PRIMARY KEY (`id`))
+				ENGINE = MyISAM');
+
+            $requete = $pdo->exec('CREATE TABLE IF NOT EXISTS '."$dbName".'.`interactions` (
+				`id` INT NOT NULL AUTO_INCREMENT ,
+				`comment` TEXT NULL ,
+				`like` INT DEFAULT 0 ,
+				`user_id` INT NULL ,
+				PRIMARY KEY (`id`) ,
+				INDEX `fk_posts_users_idx` (`user_id` ASC))
 				ENGINE = MyISAM');
 		}
 		return $pdo;

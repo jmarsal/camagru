@@ -14,11 +14,15 @@ class GalerieController extends Controller
     public function galerieCamagru(){
         if ((isset($_SESSION['log']) && $_SESSION['log'] == 1) && !empty
             ($_SESSION['login']) || !empty($_COOKIE['camagru-log'])){
+            $this->loadModel('User');
+            $this->loadModel('Photo');
             $this->loadModel('Post');
+
+            $_SESSION['filter'] = "";
+            $_SESSION['objFilter'] = "";
+            $idLog = $this->User->getIdUser($_SESSION['login']);
+            $this->Photo->deletePrevInDb($idLog);
             $_SESSION['galerie'] = $this->Post->getPhotosInDb();
-//            if (empty(!$_SESSION['galerie'])){
-//                die (var_dump($_SESSION['galerie']));
-//            }
             $this->render('galerieCamagru', 'app_layout');
             $_SESSION['galerie'] = "";
         }
