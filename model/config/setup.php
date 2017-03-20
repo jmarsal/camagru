@@ -74,6 +74,7 @@ class Database
             $requete = $pdo->exec('CREATE TABLE IF NOT EXISTS '."$dbName".'.`interactions` (
 				`id` INT NOT NULL AUTO_INCREMENT ,
 				`comment` TEXT NULL ,
+				`nbComments` INT DEFAULT 0 ,
 				`like` INT DEFAULT 0 ,
 				`user_id` INT NULL ,
 				PRIMARY KEY (`id`) ,

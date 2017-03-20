@@ -13,7 +13,17 @@
                 if (!empty($v['file'])) {
                     ?>
                     <img src="<?php echo BASE_URL . $v['file'].'.png'; ?>">
-                    <div class="galerie-login"><?php echo $v['login'];?></div>
+                    <div class="trash-galerie">
+                        <?php
+                        if ($_SESSION['login'] === $v['login']){?>
+                            <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'Trash.ico'; ?>" title="Supprimer Photo?">
+                        <?php}
+                        ?>
+                    </div>
+                    <div class="galerie-login">
+                        <span><?php echo $v['login'];?></span>
+                    </div>
+
                     <?php
                 }
             }
