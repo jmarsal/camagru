@@ -224,6 +224,9 @@ class Photo extends Model
         //return un tab avec path photo + id
         $sql = "INSERT INTO posts (`file`, `created`, `type`, `user_id`)
                       VALUES (:file, :created, :type, :user_id)";
+        // Creer un sql2 qui rentre de la data dans la table interactions !!!!!!!!!!!
+        $sql2 = "INSERT INTO interactions (`post_id`)
+                VALUES (:post_id)";
 	    try {
 //	        Pour l'image original
             $pathBig = '/photo-users/'.$idUser.DS.substr($image_name, 0, -4);
@@ -234,6 +237,9 @@ class Photo extends Model
                         "user_id" => $idUser);
 	        $query->execute($d);
             $pathmin['idBig'] = $this->db->lastInsertId();
+            $query2 = $this->db->prepare($sql2);
+            $d2 = array("post_id" => $pathmin['idBig']);
+            $query2->execute($d2);
 //	        pour la miniature
             $pathmin['path'] = '/photo-users/'.$idUser.DS.'min'.DS.substr
 				($image_name, 0, -4).'Min'.'.jpg';
@@ -337,22 +343,15 @@ class Photo extends Model
 	}
 
 	public function getPreviewImg($id){
-		$sql = "SELECT file, created, id FROM posts WHERE type='min' && `user_id`=?";
+		$sql = "SELECT file, created, id
+                FROM posts
+                WHERE type='min' && `user_id`=?
+                ORDER BY created DESC ";
 		try {
 			$query = $this->db->prepare($sql);
             $d = array($id);
 			$query->execute($d);
 			$row = $query->fetchAll();
-
-			//trie de mon tab par date;
-            function date_compare($a, $b)
-            {
-                $t1 = strtotime($a['created']);
-                $t2 = strtotime($b['created']);
-                return $t2 - $t1;
-            }
-            usort($row, 'date_compare');
-//            die(var_dump($row));
 			return $row;
 
 		} catch (PDOexception $e){
@@ -421,6 +420,40 @@ class Photo extends Model
         } catch (PDOexception $e){
             print "Erreur : ".$e->getMessage()."";
             die();
+        }
+    }
+
+    public function destroyBigImgInGalerie($id){
+        $sql = "SELECT file FROM posts WHERE id=?";
+        try {
+            $query = $this->db->prepare($sql);
+            $d = array($id);
+            $query->execute($d);
+            $pathBig = $query->fetch();
+        } catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+        $pathBig['file'] = substr($pathBig['file'], 1);
+        if (unlink($pathBig['file'].'.png')){
+            $sql = "DELETE FROM posts WHERE id=?";
+            try {
+                $query = $this->db->prepare($sql);
+                $d = array($id);
+                $query->execute($d);
+            } catch (PDOexception $e){
+                print "Erreur : ".$e->getMessage()."";
+                die();
+            }
+            $sql = "DELETE FROM interactions WHERE post_id=?";
+            try {
+                $query = $this->db->prepare($sql);
+                $d = array($id);
+                $query->execute($d);
+            } catch (PDOexception $e){
+                print "Erreur : ".$e->getMessage()."";
+                die();
+            }
         }
     }
 }

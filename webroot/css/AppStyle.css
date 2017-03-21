@@ -112,8 +112,16 @@ video {
   padding: 0;
   width: 40px;
   cursor: pointer; }
+  /* line 126, ../sass/AppStyle.scss */
+  .take-photo img {
+    margin-bottom: 15px; }
+  /* line 130, ../sass/AppStyle.scss */
+  .take-photo img:hover {
+    border-radius: 60%;
+    border: solid 0.3em #222222;
+    margin-bottom: 5px; }
 
-/* line 128, ../sass/AppStyle.scss */
+/* line 137, ../sass/AppStyle.scss */
 .booth_filter {
   background: rgba(94, 108, 120, 0.9);
   border: 10px solid #535f6a;
@@ -124,39 +132,39 @@ video {
   margin-left: 20%;
   margin-right: 52px; }
 
-/* line 139, ../sass/AppStyle.scss */
+/* line 148, ../sass/AppStyle.scss */
 .filters {
   top: 13px;
   position: relative;
   margin: 0% auto;
   width: 150px; }
-  /* line 144, ../sass/AppStyle.scss */
+  /* line 153, ../sass/AppStyle.scss */
   .filters a:hover {
     color: #e35c05; }
-  /* line 148, ../sass/AppStyle.scss */
+  /* line 157, ../sass/AppStyle.scss */
   .filters img {
     margin-left: 40px; }
-  /* line 152, ../sass/AppStyle.scss */
+  /* line 161, ../sass/AppStyle.scss */
   .filters .menu2 {
     display: flex;
     margin-left: 10px; }
-    /* line 156, ../sass/AppStyle.scss */
+    /* line 165, ../sass/AppStyle.scss */
     .filters .menu2 .button {
       height: 28px;
       font-size: 20px; }
-    /* line 160, ../sass/AppStyle.scss */
+    /* line 169, ../sass/AppStyle.scss */
     .filters .menu2 input {
       margin-top: 5px;
       margin-bottom: 5px; }
-  /* line 166, ../sass/AppStyle.scss */
+  /* line 175, ../sass/AppStyle.scss */
   .filters .filters__icon {
     cursor: pointer;
     width: 65px; }
-  /* line 172, ../sass/AppStyle.scss */
+  /* line 181, ../sass/AppStyle.scss */
   .filters .filters-button .button {
     margin-top: 0; }
 
-/* line 178, ../sass/AppStyle.scss */
+/* line 187, ../sass/AppStyle.scss */
 .booth_prev {
   background: rgba(94, 108, 120, 0.9);
   border: 10px solid #535f6a;
@@ -167,7 +175,7 @@ video {
   margin-left: 52px;
   margin-right: 20%; }
 
-/* line 189, ../sass/AppStyle.scss */
+/* line 198, ../sass/AppStyle.scss */
 .prev-img {
   display: none;
   width: 696px;
@@ -176,21 +184,24 @@ video {
   background: #535f6a;
   border: 2px solid #48525b;
   padding-top: 20px; }
-  /* line 198, ../sass/AppStyle.scss */
+  /* line 207, ../sass/AppStyle.scss */
   .prev-img .container-prev {
     width: 170px; }
-  /* line 201, ../sass/AppStyle.scss */
+  /* line 210, ../sass/AppStyle.scss */
   .prev-img img {
     margin-right: 27px;
     margin-bottom: 10px; }
-  /* line 206, ../sass/AppStyle.scss */
+  /* line 215, ../sass/AppStyle.scss */
   .prev-img .del-button {
     cursor: pointer;
     display: inline;
     position: relative;
     width: 34px;
     top: -18px; }
-  /* line 214, ../sass/AppStyle.scss */
+    /* line 222, ../sass/AppStyle.scss */
+    .prev-img .del-button:hover {
+      filter: invert(100%); }
+  /* line 227, ../sass/AppStyle.scss */
   .prev-img .see-button {
     cursor: pointer;
     display: inline-block;
@@ -198,53 +209,56 @@ video {
     position: relative;
     width: 40px;
     top: -15px; }
+    /* line 235, ../sass/AppStyle.scss */
+    .prev-img .see-button:hover {
+      filter: invert(100%); }
 
-/* line 224, ../sass/AppStyle.scss */
+/* line 241, ../sass/AppStyle.scss */
 .container-enlarge {
   display: inline-block;
   z-index: 50;
   width: 700px;
   height: 525px; }
-  /* line 230, ../sass/AppStyle.scss */
+  /* line 247, ../sass/AppStyle.scss */
   .container-enlarge .close-enlarge {
     position: relative;
     top: -465px;
     left: 648px;
     width: 30px;
     cursor: pointer; }
-  /* line 238, ../sass/AppStyle.scss */
+  /* line 255, ../sass/AppStyle.scss */
   .container-enlarge .img-enlarge {
     margin-bottom: -56px; }
 
-/* line 243, ../sass/AppStyle.scss */
+/* line 260, ../sass/AppStyle.scss */
 .objets-filter {
   position: relative;
   margin: 0% auto;
   width: 150px; }
-  /* line 247, ../sass/AppStyle.scss */
+  /* line 264, ../sass/AppStyle.scss */
   .objets-filter a:hover {
     color: #e35c05; }
-  /* line 250, ../sass/AppStyle.scss */
+  /* line 267, ../sass/AppStyle.scss */
   .objets-filter img {
     margin-left: 30px; }
-  /* line 253, ../sass/AppStyle.scss */
+  /* line 270, ../sass/AppStyle.scss */
   .objets-filter .objets__icon {
     cursor: pointer;
     width: 75px;
     margin-left: 55px; }
-    /* line 257, ../sass/AppStyle.scss */
+    /* line 274, ../sass/AppStyle.scss */
     .objets-filter .objets__icon:hover {
       filter: invert(100%); }
-  /* line 262, ../sass/AppStyle.scss */
+  /* line 279, ../sass/AppStyle.scss */
   .objets-filter .objets-button {
     height: 500px;
     overflow-y: scroll;
     margin-right: -20px;
     overflow-x: hidden; }
-    /* line 267, ../sass/AppStyle.scss */
+    /* line 284, ../sass/AppStyle.scss */
     .objets-filter .objets-button .button {
       margin-top: 0; }
-    /* line 270, ../sass/AppStyle.scss */
+    /* line 287, ../sass/AppStyle.scss */
     .objets-filter .objets-button div {
       margin-left: 30px;
       font-size: 20px; }

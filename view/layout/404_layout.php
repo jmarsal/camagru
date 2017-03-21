@@ -11,9 +11,10 @@ if (!isset($_SESSION)){
 	<title><?php echo isset($title_for_layout) ? $title_for_layout : 'Camagru';?>
 	</title>
 	<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Cairo|Indie+Flower" rel="stylesheet">
-	<link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'AccueilStyle.css';?> >
-		<link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'404Style.css';?> >
-	</head>
+	<link rel="stylesheet" href="<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'AccueilStyle.css';?>" >
+    <link rel="stylesheet" href="<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'404Style.css';?>">
+    <link rel="icon" type="image/png" href="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>"/>
+    </head>
 	<body>
 	<div class="container">
 	</div>

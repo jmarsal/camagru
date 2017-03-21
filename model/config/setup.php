@@ -76,11 +76,13 @@ class Database
 				`comment` TEXT NULL ,
 				`nbComments` INT DEFAULT 0 ,
 				`like` INT DEFAULT 0 ,
+				`post_id` INT NULL ,
 				`user_id` INT NULL ,
 				PRIMARY KEY (`id`) ,
-				INDEX `fk_posts_users_idx` (`user_id` ASC))
+				INDEX `fk_posts_idx` (`post_id` ASC))
 				ENGINE = MyISAM');
 		}
 		return $pdo;
 	}
+
 }

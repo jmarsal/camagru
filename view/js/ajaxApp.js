@@ -73,7 +73,7 @@ function ajaxPhoto(data) {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(tmp);
 }
-//Probleme car efface meme si click sur image
+
 function delImg(id){
     var xhr = getXMLHttpRequest();
     var imgs = document.getElementById(id);

@@ -3,13 +3,71 @@
 
 .container-galerie{
   .container-img{
+    display: block;
     margin-left: 36%;
+
+    .photo-galerie{
+      border: 3px solid rgba(0, 0, 0, 0.6);
+    }
+
+    .photo-galerie:hover{
+      position: relative;
+      width: 90%;
+      left: -205px;
+      transition-delay: 3s;
+    }
   }
+
+
   .galerie-login{
     text-align: center;
     max-width: 700px;
     background-color: rgba(0, 0, 0, 0.6);
+    border: 3px solid rgba(0, 0, 0, 0.6);
     margin-top: -11px;
     margin-bottom: 25px;
+    padding-top: 12px;
+    //margin-left: 3px;
+
+    .login-span{
+      font-size: 30px;
+      position: relative;
+      top: -5px;
+    }
+
+    .like-span{
+      left:-6px;
+      top:2px;
+    }
+
+    .trash-galerie{
+      width: 30px;
+      margin-right: 40px;
+      cursor: pointer;
+
+      &:hover{
+        filter: invert(100%);
+      }
+    }
+
+    .like-galerie{
+      width: 30px;
+      margin-left: 30px;
+      cursor: pointer;
+
+      &:hover{
+        filter: invert(100%);
+      }
+    }
+
+    .comments-galerie{
+      width: 30px;
+      margin-left: 30px;
+      cursor: pointer;
+
+      &:hover{
+        filter: invert(100%);
+      }
+    }
   }
 }

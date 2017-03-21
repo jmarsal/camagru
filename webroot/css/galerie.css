@@ -1,10 +1,55 @@
 /* line 5, ../sass/galerie.scss */
 .container-galerie .container-img {
+  display: block;
   margin-left: 36%; }
-/* line 8, ../sass/galerie.scss */
+  /* line 9, ../sass/galerie.scss */
+  .container-galerie .container-img .photo-galerie {
+    border: 3px solid rgba(0, 0, 0, 0.6); }
+  /* line 13, ../sass/galerie.scss */
+  .container-galerie .container-img .photo-galerie:hover {
+    position: relative;
+    width: 90%;
+    left: -205px;
+    transition-delay: 3s; }
+/* line 22, ../sass/galerie.scss */
 .container-galerie .galerie-login {
   text-align: center;
   max-width: 700px;
   background-color: rgba(0, 0, 0, 0.6);
+  border: 3px solid rgba(0, 0, 0, 0.6);
   margin-top: -11px;
-  margin-bottom: 25px; }
+  margin-bottom: 25px;
+  padding-top: 12px; }
+  /* line 32, ../sass/galerie.scss */
+  .container-galerie .galerie-login .login-span {
+    font-size: 30px;
+    position: relative;
+    top: -5px; }
+  /* line 38, ../sass/galerie.scss */
+  .container-galerie .galerie-login .like-span {
+    left: -6px;
+    top: 2px; }
+  /* line 43, ../sass/galerie.scss */
+  .container-galerie .galerie-login .trash-galerie {
+    width: 30px;
+    margin-right: 40px;
+    cursor: pointer; }
+    /* line 48, ../sass/galerie.scss */
+    .container-galerie .galerie-login .trash-galerie:hover {
+      filter: invert(100%); }
+  /* line 53, ../sass/galerie.scss */
+  .container-galerie .galerie-login .like-galerie {
+    width: 30px;
+    margin-left: 30px;
+    cursor: pointer; }
+    /* line 58, ../sass/galerie.scss */
+    .container-galerie .galerie-login .like-galerie:hover {
+      filter: invert(100%); }
+  /* line 63, ../sass/galerie.scss */
+  .container-galerie .galerie-login .comments-galerie {
+    width: 30px;
+    margin-left: 30px;
+    cursor: pointer; }
+    /* line 68, ../sass/galerie.scss */
+    .container-galerie .galerie-login .comments-galerie:hover {
+      filter: invert(100%); }

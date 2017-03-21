@@ -123,6 +123,15 @@ video{
   padding: 0;
   width: 40px;
   cursor: pointer;
+  img{
+    margin-bottom: 15px;
+  }
+
+  img:hover{
+    border-radius: 60%;
+    border: solid 0.3em #222222;
+    margin-bottom: 5px;
+  }
 }
 
 .booth_filter{
@@ -209,6 +218,10 @@ video{
     position: relative;
     width: 34px;
     top:-18px;
+
+    &:hover{
+      filter: invert(100%);
+    }
   }
 
   .see-button{
@@ -218,6 +231,10 @@ video{
     position: relative;
     width: 40px;
     top:-15px;
+
+    &:hover{
+      filter: invert(100%);
+    }
   }
 }
 
