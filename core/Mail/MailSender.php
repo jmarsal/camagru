@@ -52,7 +52,7 @@ class MailSender
 		// Le code HTML
 		//---------------------------------
 		$this->_msg .= "--$this->_delimiteur\r\n";
-		$this->_msg .= "Content-Type: text/html; charset=\"iso-8859-1\"\r\n";
+		$this->_msg .= "Content-Type: text/html; charset=\"utf-8\"\r\n";
 		$this->_msg .= "Content-Transfer-Encoding:8bit\r\n";
 		$this->_msg .= "\r\n";
 
@@ -82,7 +82,7 @@ class MailSender
 			$this->title = 'Bienvenue sur Camagru !';
 		}
 		if (empty($this->from)){
-			$this->from = 'camagru@camagru.fr';
+			$this->from = 'camagru@student.42.fr';
 		}
 		if (empty($this->subject)){
 			$this->subject = 'Inscription a CAMAGRU';
@@ -101,7 +101,7 @@ class MailSender
 			$this->title = '<p>Reinitialisation</p><p>de Mot de Passe ...</p>';
 		}
         if (empty($this->from)){
-            $this->from = 'camagru@camagru.fr';
+            $this->from = 'camagru@student.42.fr';
 		}
         if (empty($this->subject)){
             $this->subject = 'Reinitialisation de mot de passe';

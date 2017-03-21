@@ -14,7 +14,7 @@
                 if (!empty($_SESSION['interactions'])){
                    foreach ($_SESSION['interactions'] as $val){
                        if ($val['post_id'] == $v['id']){
-                           $like = $val['like'];
+                           $like = $val['nbLike'];
                            $nbComments = $val['nbComments'];
                        }
                    }
@@ -29,15 +29,11 @@
                         <span class="login-span"><?php echo $v['login'];?></span>
                         <img class="like-galerie" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'galerie'.DS.'nonelike.png'; ?>" title="like ?">
                         <?php
-                        if ($like){
                             echo "<span class='like-span'>".$like."</span>";
-                        }
                         ?>
                         <img class="comments-galerie" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'galerie'.DS.'comments.png'; ?>" title="commenter ?">
                         <?php
-                        if ($nbComments){
                             echo "<span class='like-span'>".$nbComments."</span>";
-                        }
                         ?>
                     </div>
                 </div>

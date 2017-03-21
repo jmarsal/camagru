@@ -5,12 +5,6 @@
   /* line 9, ../sass/galerie.scss */
   .container-galerie .container-img .photo-galerie {
     border: 3px solid rgba(0, 0, 0, 0.6); }
-  /* line 13, ../sass/galerie.scss */
-  .container-galerie .container-img .photo-galerie:hover {
-    position: relative;
-    width: 90%;
-    left: -205px;
-    transition-delay: 3s; }
 /* line 22, ../sass/galerie.scss */
 .container-galerie .galerie-login {
   text-align: center;

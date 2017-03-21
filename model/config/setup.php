@@ -75,11 +75,29 @@ class Database
 				`id` INT NOT NULL AUTO_INCREMENT ,
 				`comment` TEXT NULL ,
 				`nbComments` INT DEFAULT 0 ,
-				`like` INT DEFAULT 0 ,
+				`nbLike` INT DEFAULT 0 ,
+				`post_id` INT NULL ,
+				PRIMARY KEY (`id`) ,
+				INDEX `fk_posts_idx` (`post_id` ASC))
+				ENGINE = MyISAM');
+
+            $requete = $pdo->exec('CREATE TABLE IF NOT EXISTS '."$dbName".'.`like` (
+				`id` INT NOT NULL AUTO_INCREMENT ,
+				`userLike` INT DEFAULT 0 ,
 				`post_id` INT NULL ,
 				`user_id` INT NULL ,
 				PRIMARY KEY (`id`) ,
-				INDEX `fk_posts_idx` (`post_id` ASC))
+				INDEX `fk_users_idx` (`user_id` ASC))
+				ENGINE = MyISAM');
+
+            $requete = $pdo->exec('CREATE TABLE IF NOT EXISTS '."$dbName".'.`comments` (
+				`id` INT NOT NULL AUTO_INCREMENT ,
+				`userComment` TEXT NULL ,
+				`post_id` INT NULL ,
+				`user_id` INT NULL ,
+				`created` DATETIME NULL ,
+				PRIMARY KEY (`id`) ,
+				INDEX `fk_users_idx` (`user_id` ASC))
 				ENGINE = MyISAM');
 		}
 		return $pdo;

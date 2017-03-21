@@ -36,9 +36,24 @@ class GalerieController extends Controller
         $this->redirection('app', 'appCamagru');
     }
 
-    private function delAjaxGalerie(){
+    public function delAjaxGalerie(){
         if (!empty($_POST['delImgGalerie'])){
+            $this->loadModel('Photo');
+
             $this->Photo->destroyBigImgInGalerie($_POST['delImgGalerie']);
+            return $this->json(200);
+        } else {
+            return $this->json(400);
+        }
+    }
+
+    public function likeAjaxGalerie(){
+        if (!empty($_POST['likeImgGalerie'])){
+            $this->loadModel('Post');
+            $this->loadModel('User');
+
+            $idUser = $this->User->getIdUser($_SESSION['login']);
+            if ($_SESSION['interactions'])
             return $this->json(200);
         } else {
             return $this->json(400);
