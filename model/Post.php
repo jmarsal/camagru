@@ -50,33 +50,53 @@ class Post extends Model {
     }
 
     public function setLikeForPhotoInDb($postId, $idUser){
+        $insert = 0;
         $select = "SELECT `post_id`, `userLike`
                     FROM `like`
-                    WHERE `post_id` = ?";
+                    WHERE `post_id` = ? && `user_id` = ?";
         try {
             $query = $this->db->prepare($select);
-            $d = array($postId);
+            $d = array($postId, $idUser);
             $query->execute($d);
             $row = $query->fetch();
-            if ($row['userLike'] == 1){
-                $like = 0;
-            } else {
+            if (!$row){
+                $insert = 1;
                 $like = 1;
+            } else if ($row['userLike'] == 0){
+                $like = 1;
+            } else if ($row['userLike'] == 1){
+                $like = 0;
             }
         } catch (PDOexception $e){
             print "Erreur : ".$e->getMessage()."";
             die();
         }
-
-        $update = "UPDATE `like` SET userLike=?
+        if ($insert == 1){
+            $insertInLike = "INSERT INTO `like` (`userLike`, `post_id`, `user_id`)
+                        VALUES (:userLike, :post_id, :user_id)";
+            $d1 = array(
+                "userLike" => $like,
+                "post_id" => $postId,
+                "user_id" => $idUser
+            );
+            try {
+                $query = $this->db->prepare($insertInLike);
+                $query->execute($d1);
+            } catch (PDOexception $e){
+                print "Erreur insert: ".$e->getMessage()."";
+                die();
+            }
+        } else {
+            $update = "UPDATE `like` SET userLike=?
                          WHERE post_id=? && user_id=?";
-        $d = array($like, $postId, $idUser);
-        try {
-            $query = $this->db->prepare($update);
-            $query->execute($d);
-        } catch (PDOexception $e){
-            print "Erreur : ".$e->getMessage()."";
-            die();
+            $d = array($like, $postId, $idUser);
+            try {
+                $query = $this->db->prepare($update);
+                $query->execute($d);
+            } catch (PDOexception $e){
+                print "Erreur : ".$e->getMessage()."";
+                die();
+            }
         }
         $newNbLike = $this->_modifyLikeInInteraction($like, $postId);
         return $newNbLike;
@@ -101,7 +121,6 @@ class Post extends Model {
             }
         }
         $newNbLike['nbLike'] += $like;
-        var_dump($like);
         $sql = "UPDATE interactions
                 SET nbLike=?
                 WHERE post_id=?";

@@ -228,6 +228,8 @@ class Photo extends Model
                 VALUES (:post_id)";
         $sql3 = "INSERT INTO `like` (`post_id`, `user_id`)
                             VALUES (:post_id, :user_id)";
+        $sql4 = "INSERT INTO `comments` (`post_id`, `user_id`, `created`)
+                            VALUES (:post_id, :user_id, :created)";
 	    try {
 //	        Pour l'image original
             $pathBig = '/photo-users/'.$idUser.DS.substr($image_name, 0, -4);
@@ -238,15 +240,25 @@ class Photo extends Model
                         "user_id" => $idUser);
 	        $query->execute($d);
             $pathmin['idBig'] = $this->db->lastInsertId();
+            /////
             $query2 = $this->db->prepare($sql2);
             $d2 = array("post_id" => $pathmin['idBig']);
             $query2->execute($d2);
+            /////
             $query3 = $this->db->prepare($sql3);
             $d3 = array(
                 "post_id" => $pathmin['idBig'],
                 "user_id" => $idUser
             );
             $query3->execute($d3);
+            /////
+            $query4 = $this->db->prepare($sql4);
+            $d4 = array(
+                "post_id" => $pathmin['idBig'],
+                "user_id" => $idUser,
+                "created" => $date
+            );
+            $query4->execute($d4);
 //	        pour la miniature
             $pathmin['path'] = '/photo-users/'.$idUser.DS.'min'.DS.substr
 				($image_name, 0, -4).'Min'.'.jpg';
