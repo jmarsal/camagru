@@ -21,14 +21,22 @@ function delImgDb(id) {
 }
 
 function likeImg(id) {
-    var xhr = getXMLHttpRequest();
+    console.log(id);
+    var xhr = getXMLHttpRequest(),
+        likeImg = document.getElementById("like-galerie" + id)
+        ;
 
     xhr.onreadystatechange = function() {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
-            var remove = document.getElementById(id);
-
-            if (remove) {
-                remove.parentNode.removeChild(remove);
+            if (likeImg) {
+                if (likeImg.src.indexOf("none") == -1){
+                    var replaceLike = likeImg.src.replace('like', 'nonelike');
+                    likeImg.title = "j'aime";
+                } else {
+                    var replaceLike = likeImg.src.replace('nonelike', 'like');
+                    likeImg.title = "j'aime plus";
+                }
+                likeImg.src = replaceLike;
             }
         }
     };

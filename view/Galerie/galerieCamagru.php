@@ -21,14 +21,28 @@
                 }?>
                 <div class="container-interact" id="<?php echo $v['id']; ?>">
                     <img class="photo-galerie" src="<?php echo BASE_URL . $v['file'].'.png'; ?>">
-                    <div class="galerie-login">
+                    <div class="galerie-login" id="galerie-login">
                         <?php
                         if ($_SESSION['login'] === $v['login']){ ?>
                             <img class="trash-galerie" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'Trash.ico'; ?>" title="Supprimer Photo?" onclick="delImgDb(<?php echo $v['id']; ?>)">
                         <?php } ?>
                         <span class="login-span"><?php echo $v['login'];?></span>
-                        <img class="like-galerie" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'galerie'.DS.'nonelike.png'; ?>" title="like ?">
                         <?php
+                        $modifyLike = -1;
+                        foreach ($_SESSION['like'] as $l){
+                            if ($l['post_id'] == $v['id']){
+                                $modifyLike = $l['userLike'];
+                            }
+                        }
+                        if ($modifyLike == 0 || $modifyLike == -1){
+                        ?>
+                            <img class="like-galerie" id="<?php echo 'like-galerie'.$v['id']; ?>" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'galerie'.DS.'nonelike.png'; ?>" title="like ?" onclick="likeImg(<?php echo $v['id']; ?>)">
+                            <?php
+                        } else{
+                            ?>
+                            <img class="like-galerie" id="<?php echo 'like-galerie'.$v['id']; ?>" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'galerie'.DS.'like.png'; ?>" title="like ?" onclick="likeImg(<?php echo $v['id']; ?>)">
+                            <?php
+                        }
                             echo "<span class='like-span'>".$like."</span>";
                         ?>
                         <img class="comments-galerie" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'galerie'.DS.'comments.png'; ?>" title="commenter ?">

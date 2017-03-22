@@ -21,9 +21,11 @@ class GalerieController extends Controller
             $_SESSION['filter'] = "";
             $_SESSION['objFilter'] = "";
             $idLog = $this->User->getIdUser($_SESSION['login']);
+//            $_SESSION['userId'] = $idLog;
             $this->Photo->deletePrevInDb($idLog);
             $_SESSION['galerie'] = $this->Post->getPhotosInDb();
             $_SESSION['interactions'] = $this->Post->getLikeCommentInDb();
+            $_SESSION['like'] = $this->Post->getLikeUserForPhoto($idLog);
             $this->render('galerieCamagru', 'galerie_layout');
             unset($_SESSION['galerie']);
             unset($_SESSION['interactions']);
@@ -53,7 +55,8 @@ class GalerieController extends Controller
             $this->loadModel('User');
 
             $idUser = $this->User->getIdUser($_SESSION['login']);
-            if ($_SESSION['interactions'])
+//            Gerer l'incrementation ou inverse des likes dans la table interaction
+            $_SESSION['like'][$_POST['likeImgGalerie']] = $this->Post->setLikeForPhotoInDb($_POST['likeImgGalerie'], $idUser);
             return $this->json(200);
         } else {
             return $this->json(400);

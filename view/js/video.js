@@ -9,8 +9,8 @@
     cover = document.getElementById('cover');
     canvas = document.getElementById('canvas');
     photo = document.getElementById('photo');
-    startbutton = document.getElementById('startbutton'),
-        width = 700;
+    startbutton = document.getElementById('startbutton');
+    width = 700;
     height = 220;
 
     navigator.getMedia = (navigator.getUserMedia ||
