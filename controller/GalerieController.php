@@ -21,7 +21,7 @@ class GalerieController extends Controller
             $_SESSION['filter'] = "";
             $_SESSION['objFilter'] = "";
             $idLog = $this->User->getIdUser($_SESSION['login']);
-//            $_SESSION['userId'] = $idLog;
+            $this->Photo->deleteDirectoryIfExist(REPO_PHOTO.$idLog.DS.'min');
             $this->Photo->deletePrevInDb($idLog);
             $_SESSION['galerie'] = $this->Post->getPhotosInDb();
             $_SESSION['interactions'] = $this->Post->getLikeCommentInDb();
@@ -55,9 +55,11 @@ class GalerieController extends Controller
             $this->loadModel('User');
 
             $idUser = $this->User->getIdUser($_SESSION['login']);
-//            Gerer l'incrementation ou inverse des likes dans la table interaction
-            $_SESSION['like'][$_POST['likeImgGalerie']] = $this->Post->setLikeForPhotoInDb($_POST['likeImgGalerie'], $idUser);
-            return $this->json(200);
+            $nbLike = $this->Post->setLikeForPhotoInDb($_POST['likeImgGalerie'], $idUser);
+//            var_dump($nbLike); /////////////////////////////////////////////////
+            return $this->json(200, [
+                "nbLike" => $nbLike
+            ]);
         } else {
             return $this->json(400);
         }

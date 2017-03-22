@@ -21,13 +21,17 @@ function delImgDb(id) {
 }
 
 function likeImg(id) {
-    console.log(id);
     var xhr = getXMLHttpRequest(),
         likeImg = document.getElementById("like-galerie" + id)
         ;
 
     xhr.onreadystatechange = function() {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
+            console.log(xhr.responseText);
+            var data = JSON.parse(xhr.responseText),
+                likeSpan = document.getElementById("like-span" + id)
+            ;
+            console.log(data.nbLike);
             if (likeImg) {
                 if (likeImg.src.indexOf("none") == -1){
                     var replaceLike = likeImg.src.replace('like', 'nonelike');
@@ -37,6 +41,9 @@ function likeImg(id) {
                     likeImg.title = "j'aime plus";
                 }
                 likeImg.src = replaceLike;
+                if (likeSpan){
+                    likeSpan.firstChild.nodeValue = data.nbLike;
+                }
             }
         }
     };

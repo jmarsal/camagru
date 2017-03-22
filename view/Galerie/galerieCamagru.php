@@ -9,7 +9,6 @@
 <div class="container-galerie">
     <div class="container-img">
         <?php if (!empty($_SESSION['galerie'])){
-          //  die(var_dump($_SESSION['interactions']));
             foreach($_SESSION['galerie'] as $v){
                 if (!empty($_SESSION['interactions'])){
                    foreach ($_SESSION['interactions'] as $val){
@@ -43,7 +42,7 @@
                             <img class="like-galerie" id="<?php echo 'like-galerie'.$v['id']; ?>" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'galerie'.DS.'like.png'; ?>" title="like ?" onclick="likeImg(<?php echo $v['id']; ?>)">
                             <?php
                         }
-                            echo "<span class='like-span'>".$like."</span>";
+                            echo "<span class='like-span'"."id='like-span".$v['id']."'>".$like."</span>";
                         ?>
                         <img class="comments-galerie" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'galerie'.DS.'comments.png'; ?>" title="commenter ?">
                         <?php

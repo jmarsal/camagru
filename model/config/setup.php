@@ -74,8 +74,8 @@ class Database
             $requete = $pdo->exec('CREATE TABLE IF NOT EXISTS '."$dbName".'.`interactions` (
 				`id` INT NOT NULL AUTO_INCREMENT ,
 				`comment` TEXT NULL ,
-				`nbComments` INT DEFAULT 0 ,
-				`nbLike` INT DEFAULT 0 ,
+				`nbComments` INT NOT NULL DEFAULT 0 ,
+				`nbLike` INT UNSIGNED NOT NULL DEFAULT 0 ,
 				`post_id` INT NULL ,
 				PRIMARY KEY (`id`) ,
 				INDEX `fk_posts_idx` (`post_id` ASC))
@@ -83,7 +83,7 @@ class Database
 
             $requete = $pdo->exec('CREATE TABLE IF NOT EXISTS '."$dbName".'.`like` (
 				`id` INT NOT NULL AUTO_INCREMENT ,
-				`userLike` INT DEFAULT 0 ,
+				`userLike` INT UNSIGNED NOT NULL DEFAULT 0 ,
 				`post_id` INT NULL ,
 				`user_id` INT NULL ,
 				PRIMARY KEY (`id`) ,

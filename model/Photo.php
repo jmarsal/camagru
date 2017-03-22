@@ -224,9 +224,10 @@ class Photo extends Model
         //return un tab avec path photo + id
         $sql = "INSERT INTO posts (`file`, `created`, `type`, `user_id`)
                       VALUES (:file, :created, :type, :user_id)";
-        // Creer un sql2 qui rentre de la data dans la table interactions !!!!!!!!!!!
         $sql2 = "INSERT INTO interactions (`post_id`)
                 VALUES (:post_id)";
+        $sql3 = "INSERT INTO `like` (`post_id`, `user_id`)
+                            VALUES (:post_id, :user_id)";
 	    try {
 //	        Pour l'image original
             $pathBig = '/photo-users/'.$idUser.DS.substr($image_name, 0, -4);
@@ -240,6 +241,12 @@ class Photo extends Model
             $query2 = $this->db->prepare($sql2);
             $d2 = array("post_id" => $pathmin['idBig']);
             $query2->execute($d2);
+            $query3 = $this->db->prepare($sql3);
+            $d3 = array(
+                "post_id" => $pathmin['idBig'],
+                "user_id" => $idUser
+            );
+            $query3->execute($d3);
 //	        pour la miniature
             $pathmin['path'] = '/photo-users/'.$idUser.DS.'min'.DS.substr
 				($image_name, 0, -4).'Min'.'.jpg';

@@ -50,47 +50,69 @@ class Post extends Model {
     }
 
     public function setLikeForPhotoInDb($postId, $idUser){
-        $select = "SELECT `post_id`, `userLike` FROM `like` WHERE `post_id` = ?";
+        $select = "SELECT `post_id`, `userLike`
+                    FROM `like`
+                    WHERE `post_id` = ?";
         try {
             $query = $this->db->prepare($select);
             $d = array($postId);
             $query->execute($d);
             $row = $query->fetch();
-            if (!empty($row['userLike'])){
-                $like = $row['userLike'];
-                $like = ($like == 0) ? 1 : 0;
-                $update = 1;
-            }
-            else {
+            if ($row['userLike'] == 1){
+                $like = 0;
+            } else {
                 $like = 1;
-                $update = 0;
             }
         } catch (PDOexception $e){
             print "Erreur : ".$e->getMessage()."";
             die();
         }
-        if ($update == 0){
-            $insertUpdate = "INSERT INTO `like` (`userLike`, `post_id`, `user_id`)
-                VALUES (:userLike, :post_id, :user_id)";
-            $d = array(
-                "userLike" => $like,
-                "post_id" => $postId,
-                "user_id" => $idUser
-            );
-        } else {
-            $insertUpdate = "UPDATE `like` SET userLike=?
-                            WHERE post_id=? && user_id=?";
-            $d = array($like, $postId, $idUser);
-        }
+
+        $update = "UPDATE `like` SET userLike=?
+                         WHERE post_id=? && user_id=?";
+        $d = array($like, $postId, $idUser);
         try {
-            $query = $this->db->prepare($insertUpdate);
+            $query = $this->db->prepare($update);
             $query->execute($d);
         } catch (PDOexception $e){
             print "Erreur : ".$e->getMessage()."";
             die();
         }
-        return array(
-            "like" => $like
-        );
+        $newNbLike = $this->_modifyLikeInInteraction($like, $postId);
+        return $newNbLike;
+    }
+
+    private function _modifyLikeInInteraction($like, $postId){
+        $sql = "SELECT nbLike
+                FROM interactions
+                WHERE post_id=?";
+        try{
+            $query = $this->db->prepare($sql);
+            $d = array($postId);
+            $query->execute($d);
+            $newNbLike = $query->fetch(PDO::FETCH_ASSOC);
+        }catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+        if ($like == 0){
+            if ($newNbLike['nbLike'] > 0){
+                $like = -1;
+            }
+        }
+        $newNbLike['nbLike'] += $like;
+        var_dump($like);
+        $sql = "UPDATE interactions
+                SET nbLike=?
+                WHERE post_id=?";
+        try{
+            $query = $this->db->prepare($sql);
+            $d = array($newNbLike['nbLike'], $postId);
+            $query->execute($d);
+        }catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+        return $newNbLike['nbLike'];
     }
 }
