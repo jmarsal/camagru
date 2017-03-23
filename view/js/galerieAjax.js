@@ -54,45 +54,78 @@ function likeImg(id) {
 function commmentsClick(id) {
     var xhr = getXMLHttpRequest(),
         containerDiv = document.getElementById("container-comments" + id),
+        interactsDiv = document.getElementById("container-interact" + id),
         dateDiv = document.getElementById("date-comments" + id),
         loginDiv = document.getElementById("login-comments" + id),
-        commentsDiv = document.getElementById("comments" + id)
+        commentsDiv = document.getElementById("comments" + id),
+        newcommentsDiv = document.getElementById("new-comments-container" + id)
         ;
 
     xhr.onreadystatechange = function () {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
-            //Recuperer en json l'auteur, la date, le commentaire
-            var spanComment = document.createElement('span'),
-                spanDate = document.createElement('span'),
-                spanLogin = document.createElement('span')
+            var data = JSON.parse(xhr.responseText),
+                comments = data.comments,
+                logins = data.logins
             ;
 
-            containerDiv.style.display = "block";
-            containerDiv.style.paddingTop = "15px";
-            containerDiv.style.paddingBottom = "15px";
-            dateDiv.style.marginLeft = "-470px";
-            // loginDiv.style.margin = "0% auto";
-            // commentsDiv.style.margin = "0% auto";
+            console.log('id_post = '+ id);
+            console.log(logins);
+            //Recuperer en json l'auteur, la date, le commentaire
 
-            spanDate.style.display = "relative";
-            // spanDate.style.margin = "0% auto";
-            spanDate.innerHTML = "le 23/03/2017 ";
+            if (newcommentsDiv.style.display != "block"){
+                //
+                newcommentsDiv.style.display = "block";
 
-            spanLogin.style.display = "relative";
-            // spanLogin.style.margin = "0% auto";
-            spanLogin.innerHTML = "elodie : ";
+                for (i = 0; i < comments.length; i++){
+                    if (comments[i].userComment != null){
+                        var spanComment = document.createElement('span'),
+                            spanDate = document.createElement('span'),
+                            spanLogin = document.createElement('span'),
+                            hr = document.createElement('hr'),
+                            date = new Date(comments[i].created)
+                            ;
 
-            spanComment.style.display = "relative";
-            // spanComment.style.margin = "0% auto";
-            spanComment.innerHTML = "Cool !!";
+                        containerDiv.style.display = "block";
 
-            containerDiv.insertBefore(spanDate, containerDiv[2]);
-            containerDiv.insertBefore(spanLogin, containerDiv[2]);
-            containerDiv.insertBefore(spanComment, containerDiv[2]);
+                        interactsDiv.style.display = "inline-block";
+                        interactsDiv.style.width = "100%";
+
+                        loginDiv.style.marginLeft = "-470px";
+
+                        spanDate.style.position = "relative";
+                        spanDate.style.right = "60px";
+                        spanDate.innerHTML = date;
+
+                        spanLogin.style.position = "relative";
+                        spanLogin.style.left = "70px";
+                        //Probleme de recup d'id envoyer dans le json...
+                        spanLogin.innerHTML = ""+logins[i] + " : ";
+
+                        spanComment.style.display = "relative";
+                        spanComment.innerHTML = "Cool !!";
+
+                        loginDiv.insertBefore(spanLogin, loginDiv[0]);
+                        dateDiv.insertBefore(spanDate, dateDiv[0]);
+
+                        interactsDiv.insertBefore(loginDiv, interactsDiv[0]);
+                        interactsDiv.insertBefore(dateDiv, interactsDiv[1]);
+
+                        commentsDiv.insertBefore(spanComment, commentsDiv[0]);
+
+                        containerDiv.insertBefore(interactsDiv, containerDiv[0]);
+                        containerDiv.insertBefore(hr, containerDiv[1]);
+                        containerDiv.insertBefore(commentsDiv, containerDiv[2]);
+                    }
+                }
+            } else {
+                containerDiv.style.display = "none";
+                newcommentsDiv.style.display = "none";
+            }
+
         }
     };
-    var tmp = "commentsGalerie=click";
-    xhr.open("post", "commentsAjaxGalerie", true);
+    var tmp = "commentsGalerie=" + id;
+    xhr.open("post", "getCommentsAjaxGalerie", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(tmp);
 }

@@ -8,6 +8,7 @@
 
     .photo-galerie{
       border: 3px solid rgba(0, 0, 0, 0.6);
+      border-bottom: hidden;
     }
 
     .photo-galerie:hover{
@@ -24,6 +25,7 @@
     max-width: 700px;
     background-color: rgba(0, 0, 0, 0.6);
     border: 3px solid rgba(0, 0, 0, 0.6);
+    //border-top: hidden;
     margin-top: -11px;
     margin-bottom: 25px;
     padding-top: 12px;
@@ -78,6 +80,68 @@
       &:hover{
         filter: invert(100%);
       }
+    }
+  }
+
+  .container-comments{
+    display: none;
+    max-height: 150px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    .container-interact{
+      background: rgba($hrColor, 0.6);
+      display: inline-block;
+      width: 100%;
+      padding-bottom: 15px;
+      padding-top: 10px;
+      margin-bottom: -15px;
+      font-size: 0.6vw;
+    }
+
+    .login-comments{
+      margin: 0px auto;
+      display: inline-block;
+      position: relative;
+      left: 10px;
+    }
+
+    .date-comments{
+      margin: 0px auto;
+      display: inline-block;
+      position: relative;
+      left: 455px;
+    }
+
+    .comments{
+      background: rgba(lighten($color_button_hover, 10), 0.6);
+      border-left: 2px solid $hrColor;
+      border-right: 6px solid darken($color_button_hover, 15);
+      border-bottom: 6px solid darken($color_button_hover, 8);
+      margin-top: -15px;
+      padding-top: 15px;
+      padding-bottom: 8px;
+    }
+  }
+
+  .new-comments-container{
+    border-top: 3px solid rgba(0, 0, 0, 0.6);
+    display: none;
+
+    .new-comments{
+      padding-top: 15px;
+    }
+
+    .new-comment-span{
+      margin-bottom: 15px;
+    }
+
+    .input-comment-text{
+      margin-bottom: -25px;
+    }
+
+    .input-comment-submit{
+      padding-bottom: 15px;
     }
   }
 }

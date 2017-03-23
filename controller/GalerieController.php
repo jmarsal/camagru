@@ -64,9 +64,22 @@ class GalerieController extends Controller
         }
     }
 
-    public function commentsAjaxGalerie(){
-        if (!empty($_POST['commentsGalerie'] && $_POST['commentsGalerie'] === 'click')){
-            return $this->json(200);
+    public function getCommentsAjaxGalerie(){
+        if (!empty($_POST['commentsGalerie'])){
+            $this->loadModel('Post');
+            $this->loadModel('User');
+
+            $_SESSION['comments'] = $this->Post->getCommentsInDb($_POST['commentsGalerie']);
+            foreach ($_SESSION['comments'] as $v){
+                if (!empty($v['userComment'])){
+                    $login[] = $this->User->getLoginById($v['user_id']); // recup login par v['id']
+                }
+            }
+//            var_dump($_SESSION['comments']);
+            return $this->json(200, [
+                "comments" => $_SESSION['comments'],
+                "logins" => $login
+            ]);
         }
         return $this->json(400);
     }

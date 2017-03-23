@@ -326,6 +326,20 @@ class User extends Model {
             die();
         }
     }
+
+    public function getLoginById($id){
+        $sql = "SELECT login FROM users WHERE id=?";
+        try{
+            $query = $this->db->prepare($sql);
+            $d = array($id);
+            $query->execute(($d));
+            $row = $query->fetch();
+            return $row[0];
+        } catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+    }
 }
 
 ?>

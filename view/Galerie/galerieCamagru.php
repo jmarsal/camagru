@@ -49,10 +49,21 @@
                             echo "<span class='like-span'>".$nbComments."</span>";
                         ?>
                         <div class="container-comments" id="<?php echo 'container-comments'.$v['id']; ?>">
-                            <div class="date-comments" id="<?php echo 'date-comments'.$v['id']; ?>"></div>
-                            <div class="login-comments" id="<?php echo 'login-comments'.$v['id']; ?>"></div>
+                            <div class="container-interact" id="<?php echo 'container-interact'.$v['id']; ?>">
+                                <div class="date-comments" id="<?php echo 'date-comments'.$v['id']; ?>"></div>
+                                <div class="login-comments" id="<?php echo 'login-comments'.$v['id']; ?>"></div>
+                            </div>
                             <div class="comments" id="<?php echo 'comments'.$v['id']; ?>"></div>
                         </div>
+                        <div class="new-comments-container" id="<?php echo 'new-comments-container'.$v['id']; ?>">
+                            <form action="#" method="post">
+                                <div class="new-comments" id="id="<?php echo 'new-comments-container'.$v['id']; ?>">
+                                <div class="new-comment-span"><span>Nouveau Commentaire : </span></div>
+                                <div class="input-comment-text"><input type="text" name="new-comment" value=""></div>
+                                <div class="input-comment-submit"><input type="submit" class="button" name="submit" value="Poster"></div>
+                        </div>
+                        </form>
+                    </div>
                     </div>
                 </div>
                 <?php

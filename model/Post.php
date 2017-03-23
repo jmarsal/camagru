@@ -134,4 +134,20 @@ class Post extends Model {
         }
         return $newNbLike['nbLike'];
     }
+
+    public function getCommentsInDb($postId){
+        $sql = "SELECT *
+                FROM comments
+                WHERE post_id = ?";
+        try{
+            $query = $this->db->prepare($sql);
+            $d = array($postId);
+            $query->execute($d);
+            $comments = $query->fetchAll(PDO::FETCH_ASSOC);
+            return $comments;
+        }catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+    }
 }

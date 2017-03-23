@@ -4,8 +4,9 @@
   margin-left: 36%; }
   /* line 9, ../sass/galerie.scss */
   .container-galerie .container-img .photo-galerie {
-    border: 3px solid rgba(0, 0, 0, 0.6); }
-/* line 22, ../sass/galerie.scss */
+    border: 3px solid rgba(0, 0, 0, 0.6);
+    border-bottom: hidden; }
+/* line 23, ../sass/galerie.scss */
 .container-galerie .galerie-login {
   text-align: center;
   max-width: 700px;
@@ -14,44 +15,96 @@
   margin-top: -11px;
   margin-bottom: 25px;
   padding-top: 12px; }
-  /* line 32, ../sass/galerie.scss */
+  /* line 34, ../sass/galerie.scss */
   .container-galerie .galerie-login .login-span {
     font-size: 30px;
     position: relative;
     top: -5px; }
-  /* line 38, ../sass/galerie.scss */
+  /* line 40, ../sass/galerie.scss */
   .container-galerie .galerie-login .like-span {
     left: -6px;
     top: 2px; }
-  /* line 43, ../sass/galerie.scss */
+  /* line 45, ../sass/galerie.scss */
   .container-galerie .galerie-login .trash-galerie {
     width: 30px;
     margin-right: 40px;
     cursor: pointer; }
-    /* line 48, ../sass/galerie.scss */
+    /* line 50, ../sass/galerie.scss */
     .container-galerie .galerie-login .trash-galerie:hover {
       filter: invert(100%); }
-  /* line 53, ../sass/galerie.scss */
+  /* line 55, ../sass/galerie.scss */
   .container-galerie .galerie-login .like-galerie {
     width: 30px;
     margin-left: 30px;
     cursor: pointer; }
-    /* line 58, ../sass/galerie.scss */
+    /* line 60, ../sass/galerie.scss */
     .container-galerie .galerie-login .like-galerie:hover {
       filter: invert(100%); }
-  /* line 63, ../sass/galerie.scss */
+  /* line 65, ../sass/galerie.scss */
   .container-galerie .galerie-login .nonelike-galerie {
     width: 30px;
     margin-left: 30px;
     cursor: pointer; }
-    /* line 68, ../sass/galerie.scss */
+    /* line 70, ../sass/galerie.scss */
     .container-galerie .galerie-login .nonelike-galerie:hover {
       filter: invert(100%); }
-  /* line 73, ../sass/galerie.scss */
+  /* line 75, ../sass/galerie.scss */
   .container-galerie .galerie-login .comments-galerie {
     width: 30px;
     margin-left: 30px;
     cursor: pointer; }
-    /* line 78, ../sass/galerie.scss */
+    /* line 80, ../sass/galerie.scss */
     .container-galerie .galerie-login .comments-galerie:hover {
       filter: invert(100%); }
+/* line 86, ../sass/galerie.scss */
+.container-galerie .container-comments {
+  display: none;
+  max-height: 150px;
+  overflow-y: scroll;
+  overflow-x: hidden; }
+  /* line 92, ../sass/galerie.scss */
+  .container-galerie .container-comments .container-interact {
+    background: rgba(243, 146, 55, 0.6);
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 15px;
+    padding-top: 10px;
+    margin-bottom: -15px;
+    font-size: 0.6vw; }
+  /* line 102, ../sass/galerie.scss */
+  .container-galerie .container-comments .login-comments {
+    margin: 0px auto;
+    display: inline-block;
+    position: relative;
+    left: 10px; }
+  /* line 109, ../sass/galerie.scss */
+  .container-galerie .container-comments .date-comments {
+    margin: 0px auto;
+    display: inline-block;
+    position: relative;
+    left: 455px; }
+  /* line 116, ../sass/galerie.scss */
+  .container-galerie .container-comments .comments {
+    background: rgba(250, 118, 33, 0.6);
+    border-left: 2px solid #F39237;
+    border-right: 6px solid #983e03;
+    border-bottom: 6px solid #bb4c04;
+    margin-top: -15px;
+    padding-top: 15px;
+    padding-bottom: 8px; }
+/* line 127, ../sass/galerie.scss */
+.container-galerie .new-comments-container {
+  border-top: 3px solid rgba(0, 0, 0, 0.6);
+  display: none; }
+  /* line 131, ../sass/galerie.scss */
+  .container-galerie .new-comments-container .new-comments {
+    padding-top: 15px; }
+  /* line 135, ../sass/galerie.scss */
+  .container-galerie .new-comments-container .new-comment-span {
+    margin-bottom: 15px; }
+  /* line 139, ../sass/galerie.scss */
+  .container-galerie .new-comments-container .input-comment-text {
+    margin-bottom: -25px; }
+  /* line 143, ../sass/galerie.scss */
+  .container-galerie .new-comments-container .input-comment-submit {
+    padding-bottom: 15px; }
