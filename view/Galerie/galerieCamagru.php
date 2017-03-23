@@ -20,7 +20,7 @@
                 }?>
                 <div class="container-interact" id="<?php echo $v['id']; ?>">
                     <img class="photo-galerie" src="<?php echo BASE_URL . $v['file'].'.png'; ?>">
-                    <div class="galerie-login" id="galerie-login">
+                    <div class="galerie-login" id="<?php echo 'galerie-login'.$v['id']; ?>">
                         <?php
                         if ($_SESSION['login'] === $v['login']){ ?>
                             <img class="trash-galerie" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'Trash.ico'; ?>" title="Supprimer Photo?" onclick="delImgDb(<?php echo $v['id']; ?>)">
@@ -35,19 +35,24 @@
                         }
                         if ($modifyLike == 0 || $modifyLike == -1){
                         ?>
-                            <img class="like-galerie" id="<?php echo 'like-galerie'.$v['id']; ?>" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'galerie'.DS.'nonelike.png'; ?>" title="like ?" onclick="likeImg(<?php echo $v['id']; ?>)">
+                            <img class="like-galerie" id="<?php echo 'like-galerie'.$v['id']; ?>" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'galerie'.DS.'nonelike.png'; ?>" title="j'aime" onclick="likeImg(<?php echo $v['id']; ?>)">
                             <?php
                         } else{
                             ?>
-                            <img class="like-galerie" id="<?php echo 'like-galerie'.$v['id']; ?>" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'galerie'.DS.'like.png'; ?>" title="like ?" onclick="likeImg(<?php echo $v['id']; ?>)">
+                            <img class="like-galerie" id="<?php echo 'like-galerie'.$v['id']; ?>" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'galerie'.DS.'like.png'; ?>" title="j'aime plus" onclick="likeImg(<?php echo $v['id']; ?>)">
                             <?php
                         }
                             echo "<span class='like-span'"."id='like-span".$v['id']."'>".$like."</span>";
                         ?>
-                        <img class="comments-galerie" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'galerie'.DS.'comments.png'; ?>" title="commenter ?">
+                        <img class="comments-galerie" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'galerie'.DS.'comments.png'; ?>" title="commentaires ..." onclick="commmentsClick(<?php echo $v['id']; ?>)">
                         <?php
                             echo "<span class='like-span'>".$nbComments."</span>";
                         ?>
+                        <div class="container-comments" id="<?php echo 'container-comments'.$v['id']; ?>">
+                            <div class="date-comments" id="<?php echo 'date-comments'.$v['id']; ?>"></div>
+                            <div class="login-comments" id="<?php echo 'login-comments'.$v['id']; ?>"></div>
+                            <div class="comments" id="<?php echo 'comments'.$v['id']; ?>"></div>
+                        </div>
                     </div>
                 </div>
                 <?php

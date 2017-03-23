@@ -56,12 +56,18 @@ class GalerieController extends Controller
 
             $idUser = $this->User->getIdUser($_SESSION['login']);
             $nbLike = $this->Post->setLikeForPhotoInDb($_POST['likeImgGalerie'], $idUser);
-//            var_dump($nbLike); /////////////////////////////////////////////////
             return $this->json(200, [
                 "nbLike" => $nbLike
             ]);
         } else {
             return $this->json(400);
         }
+    }
+
+    public function commentsAjaxGalerie(){
+        if (!empty($_POST['commentsGalerie'] && $_POST['commentsGalerie'] === 'click')){
+            return $this->json(200);
+        }
+        return $this->json(400);
     }
 }
