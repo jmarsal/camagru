@@ -66,7 +66,7 @@ class RegisterController extends Controller
 		}
 		if (isset($_POST['passwd']) && !empty($_POST['passwd'])){
 			$this->passwd = trim(htmlentities($_POST['passwd']));
-			$this->hashPasswd = hash('sha256', $this->passwd);
+			$this->hashPasswd = hash('sha256', trim(htmlentities($this->passwd)));
 		} else {
 			$this->mess_error = 'Veuillez renseigner un mot de passe!';
 			return FALSE;
@@ -74,7 +74,7 @@ class RegisterController extends Controller
 
 		if (isset($_POST['repPasswd']) && !empty($_POST['repPasswd'])){
 			$this->repPasswd = trim(htmlentities($_POST['repPasswd']));
-			$this->hashPasswd = hash('sha256', $this->passwd);
+			$this->hashPasswd = hash('sha256', trim(htmlentities($this->passwd)));
 		}else{
 			$this->mess_error = 'Le champ de verification de mot de passe est vide!';
 			return FALSE;

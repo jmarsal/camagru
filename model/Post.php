@@ -46,7 +46,6 @@ class Post extends Model {
             print "Erreur : ".$e->getMessage()."";
             die();
         }
-
     }
 
     public function setLikeForPhotoInDb($postId, $idUser){
@@ -138,13 +137,112 @@ class Post extends Model {
     public function getCommentsInDb($postId){
         $sql = "SELECT *
                 FROM comments
-                WHERE post_id = ?";
+                WHERE post_id = ?
+                ORDER BY created ASC";
         try{
             $query = $this->db->prepare($sql);
             $d = array($postId);
             $query->execute($d);
             $comments = $query->fetchAll(PDO::FETCH_ASSOC);
             return $comments;
+        }catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+    }
+
+    public function setCommemtInDb($idUser, $newComment, $idPost){
+        date_default_timezone_set('UTC');
+        $date = date('Y-m-d H:i:s');
+
+        //Recherche si l'idPost avec idUser se trouve deja dans la table comments
+        $update = $this->_checkIfIdPostIdUserAlreadyInDb($idUser, $idPost);
+
+        if ($update == 1){
+            $this->_updateUserCommentInCommentsInDb($idPost, $date, $newComment);
+        } else {
+            $this->_insertUserCommentInCommentsInDb($idUser, $idPost, $date, $newComment);
+        }
+        $this->_incrementNbCommentsInDb($idPost);
+    }
+
+    private function _getNbCommentsInDb($idPost){
+        $sql = "SELECT nbComments
+                FROM interactions
+                WHERE post_id=?";
+        try{
+            $query = $this->db->prepare($sql);
+            $d = array($idPost);
+            $query->execute($d);
+            $nbComments = $query->fetch(PDO::FETCH_ASSOC);
+            return $nbComments['nbComments'];
+        }catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+    }
+
+    private function _incrementNbCommentsInDb($idPost){
+        // Recuperer le nbComment
+        $nbComments = $this->_getNbCommentsInDb($idPost);
+//        var_dump($nbComments);
+
+        $sql = "UPDATE interactions
+                SET nbComments=?
+                WHERE post_id=?";
+        try{
+            $query = $this->db->prepare($sql);
+            $d = array($nbComments + 1, $idPost);
+            $query->execute($d);
+        }catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+    }
+
+    private function _insertUserCommentInCommentsInDb($idUser, $idPost, $date, $newComment){
+        $sql = "INSERT INTO comments (`userComment`, `post_id`, `user_id`, `created`)
+                      VALUES (:userComment, :post_id, :user_id, :created)";
+        try {
+            $query = $this->db->prepare($sql);
+            $d = array("userComment" => $newComment,
+                "post_id" => $idPost,
+                "user_id" => $idUser,
+                "created" => $date);
+            $query->execute($d);
+        } catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+    }
+
+    private function _updateUserCommentInCommentsInDb($idPost, $date, $newComment){
+        $sql = "UPDATE comments
+                SET userComment=?, created=?
+                WHERE post_id=?";
+        try{
+            $query = $this->db->prepare($sql);
+            $d = array($newComment, $date, $idPost);
+            $query->execute($d);
+        }catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+    }
+
+    private function _checkIfIdPostIdUserAlreadyInDb($idUser, $idPost){
+        $sql = "SELECT id
+                FROM comments
+                WHERE post_id=? && user_id=? && userComment=NULL";
+        try{
+            $query = $this->db->prepare($sql);
+            $d = array($idPost, $idUser);
+            $query->execute($d);
+            $row = $query->fetch(PDO::FETCH_ASSOC);
+            if (!$row){
+                return 0;
+            }
+            return 1;
         }catch (PDOexception $e){
             print "Erreur : ".$e->getMessage()."";
             die();

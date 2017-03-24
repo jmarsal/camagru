@@ -53,8 +53,8 @@
                             <form action="#" method="post">
                                 <div class="new-comments" id="id="<?php echo 'new-comments-container'.$v['id']; ?>">
                                 <div class="new-comment-span"><span>Nouveau Commentaire : </span></div>
-                                <div class="input-comment-text"><input type="text" name="new-comment" value=""></div>
-                                <div class="input-comment-submit"><input type="submit" class="button" name="submit" value="Poster"></div>
+                                <div class="input-comment-text"><input id="<?php echo 'input-comment-text'.$v['id']; ?>" type="text" name="new-comment" value=""></div>
+                                <div class="input-comment-submit"><div class="button" id="<?php echo 'input-comment-submit'.$v['id']; ?>" onclick="submitComment(<?php echo $v['id']; ?>)">Poster</div></div>
                         </div>
                         </form>
                     </div>

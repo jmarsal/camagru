@@ -61,7 +61,7 @@
   display: none;
   position: relative;
   width: 100%;
-  max-height: 295px;
+  max-height: 215px;
   overflow-y: scroll;
   overflow-x: hidden; }
   /* line 94, ../sass/galerie.scss */
@@ -86,7 +86,7 @@
     margin: 0px auto;
     display: inline-block;
     position: relative;
-    right: -380px; }
+    right: -310px; }
   /* line 121, ../sass/galerie.scss */
   .container-galerie .container-comments .comments {
     margin-top: -2%;

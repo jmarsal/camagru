@@ -127,11 +127,10 @@ class ForgetIdController extends Controller
 			if ($_POST['newPass'] === $_POST['repNewPass']){
 				$this->newPasswd = hash('sha256', trim(htmlentities($_POST['repNewPass'])));
 				$this->User->changeActifUser($log);
-//				Ici changer mot de passe dans la bdd depuis le model User
 				$this->User->changePasswdUser($log, $this->newPasswd);
 				return TRUE;
 			}else{
-				$this->newPasswd = $_POST['newPass'];
+				$this->newPasswd = trim(htmlentities($_POST['newPass']));
 				$this->mess_error = 'Les deux champs de mot de passe ne sont pas identiques!';
 				return FALSE;
 			}
@@ -139,7 +138,7 @@ class ForgetIdController extends Controller
 			if (!isset($_POST['newPass']) || empty($_POST['newPass'])){
 				$this->mess_error = 'Veuillez renseigner un mot de passe!';
 			}else{
-			    $this->newPasswd = $_POST['newPass'];
+			    $this->newPasswd = trim(htmlentities($_POST['newPass']));
 				$this->mess_error = 'Le champ de verification de mot de passe est vide!';
 			}
 			return FALSE;

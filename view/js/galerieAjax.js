@@ -2,6 +2,34 @@
  * Created by jbmar on 21/03/2017.
  */
 
+function submitComment(id) {
+    var xhr = getXMLHttpRequest(),
+        getInput = document.getElementById("input-comment-text" + id).value
+        ;
+    xhr.onreadystatechange = function () {
+        if ((state = xhr.readyState) == 4 && xhr.status == 200) {
+            // var containerDiv = document.getElementById("container-comments" + id);
+            var container = document.getElementById("container-comments" + id),
+                newElem = document.createElement("div"),
+                spanComment = document.createElement('span')
+            ;
+
+            spanComment.innerHTML = getInput;
+            newElem.insertBefore(spanComment, newElem[0]);
+            container.insertBefore(spanComment, container.lastElementChild);
+            // getInput.value = "";
+            // newcommentsDiv.style.display = "none";
+            // removeContainerComments(id);
+            // constructCommentsInDocument(containerDiv, comments, logins, id, i)
+        }
+    };
+
+    var tmp = "idPostGalerie=" + id + "&contentComment=" + getInput;
+    xhr.open("post", "getNewCommentAjaxGalerie", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(tmp);
+}
+
 function delImgDb(id) {
     var xhr = getXMLHttpRequest();
 
@@ -68,140 +96,173 @@ function commmentsClick(id) {
                 newcommentsDiv.style.display = "block";
 
                 for (i = 0; i < comments.length; i++){
-                    if ((i % 2) != 0){
-                        modulo = 0;
-                        color1 = "250, 118, 33";
-                        color2 = "243, 146, 55";
-                    } else {
-                        modulo = 1;
-                        color1 = "115, 115, 104";
-                        color2 = "47, 79, 79";
-                    }
-
                     if (comments[i].userComment != null){
-                        var spanComment = document.createElement('span'),
-                            spanDate = document.createElement('span'),
-                            spanLogin = document.createElement('span'),
-                            hr = document.createElement('hr'),
-                            date = new Date(comments[i].created),
-                            containerInteract = document.createElement("div"),
-                            interactsDiv = document.createElement("div"),
-                            dateDiv = document.createElement("div"),
-                            loginDiv = document.createElement("div"),
-                            commentsDiv = document.createElement("div"),
-                            hrDiv = document.createElement("div")
-                            ;
-
-                        var formatDate = convertDate(date);
-                        var formatHours = convertHours(date);
-                        formatDate = formatDate + ' à ' + formatHours;
-
-                        hr.style.backgroundColor = "darkgrey";
-                        hr.style.color = "darkgrey";
-                        // hr.style.marginTop = "-1%";
-                        hrDiv.className = "hr-div";
-                        hrDiv.style.marginBottom = "1.7%";
-                        hrDiv.style.width = "50%";
-                        if (modulo == 0){
-                            hrDiv.style.marginLeft = "0%";
-                        } else {
-                            hrDiv.style.marginLeft = "50%";
-                        }
-
-                        containerInteract.className = "container_message";
-                        containerInteract.id = "container_message" + id;
-
-                        interactsDiv.className = "container-interact";
-                        interactsDiv.id = "container-interact" + id;
-                        interactsDiv.style.background = "rgba(" + color1 + ",0.6)";
-                        interactsDiv.style.marginBottom = "-1.1%";
-                        interactsDiv.style.width = "50%";
-                        if (modulo == 0){
-                            interactsDiv.style.left = "-25%";
-                            interactsDiv.style.borderRadius = "0px 20px 0px 0px";
-                        } else {
-                            interactsDiv.style.left = "25%";
-                            interactsDiv.style.borderRadius = "20px 0px 0px 0px";
-                        }
-
-                        dateDiv.className = "date-comments";
-                        dateDiv.id = "date-comments" + id;
-
-                        loginDiv.className = "login-comments";
-                        loginDiv.id = "login-comments" + id;
-
-                        commentsDiv.className = "comments";
-                        commentsDiv.id = "comments" + id;
-                        commentsDiv.style.background = "rgba(" + color2 + ", 0.6)";
-                        commentsDiv.style.borderLeft = "2px solid " + color1 + "";
-                        commentsDiv.style.borderRight = "2px solid " + color2 + "";
-                        commentsDiv.style.borderBottom = "6px solid " + color2 + "";
-                        commentsDiv.style.width = "50%";
-                        commentsDiv.style.textAlign = "left";
-                        if (modulo == 0){
-                            commentsDiv.style.marginLeft = "0%";
-                            commentsDiv.style.borderRadius = "0px 0px 20px 0px";
-                        } else {
-                            commentsDiv.style.marginLeft = "50%";
-                            commentsDiv.style.borderRadius = "0px 0px 0px 20px";
-                        }
-
-                        containerDiv.style.display = "block";
-
-                        interactsDiv.style.display = "inline-block";
-                        interactsDiv.style.width = "100%";
-
-                        loginDiv.style.marginLeft = "-470px";
-
-                        spanDate.style.position = "relative";
-                        spanDate.style.right = "60px";
-                        spanDate.innerHTML = "le " + formatDate;
-
-                        spanLogin.style.position = "relative";
-                        spanLogin.style.left = "70px";
-                        //Probleme de recup d'id envoyer dans le json...
-                        spanLogin.innerHTML = ""+logins[i] + " : ";
-
-                        spanComment.style.display = "relative";
-                        spanComment.innerHTML = comments[i].userComment;
-
-                        loginDiv.insertBefore(spanLogin, loginDiv[0]);
-                        dateDiv.insertBefore(spanDate, dateDiv[0]);
-
-                        interactsDiv.insertBefore(loginDiv, interactsDiv[0]);
-                        interactsDiv.insertBefore(dateDiv, interactsDiv[1]);
-
-                        commentsDiv.insertBefore(spanComment, commentsDiv[0]);
-
-                        hrDiv.insertBefore(hr, hrDiv[0]);
-
-                        containerInteract.insertBefore(interactsDiv, containerInteract[0]);
-                        containerInteract.insertBefore(hrDiv, containerInteract[1]);
-                        containerInteract.insertBefore(commentsDiv, containerInteract[2]);
-
-                        containerDiv.insertBefore(containerInteract, containerDiv[i]);
+                        constructCommentsInDocument(containerDiv, comments, logins, id,  i);
                     }
                 }
             } else {
-                // containerDiv.style.display = "none";
                 newcommentsDiv.style.display = "none";
-
-                var remove = document.getElementById("container-comments" + id),
-                    galerie = document.getElementById("galerie-login" + id),
-                    newContainer = document.createElement("div")
-                ;
-                newContainer.className = "container-comments";
-                newContainer.id = "container-comments" + id;
-                remove.parentNode.removeChild(remove);
-                galerie.insertBefore(newContainer, galerie.lastElementChild.previousSibling);
+                removeContainerComments(id);
             }
-
         }
     };
     var tmp = "commentsGalerie=" + id;
     xhr.open("post", "getCommentsAjaxGalerie", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(tmp);
+}
+
+function constructCommentsInDocument(containerDiv, comments, logins, id, i){
+    var spanComment = document.createElement('span'),
+        spanDate = document.createElement('span'),
+        spanLogin = document.createElement('span'),
+        containerInteract = document.createElement("div"),
+        interactsDiv = document.createElement("div"),
+        dateDiv = document.createElement("div"),
+        loginDiv = document.createElement("div"),
+        commentsDiv = document.createElement("div"),
+        hrDiv = document.createElement("div"),
+        hr = document.createElement('hr'),
+        date = new Date(comments[i].created),
+        formatDate = reformatDate(date)
+        ;
+
+    setColorsGetModulo(logins, i);
+    setHr(hrDiv, hr, modulo);
+    setContainerAllComments(containerInteract, id);
+    setTopPartComment(interactsDiv, id,  color1, modulo);
+    setDateCreated(dateDiv, spanDate, formatDate, id);
+    setLoginDiv(loginDiv, spanLogin, logins, id, i);
+    setBottomPartComment(commentsDiv, spanComment, comments, i, id,  color1, color2, modulo);
+    containerDiv.style.display = "block";
+    setElementsInDocument(loginDiv, spanLogin, dateDiv, spanDate, interactsDiv, commentsDiv,
+        spanComment, hrDiv, hr,  containerInteract, containerDiv, i);
+}
+
+function setElementsInDocument(loginDiv, spanLogin, dateDiv, spanDate, interactsDiv, commentsDiv,
+                               spanComment, hrDiv, hr,  containerInteract, containerDiv, i){
+    loginDiv.insertBefore(spanLogin, loginDiv[0]);
+    dateDiv.insertBefore(spanDate, dateDiv[0]);
+
+    interactsDiv.insertBefore(loginDiv, interactsDiv[0]);
+    interactsDiv.insertBefore(dateDiv, interactsDiv[1]);
+
+    commentsDiv.insertBefore(spanComment, commentsDiv[0]);
+
+    hrDiv.insertBefore(hr, hrDiv[0]);
+
+    containerInteract.insertBefore(interactsDiv, containerInteract[0]);
+    containerInteract.insertBefore(hrDiv, containerInteract[1]);
+    containerInteract.insertBefore(commentsDiv, containerInteract[2]);
+
+    containerDiv.insertBefore(containerInteract, containerDiv[i]);
+}
+
+function setBottomPartComment(commentsDiv, spanComment, comments, i, id,  color1, color2, modulo) {
+    commentsDiv.className = "comments";
+    commentsDiv.id = "comments" + id;
+    commentsDiv.style.background = "rgba(" + color2 + ", 0.6)";
+    commentsDiv.style.borderLeft = "2px solid " + color1 + "";
+    commentsDiv.style.borderRight = "2px solid " + color2 + "";
+    commentsDiv.style.borderBottom = "6px solid " + color2 + "";
+    commentsDiv.style.width = "50%";
+    commentsDiv.style.textAlign = "left";
+    if (modulo == 0){
+        commentsDiv.style.marginLeft = "0%";
+        commentsDiv.style.borderRadius = "0px 0px 20px 0px";
+    } else {
+        commentsDiv.style.marginLeft = "50%";
+        commentsDiv.style.borderRadius = "0px 0px 0px 20px";
+    }
+    spanComment.style.display = "relative";
+    spanComment.innerHTML = comments[i].userComment;
+}
+
+function setLoginDiv(loginDiv, spanLogin, logins, id, i){
+    console.log(logins);
+    loginDiv.className = "login-comments";
+    loginDiv.id = "login-comments" + id;
+    loginDiv.style.marginLeft = "-405px";
+    spanLogin.style.position = "relative";
+    spanLogin.style.left = "70px";
+    spanLogin.innerHTML = ""+logins[i - 1] + " : ";
+}
+
+function setDateCreated(dateDiv, spanDate, formatDate, id){
+    dateDiv.className = "date-comments";
+    dateDiv.id = "date-comments" + id;
+    spanDate.style.position = "relative";
+    spanDate.style.right = "60px";
+    spanDate.innerHTML = "le " + formatDate;
+}
+
+function setColorsGetModulo(logins, i){
+    if (logins[i - 1]){
+        var log = logins[i - 1];
+    }
+    if ((i % 2) != 0 || log === logins[i]){
+        modulo = 0;
+        color1 = "250, 118, 33";
+        color2 = "243, 146, 55";
+    } else {
+        modulo = 1;
+        color1 = "115, 115, 104";
+        color2 = "47, 79, 79";
+    }
+    return modulo + color1 + color2;
+}
+
+function setTopPartComment(interactsDiv, id,  color1, modulo){
+    interactsDiv.className = "container-interact";
+    interactsDiv.id = "container-interact" + id;
+    interactsDiv.style.background = "rgba(" + color1 + ",0.6)";
+    interactsDiv.style.bottom = "-10px";
+    interactsDiv.style.width = "50%";
+    interactsDiv.style.display = "inline-block";
+    interactsDiv.style.width = "100%";
+    if (modulo == 0){
+        interactsDiv.style.left = "-25%";
+        interactsDiv.style.borderRadius = "0px 20px 0px 0px";
+    } else {
+        interactsDiv.style.left = "25%";
+        interactsDiv.style.borderRadius = "20px 0px 0px 0px";
+    }
+}
+
+function setContainerAllComments(containerInteract, id) {
+    containerInteract.className = "container_message";
+    containerInteract.id = "container_message" + id;
+}
+
+function setHr(hrDiv, hr, modulo) {
+    hrDiv.className = "hr-div";
+    hrDiv.position = "relative";
+    hrDiv.style.marginBottom = "1.7%";
+    hrDiv.style.width = "50%";
+    if (modulo == 0){
+        hrDiv.style.marginLeft = "0%";
+    } else {
+        hrDiv.style.marginLeft = "50%";
+    }
+    hr.style.backgroundColor = "darkgrey";
+    hr.style.color = "darkgrey";
+}
+
+function removeContainerComments(id){
+    var remove = document.getElementById("container-comments" + id),
+        galerie = document.getElementById("galerie-login" + id),
+        newContainer = document.createElement("div")
+        ;
+    newContainer.className = "container-comments";
+    newContainer.id = "container-comments" + id;
+    remove.parentNode.removeChild(remove);
+    galerie.insertBefore(newContainer, galerie.lastElementChild.previousSibling);
+}
+
+function reformatDate(date){
+    var formatDate = convertDate(date);
+    var formatHours = convertHours(date);
+    return formatDate + ' à ' + formatHours;
 }
 
 function convertDate(inputFormat) {
@@ -213,5 +274,5 @@ function convertDate(inputFormat) {
 function convertHours(inputFormat) {
     function pad(s) { return (s < 10) ? '0' + s : s; }
     var d = new Date(inputFormat);
-    return [d.getHours(), d.getMinutes(), d.getSeconds()].join(':');
+    return [d.getHours(), d.getMinutes()].join(':');
 }
