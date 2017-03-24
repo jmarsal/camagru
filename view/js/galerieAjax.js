@@ -8,19 +8,47 @@ function submitComment(id) {
         ;
     xhr.onreadystatechange = function () {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
-            // var containerDiv = document.getElementById("container-comments" + id);
-            var container = document.getElementById("container-comments" + id),
-                newElem = document.createElement("div"),
-                spanComment = document.createElement('span')
-            ;
+            var data = JSON.parse(xhr.responseText),
+                containerDiv = document.getElementById("container-comments" + id),
+                spanComment = document.createElement('span'),
+                spanDate = document.createElement('span'),
+                spanLogin = document.createElement('span'),
+                containerInteract = document.createElement("div"),
+                interactsDiv = document.createElement("div"),
+                dateDiv = document.createElement("div"),
+                loginDiv = document.createElement("div"),
+                commentsDiv = document.createElement("div"),
+                hrDiv = document.createElement("div"),
+                hr = document.createElement('hr'),
+                date = new Date(data.info.date),
+                formatDate = reformatDate(date),
+                logins = null,
+                getInput = document.getElementById("input-comment-text" + id),
+                nbcomments = document.getElementById("comment-span" + id)
+                ;
 
-            spanComment.innerHTML = getInput;
-            newElem.insertBefore(spanComment, newElem[0]);
-            container.insertBefore(spanComment, container.lastElementChild);
-            // getInput.value = "";
-            // newcommentsDiv.style.display = "none";
-            // removeContainerComments(id);
-            // constructCommentsInDocument(containerDiv, comments, logins, id, i)
+            if (!containerDiv){
+                setContainerAllComments(containerInteract, id);
+                setColorsGetModulo(logins, 0);
+            }
+            setColorsGetModulo(logins, containerDiv.length);
+            setHr(hrDiv, hr, modulo);
+            setTopPartComment(interactsDiv, id,  color1, modulo);
+            setDateCreated(dateDiv, spanDate, formatDate, id);
+            if (!containerDiv){
+                setBottomPartComment(commentsDiv, spanComment, data.info.comment, 0, id,  color1, color2, modulo);
+                setLoginDiv(loginDiv, spanLogin, data.info.login, id, null);
+            } else {
+                console.log(data.info.comment);
+                setBottomPartComment(commentsDiv, spanComment, data.info.comment, null, id,  color1, color2, modulo);
+                setLoginDiv(loginDiv, spanLogin, data.info.login, id, null);
+            }
+            containerDiv.style.display = "block";
+            setElementsInDocument(loginDiv, spanLogin, dateDiv, spanDate, interactsDiv, commentsDiv,
+                spanComment, hrDiv, hr,  containerInteract, containerDiv, containerDiv.length);
+            containerDiv.scrollTop = containerDiv.scrollHeight + 100;
+            getInput.value = "";
+            nbcomments.innerHTML = data.nbComments;
         }
     };
 
@@ -98,6 +126,7 @@ function commmentsClick(id) {
                 for (i = 0; i < comments.length; i++){
                     if (comments[i].userComment != null){
                         constructCommentsInDocument(containerDiv, comments, logins, id,  i);
+                        containerDiv.scrollTop = containerDiv.scrollHeight + 100;
                     }
                 }
             } else {
@@ -175,17 +204,24 @@ function setBottomPartComment(commentsDiv, spanComment, comments, i, id,  color1
         commentsDiv.style.borderRadius = "0px 0px 0px 20px";
     }
     spanComment.style.display = "relative";
-    spanComment.innerHTML = comments[i].userComment;
+    if (i != null){
+        spanComment.innerHTML = comments[i].userComment;
+    } else {
+        spanComment.innerHTML = comments;
+    }
 }
 
 function setLoginDiv(loginDiv, spanLogin, logins, id, i){
-    console.log(logins);
     loginDiv.className = "login-comments";
     loginDiv.id = "login-comments" + id;
     loginDiv.style.marginLeft = "-405px";
     spanLogin.style.position = "relative";
     spanLogin.style.left = "70px";
-    spanLogin.innerHTML = ""+logins[i - 1] + " : ";
+    if (i != null){
+        spanLogin.innerHTML = ""+logins[i - 1] + " : ";
+    } else {
+        spanLogin.innerHTML = ""+logins + " : ";
+    }
 }
 
 function setDateCreated(dateDiv, spanDate, formatDate, id){
@@ -197,17 +233,28 @@ function setDateCreated(dateDiv, spanDate, formatDate, id){
 }
 
 function setColorsGetModulo(logins, i){
-    if (logins[i - 1]){
+    if (logins && logins[i - 1]){
         var log = logins[i - 1];
+        if (((i % 2) != 0) || (log == logins[i] && (i % 2) != 0)){
+            modulo = 0;
+            color1 = "250, 118, 33";
+            color2 = "243, 146, 55";
+        } else if ((i % 2) != 0) {
+            modulo = 1;
+            color1 = "115, 115, 104";
+            color2 = "47, 79, 79";
+        }
     }
-    if ((i % 2) != 0 || log === logins[i]){
-        modulo = 0;
-        color1 = "250, 118, 33";
-        color2 = "243, 146, 55";
-    } else {
-        modulo = 1;
-        color1 = "115, 115, 104";
-        color2 = "47, 79, 79";
+    else {
+        if ((i % 2) != 0){
+            modulo = 0;
+            color1 = "250, 118, 33";
+            color2 = "243, 146, 55";
+        } else {
+            modulo = 1;
+            color1 = "115, 115, 104";
+            color2 = "47, 79, 79";
+        }
     }
     return modulo + color1 + color2;
 }

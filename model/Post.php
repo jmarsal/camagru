@@ -164,9 +164,17 @@ class Post extends Model {
             $this->_insertUserCommentInCommentsInDb($idUser, $idPost, $date, $newComment);
         }
         $this->_incrementNbCommentsInDb($idPost);
+        $info = array(
+            "id_post" => $idPost,
+            "id_user" => $idUser,
+            "login" => $_SESSION['login'],
+            "date" => $date,
+            "comment" => $newComment
+        );
+        return $info;
     }
 
-    private function _getNbCommentsInDb($idPost){
+    public function getNbCommentsInDb($idPost){
         $sql = "SELECT nbComments
                 FROM interactions
                 WHERE post_id=?";
@@ -184,7 +192,7 @@ class Post extends Model {
 
     private function _incrementNbCommentsInDb($idPost){
         // Recuperer le nbComment
-        $nbComments = $this->_getNbCommentsInDb($idPost);
+        $nbComments = $this->getNbCommentsInDb($idPost);
 //        var_dump($nbComments);
 
         $sql = "UPDATE interactions

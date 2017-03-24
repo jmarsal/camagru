@@ -92,9 +92,12 @@ class GalerieController extends Controller
             $idUser = $this->User->getIdUser($_SESSION['login']);
             $idPost = $_POST['idPostGalerie'];
 
-            var_dump($idUser);
-            $this->Post->setCommemtInDb($idUser, $newComment, $idPost);
-            return $this->json(200);
+            $infoComment = $this->Post->setCommemtInDb($idUser, $newComment, $idPost);
+            $nbComments = $this->Post->getNbCommentsInDb($idPost);
+            return $this->json(200, [
+                "info" => $infoComment,
+                "nbComments" => $nbComments
+            ]);
         }
         return $this->json(400);
     }

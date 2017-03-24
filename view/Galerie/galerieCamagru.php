@@ -46,7 +46,7 @@
                         ?>
                         <img class="comments-galerie" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'galerie'.DS.'comments.png'; ?>" title="commentaires ..." onclick="commmentsClick(<?php echo $v['id']; ?>)">
                         <?php
-                            echo "<span class='like-span'>".$nbComments."</span>";
+                            echo "<span class='comment-span' id='comment-span".$v['id']."'>".$nbComments."</span>";
                         ?>
                         <div class="container-comments" id="<?php echo 'container-comments'.$v['id']; ?>"></div>
                         <div class="new-comments-container" id="<?php echo 'new-comments-container'.$v['id']; ?>">
