@@ -68,6 +68,7 @@ class GalerieController extends Controller
         if (!empty($_POST['commentsGalerie'])){
             $this->loadModel('Post');
             $this->loadModel('User');
+            $login = null;
 
             $_SESSION['comments'] = $this->Post->getCommentsInDb($_POST['commentsGalerie']);
             foreach ($_SESSION['comments'] as $v){
