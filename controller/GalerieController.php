@@ -94,6 +94,11 @@ class GalerieController extends Controller
 
             $infoComment = $this->Post->setCommemtInDb($idUser, $newComment, $idPost);
             $nbComments = $this->Post->getNbCommentsInDb($idPost);
+            $options['email'] = $this->User->getMailByIdUser($idUser);
+            $options['login'] = $_SESSION['login'];
+            new MailSender($options);
+            MailSender::newCommentMail();
+
             return $this->json(200, [
                 "info" => $infoComment,
                 "nbComments" => $nbComments

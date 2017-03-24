@@ -168,6 +168,24 @@ class User extends Model {
 		return "Veuillez renseigner une adresse mail valide";
 	}
 
+    public function getMailByIdUser($idUser){
+            $sql = "SELECT email FROM users
+							WHERE id=?";
+            try{
+                $query = $this->db->prepare($sql);
+                $d = array($idUser);
+                $query->execute($d);
+                $email = $query->fetch();
+                if ($email){
+                    return $email;
+                }
+                return FALSE;
+            }catch (PDOexception $e){
+                print "Erreur : ".$e->getMessage()."";
+                die();
+            }
+    }
+
 	/**
 	 * Trouve a quel user correspond l'email
 	 * @param $email string l'email a rechercher dans la DB
