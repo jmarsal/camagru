@@ -94,10 +94,20 @@ class GalerieController extends Controller
 
             $infoComment = $this->Post->setCommemtInDb($idUser, $newComment, $idPost);
             $nbComments = $this->Post->getNbCommentsInDb($idPost);
-            $options['email'] = $this->User->getMailByIdUser($idUser);
-            $options['login'] = $_SESSION['login'];
-            new MailSender($options);
-            MailSender::newCommentMail();
+//            J'ai fait n'imp, ce n'est pas l'user connecter qui doit recevoir le mail, mais le user
+//            qui a post la photo !!! A corriger tres vite...
+//            $destinataire = $this->User->getMailByIdUser($idUser);
+//            $options = array(
+//                'email' => $destinataire,
+//                'login' => $_SESSION['login'],
+//                'subject' => 'Nouveau Commentaire !',
+//                'message' => "",
+//                'title' => "",
+//                'from' => "",
+//                'cle' => ""
+//            );
+           // $Mail = new MailSender($options);
+           // $Mail->newCommentMail();
 
             return $this->json(200, [
                 "info" => $infoComment,

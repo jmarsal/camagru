@@ -8,6 +8,7 @@ function submitComment(id) {
         ;
     xhr.onreadystatechange = function () {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
+            console.log(data);
             var data = JSON.parse(xhr.responseText),
                 containerDiv = document.getElementById("container-comments" + id),
                 spanComment = document.createElement('span'),
@@ -31,6 +32,7 @@ function submitComment(id) {
                 setContainerAllComments(containerInteract, id);
                 setColorsGetModulo(logins, 0);
             }
+            // Recuperer le comment precedent si il existe, donc le login + la couleur
             setColorsGetModulo(logins, containerDiv.length);
             setHr(hrDiv, hr, modulo);
             setTopPartComment(interactsDiv, id,  color1, modulo);
@@ -123,7 +125,7 @@ function commmentsClick(id) {
             if (newcommentsDiv.style.display != "block"){
                 newcommentsDiv.style.display = "block";
 
-                for (i = 0; i < comments.length; i++){
+                for (i = 0; i < comments.length - 1; i++){
                     if (comments[i].userComment != null){
                         constructCommentsInDocument(containerDiv, comments, logins, id,  i);
                         containerDiv.scrollTop = containerDiv.scrollHeight + 100;
@@ -233,29 +235,44 @@ function setDateCreated(dateDiv, spanDate, formatDate, id){
 }
 
 function setColorsGetModulo(logins, i){
+    console.log('login -1 = ' + logins[i -1] + ' login = ' + logins[i] + ' i = ' + i +
+    ' modulo = ' + (i % 2));
     if (logins && logins[i - 1]){
         var log = logins[i - 1];
-        if (((i % 2) != 0) || (log == logins[i] && (i % 2) != 0)){
+        // i -= 1;
+        if (log !== logins[i]){
+            console.log('login -1 !== login -1');
             modulo = 0;
             color1 = "250, 118, 33";
             color2 = "243, 146, 55";
-        } else if ((i % 2) != 0) {
+        } else if (log === logins[i]){
+            console.log('login -1 === login -1');
+            modulo = 1;
+            color1 = "115, 115, 104";
+            color2 = "47, 79, 79";
+        } else if ((i % 2) == 0){
+            console.log('sinon i % 2 == 0');
+            modulo = 0;
+            color1 = "250, 118, 33";
+            color2 = "243, 146, 55";
+        }else {
+            console.log('i % 2 == 1');
             modulo = 1;
             color1 = "115, 115, 104";
             color2 = "47, 79, 79";
         }
     }
-    else {
-        if ((i % 2) != 0){
-            modulo = 0;
-            color1 = "250, 118, 33";
-            color2 = "243, 146, 55";
-        } else {
-            modulo = 1;
-            color1 = "115, 115, 104";
-            color2 = "47, 79, 79";
-        }
-    }
+    // else {
+    //     if ((i % 2) == 0){
+    //         modulo = 0;
+    //         color1 = "250, 118, 33";
+    //         color2 = "243, 146, 55";
+    //     } else {
+    //         modulo = 1;
+    //         color1 = "115, 115, 104";
+    //         color2 = "47, 79, 79";
+    //     }
+    // }
     return modulo + color1 + color2;
 }
 

@@ -59,9 +59,6 @@ class MailSender
 	}
 
 	public function newCommentMail(){
-	    if (empty($this->email)){
-	        $this->email = $_SESSION
-        }
         if (empty($this->title)){
             $this->title = 'Nouveau Commentaire !';
         }

@@ -177,7 +177,7 @@ class User extends Model {
                 $query->execute($d);
                 $email = $query->fetch();
                 if ($email){
-                    return $email;
+                    return $email['email'];
                 }
                 return FALSE;
             }catch (PDOexception $e){
