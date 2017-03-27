@@ -92,14 +92,16 @@ form input {
 
 /* line 88, ../sass/form.scss */
 .form_error {
+  position: relative;
+  top: -50px;
   background: indianred;
   color: snow;
   padding-top: 6px;
-  padding-bottom: 6px;
+  padding-bottom: 10px;
   font-family: 'Raleway', cursive;
   font-size: 1.5vw; }
 
-/* line 97, ../sass/form.scss */
+/* line 99, ../sass/form.scss */
 .form_error2 {
   display: block;
   position: relative;
@@ -112,22 +114,22 @@ form input {
   font-family: 'Raleway', cursive;
   font-size: 1.5vw; }
 
-/* line 110, ../sass/form.scss */
+/* line 112, ../sass/form.scss */
 .connect {
   font-size: 2vw;
   color: #006796;
   display: block;
   text-decoration: none; }
 
-/* line 117, ../sass/form.scss */
+/* line 119, ../sass/form.scss */
 .connect:hover {
   color: indianred; }
 
-/* line 121, ../sass/form.scss */
+/* line 123, ../sass/form.scss */
 .a-connect {
   font-size: 1vw; }
 
-/* line 126, ../sass/form.scss */
+/* line 128, ../sass/form.scss */
 .logo-pop {
   margin: 0% auto;
   padding-top: 5px;

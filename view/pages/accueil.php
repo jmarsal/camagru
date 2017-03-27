@@ -6,17 +6,17 @@
 <form action="#" method="POST">
 	<div class="log_accueil_but">
 		Login:<br>
-		<input type="text" name="login" value="<?php echo $this->login ?>">
+		<input id="log-accueil" type="text" name="login" value="<?php echo $this->login ?>">
 		<br>	
 	</div>
 	<div class="paswrd_accueil_but">
 		Password:<br>
-		<input type="password" name="passwd" value="<?php echo $this->passwd
+		<input id="paswrd_accueil_but" type="password" name="passwd" value="<?php echo $this->passwd
         ?>">
 		<br>
 	</div>
 	<div class="submit-accueil">
-		<input class="button" type="submit" name="submit" value="Login">
+        <div class="button" id="submit-accueil" onclick="submitAccueil()">Login</div>
 	</div>
 </form>
     <p class="forgetPass">

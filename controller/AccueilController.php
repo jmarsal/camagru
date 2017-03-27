@@ -24,10 +24,14 @@ class AccueilController extends Controller
         session_destroy();
         setcookie('camagru-log', '', time() - 31556926);
         unset($_COOKIE['camagru-log']);
-        if (isset($_POST['login'])) {
+        $this->render('pages/accueil', 'accueil_layout');
+	}
+
+	public function submitAccueilAjax(){
+        $this->loadModel('User');
 //		Check le formulaire de la page accueil
-          $this->_checkFormAccueil();
-          if ($this->formOk === 1){
+        $this->_checkFormAccueil();
+        if ($this->formOk == 1){
 //		Check dans la bdd si le user existe et si le couple user / pass match
             if (($this->mess_error = $this->User->checkLogin($this->login, $this->hashPasswd)) === TRUE){
                 if ($_SESSION['loged'] === 1){
@@ -35,33 +39,31 @@ class AccueilController extends Controller
                     $this->redirection('app', 'appCamagru');
                 }
             }
-          }
         }
-        $this->render('pages/accueil', 'accueil_layout');
-	}
+        return $this->json(200, [
+            "messError" => $this->mess_error
+        ]);
+    }
 
 	//	check formulaire de la page accueil
 	private function _checkFormAccueil(){
-		if ($_POST['submit'] === 'Login'){
-			if ($this->_getFormAccueil()) {
-				$this->formOk = 1;
-			}
-		}
+        if ($this->_getFormAccueil()) {
+            $this->formOk = 1;
+        }
 	}
 
 	private function _getFormAccueil(){
-		if (isset($_POST['login']) && empty($_POST['login']) &&
-            isset($_POST['passwd']) && empty($_POST['passwd'])){
-			$this->mess_error = 'Veuillez saisir tous les champs !';
-			return FALSE;
+        if (empty($_POST['login']) && empty($_POST['passwd'])){
+            $this->mess_error = 'Veuillez saisir tous les champs !';
+            return FALSE;
 		}
-		else if (isset($_POST['login']) && !empty($_POST['login'])){
+		else if (!empty($_POST['login'])){
 			$this->login = trim(htmlentities($_POST['login']));
 		} else{
 			$this->mess_error = 'Le champ Login est vide!';
 			return FALSE;
 		}
-		if (isset($_POST['passwd']) && !empty($_POST['passwd'])){
+		if (!empty($_POST['passwd'])){
 			$this->passwd = trim(htmlentities($_POST['passwd']));
 			$this->hashPasswd = hash('sha256', $this->passwd);
 		} else {
