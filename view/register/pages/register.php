@@ -7,28 +7,28 @@
 <form action="#" method="POST">
 	<div class="log_register_but">
 		Login:<br>
-		<input type="text" name="login" value="<?php echo $this->login ?>">
+		<input id="loginRegister" type="text" name="login" value="<?php echo $this->login ?>">
 		<br>
 	</div>
 	<div class="mail_register_but">
 		email:<br>
-		<input type="text" name="email" value="<?php echo $this->email ?>">
+		<input id="emailRegister" type="text" name="email" value="<?php echo $this->email ?>">
 		<br>
 	</div>
 	<div class="paswrd_register_but">
 		Password:<br>
-		<input type="password" name="passwd" value="<?php echo $this->passwd
+		<input id="passwdRegister" type="password" name="passwd" value="<?php echo $this->passwd
         ?>">
 		<br>
 	</div>
 	<div class="repeat_paswrd_register_but">
 		Repeat password:<br>
-		<input type="password" name="repPasswd" value="<?php echo
+		<input id="repPasswdRegister" type="password" name="repPasswd" value="<?php echo
         $this->repPasswd ?>">
 		<br>
 	</div>
 	<div class="log_register_but">
-		<input class="button" type="submit" name="submit" value="Inscription">
+        <div class="button" id="submitRegister" onclick="submitRegister()">Inscription</div>
 	</div>
 </form>
 <?php
