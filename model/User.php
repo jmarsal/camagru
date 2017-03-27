@@ -168,22 +168,36 @@ class User extends Model {
 		return "Veuillez renseigner une adresse mail valide";
 	}
 
-    public function getMailByIdUser($idUser){
-            $sql = "SELECT email FROM users
+    public function getMailByIdPost($idPost){
+        $sql = "SELECT user_id
+	            FROM posts
+	            WHERE id = ?";
+        try{
+            $query = $this->db->prepare($sql);
+            $d = array($idPost);
+            $query->execute($d);
+            $userId = $query->fetch(PDO::FETCH_ASSOC);
+        }catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+        if ($userId){
+            $sql = "SELECT email, login FROM users
 							WHERE id=?";
             try{
                 $query = $this->db->prepare($sql);
-                $d = array($idUser);
+                $d = array($userId['user_id']);
                 $query->execute($d);
-                $email = $query->fetch();
+                $email = $query->fetch(PDO::FETCH_ASSOC);
                 if ($email){
-                    return $email['email'];
+                    return $email;
                 }
                 return FALSE;
             }catch (PDOexception $e){
                 print "Erreur : ".$e->getMessage()."";
                 die();
             }
+        }
     }
 
 	/**

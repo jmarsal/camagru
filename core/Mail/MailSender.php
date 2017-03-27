@@ -68,9 +68,11 @@ class MailSender
         if (empty($this->subject)){
             $this->subject = 'Nouveau Commentaire !';
         }
+        $_link = $this->base_url;
         $this->_msg .= str_replace('^^title^^', $this->title,
             str_replace('^^login^^', ucfirst($this->login) ,
-                file_get_contents("core/Mail/template/subscribeMail.html")));
+                str_replace('^^link^^', $_link,
+                file_get_contents("core/Mail/template/newCommentMail.html"))));
 
         $this->_msg .= "\r\n\r\n";
         $this->SendMail();
