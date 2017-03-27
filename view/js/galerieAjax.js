@@ -8,7 +8,6 @@ function submitComment(id) {
         ;
     xhr.onreadystatechange = function () {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
-            console.log(data);
             var data = JSON.parse(xhr.responseText),
                 containerDiv = document.getElementById("container-comments" + id),
                 spanComment = document.createElement('span'),
@@ -29,11 +28,19 @@ function submitComment(id) {
                 ;
 
             if (!containerDiv){
-                setContainerAllComments(containerInteract, id);
+                var containerDiv = document.createElement('div');
+                setContainerAllComments(containerDiv, id);
                 setColorsGetModulo(logins, 0);
+            } else {
+                var getLogColorsPreComment = containerDiv.lastChild;
+                var preSpanLog = getLogColorsPreComment.firstChild.firstChild.firstChild.innerHTML;
+                var moduloDivSpan = getLogColorsPreComment.firstChild.style.left;
+
+                moduloDivSpan = (moduloDivSpan == '-25%') ? 1 : 0;
+                preSpanLog = preSpanLog.substr(0, preSpanLog.length - 3);
             }
-            // Recuperer le comment precedent si il existe, donc le login + la couleur
-            setColorsGetModulo(logins, containerDiv.length);
+            // Recuperer le comment precedent si il existe, donc le login + la couleur + modulo
+            setColorsGetModulo(data.info.login, containerDiv.length, preSpanLog, moduloDivSpan);
             setHr(hrDiv, hr, modulo);
             setTopPartComment(interactsDiv, id,  color1, modulo);
             setDateCreated(dateDiv, spanDate, formatDate, id);
@@ -41,7 +48,6 @@ function submitComment(id) {
                 setBottomPartComment(commentsDiv, spanComment, data.info.comment, 0, id,  color1, color2, modulo);
                 setLoginDiv(loginDiv, spanLogin, data.info.login, id, null);
             } else {
-                console.log(data.info.comment);
                 setBottomPartComment(commentsDiv, spanComment, data.info.comment, null, id,  color1, color2, modulo);
                 setLoginDiv(loginDiv, spanLogin, data.info.login, id, null);
             }
@@ -119,17 +125,25 @@ function commmentsClick(id) {
                 containerDiv = document.getElementById("container-comments" + id),
                 newcommentsDiv = document.getElementById("new-comments-container" + id),
                 comments = data.comments,
-                logins = data.logins
+                logins = data.logins,
+                commentsNotNull = new Array,
+                idCreateComments = 0;
+                j = 0
             ;
 
             if (newcommentsDiv.style.display != "block"){
                 newcommentsDiv.style.display = "block";
 
-                for (i = 0; i < comments.length - 1; i++){
-                    if (comments[i].userComment != null){
-                        constructCommentsInDocument(containerDiv, comments, logins, id,  i);
-                        containerDiv.scrollTop = containerDiv.scrollHeight + 100;
+                for (i = 0; i < comments.length; i++){
+                    if (comments[i].userComment !== null) {
+                        commentsNotNull[j] = comments[i].userComment;
+                        j++;
                     }
+                }
+                for (i = 0; i < commentsNotNull.length; i++){
+                    constructCommentsInDocument(containerDiv, comments, logins, idCreateComments,  i);
+                    containerDiv.scrollTop = containerDiv.scrollHeight + 100;
+                    idCreateComments++;
                 }
             } else {
                 newcommentsDiv.style.display = "none";
@@ -171,7 +185,7 @@ function constructCommentsInDocument(containerDiv, comments, logins, id, i){
 }
 
 function setElementsInDocument(loginDiv, spanLogin, dateDiv, spanDate, interactsDiv, commentsDiv,
-                               spanComment, hrDiv, hr,  containerInteract, containerDiv, i){
+                               spanComment, hrDiv, hr, containerInteract, containerDiv, i){
     loginDiv.insertBefore(spanLogin, loginDiv[0]);
     dateDiv.insertBefore(spanDate, dateDiv[0]);
 
@@ -207,7 +221,7 @@ function setBottomPartComment(commentsDiv, spanComment, comments, i, id,  color1
     }
     spanComment.style.display = "relative";
     if (i != null){
-        spanComment.innerHTML = comments[i].userComment;
+        spanComment.innerHTML = comments[i + 1].userComment;
     } else {
         spanComment.innerHTML = comments;
     }
@@ -220,7 +234,7 @@ function setLoginDiv(loginDiv, spanLogin, logins, id, i){
     spanLogin.style.position = "relative";
     spanLogin.style.left = "70px";
     if (i != null){
-        spanLogin.innerHTML = ""+logins[i - 1] + " : ";
+        spanLogin.innerHTML = ""+logins[i] + " : ";
     } else {
         spanLogin.innerHTML = ""+logins + " : ";
     }
@@ -234,46 +248,77 @@ function setDateCreated(dateDiv, spanDate, formatDate, id){
     spanDate.innerHTML = "le " + formatDate;
 }
 
-function setColorsGetModulo(logins, i){
-    console.log('login -1 = ' + logins[i -1] + ' login = ' + logins[i] + ' i = ' + i +
-    ' modulo = ' + (i % 2));
-    if (logins && logins[i - 1]){
+function setColorsGetModulo(logins, i, preSpanLog, moduloDivSpan){
+    if (logins && logins[i - 1] && !preSpanLog){
         var log = logins[i - 1];
-        // i -= 1;
         if (log !== logins[i]){
-            console.log('login -1 !== login -1');
-            modulo = 0;
-            color1 = "250, 118, 33";
-            color2 = "243, 146, 55";
-        } else if (log === logins[i]){
-            console.log('login -1 === login -1');
-            modulo = 1;
-            color1 = "115, 115, 104";
-            color2 = "47, 79, 79";
-        } else if ((i % 2) == 0){
-            console.log('sinon i % 2 == 0');
-            modulo = 0;
-            color1 = "250, 118, 33";
-            color2 = "243, 146, 55";
-        }else {
-            console.log('i % 2 == 1');
-            modulo = 1;
-            color1 = "115, 115, 104";
-            color2 = "47, 79, 79";
+            whichColor = (whichColor == 0) ? 1 : 0;
+            if (whichColor == 0){
+                modulo = 0;
+                color1 = "250, 118, 33";
+                color2 = "243, 146, 55";
+                whichColor = 0;
+            } else {
+                modulo = 1;
+                color1 = "115, 115, 104";
+                color2 = "47, 79, 79";
+                whichColor = 1;
+            }
+        } else if (log === logins[i]) {
+            if (whichColor == 0){
+                modulo = 0;
+                color1 = "250, 118, 33";
+                color2 = "243, 146, 55";
+                whichColor = 0;
+            } else {
+                modulo = 1;
+                color1 = "115, 115, 104";
+                color2 = "47, 79, 79";
+                whichColor = 1;
+            }
+        }
+    } else if (logins && preSpanLog){
+        if (preSpanLog !== logins){
+            whichColor = (moduloDivSpan == 0) ? 1 : 0;
+            if (whichColor == 1){
+                modulo = 0;
+                color1 = "250, 118, 33";
+                color2 = "243, 146, 55";
+                whichColor = 0;
+            } else {
+                modulo = 1;
+                color1 = "115, 115, 104";
+                color2 = "47, 79, 79";
+                whichColor = 1;
+            }
+        } else if (logins === preSpanLog) {
+            if (whichColor == 0){
+                modulo = 0;
+                color1 = "250, 118, 33";
+                color2 = "243, 146, 55";
+                whichColor = 0;
+            } else {
+                modulo = 1;
+                color1 = "115, 115, 104";
+                color2 = "47, 79, 79";
+                whichColor = 1;
+            }
         }
     }
-    // else {
-    //     if ((i % 2) == 0){
-    //         modulo = 0;
-    //         color1 = "250, 118, 33";
-    //         color2 = "243, 146, 55";
-    //     } else {
-    //         modulo = 1;
-    //         color1 = "115, 115, 104";
-    //         color2 = "47, 79, 79";
-    //     }
-    // }
-    return modulo + color1 + color2;
+    else {
+        if ((i % 2) == 0 || (whichColor && whichColor == 0)){
+            modulo = 0;
+            color1 = "250, 118, 33";
+            color2 = "243, 146, 55";
+            whichColor = 0;
+        } else if ((i % 2) == 1 || (whichColor && whichColor == 1)){
+            modulo = 1;
+            color1 = "115, 115, 104";
+            color2 = "47, 79, 79";
+            whichColor = 1;
+        }
+    }
+    return modulo + color1 + color2 + whichColor;
 }
 
 function setTopPartComment(interactsDiv, id,  color1, modulo){
