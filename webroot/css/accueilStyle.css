@@ -321,65 +321,78 @@ textarea, select {
   display: block;
   text-decoration: none;
   position: relative;
-  width: 150px;
-  margin-left: 38%; }
-  /* line 66, ../sass/accueilStyle.scss */
-  .registered.registered:hover {
+  width: 26%;
+  margin-left: 38%;
+  padding-bottom: 5%; }
+  /* line 67, ../sass/accueilStyle.scss */
+  .registered:hover {
     color: #e35c05; }
 
-/* line 71, ../sass/accueilStyle.scss */
+/* line 72, ../sass/accueilStyle.scss */
+.link-back-accueil {
+  color: #f3f3f3;
+  display: block;
+  text-decoration: none;
+  position: relative;
+  width: 25%;
+  margin-left: 38%; }
+  /* line 80, ../sass/accueilStyle.scss */
+  .link-back-accueil:hover {
+    color: #e35c05; }
+
+/* line 85, ../sass/accueilStyle.scss */
 .back-accueil {
   padding-bottom: 5%;
   color: #f3f3f3;
   display: block;
   text-decoration: none; }
-  /* line 77, ../sass/accueilStyle.scss */
-  .back-accueil .registered {
+  /* line 91, ../sass/accueilStyle.scss */
+  .back-accueil .link-back-accueil {
     margin-left: 41%;
     position: relative;
     text-align: center;
-    width: 102px; }
-  /* line 84, ../sass/accueilStyle.scss */
-  .back-accueil .registered:hover {
+    width: 18%; }
+  /* line 98, ../sass/accueilStyle.scss */
+  .back-accueil .link-back-accueil:hover {
     color: #e35c05; }
 
-/* line 89, ../sass/accueilStyle.scss */
+/* line 103, ../sass/accueilStyle.scss */
 .footer {
   height: 45px; }
 
-/* line 93, ../sass/accueilStyle.scss */
+/* line 107, ../sass/accueilStyle.scss */
 .forget_but {
   font-size: 1vw; }
 
 @media only screen and (max-width: 1200px) {
-  /* line 98, ../sass/accueilStyle.scss */
+  /* line 112, ../sass/accueilStyle.scss */
   .logo h1 {
     font-size: 15px; }
 
-  /* line 102, ../sass/accueilStyle.scss */
+  /* line 116, ../sass/accueilStyle.scss */
   .accueil_form {
     font-size: 12px;
     padding: 0; }
 
-  /* line 107, ../sass/accueilStyle.scss */
+  /* line 121, ../sass/accueilStyle.scss */
   .forgetPass a {
     font-size: 12px; }
 
-  /* line 111, ../sass/accueilStyle.scss */
+  /* line 125, ../sass/accueilStyle.scss */
   .a-connect, .forget_but {
     font-size: 12px; } }
 @media only screen and (max-width: 750px) {
-  /* line 119, ../sass/accueilStyle.scss */
+  /* line 133, ../sass/accueilStyle.scss */
   body {
     margin: 0% auto;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch; }
 
-  /* line 125, ../sass/accueilStyle.scss */
+  /* line 139, ../sass/accueilStyle.scss */
   .logo h1 {
     font-size: 15px; }
 
-  /* line 128, ../sass/accueilStyle.scss */
+  /* line 142, ../sass/accueilStyle.scss */
   .accueil_form {
     font-size: 12px;
     padding: 0;
@@ -388,30 +401,30 @@ textarea, select {
     width: 250px;
     overflow: hidden; }
 
-  /* line 136, ../sass/accueilStyle.scss */
+  /* line 150, ../sass/accueilStyle.scss */
   .containerForm {
     max-width: 320px;
     width: 250px;
     overflow: hidden; }
 
-  /* line 141, ../sass/accueilStyle.scss */
+  /* line 155, ../sass/accueilStyle.scss */
   .forgetPass a {
     cursor: pointer;
     font-size: 12px; }
 
-  /* line 146, ../sass/accueilStyle.scss */
+  /* line 160, ../sass/accueilStyle.scss */
   .a-connect, .forget_but {
     font-size: 12px; } }
-/* line 151, ../sass/accueilStyle.scss */
+/* line 165, ../sass/accueilStyle.scss */
 .submit-accueil, .button {
   margin: 0% auto;
   margin-top: 40px;
   font-size: 12px;
   width: 100px; }
 
-/* line 158, ../sass/accueilStyle.scss */
+/* line 172, ../sass/accueilStyle.scss */
 .button-close {
   margin: 0% auto; }
-  /* line 160, ../sass/accueilStyle.scss */
+  /* line 174, ../sass/accueilStyle.scss */
   .button-close .button {
     font-size: 30px; }

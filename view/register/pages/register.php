@@ -35,7 +35,7 @@
     if (isset($this->mess_error) && !empty($this->mess_error) && $this->mess_error != 1){
 	    echo '<p class="form_error">'.$this->mess_error.'</p>';
     }
-    if (isset($_ENV['popup']) && $_ENV['popup'] = 1){
+    if (isset($_ENV['popup']) && $_ENV['popup'] == 1){
         echo $this->popup;
     }
 ?>

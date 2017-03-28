@@ -29,9 +29,9 @@ echo $this->popup;
 ?>
     <hr>
     <p class="back-accueil">
-        <a class="registered" href="../">Retour accueil</a>
+        <a class="link-back-accueil" href="../">Retour accueil</a>
     </p>
-    <a class="registered" href="../register/">Not yet registered ?</a>
+    <a class="link-back-accueil" href="../register/">Not yet registered ?</a>
     <div class="footer"></div>
 
 <script type="text/javascript">

@@ -60,10 +60,24 @@ textarea, select {
   display: block;
   text-decoration: none;
   position: relative;
-  width: 150px;
+  width: 26%;
+  margin-left: 38%;
+  padding-bottom: 5%;
+
+  &:hover{
+    color: $color_button_hover;
+  }
+}
+
+.link-back-accueil{
+  color: $color_text;
+  display: block;
+  text-decoration: none;
+  position: relative;
+  width: 25%;
   margin-left: 38%;
 
-  &.registered:hover{
+  &:hover{
     color: $color_button_hover;
   }
 }
@@ -74,14 +88,14 @@ textarea, select {
 	display: block;
 	text-decoration: none;
 
-  .registered{
+  .link-back-accueil{
     margin-left: 41%;
     position: relative;
     text-align: center;
-    width: 102px;
+    width: 18%;
   }
 
-  .registered:hover{
+  .link-back-accueil:hover{
     color: $color_button_hover;
   }
 }

@@ -83,6 +83,7 @@ class RegisterController extends Controller
 
 	public function validation(){
 		$this->loadModel('User');
+
 		if (isset($_GET['log'], $_GET['cle']) &&
 			!empty($_GET['log']) && !empty($_GET['cle'])){
 			$log = htmlentities(trim($_GET['log']));

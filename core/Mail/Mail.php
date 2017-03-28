@@ -9,7 +9,7 @@ class Mail
 	 */
 	static function validEmail($email)
 	{
-        var_dump($email);
+        //var_dump($email);
         $isValid = true;
 		$atIndex = strrpos($email, "@");
 		if (is_bool($atIndex) && !$atIndex) {
@@ -49,7 +49,7 @@ class Mail
 				$isValid = false;
 			}
 		}
-		var_dump($isValid);
+		//var_dump($isValid);
 		return $isValid;
 	}
 }
