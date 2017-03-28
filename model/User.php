@@ -143,7 +143,7 @@ class User extends Model {
 	 * mail n'est pas valide.
 	 */
 	public function requestMail($email){
-		if (Mail::validEmail($email)){
+        if (Mail::validEmail($email)){
 			$sql = "SELECT email FROM users
 							WHERE email=?";
 			try{
@@ -165,7 +165,7 @@ class User extends Model {
 			}
 			return $options;
 		}
-		return "Veuillez renseigner une adresse mail valide";
+        return "Veuillez renseigner une adresse mail valide";
 	}
 
     public function getMailByIdPost($idPost){

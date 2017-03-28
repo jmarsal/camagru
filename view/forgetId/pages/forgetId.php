@@ -12,20 +12,18 @@
     <h1>CAMAGRU</h1>
 </div>
 <hr>
-<form action="#" method="POST">
+<form id="formForgetId" action="#" method="POST">
 	<p>Vous avez perdu <br>votre mot de passe, login,<br>
         ou votre compte n'est pas actif ?</p>
 	<div class="forget_but">
 		Veuillez renseigner une adresse mail :<br><br>
-		<input type="text" name="email"><br>
+		<input id="emailForgetId" type="text" name="email"><br>
 	</div>
-	<div>
-		<input class="button" type="submit" name="submit" value="Récuperer">
-	</div>
+    <div class="button" id="buttonForgetId" onclick="submitForgetId()">Récuperer</div>
 </form>
 <?php
 if (!empty($this->mess_error)){
-	echo '<p class="form_error">'.$this->mess_error.'</p>';
+	echo '<p class="errorForgetId">'.$this->mess_error.'</p>';
 }
 echo $this->popup;
 ?>

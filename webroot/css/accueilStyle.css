@@ -199,6 +199,17 @@ form input {
   font-size: 1.5vw; }
 
 /* line 99, ../sass/form.scss */
+.errorForgetId {
+  position: relative;
+  top: 0px;
+  background: indianred;
+  color: snow;
+  padding-top: 6px;
+  padding-bottom: 10px;
+  font-family: 'Raleway', cursive;
+  font-size: 1.5vw; }
+
+/* line 110, ../sass/form.scss */
 .form_error2 {
   display: block;
   position: relative;
@@ -211,22 +222,22 @@ form input {
   font-family: 'Raleway', cursive;
   font-size: 1.5vw; }
 
-/* line 112, ../sass/form.scss */
+/* line 123, ../sass/form.scss */
 .connect {
   font-size: 2vw;
   color: #006796;
   display: block;
   text-decoration: none; }
 
-/* line 119, ../sass/form.scss */
+/* line 130, ../sass/form.scss */
 .connect:hover {
   color: indianred; }
 
-/* line 123, ../sass/form.scss */
+/* line 134, ../sass/form.scss */
 .a-connect {
   font-size: 1vw; }
 
-/* line 128, ../sass/form.scss */
+/* line 139, ../sass/form.scss */
 .logo-pop {
   margin: 0% auto;
   padding-top: 5px;
@@ -306,62 +317,69 @@ textarea, select {
 
 /* line 58, ../sass/accueilStyle.scss */
 .registered {
-  padding-bottom: 50px;
   color: #f3f3f3;
   display: block;
-  text-decoration: none; }
+  text-decoration: none;
+  position: relative;
+  width: 150px;
+  margin-left: 38%; }
+  /* line 66, ../sass/accueilStyle.scss */
+  .registered.registered:hover {
+    color: #e35c05; }
 
-/* line 65, ../sass/accueilStyle.scss */
-.registered:hover {
-  color: #e35c05; }
-
-/* line 69, ../sass/accueilStyle.scss */
+/* line 71, ../sass/accueilStyle.scss */
 .back-accueil {
+  padding-bottom: 5%;
   color: #f3f3f3;
   display: block;
   text-decoration: none; }
+  /* line 77, ../sass/accueilStyle.scss */
+  .back-accueil .registered {
+    margin-left: 41%;
+    position: relative;
+    text-align: center;
+    width: 102px; }
+  /* line 84, ../sass/accueilStyle.scss */
+  .back-accueil .registered:hover {
+    color: #e35c05; }
 
-/* line 76, ../sass/accueilStyle.scss */
-.back-accueil:hover {
-  color: #e35c05; }
-
-/* line 80, ../sass/accueilStyle.scss */
+/* line 89, ../sass/accueilStyle.scss */
 .footer {
   height: 45px; }
 
-/* line 84, ../sass/accueilStyle.scss */
+/* line 93, ../sass/accueilStyle.scss */
 .forget_but {
   font-size: 1vw; }
 
 @media only screen and (max-width: 1200px) {
-  /* line 89, ../sass/accueilStyle.scss */
+  /* line 98, ../sass/accueilStyle.scss */
   .logo h1 {
     font-size: 15px; }
 
-  /* line 93, ../sass/accueilStyle.scss */
+  /* line 102, ../sass/accueilStyle.scss */
   .accueil_form {
     font-size: 12px;
     padding: 0; }
 
-  /* line 98, ../sass/accueilStyle.scss */
+  /* line 107, ../sass/accueilStyle.scss */
   .forgetPass a {
     font-size: 12px; }
 
-  /* line 102, ../sass/accueilStyle.scss */
+  /* line 111, ../sass/accueilStyle.scss */
   .a-connect, .forget_but {
     font-size: 12px; } }
 @media only screen and (max-width: 750px) {
-  /* line 110, ../sass/accueilStyle.scss */
+  /* line 119, ../sass/accueilStyle.scss */
   body {
     margin: 0% auto;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch; }
 
-  /* line 116, ../sass/accueilStyle.scss */
+  /* line 125, ../sass/accueilStyle.scss */
   .logo h1 {
     font-size: 15px; }
 
-  /* line 119, ../sass/accueilStyle.scss */
+  /* line 128, ../sass/accueilStyle.scss */
   .accueil_form {
     font-size: 12px;
     padding: 0;
@@ -370,30 +388,30 @@ textarea, select {
     width: 250px;
     overflow: hidden; }
 
-  /* line 127, ../sass/accueilStyle.scss */
+  /* line 136, ../sass/accueilStyle.scss */
   .containerForm {
     max-width: 320px;
     width: 250px;
     overflow: hidden; }
 
-  /* line 132, ../sass/accueilStyle.scss */
+  /* line 141, ../sass/accueilStyle.scss */
   .forgetPass a {
     cursor: pointer;
     font-size: 12px; }
 
-  /* line 137, ../sass/accueilStyle.scss */
+  /* line 146, ../sass/accueilStyle.scss */
   .a-connect, .forget_but {
     font-size: 12px; } }
-/* line 142, ../sass/accueilStyle.scss */
+/* line 151, ../sass/accueilStyle.scss */
 .submit-accueil, .button {
   margin: 0% auto;
   margin-top: 40px;
   font-size: 12px;
   width: 100px; }
 
-/* line 149, ../sass/accueilStyle.scss */
+/* line 158, ../sass/accueilStyle.scss */
 .button-close {
   margin: 0% auto; }
-  /* line 151, ../sass/accueilStyle.scss */
+  /* line 160, ../sass/accueilStyle.scss */
   .button-close .button {
     font-size: 30px; }

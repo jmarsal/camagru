@@ -56,25 +56,34 @@ textarea, select {
 }
 
 .registered{
-  padding-bottom: 50px;
   color: $color_text;
   display: block;
   text-decoration: none;
-}
+  position: relative;
+  width: 150px;
+  margin-left: 38%;
 
-.registered:hover{
-  color: $color_button_hover;
+  &.registered:hover{
+    color: $color_button_hover;
+  }
 }
 
 .back-accueil{
-	//padding-bottom: 5%;
+	padding-bottom: 5%;
 	color: $color_text;
 	display: block;
 	text-decoration: none;
-}
 
-.back-accueil:hover{
-	color: $color_button_hover;
+  .registered{
+    margin-left: 41%;
+    position: relative;
+    text-align: center;
+    width: 102px;
+  }
+
+  .registered:hover{
+    color: $color_button_hover;
+  }
 }
 
 .footer{

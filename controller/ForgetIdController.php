@@ -16,10 +16,15 @@ class ForgetIdController extends Controller
 
 	public function accueil(){
 		$this->loadModel('User');
-		if (isset($_POST['email'])) {
-//			Check le formulaire de la page forgetId
-			$this->checkForgetId();
-		}
+		if (!empty($_POST['click']) && $_POST['click'] === 'click'){
+            if (!empty($_POST['email'])){
+                $this->checkForgetId();
+                return $this->json(200, [
+                    "messError" => $this->mess_error
+                ]);
+            }
+        }
+
 		$this->render('pages/forgetId');
 
 		if (isset($_ENV['email']) && isset($_ENV['login']) &&
@@ -61,23 +66,21 @@ class ForgetIdController extends Controller
 	}
 
 	public function checkForgetId(){
-		$linkImg = BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS.'photo-camera.png';
+		$linkImg = BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";
 
-		if ($_POST['submit'] === 'Récuperer' && !empty
-			($_POST['email'])){
+		if ($_POST['click'] === 'click' && !empty($_POST['email'])){
 			$this->email = trim(htmlentities($_POST['email']));
 			if (($options = $this->User->requestMail($this->email)) !==
                 FALSE){
-                $this->login = $options['login'];
-                $this->cle = $options['cle'];
 			    if ($options !== "Veuillez renseigner une adresse mail valide"){
+                    $this->login = $options['login'];
+                    $this->cle = $options['cle'];
 //				Ne doit afficher la popup que si les champs sont charges...
 					$this->popup = str_replace('^^email^^', $this->email,
 						            str_replace('^^login^^', $this->login,
 							        str_replace('^^logo^^',$linkImg,
 								file_get_contents(ROOT.DS.'view'.DS.'forgetId'.DS.'pages'.DS.'popupForgetId.html'))));
-					if (isset($this->email) && isset($this->login) &&
-						!empty($this->email) && !empty($this->login)){
+					if (!empty($this->email) && !empty($this->login)){
 						$_ENV['login'] = $this->login;
 						$_ENV['email'] = $this->email;
 						$_ENV['cle'] = $this->cle;
@@ -89,8 +92,7 @@ class ForgetIdController extends Controller
 				$this->mess_error = 'Cette adresse mail ne correspond à aucun
 			utilisateur!';
 			}
-		} else if (isset($_POST['email']) && $_POST['submit'] === 'Récuperer'
-			&& empty ($_POST['email'])){
+		} else if ($_POST['click'] === 'click' && empty ($_POST['email'])){
 			$this->mess_error = 'Veuillez renseigner une adresse mail !';
 		}
 	}
