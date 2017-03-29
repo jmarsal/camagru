@@ -34,7 +34,7 @@ function submitForgetId() {
                         container.style.paddingBottom = "25%";
 
                         //Popup et back accueil
-                        compte = 3;
+                        compte = 5;
                         document.getElementById("compt").innerHTML = compte + " secondes";
                         timer = setInterval('decompte()', 1000);
                     }

@@ -16,7 +16,6 @@ class Router {
 		if ($request->controller === 'register' ||
 			$request->controller === 'forgetId') {
 			$params[1] = Router::validAccountByMail($params);
-//			die(var_dump($params[0]));
 		}
 		$request->action = isset($params[1]) ? $params[1] : 'accueil';
 		$request->params = array_slice($params, 2);

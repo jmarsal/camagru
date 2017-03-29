@@ -13,23 +13,17 @@
 </div>
 <hr>
 <form id="formForgetId" action="#" method="POST">
-	<p>Vous avez perdu <br>votre mot de passe, login,<br>
+    <p>Vous avez perdu <br>votre mot de passe, login,<br>
         ou votre compte n'est pas actif ?</p>
-	<div class="forget_but">
-		Veuillez renseigner une adresse mail :<br><br>
-		<input id="emailForgetId" type="text" name="email"><br>
-	</div>
+    <div class="forget_but">
+        Veuillez renseigner une adresse mail :<br><br>
+        <input id="emailForgetId" type="text" name="email"><br>
+    </div>
     <div class="button" id="buttonForgetId" onclick="submitForgetId()">Récuperer</div>
 </form>
-<?php
-if (!empty($this->mess_error)){
-	echo '<p class="errorForgetId">'.$this->mess_error.'</p>';
-}
-echo $this->popup;
-?>
-    <hr>
-    <p class="back-accueil">
-        <a class="link-back-accueil" href="../">Retour accueil</a>
-    </p>
-    <a class="link-back-accueil" href="../register/">Not yet registered ?</a>
-    <div class="footer"></div>
+<hr>
+<p class="back-accueil">
+    <a class="link-back-accueil" href="../">Retour accueil</a>
+</p>
+<a class="link-back-accueil" href="../register/">Not yet registered ?</a>
+<div class="footer"></div>

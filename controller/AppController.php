@@ -5,13 +5,14 @@ if (!isset($_SESSION)){
 class AppController extends Controller
 {
 	public function appCamagru(){
-	    if ((isset($_SESSION['log']) && $_SESSION['log'] == 1) && !empty
+	    if ((!empty($_SESSION['log']) && $_SESSION['log'] == 1) && !empty
 			($_SESSION['login']) || !empty($_COOKIE['camagru-log'])){
             if (!empty($_POST['filter'])) {
                 $_SESSION['filter'] = $_POST['filter'];
             }
             $this->loadModel('Photo');
             $this->loadModel('User');
+            setcookie('camagru-log', $_SESSION['login'], time() + 31556926);
             $_SESSION['login'] = $_COOKIE['camagru-log'];
             $_SESSION['log'] = 1;
             $this->_printPreview();

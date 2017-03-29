@@ -9,7 +9,6 @@ class Mail
 	 */
 	static function validEmail($email)
 	{
-        //var_dump($email);
         $isValid = true;
 		$atIndex = strrpos($email, "@");
 		if (is_bool($atIndex) && !$atIndex) {
@@ -44,14 +43,11 @@ class Mail
 					$isValid = false;
 				}
 			}
-//            var_dump(checkdnsrr($domain, "A"));
-			if ($isValid && !(checkdnsrr($domain, "MX") || checkdnsrr($domain, "A"))) {
+//			if ($isValid && !(checkdnsrr($domain, "MX") || checkdnsrr($domain, "A"))) {
 //				 		domain not found in DNS
-//                var_dump('ici 6');
-				$isValid = false;
-			}
+//				$isValid = false;
+//			}
 		}
-		//var_dump($isValid);
 		return $isValid;
 	}
 }

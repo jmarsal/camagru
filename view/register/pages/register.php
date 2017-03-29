@@ -4,7 +4,7 @@
 </div>
 <hr>
 <h4>Inscrivez-vous pour voir les photos de vos amis.</h4>
-<form action="#" method="POST">
+<form id="formRegister" action="#" method="POST">
 	<div class="log_register_but">
 		Login:<br>
 		<input id="loginRegister" type="text" name="login" value="<?php echo $this->login ?>">
@@ -31,14 +31,6 @@
         <div class="button" id="submitRegister" onclick="submitRegister()">Inscription</div>
 	</div>
 </form>
-<?php
-    if (isset($this->mess_error) && !empty($this->mess_error) && $this->mess_error != 1){
-	    echo '<p class="form_error">'.$this->mess_error.'</p>';
-    }
-    if (isset($_ENV['popup']) && $_ENV['popup'] == 1){
-        echo $this->popup;
-    }
-?>
 <hr>
 <p class='a-connect'>Vous avez un compte ?</p>
 <div class="log_register_but">

@@ -10,18 +10,41 @@ class RegisterController extends Controller
 	public $repPasswd = "";
 	public $hashPasswd = "";
 	public $popup;
+	public $info;
 
 	public function accueil(){
 	    if (!empty($_POST['click']) && $_POST['click'] === 'click'){
             $this->loadModel('User');
 
-            $this->checkFormRegister();
-            return $this->json(200, [
-                "messError" => $this->mess_error
-            ]);
+            $this->info = $this->checkFormRegister();
+            if (!empty($this->mess_error) && $this->mess_error !== 'true'){
+                $this->info = "";
+                return $this->json(200, [
+                    "messError" => $this->mess_error,
+                ]);
+            } else {
+                return $this->json(200, [
+                    "info" => $this->info,
+                ]);
+            }
         }
-
-        $this->render('pages/register');
+        if (!empty($_POST['sendMail'])){
+            $options = array(
+                "login" => $_POST['infoLogin'],
+                "email" => $_POST['infoMail'],
+                'subject' => 'Inscription a CAMAGRU',
+			    'message' => '',
+			    'title' => '',
+			    'from' => '',
+                "cle" => $_POST['infoCle']
+            );
+            $mailReinit = new MailSender($options);
+            $mailReinit->confirmSubscribeMail();
+            return $this->json(200);
+        }
+        if (empty($_POST['click']) && empty($_POST['sendMail'])) {
+            $this->render('pages/register');
+        }
 	}
 
 	//			Check le formulaire de la page register
@@ -37,12 +60,19 @@ class RegisterController extends Controller
                     $this->mess_error = 'Les deux champs de mot de passe ne sont pas identiques!';
                     $this->formOk = 0;
                 }
-                if ($this->formOk == 1 && ($this->mess_error = $this->User->addUser($this->login,
-                        $this->email, $this->hashPasswd)) === TRUE){
+                //Decommenter _sendMailRegister dans addUser
+                if ($this->formOk == 1 && ($info = $this->User->addUser($this->login,
+                        $this->email, $this->hashPasswd)) !== FALSE){
+                    $this->mess_error = "";
                     $this->popup = str_replace('^^email^^', $this->email,
                         str_replace('^^login^^', $this->login,
                             file_get_contents(ROOT.DS.'view'.DS .'register'.DS.'pages'.DS.'popupRegister.html')));
-//                    $_ENV['popup'] = 1;
+                    $info['popup'] = $this->popup;
+                    if (empty($info['login'])){
+                        $this->mess_error = $info;
+                        return false;
+                    }
+                    return $info;
                 }
             }
         }

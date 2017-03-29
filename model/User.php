@@ -67,21 +67,19 @@ class User extends Model {
 			}
 			$req = $this->db->prepare("INSERT INTO `users`(`login`, `password`, `email`, `cle`)
 										VALUES (:login, :password, :email, :cle)");
-			if ($req->execute(array(
-				"login" => $login,
-				"password" => $passwd,
-				"email" => $email,
-				"cle" => $cle))){
-
-				$this->_sendMailRegister($cle, $email, $login);
-				return (TRUE);
+			$info = array(
+                "login" => $login,
+                "password" => $passwd,
+                "email" => $email,
+                "cle" => $cle
+            );
+			if ($req->execute($info)){
+                //$this->_sendMailRegister($cle, $email, $login);
+                return ($info);
 			}else{
-				if ($_SERVER['debug'] === 1)
-					$this->mess_error = '<p class="form_error">l\'insertion n\'a pas marche!</p>';
 					return (FALSE);
 			}
 		}else{
-			$this->mess_error = '<p class="form_error">Votre login doit faire entre trois et seize caracteres et les caracteres speciaux ne sont pas autorises !</p>';
 			return (FALSE);
 		}
 	}
@@ -92,19 +90,19 @@ class User extends Model {
 	 * @param $email l'email de l'user.
 	 * @param $login le login de l'user qui sera placer dans le mail.
 	 */
-	private function _sendMailRegister($cle, $email, $login){
-		$options = array(
-			'email' => $email,
-			'login' => $login,
-			'subject' => 'Inscription a CAMAGRU',
-			'message' => '',
-			'title' => '',
-			'from' => '',
-			'cle' => $cle);
-
-		$sender = new MailSender($options);
-		$sender->confirmSubscribeMail();
-	}
+//	private function _sendMailRegister($cle, $email, $login){
+//		$options = array(
+//			'email' => $email,
+//			'login' => $login,
+//			'subject' => 'Inscription a CAMAGRU',
+//			'message' => '',
+//			'title' => '',
+//			'from' => '',
+//			'cle' => $cle);
+//
+//		$sender = new MailSender($options);
+//		$sender->confirmSubscribeMail();
+//	}
 
 	/**
 	 * Verifie que le param email est valide, verifie que le user existe,

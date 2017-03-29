@@ -31,14 +31,14 @@ function submitComment(id) {
                 var containerDiv = document.createElement('div');
                 setContainerAllComments(containerDiv, id);
                 setColorsGetModulo(logins, 0);
-            } else {
-                var getLogColorsPreComment = containerDiv.lastChild;
-                var preSpanLog = getLogColorsPreComment.firstChild.firstChild.firstChild.innerHTML;
-                var moduloDivSpan = getLogColorsPreComment.firstChild.style.left;
-
-                moduloDivSpan = (moduloDivSpan == '-25%') ? 1 : 0;
-                preSpanLog = preSpanLog.substr(0, preSpanLog.length - 3);
             }
+
+            var getLogColorsPreComment = containerDiv.lastChild;
+            var preSpanLog = getLogColorsPreComment.firstChild.firstChild.firstChild.innerHTML;
+            var moduloDivSpan = getLogColorsPreComment.firstChild.style.left;
+
+            moduloDivSpan = (moduloDivSpan == '-25%') ? 1 : 0;
+            preSpanLog = preSpanLog.substr(0, preSpanLog.length - 3);
             // Recuperer le comment precedent si il existe, donc le login + la couleur + modulo
             setColorsGetModulo(data.info.login, containerDiv.length, preSpanLog, moduloDivSpan);
             setHr(hrDiv, hr, modulo);

@@ -12,7 +12,7 @@
     <h1>CAMAGRU</h1>
 </div>
 <hr>
-<form action="#" method="POST">
+<form id="reinitForm" action="#" method="POST">
     <p>Alors <?php echo ucfirst($_GET['log']) ?>...<br>
         on change de mot de passe ?</p>
 	<div class="forget_but">

@@ -22,9 +22,11 @@ class AccueilController extends Controller
             $this->Photo->deleteDirectoryIfExist(REPO_PHOTO.$idLog.DS.'min');
             $this->Photo->deletePrevInDb($idLog);
         }
-        session_destroy();
-        setcookie('camagru-log', '', time() - 31556926);
-        unset($_COOKIE['camagru-log']);
+        if (isset($_SESSION)){
+            session_destroy();
+            setcookie('camagru-log', '', time() - 31556926);
+            unset($_COOKIE['camagru-log']);
+        }
         $this->render('pages/accueil', 'accueil_layout');
 	}
 
@@ -35,17 +37,12 @@ class AccueilController extends Controller
         if ($this->formOk == 1){
 //		Check dans la bdd si le user existe et si le couple user / pass match
             if (($this->mess_error = $this->User->checkLogin($this->login, $this->hashPasswd)) === TRUE){
-                if (!isset($_SESSION)){
-                    session_start();
-                }
                 $_SESSION['login'] = $this->login;
                 $_SESSION['log'] = 1;
                 setcookie('camagru-log', $this->login, time() + 31556926);
                 return $this->json(200, [
                     'redirect' => 'ok'
                 ]);
-//				Si il match, ouvre page principal de l'app
-//                    $this->accueil();
             }
         }
         $this->mess_error = ($this->mess_error === 'true') ? "" : $this->mess_error;

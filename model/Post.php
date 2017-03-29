@@ -193,8 +193,6 @@ class Post extends Model {
     private function _incrementNbCommentsInDb($idPost){
         // Recuperer le nbComment
         $nbComments = $this->getNbCommentsInDb($idPost);
-//        var_dump($nbComments);
-
         $sql = "UPDATE interactions
                 SET nbComments=?
                 WHERE post_id=?";
