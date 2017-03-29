@@ -16,7 +16,6 @@ function submitRegister() {
                 prevMessError = document.getElementById('form_error')
             ;
 
-            console.log(data.messError);
             if (data.messError && !prevMessError && data.messError !== "true"){
                 var messError = document.createElement('p'),
                     container = document.getElementById('accueil_form')
@@ -32,7 +31,6 @@ function submitRegister() {
         }
     };
     var tmp = "click=click" + "&login=" + login + "&email=" + email + "&passwd=" + password + "&repPasswd=" + repPassword;
-    console.log("click=click" + "&login=" + login + "&email=" + email + "&passwd=" + password + "&repPasswd=" + repPassword);
     xhr.open("post", "", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(tmp);

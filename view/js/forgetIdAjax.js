@@ -42,7 +42,7 @@ function submitForgetId() {
                 var sendPost = "infoLogin=" + data.popup.login +
                                 "&infoMail=" + data.popup.email +
                                 "&infoCle=" + data.popup.cle +
-                                '&senMail=ok';
+                                '&sendMail=ok';
                 xhrMail.open("post", "", true);
                 xhrMail.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhrMail.send(sendPost);

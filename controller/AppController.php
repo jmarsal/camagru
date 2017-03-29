@@ -4,8 +4,6 @@ if (!isset($_SESSION)){
 }
 class AppController extends Controller
 {
-//    private $_tabImg = null;
-
 	public function appCamagru(){
 	    if ((isset($_SESSION['log']) && $_SESSION['log'] == 1) && !empty
 			($_SESSION['login']) || !empty($_COOKIE['camagru-log'])){

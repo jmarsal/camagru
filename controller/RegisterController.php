@@ -14,6 +14,7 @@ class RegisterController extends Controller
 	public function accueil(){
 	    if (!empty($_POST['click']) && $_POST['click'] === 'click'){
             $this->loadModel('User');
+
             $this->checkFormRegister();
             return $this->json(200, [
                 "messError" => $this->mess_error
@@ -36,12 +37,12 @@ class RegisterController extends Controller
                     $this->mess_error = 'Les deux champs de mot de passe ne sont pas identiques!';
                     $this->formOk = 0;
                 }
-                if (($this->mess_error = $this->User->addUser($this->login,
+                if ($this->formOk == 1 && ($this->mess_error = $this->User->addUser($this->login,
                         $this->email, $this->hashPasswd)) === TRUE){
                     $this->popup = str_replace('^^email^^', $this->email,
                         str_replace('^^login^^', $this->login,
                             file_get_contents(ROOT.DS.'view'.DS .'register'.DS.'pages'.DS.'popupRegister.html')));
-                    $_ENV['popup'] = 1;
+//                    $_ENV['popup'] = 1;
                 }
             }
         }
@@ -73,7 +74,7 @@ class RegisterController extends Controller
 
 		if (!empty($_POST['repPasswd'])){
 			$this->repPasswd = trim(htmlentities($_POST['repPasswd']));
-			$this->hashPasswd = hash('sha256', trim(htmlentities($this->passwd)));
+			$this->hashPasswd = hash('sha256', trim(htmlentities($this->repPasswd)));
 		}else{
 			$this->mess_error = 'Le champ de verification de mot de passe est vide!';
 			return FALSE;

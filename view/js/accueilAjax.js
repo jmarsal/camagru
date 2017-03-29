@@ -13,7 +13,7 @@ function submitAccueil() {
             var data = JSON.parse(xhr.responseText),
                 prevMessError = document.getElementById('form_error')
 
-            if (data.messError && !prevMessError){
+            if (data.messError && !prevMessError && data.messError !== 'true'){
                 var messError = document.createElement('p'),
                     container = document.getElementById('accueil_form')
                 ;
@@ -22,8 +22,10 @@ function submitAccueil() {
                 messError.id = "form_error";
                 messError.innerHTML = data.messError;
                 container.insertBefore(messError, container.lastChild);
-            } else if (data.messError && prevMessError){
+            } else if (data.messError && prevMessError && data.messError !== 'true'){
                 prevMessError.innerHTML = data.messError;
+            } else if (data.redirect){
+                document.location = "App/appCamagru";
             }
         }
     };

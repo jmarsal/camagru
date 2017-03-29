@@ -16,51 +16,26 @@ class User extends Model {
 	public function checkLogin($login, $passwd)
 	{
 //		cherche dans la DB si un user a ce login et passwd
-		$sql = "SELECT COUNT(*) FROM users
-							WHERE login=? AND password=?";
+		$sql = "SELECT id, actif, password FROM users
+							WHERE login=?";
 		try {
 			$query = $this->db->prepare($sql);
-			$d = array($login, $passwd);
+			$d = array($login);
 			$query->execute($d);
-			$row = $query->fetch();
-			if ($row['COUNT(*)'] == 1) {
-				$sql = "SELECT actif FROM users
-								WHERE login=?";
-				try {
-					$query = $this->db->prepare($sql);
-					$d = array($login);
-					$query->execute($d);
-					$row = $query->fetch();
-					if ($row[0] == 1) {
-						$_SESSION['login'] = $login;
-						$_SESSION['loged'] = 1;
-                        setcookie('camagru-log', $login, time() + 31556926);
-						return (TRUE);
-					} else {
-						return ("Le compte n'est pas actif!<br/>Clique sur 'Forget Password or Account not 
-								Active'<br/>pour obtenir un mail avec un nouveau lien d'activation! ");
-					}
-				} catch (PDOexception $e) {
-					print "Erreur : " . $e->getMessage() . "";
-					die();
-				}
-			} else{
-				$sql = "SELECT COUNT(*) FROM users
-							WHERE login=?";
-				try {
-					$query = $this->db->prepare($sql);
-					$d = array($login);
-					$query->execute($d);
-					$row = $query->fetch();
-					if ($row['COUNT(*)'] == 1) {
-						return ("Wrong Password");
-					}else {
-						return ('Le Login n\'existe pas !');
-					}
-				} catch (PDOexception $e) {
-						print "Erreur : " . $e->getMessage() . "";
-						die();
-					}
+			$row = $query->fetch(PDO::FETCH_ASSOC);
+			if (!empty($row['id'])) {
+			    if (!empty($row['password']) && $row['password'] === $passwd){
+                    if (!empty($row['actif']) && $row['actif'] == 1) {
+                        return (TRUE);
+                    } else {
+                        return ("Le compte n'est pas actif!<br/>Clique sur 'Forget Password or Account not 
+					    		Active'<br/>pour obtenir un mail avec un nouveau lien d'activation! ");
+                    }
+                } else {
+                    return ("Mauvais mot de passe...");
+                }
+            } else {
+                return ('Le Login n\'existe pas !');
 			}
 		} catch (PDOexception $e) {
 			print "Erreur : " . $e->getMessage() . "";

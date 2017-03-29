@@ -32,17 +32,19 @@ class ForgetIdController extends Controller
                 }
             }
         }
-        if (!empty($_POST['sendMail']) && $_POST['sendMail'] === 'ok'){
+        if (!empty($_POST['sendMail'])){
             $options = array(
-                    "login" => $_POST['infoLogin'],
-                    "email" => $_POST['infoMail'],
-                    "cle" => $_POST['infoCle']
+                "login" => $_POST['infoLogin'],
+                "email" => $_POST['infoMail'],
+                "cle" => $_POST['infoCle']
             );
             $mailReinit = new MailSender($options);
             $mailReinit->reinitPassMail();
             return $this->json(200);
         }
-        $this->render('pages/forgetId');
+        if (empty($_POST['click']) && empty($_POST['sendMail'])){
+            $this->render('pages/forgetId');
+        }
     }
 
 	public function checkForgetId(){

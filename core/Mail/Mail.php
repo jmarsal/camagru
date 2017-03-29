@@ -45,11 +45,11 @@ class Mail
 				}
 			}
 //            var_dump(checkdnsrr($domain, "A"));
-//			if ($isValid && !(checkdnsrr($domain, "MX") || checkdnsrr($domain, "A"))) {
-				// 		domain not found in DNS
+			if ($isValid && !(checkdnsrr($domain, "MX") || checkdnsrr($domain, "A"))) {
+//				 		domain not found in DNS
 //                var_dump('ici 6');
-//				$isValid = false;
-//			}
+				$isValid = false;
+			}
 		}
 		//var_dump($isValid);
 		return $isValid;

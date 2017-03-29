@@ -13,8 +13,9 @@ class AccueilController extends Controller
     public function accueil() {
         $this->loadModel('User');
         $this->loadModel('Photo');
+
         if (isset($_COOKIE['camagru-log'])){
-        $log = $_COOKIE['camagru-log'];
+            $log = $_COOKIE['camagru-log'];
         }
         if (isset($log) && !empty($log)){
             $idLog = $this->User->getIdUser($log);
@@ -34,15 +35,25 @@ class AccueilController extends Controller
         if ($this->formOk == 1){
 //		Check dans la bdd si le user existe et si le couple user / pass match
             if (($this->mess_error = $this->User->checkLogin($this->login, $this->hashPasswd)) === TRUE){
-                if ($_SESSION['loged'] === 1){
-//				Si il match, ouvre page principal de l'app
-                    $this->redirection('app', 'appCamagru');
+                if (!isset($_SESSION)){
+                    session_start();
                 }
+                $_SESSION['login'] = $this->login;
+                $_SESSION['log'] = 1;
+                setcookie('camagru-log', $this->login, time() + 31556926);
+                return $this->json(200, [
+                    'redirect' => 'ok'
+                ]);
+//				Si il match, ouvre page principal de l'app
+//                    $this->accueil();
             }
         }
-        return $this->json(200, [
-            "messError" => $this->mess_error
-        ]);
+        $this->mess_error = ($this->mess_error === 'true') ? "" : $this->mess_error;
+        if (!empty($this->mess_error) || $this->mess_error !== 'true'){
+            return $this->json(200, [
+                "messError" => $this->mess_error
+            ]);
+        }
     }
 
 	//	check formulaire de la page accueil
