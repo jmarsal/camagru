@@ -33,17 +33,3 @@ echo $this->popup;
     </p>
     <a class="link-back-accueil" href="../register/">Not yet registered ?</a>
     <div class="footer"></div>
-
-<script type="text/javascript">
-    function RedirectionJavascript(){
-        var send = 1;
-        <?php $_ENV['sendReinit']?> = send;
-        document.getElementById("mess-redirection").style.display = "block";
-        document.getElementById("cancel").style.display = "none";
-        document.getElementById("confirm").style.display = "none";
-        setTimeout(changePageForAccueil, 3000);
-        function changePageForAccueil(){
-            document.location.href="<?php echo BASE_URL ?>";
-        }
-    }
-</script>

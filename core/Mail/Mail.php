@@ -44,10 +44,12 @@ class Mail
 					$isValid = false;
 				}
 			}
-			if ($isValid && !(checkdnsrr($domain, "MX") || checkdnsrr($domain, "A"))) {
+//            var_dump(checkdnsrr($domain, "A"));
+//			if ($isValid && !(checkdnsrr($domain, "MX") || checkdnsrr($domain, "A"))) {
 				// 		domain not found in DNS
-				$isValid = false;
-			}
+//                var_dump('ici 6');
+//				$isValid = false;
+//			}
 		}
 		//var_dump($isValid);
 		return $isValid;

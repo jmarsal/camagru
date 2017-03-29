@@ -7,63 +7,43 @@
  */
 class ForgetIdController extends Controller
 {
-	public $mess_error;
-	public $login = "";
-	public $email = "";
-	public $cle = "";
-	public $popup;
-	public $newPasswd = "";
+    public $mess_error;
+    public $login = "";
+    public $email = "";
+    public $cle = "";
+    public $popup;
+    public $newPasswd = "";
 
-	public function accueil(){
-		$this->loadModel('User');
-		if (!empty($_POST['click']) && $_POST['click'] === 'click'){
+    public function accueil(){
+        $this->loadModel('User');
+
+        if (!empty($_POST['click']) && $_POST['click'] === 'click'){
             if (!empty($_POST['email'])){
-                $this->checkForgetId();
-                return $this->json(200, [
-                    "messError" => $this->mess_error
-                ]);
+                $info = $this->checkForgetId();
+//                Je dois certainement renvoyer le mail par ici...
+                if (!empty($this->mess_error)){
+                    return $this->json(200, [
+                        "messError" => $this->mess_error,
+                    ]);
+                } else {
+                    return $this->json(200, [
+                        "popup" => $info
+                    ]);
+                }
             }
         }
-
-		$this->render('pages/forgetId');
-
-		if (isset($_ENV['email']) && isset($_ENV['login']) &&
-			!empty($_ENV['email']) && !empty($_ENV['login'])){
-			?><script language="javascript" type="text/javascript">
-                var compte = 3;
-                function decompte()
-                {
-                    if(compte <= 1) {
-                        pluriel = "";
-                    } else {
-                        pluriel = "s";
-                    }
-                    document.getElementById("compt").innerHTML = compte + " seconde" + pluriel;
-                    if(compte == 0 || compte < 0) {
-                        compte = 0;
-                        clearInterval(timer);
-                    }
-                    compte--;
-                }
-                document.getElementById("compt").innerHTML = compte + " secondes";
-                var timer = setInterval('decompte()',1000);
-                showPopup();
-                setTimeout(changePageForAccueil, 4000);
-                function changePageForAccueil(){
-                    document.location.href="<?php echo BASE_URL ?>";
-                }
-            </script><?php
-			$options = array('email' => $_ENV['email'],
-				'login' => $_ENV['login'],
-				'subject' => '',
-				'message' => '',
-				'title' => '',
-				'from' => '',
-				'cle' => $_ENV['cle']);
-			$reinitMail = new MailSender($options);
-			$reinitMail->reinitPassMail();
-		}
-	}
+        if (!empty($_POST['sendMail']) && $_POST['sendMail'] === 'ok'){
+            $options = array(
+                    "login" => $_POST['infoLogin'],
+                    "email" => $_POST['infoMail'],
+                    "cle" => $_POST['infoCle']
+            );
+            $mailReinit = new MailSender($options);
+            $mailReinit->reinitPassMail();
+            return $this->json(200);
+        }
+        $this->render('pages/forgetId');
+    }
 
 	public function checkForgetId(){
 		$linkImg = BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";
@@ -81,9 +61,13 @@ class ForgetIdController extends Controller
 							        str_replace('^^logo^^',$linkImg,
 								file_get_contents(ROOT.DS.'view'.DS.'forgetId'.DS.'pages'.DS.'popupForgetId.html'))));
 					if (!empty($this->email) && !empty($this->login)){
-						$_ENV['login'] = $this->login;
-						$_ENV['email'] = $this->email;
-						$_ENV['cle'] = $this->cle;
+					    $info = array(
+                            "login" => $this->login,
+                            "email" => $this->email,
+                            "cle" => $this->cle,
+                            "popup" => $this->popup
+                        );
+                        return $info;
 					}
                 }else{
 			        $this->mess_error = $options;
