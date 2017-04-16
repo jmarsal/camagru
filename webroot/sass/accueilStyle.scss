@@ -1,177 +1,147 @@
 @import 'compass';
 @import "colors";
 @import "button_flat_input";
-@import "button_flat_other";
 @import "base";
 @import "form";
 @import "logo";
 
+/*
+  Taille de base sur ecran 2560 x 1440
+*/
 
 .container{
 	display: block;
 	position: relative;
     margin-top: 5%;
-}
 
-.accueil_form{
-    font-size: 1em;
-	position: relative;
-	margin: 0 auto;
-    width: 48%;
-	max-width: 48%;
-    min-width: 700px;
-	background-color: rgba($color_back, 0.9);
-	text-align: center;
-	box-shadow: 0px 0px 1px rgb(0, 34, 62);
-}
-
-.containerForm{
-  margin-left: 10%;
-  max-width: 80%;
-}
-
-textarea, select {
-	padding: 3px;
-	border: 1px solid $color_text_black;
-	border-radius: 5px;
-	width: 60%;
-	height: 150%;
-	box-shadow: 1px 0px 5px $color_text_black inset;
-	font-family: 'Cairo', sans-serif;
- }
-
-.paswrd_accueil_but{
-  margin-top: 15px; 
-}
-
-.forgetPass a{
-	color: $color_text;
-	display: block;
-	text-decoration: none;
-	font-size: 1.2vw;
-}
-
-.forgetPass:hover{
-	color: $color_button_hover;
-}
-
-.registered{
-  color: $color_text;
-  display: block;
-  text-decoration: none;
-  position: relative;
-  width: 26%;
-  margin-left: 38%;
-  padding-bottom: 5%;
-
-  &:hover{
-    color: $color_button_hover;
-  }
-}
-
-.link-back-accueil{
-  color: $color_text;
-  display: block;
-  text-decoration: none;
-  position: relative;
-  width: 26%;
-  margin-left: 38%;
-
-  &:hover{
-    color: $color_button_hover;
-  }
-}
-
-.back-accueil{
-	padding-bottom: 5%;
-	color: $color_text;
-	display: block;
-	text-decoration: none;
-
-  .link-back-accueil{
-    margin-left: 41%;
+  /*
+  Accueil
+   */
+  .accueil_form{
+    font-size: 45px;
     position: relative;
+    margin: 0 auto;
+    width: 1320px;
+    max-width: 1320px;
+    //min-width: 700px;
+    background-color: rgba($color_back, 0.9);
     text-align: center;
-    width: 18%;
+    box-shadow: 0px 0px 1px rgb(0, 34, 62);
   }
 
-  .link-back-accueil:hover{
-    color: $color_button_hover;
-  }
-}
-
-.footer{
-	height: 45px;
-}
-
-.forget_but{
-	font-size: 1vw;
-}
-
-@media only screen and (max-width: 1200px) {
-  .logo h1{
-    font-size: 15px;
-  }
-
-  .accueil_form{
-    font-size: 12px;
-    padding: 0;
-  }
-
-  .forgetPass a{
-    font-size: 12px;
-  }
-
-  .a-connect, .forget_but{
-    font-size: 12px;
-  }
-
-}
-
-@media only screen and (max-width: 750px) {
-
-  body{
-    margin: 0% auto;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling:touch;
-  }
-
-  .logo h1{
-    font-size: 15px;
-  }
-  .accueil_form{
-    font-size: 12px;
-    padding: 0;
-    min-width: 320px;
-    max-width: 320px;
-    width: 250px;
-    overflow: hidden;
-  }
   .containerForm{
-    max-width: 320px;
-    width: 250px;
-    overflow: hidden;
+    margin-left: 10%;
+    max-width: 80%;
   }
+
+  .paswrd_accueil_but{
+    margin-top: 15px;
+    margin-bottom: 40px;
+  }
+
+  .submit-accueil{
+    position: relative;
+    margin: 0px auto;
+    width: 150px;
+
+    .button{
+      font-size: 24px;
+    }
+  }
+
   .forgetPass a{
-    cursor: pointer;
-    font-size: 12px;
+    color: $color_text;
+    display: block;
+    text-decoration: none;
+    font-size: 35px;
+
+    &:hover{
+      color: $color_button_hover;
+    }
   }
 
-  .a-connect, .forget_but{
-    font-size: 12px;
+  .registerDiv{
+    display: block;
+    position: relative;
+    padding-bottom: 5%;
+
+    .registered{
+      color: $color_text;
+      text-decoration: none;
+      width: 26%;
+
+      &:hover{
+        color: $color_button_hover;
+      }
+    }
+  }
+
+  /*
+  ForgetId
+   */
+
+
+  /*
+  Other
+   */
+  textarea, select {
+    padding: 3px;
+    border: 1px solid $color_text_black;
+    border-radius: 5px;
+    width: 60%;
+    height: 150%;
+    box-shadow: 1px 0px 5px $color_text_black inset;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  .footer{
+    height: 45px;
   }
 }
 
-.submit-accueil, .button{
-  margin: 0% auto;
-  margin-top: 40px;
-  font-size: 12px;
-  width:100px;
-}
+@import "accueilResponsive";
 
-.button-close{
-  margin: 0% auto;
-  .button{
-    font-size: 30px;
-  }
-}
+//textarea, select {
+//	padding: 3px;
+//	border: 1px solid $color_text_black;
+//	border-radius: 5px;
+//	width: 60%;
+//	height: 150%;
+//	box-shadow: 1px 0px 5px $color_text_black inset;
+//	font-family: 'Cairo', sans-serif;
+// }
+
+//.link-back-accueil{
+//  color: $color_text;
+//  display: block;
+//  text-decoration: none;
+//  position: relative;
+//  width: 26%;
+//  margin-left: 38%;
+//
+//  &:hover{
+//    color: $color_button_hover;
+//  }
+//}
+//
+//.back-accueil{
+//	padding-bottom: 5%;
+//	color: $color_text;
+//	display: block;
+//	text-decoration: none;
+//
+//  .link-back-accueil{
+//    margin-left: 41%;
+//    position: relative;
+//    text-align: center;
+//    width: 18%;
+//  }
+//
+//  .link-back-accueil:hover{
+//    color: $color_button_hover;
+//  }
+//}
+//
+//.forget_but{
+//	font-size: 1vw;
+//}

@@ -1,0 +1,30 @@
+@import "colors";
+
+/*
+  Taille de base sur ecran 2560 x 1440
+*/
+
+.container {
+
+  .formRegister{
+    .repeat_paswrd_register_but{
+      padding-bottom: 60px;
+    }
+
+    .a-connect{
+      padding-bottom: 40px;
+    }
+
+    .form_error_register{
+      top: 0px;
+    }
+  }
+
+  .log_register_but{
+    .button{
+      margin: 0px auto;
+      font-size: 35px;
+      width: 300px;
+    }
+  }
+}

@@ -13,7 +13,7 @@ function submitRegister() {
     xhr.onreadystatechange = function () {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
             var data = JSON.parse(xhr.responseText),
-                prevMessError = document.getElementById('form_error'),
+                prevMessError = document.getElementById('form_error_register'),
                 container = document.getElementById('formRegister')
             ;
 
@@ -21,10 +21,10 @@ function submitRegister() {
                 var messError = document.createElement('p')
                 ;
 
-                messError.className = "form_error";
-                messError.id = "form_error";
+                messError.className = "form_error_register";
+                messError.id = "form_error_register";
                 messError.innerHTML = data.messError;
-                container.insertBefore(messError, container.lastChild);
+                container.insertBefore(messError, container.childNodes[0]);
             } else if (data.messError && prevMessError){
                 prevMessError.innerHTML = data.messError;
             } else {

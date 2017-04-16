@@ -1,7 +1,15 @@
 @import 'compass';
 @import 'colors';
+@import "form";
 
 $menu-width: 250px!default;
+
+@keyframes explode {
+  0%   {height: 0px;}
+  25%  {height: 58px;}
+  50%  {height: 82px;}
+  100% {height: 98px;}
+}
 
 html, body {
   height: 100%;
@@ -10,129 +18,533 @@ html, body {
   margin: 0;
 }
 
-.post{
-  @include clearfix;
-  padding-top: 66px;
-}
+.site-container{
+  height: 100%;
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+  .site-pusher{
+    height: 100%;
 
-.header{
-  top:0;
-  position: fixed;
-  left: 0;
-  right: 0;
-  height: 66px;
-  line-height: 66px;
-  z-index: 10;
-  background-color: $color_button;
-}
+    .header{
+      top:0;
+      position: fixed;
+      left: 0;
+      right: 0;
+      height: 66px;
+      line-height: 66px;
+      z-index: 10;
+      background-color: $color_button;
 
-.header__logo{
-  font-size: 25px;
-  font-weight: bold;
-  float: left;
-  padding: 0 25px;
+      .header__logo{
+        background-color: $color_button_hover;
+        font-size: 25px;
+        font-weight: bold;
+        float: left;
+        padding: 0 25px;
+        text-decoration: none;
+        color: inherit;
+        border-right: 1px solid $color_button_hover;
 
-  img{
-    width: 100%;
-  }
-}
+        img{
+          width: 100%;
+        }
+      }
 
-.menu {
-  float: left;
+      .menu{
+        float: left;
 
-  a {
-    padding: 0 10px;
-  }
-  a:hover{
-    color: $color_button_hover;
-  }
-}
+        a {
+          text-decoration: none;
+          color: inherit;
+          padding: 0 35px;
+          border-right: 1px solid $color_button_hover;
 
-@media only screen and (max-width: 2250px) {
-  .menu{
-
-    font-size: 20px;
-    float: left;
-
-    a {
-      padding: 0 10px;
+          &:hover{
+            color: $color_button_hover;
+          }
+        }
+      }
     }
-    a:hover{
-      color: $color_button_hover;
+    .post{
+      @include clearfix;
+      padding-top: 66px;
+      height: 100%;
+
+      .bienvenue {
+        text-align: center;
+      }
+
+      .elems-app{
+        position: relative;
+        margin: 0% auto;
+
+        .video-containter{
+          display: inline-flex;
+          position: relative;
+          margin: 0% auto;
+          width: 100%;
+          padding: 0;
+
+          .container-all-filters{
+            display: flex;
+            margin-left: 120px;
+            margin-right: -160px;
+
+            .filters{
+              position: relative;
+              margin: 0% auto;
+              margin-right: 0px;
+              width: 550px;
+              height: 100px;
+              background: rgba($color_back, 0.9);
+              border: 10px solid darken($color_back, 5);
+
+              .filterHideButton{
+                position: relative;
+                cursor: pointer;
+                margin: 0% auto;
+                height: 100px;
+
+                img{
+                  display: inline-block;
+                  position: relative;
+                  top:15px;
+                  margin-left: 115px;
+                  margin-right: 30px;
+                }
+
+                .textFilter{
+                  display: inline-block;
+                  position: relative;
+                  margin: 0% auto;
+                }
+
+                &:hover{
+                  filter: invert(100%);
+                  transition-duration: 5s;
+                  filter: hue-rotate(360deg);
+
+                  p{
+                    filter: invert(100%);
+                    transition-duration: 1s;
+                  }
+                }
+              }
+
+              a:hover{
+                color: $color_button_hover;
+              }
+
+              .menu2{
+                display: none;
+                position: relative;
+                margin-top: 3px;
+
+                .button{
+                  animation-duration: 0.5s;
+                  position: relative;
+                  padding: 0;
+                  padding-top: 38px;
+                  margin: 0px auto;
+                  width: 548px;
+                  height: 98px;
+                  font-size: 50px;
+                  text-align: center;
+                }
+              }
+
+              .filters__icon{
+                cursor: pointer;
+                width:65px;
+              }
+
+              .filters-button{
+                .button{
+                  margin-top: 0;
+                }
+              }
+            }
+
+            .objets-filter{
+              position: relative;
+              margin: 0% auto;
+              margin-left: 60px;
+              width: 550px;
+              height: 100px;
+              background: rgba($color_back, 0.9);
+              border: 10px solid darken($color_back, 5);
+
+              .objHideButton{
+                position: relative;
+                cursor: pointer;
+                margin: 0px auto;
+                height: 100px;
+
+                .objets__icon{
+                  display: inline-block;
+                  position: relative;
+                  width:75px;
+                  top:15px;
+                  margin-left:115px;
+                  margin-right: 30px;
+                }
+
+                .textObjFilter{
+                  display: inline-block;
+                  position: relative;
+                  margin: 0% auto;
+                  top:-13px;
+                }
+
+                &:hover{
+                  filter: invert(100%);
+                  transition-duration: 5s;
+                  filter: hue-rotate(360deg);
+
+                  p{
+                    filter: invert(100%);
+                    transition-duration: 1s;
+                  }
+                }
+              }
+
+              .objets-button{
+                //display: block;
+                position: relative;
+                margin-top: 3px;
+                padding: 0%;
+                margin: 0% auto;
+                height: 1380px;
+                overflow-y: scroll;
+                overflow-x: hidden;
+
+                .button{
+                  animation-duration: 0.5s;
+                  position: relative;
+                  padding: 0;
+                  margin: 0% auto;
+                  margin-top: 0;
+                  width: 548px;
+                  height: 180px;
+                  font-size: 50px;
+                  text-align: center;
+                  padding-top: 38px;
+                  padding-bottom: 40px;
+
+                  img{
+                    position: relative;
+                    margin: 0px auto;
+                    padding-top: 20px;
+                    width: 30%;
+                  }
+                }
+
+                .button-none{
+                  font-size: 50px;
+                  padding-top: 38px;
+                  width: 548px;
+                  height: 109px;
+                }
+              }
+            }
+
+          }
+
+          .booth{
+            position: relative;
+            display: inline-block;
+            width: 2000px;
+            background: rgba($color_back, 0.9);
+            border: 10px solid darken($color_back, 5);
+            margin: 0px auto;
+            z-index: 5;
+            padding: 0px;
+            left: -275px;
+
+            .img-enlarge{
+              width: 2000px;
+              height: 1600px;
+            }
+
+            .close-enlarge{
+              position: absolute;
+              top: 20px;
+              left: 1920px;
+              width: 60px;
+              cursor: pointer;
+
+              &:hover{
+                filter: invert(100%);
+                filter: hue-rotate(360deg);
+                transition-duration: 1s;
+                width: 120px;
+                left:1860px;
+              }
+            }
+
+            .imgUpload{
+              width: 2000px;
+              max-height: 1500px;
+              margin-bottom: 20px;
+            }
+
+            video{
+              transform: scaleX(-1);
+              width: 2000px;
+              height: 1500px;
+            }
+
+            hr{
+              margin-left: -329px;
+              padding-left: 698px;
+              color: darken($color_button, 10);
+              background-color: darken($color_button, 10);
+            }
+
+            .buttonActionApp{
+              display: none;
+              position: relative;
+              width: 100%;
+              height: 90px;
+
+              margin: 0% auto;
+
+              .action-app{
+                display: inline-block;
+                margin: 0px auto;
+                width: 100%;
+
+                .take-photo{
+                  position: relative;
+                  margin: 0px auto;
+
+                  .take-photo-img{
+                    position: relative;
+                    top:-5px;
+                    margin: 0% auto;
+                    padding: 0;
+                    width: 75px;
+                    cursor: pointer;
+                    left:850px;
+
+                    &:hover{
+                      border-radius: 60%;
+                      transition-duration: 1s;
+                    }
+                  }
+
+                  .startbuttonUpload{
+                    display: none;
+                    position: relative;
+                    top:-5px;
+                    margin: 0% auto;
+                    padding: 0;
+                    width: 75px;
+                    cursor: pointer;
+                    left:850px;
+
+                    &:hover{
+                      border-radius: 60%;
+                      transition-duration: 1s;
+                    }
+                  }
+                }
+
+                .img-booth, .canvas{
+                  display: none;
+                }
+              }
+
+              .upload-app{
+
+                .input-file-container {
+                  margin: 0px auto;
+                  position: relative;
+                  right: 850px;
+
+                  .input-file{
+                    display: none;
+                  }
+
+                  .input-file-trigger{
+                    position: relative;
+                    cursor: pointer;
+                    width: 75px;
+
+                    &:hover{
+                      border-radius: 60%;
+                      transition-duration: 1s;
+                      filter: hue-rotate(360deg);
+                    }
+                  }
+
+                  .back-to-video{
+                    display: none;
+                    position: relative;
+                    cursor: pointer;
+                    width: 75px;
+                    left: 150px;
+                    top: -95px;
+
+                    &:hover{
+                      filter: invert(100%);
+                      transition-duration: 1s;
+                      filter: hue-rotate(360deg);
+                    }
+                  }
+
+                }
+              }
+
+              .container-enlarge{
+                display: inline-block;
+                z-index: 50;
+                width:2000px;
+                height: 1600px;
+
+                .img-enlarge{
+                  margin-bottom: -56px;
+                }
+              }
+            }
+
+            .chooseFilter{
+              position: relative;
+              bottom: 55px;
+              text-align: center;
+              font-size: 50px;
+              margin-bottom: -50px;
+            }
+
+            .file-upload{
+              margin: 0px auto;
+              position: relative;
+              text-align: center;
+              font-size: 40px;
+              left: 0px;
+              background-color: indianred;
+            }
+
+          }
+
+          .prev-img {
+            display: none;
+            background: darken($color_back, 5);
+            border: 10px solid darken($color_back, 10);
+            margin-left: -710px;
+            margin-right: 140px;
+            max-height: 1600px;
+
+            .container-prev{
+              position: relative;
+              margin: 0px auto;
+
+              background: linear-gradient(to bottom right, darken($color_button_hover, 5), lighten($color_button, 30));
+              border: 2px solid darken($color_back, 10);
+              padding-top: 20px;
+              margin-top: -1px;
+              margin-bottom: 5px;
+              margin-left: -5px;
+            }
+
+            img{
+              display: block;
+              width: 500px;
+              margin-left: 30px;
+              margin-top: 2px;
+              margin-right: 27px;
+              margin-bottom: 10px;
+            }
+
+            .prev-action{
+              position: relative;
+              top:20px;
+
+              .del-button{
+                left: 460px;
+                cursor: pointer;
+                display: inline-block;
+                position: absolute;
+                width: 34px;
+                top:-15px;
+
+                &:hover{
+                  filter: invert(100%);
+                  filter: hue-rotate(360deg);
+                  transition-duration: 1s;
+                  width: 60px;
+                  left:450px;
+                  top:-30px;
+                }
+              }
+
+              .div-namePhoto{
+                display: inline-block;
+                position: relative;
+                margin: 0px auto;
+
+                .name-photo{
+                  display: inline-block;
+                  position: absolute;
+                  margin: 0px auto;
+                  top: -53px;
+                  left: 105px;
+                  font-size: 30px;
+                  font-style: italic;
+                  text-align: center;
+                  color: lightgrey;
+                }
+              }
+
+              .see-button{
+                cursor: pointer;
+                display: inline-block;;
+                margin-left: 19px;
+                position: absolute;
+                width: 40px;
+                top:-15px;
+                left: 10px;
+
+                &:hover{
+                  filter: invert(100%);
+                  filter: hue-rotate(360deg);
+                  transition-duration: 1s;
+                  width: 60px;
+                  left:0px;
+                  top:-30px;
+                }
+              }
+
+            }
+          }
+        }
+      }
     }
   }
 }
 
-.elems-app{
-  margin-left: 18%;
-}
+//@media only screen and (max-width: 2250px) {
+//  .menu{
+//
+//    font-size: 20px;
+//    float: left;
+//
+//    a {
+//      padding: 0 10px;
+//    }
+//    a:hover{
+//      color: $color_button_hover;
+//    }
+//  }
+//}
 
-.video-containter{
-  display: inline-flex;
-  width: 77%;
-  margin: 0 auto;
-  padding: 0;
-  position: relative;
-}
-
-.booth{
-  display: inline-block;
-  width: 700px;
-  background: rgba($color_back, 0.9);
-  border: 10px solid darken($color_back, 5);
-  margin: 0px auto;
-  z-index: 5;
-
-  hr{
-    margin-left: -329px;
-    padding-left: 698px;
-    color: darken($color_button, 10);
-    background-color: darken($color_button, 10);
-  }
-}
-
-.img-booth, .canvas{
-  display: none;
-}
-
-video{
-  transform: scaleX(-1);
-}
-
-@media only screen and (max-width: 750px) {
-  video, .booth {
-    width: 100%;
-  }
-  .bienvenue {
-    font-size: 15px;
-  }
-}
-
-.bienvenue {
-  text-align: center;
-}
-
-.take-photo{
-  display: none;
-  margin: 0% auto;
-  padding: 0;
-  width: 40px;
-  cursor: pointer;
-  img{
-    margin-bottom: 15px;
-  }
-
-  img:hover{
-    border-radius: 60%;
-    border: solid 0.3em #222222;
-    margin-bottom: 5px;
-  }
-}
+//@media only screen and (max-width: 750px) {
+//  video, .booth {
+//    width: 100%;
+//  }
+//  .bienvenue {
+//    font-size: 15px;
+//  }
+//}
 
 .booth_filter{
   background: rgba(94, 108, 120, 0.9);
@@ -145,45 +557,6 @@ video{
   margin-right: 52px;
 }
 
-.filters{
-  top:13px;
-  position: relative;
-  margin: 0% auto;
-  width: 150px;
-  a:hover{
-    color: $color_button_hover;
-  }
-
-  img{
-    margin-left: 40px;
-  }
-
-  .menu2{
-    display: flex;
-    margin-left: 10px;
-
-    .button{
-      height:28px;
-      font-size: 20px;
-    }
-    input{
-      margin-top: 5px;
-      margin-bottom: 5px;
-    }
-  }
-
-  .filters__icon{
-    cursor: pointer;
-    width:65px;
-  }
-
-  .filters-button{
-    .button{
-      margin-top: 0;
-    }
-  }
-}
-
 .booth_prev{
   background: rgba(94, 108, 120, 0.9);
   border: 10px solid #535f6a;
@@ -193,102 +566,6 @@ video{
   display: inline-block;
   margin-left: 52px;
   margin-right: 20%;
-}
-
-.prev-img{
-  display: none;
-  width:696px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  background: darken($color_back, 5);
-  border: 2px solid darken($color_back, 10);
-  padding-top: 20px;
-
-  .container-prev{
-    width: 170px;
-  }
-  img{
-    margin-right: 27px;
-    margin-bottom: 10px;
-  }
-
-  .del-button{
-    cursor: pointer;
-    display: inline;
-    position: relative;
-    width: 34px;
-    top:-18px;
-
-    &:hover{
-      filter: invert(100%);
-    }
-  }
-
-  .see-button{
-    cursor: pointer;
-    display: inline-block;;
-    margin-left: 19px;
-    position: relative;
-    width: 40px;
-    top:-15px;
-
-    &:hover{
-      filter: invert(100%);
-    }
-  }
-}
-
-.container-enlarge{
-  display: inline-block;
-  z-index: 50;
-  width:700px;
-  height: 525px;
-
-  .close-enlarge{
-    position: relative;
-    top: -465px;
-    left: 648px;
-    width: 30px;
-    cursor: pointer;
-  }
-
-  .img-enlarge{
-    margin-bottom: -56px;
-  }
-}
-
-.objets-filter{
-  position: relative;
-  margin: 0% auto;
-  width: 150px;
-  a:hover{
-    color: $color_button_hover;
-  }
-  img{
-    margin-left: 30px;
-  }
-  .objets__icon{
-    cursor: pointer;
-    width:75px;
-    margin-left:55px;
-    &:hover{
-      filter: invert(100%);
-    }
-  }
-
-  .objets-button{
-    height: 500px;
-    overflow-y: scroll;
-    margin-right: -20px;
-    overflow-x: hidden;
-    .button{
-      margin-top: 0;
-    }
-    div{
-      margin-left: 30px;
-      font-size: 20px;
-    }
-  }
 }
 
 @import "menuResponsive";

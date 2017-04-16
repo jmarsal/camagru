@@ -14,6 +14,8 @@ function submitForgetId() {
                 container = document.getElementById('formForgetId');
             ;
 
+            // var tmp = (xhr.responseText);
+            // console.log(tmp);
             if (data.messError && !prevMessError){
                 var messError = document.createElement('p')
                 ;
@@ -21,7 +23,7 @@ function submitForgetId() {
                 messError.className = "errorForgetId";
                 messError.id = "errorForgetId";
                 messError.innerHTML = data.messError;
-                container.insertBefore(messError, container.lastChild);
+                container.insertBefore(messError, container.childNodes[3]);
             } else if (data.messError && prevMessError){
                 prevMessError.innerHTML = data.messError;
             } else {

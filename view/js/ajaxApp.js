@@ -9,7 +9,7 @@ function getSrcImg(data) {
         }, false);
 }
 
-function ajaxPhoto(data) {
+function ajaxPhoto(data64) {
     var xhr = getXMLHttpRequest();
 
     xhr.onreadystatechange = function() {
@@ -24,13 +24,24 @@ function ajaxPhoto(data) {
                 //see = img see
                 see = document.createElement('img'),
                 //div = container pour chaque photos
-                divContainer = document.createElement('div')
-                ;
+                divContainer = document.createElement('div'),
+                divInputName = document.createElement('div'),
+                inputName = document.createElement('input'),
+                divContainerAction = document.createElement('div')
+            ;
 
             //Path et id de la prev dans la nouvelle balise img
             img.src = '../' + data.thumbnail;
             img.id = data.idMin;
 
+            divInputName.className = "div-namePhoto";
+            inputName.className = "name-photo";
+            inputName.type = "text";
+            inputName.name = "namePhoto";
+            inputName.id = "name-photo-" + data.idMin;
+            inputName.value = "Nom pour votre Photo ?";
+            inputName.onclick = function () { delValue(data.idMin); };
+            inputName.onblur = function () { addValue(data.idMin); };
             //Path de l'img trash pour supprimer la prev
             del.className = "del-button";
             del.src = "../webroot/images/app/Trash.ico";
@@ -47,28 +58,36 @@ function ajaxPhoto(data) {
                 enlargePhoto(data.idMin);
             };
 
+            divContainerAction.className = "prev-action";
+
             divContainer.className = "container-prev";
             divContainer.id = "" + data.idMin + "";
 
             var countElems = document.querySelectorAll('#prev-img .container-prev img');
-            if (countElems.length >= 12){
-                container.style.overflowX = "scroll";
+            if (countElems.length >= 6){
+                container.style.overflowY = "auto";
+                container.style.width = "580px";
             } else  {
-                container.style.overflowX = "none";
+                container.style.overflowY = "none";
                 if (countElems.length == 0){
                     container.style.display = "none";
                 }
             }
-            container.style.display = "inline-flex";
+            divInputName.insertBefore(inputName, divInputName.childNodes[0]);
+
+            divContainerAction.insertBefore(see, divContainerAction.childNodes[0]);
+            divContainerAction.insertBefore(divInputName, divContainerAction.childNodes[1]);
+            divContainerAction.insertBefore(del, divContainerAction.childNodes[2]);
+
+            container.style.display = "block";
             container.insertBefore(divContainer,  container.childNodes[0]);
 
             var containerPrev = document.getElementById(data.idMin);
             containerPrev.insertBefore(img, containerPrev.childNodes[0]);
-            containerPrev.insertBefore(see, containerPrev.childNodes[1]);
-            containerPrev.insertBefore(del, containerPrev.childNodes[2]);
+            containerPrev.insertBefore(divContainerAction, containerPrev.childNodes[1]);
         }
     };
-    var tmp = "img64=" + data;
+    var tmp = "img64=" + data64;
     xhr.open("post", "uploadAjax", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(tmp);
@@ -82,20 +101,24 @@ function delImg(id){
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
             var closeEnlarge = document.getElementById('container-enlarge'),
                 replaceVideo = document.getElementById('myvideo'),
+                upload = document.getElementById('imgUpload'),
                 cacheTakePhoto = document.getElementById('form-cache-photo')
             ;
             if (closeEnlarge != null){
                 closeEnlarge.parentNode.removeChild(closeEnlarge);
-                replaceVideo.style.display = "inline-block";
+                if (!upload){
+                    replaceVideo.style.display = "inline-block";
+                }
                 cacheTakePhoto.style.display = 'block';
                 cacheTakePhoto.style.cursor = 'pointer';
             }
             imgs.parentNode.removeChild(imgs);
             var countElems = document.querySelectorAll('#prev-img .container-prev img');
 
-            if (countElems.length <= 12){
+            if (countElems.length <= 6){
                 var container = document.getElementById('prev-img');
-                container.style.overflowX = "hidden";
+
+                container.style.overflowY = "hidden";
                 if (countElems.length == 0){
                     container.style.display = "none";
                 }
@@ -119,7 +142,9 @@ function enlargePhoto(id){
                 container = document.createElement('div'),
                 img = document.createElement('img'),
                 close = document.createElement('img'),
-                cacheTakePhoto = document.getElementById('form-cache-photo'),
+                cacheTakePhoto = document.getElementById('buttonActionApp'),
+                upload = document.getElementById('imgUpload'),
+                fileUpload = document.getElementById('file-upload'),
                 closeObjFilter = document.getElementById('imgObj')
                 ;
 
@@ -128,6 +153,12 @@ function enlargePhoto(id){
             }
             if (closeObjFilter){
                 closeObjFilter.style.display = 'none';
+            }
+            if (upload){
+                upload.style.display = 'none';
+            }
+            if (fileUpload){
+                fileUpload.style.marginTop = '-70px';
             }
 
             container.className = "container-enlarge";
@@ -141,20 +172,31 @@ function enlargePhoto(id){
             close.src = "../webroot/images/app/close2.png";
             close.className = "close-enlarge";
             close.title = "Fermer photo ?";
+
+            // Bug ici lorsque je close img_enlarge
             close.onclick = function () {
                 var close = document.getElementById("container-enlarge"),
                     video = document.getElementById('myvideo'),
-                    cacheTakePhoto = document.getElementById('form-cache-photo'),
+                    upload = document.getElementById('imgUpload'),
+                    cacheTakePhoto = document.getElementById('buttonActionApp'),
                     closeObjFilter = document.getElementById('imgObj')
                     ;
 
                 close.style.display = "none";
                 close.style.border = "1px solid red";
 
-                video.style.display = "inline-block";
+                if (upload.classList.contains("active")){
+                    upload.style.display = 'inline-block';
+                    video.style.display = 'none';
+                } else {
+                    video.style.display = "inline-block";
+                    upload.style.display = 'none';
+                }
+                if (fileUpload){
+                    fileUpload.style.marginTop = '0px';
+                }
 
-                cacheTakePhoto.style.display = 'block';
-                cacheTakePhoto.style.cursor = 'pointer';
+                cacheTakePhoto.style.display = 'inline-flex';
 
                 if (closeObjFilter){
                     closeObjFilter.style.display = 'block';
@@ -162,7 +204,6 @@ function enlargePhoto(id){
             }
 
             cacheTakePhoto.style.display = 'none';
-            cacheTakePhoto.style.cursor = 'none';
             var replace = document.getElementById('myvideo');
             replace.style.display = "none"
             replaceVideo.insertBefore(container, replaceVideo.childNodes[0]);
@@ -175,6 +216,168 @@ function enlargePhoto(id){
 
     var tmp = "enlargeImg=" + id;
     xhr.open("post", "enlargeAjax", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(tmp);
+}
+
+function delValue(id){
+    var changeVal = document.getElementById('name-photo-' + id);
+    if (changeVal.value === 'Nom pour votre Photo ?' || changeVal.value !== ''){
+        if (changeVal.value !== 'Nom pour votre Photo ?' && changeVal.value !== ''){
+            document.getElementById('tmp-photo-' + id).value = changeVal.value;
+        }
+        changeVal.value = "";
+        changeVal.style.fontStyle = "normal";
+        changeVal.style.color = "black";
+    }
+}
+
+function addValue(id) {
+    var changeVal = document.getElementById('name-photo-' + id);
+    if (changeVal.value === ''){
+        if (document.getElementById('tmp-photo-' + id).value !== ''){
+            changeVal.value = document.getElementById('tmp-photo-' + id).value;
+            document.getElementById('tmp-photo-' + id).value = '';
+        } else {
+            changeVal.value = "Nom pour votre Photo ?";
+        }
+        changeVal.style.fontStyle = "italic";
+        changeVal.style.color = "lightgrey";
+    } else if (changeVal.value !== "Nom pour votre Photo ?"){
+        goGalerie(id, changeVal.value);
+    }
+}
+
+function goGalerie(id, namePhoto) {
+    var xhr = getXMLHttpRequest()
+    ;
+
+    xhr.onreadystatechange = function() {
+        if ((state = xhr.readyState) == 4 && xhr.status == 200) {
+            var changeVal = document.getElementById('name-photo-' + id);
+            changeVal.style.fontStyle = "italic";
+            changeVal.style.color = "lightgrey";
+        }
+    };
+
+    var tmp = "namePhoto=" + namePhoto + "&id=" + id;
+    xhr.open("post", "getNamePhoto", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(tmp);
+}
+
+function uploadImg() {
+    var pathFile = document.getElementById('my-file').files[0].name,
+        getType = document.getElementById('my-file').files[0].type,
+        validImage = ["image/gif", "image/jpeg", "image/png"],
+        messFileOrError = document.getElementById('file-upload'),
+        booth = document.getElementById('booth'),
+        xhr = getXMLHttpRequest()
+    ;
+
+    messFileOrError.style.display = 'block';
+    if (pathFile){
+        var n = pathFile.lastIndexOf("\\"),
+            path = pathFile.substr(n + 1),
+            fileInput = document.getElementById('my-file'),
+            reader = new FileReader()
+        ;
+
+        // Si l'image n'est pas au bon format
+        if (validImage.indexOf(getType) < 0) {
+            var err = "Mauvais Format ! Veuillez essayer avec un jpg, png ou gif...",
+                tmp = "error=" + err
+            ;
+
+            xhr.open("post", "uploadPhotoAjax", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send(tmp);
+            messFileOrError.innerHTML = err;
+
+        //    Si c'est bon
+        } else {
+            // Si l'image a une taille correct
+            if (document.getElementById('my-file').files[0].size < 2100000){
+                var filter = document.getElementById('myvideo').style.filter,
+                    newImg = document.getElementById('imgUpload'),
+                    backVideo = document.getElementById('back-to-video'),
+                    takePhoto = document.getElementById('startbutton'),
+                    uploadPhoto = document.getElementById('startbuttonUpload')
+                ;
+                document.getElementById('myvideo').style.display = 'none';
+
+                if (newImg){
+                    newImg.style.display = 'inline-block';
+                    newImg.style.filter = filter;
+                    newImg.classList.add("active");
+                    booth.classList.add("active");
+                }
+
+                reader.addEventListener('load', function() {
+                    var messFileImg = "image chargée : " + path,
+                        color = "#F39237";
+
+                    xhr.onreadystatechange = function() {
+                        if ((state = xhr.readyState) == 4 && xhr.status == 200) {
+                            newImg.setAttribute('src', reader.result);
+                            backVideo.style.display = 'inline-block';
+                            takePhoto.style.display = "none";
+                            uploadPhoto.onclick = function () { ajaxPhoto(encodeURIComponent(reader.result)); };
+                            uploadPhoto.style.display = 'inline-block';
+                            messFileOrError.style.backgroundColor = color;
+                            messFileOrError.innerHTML = messFileImg;
+                        } else if ((state = xhr.readyState) == 4 && xhr.status != 200){
+                            alert('status = ' + xhr.status);
+                        }
+                    };
+
+                    var tmp = "messFileImg=" + messFileImg + "&file=" + pathFile +
+                                "&src=" + encodeURIComponent(reader.result) + "&color=" + color;
+                    xhr.open("post", "uploadPhotoAjax", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.send(tmp);
+                });
+                reader.readAsDataURL(fileInput.files[0]);
+
+            } else {
+                var err = "Fichier trop volumineux pour etre upload sur le serveur...",
+                    tmp = "error=" + err
+                ;
+
+                xhr.open("post", "uploadPhotoAjax", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.send(tmp);
+                messFileOrError.innerHTML = err;
+            }
+        }
+
+    }
+
+}
+
+function backCamera() {
+    var container = document.getElementById('booth'),
+        filter = document.getElementById('myvideo'),
+        newImg = document.getElementById('imgUpload'),
+        backVideo = document.getElementById('back-to-video'),
+        takePhoto = document.getElementById('startbutton'),
+        uploadPhoto = document.getElementById('startbuttonUpload'),
+        xhr = getXMLHttpRequest()
+    ;
+
+    filter.style.display = 'block';
+    filter.style.marginBottom = '15px';
+    newImg.style.display = 'none';
+    newImg.classList.remove("active");
+    document.getElementById('file-upload').style.display = 'none';
+    // container.style.height = '1600px';
+    container.classList.remove("active");
+    backVideo.style.display = 'none';
+    takePhoto.style.display = 'inline-block';
+    uploadPhoto.style.display = 'none';
+
+    var tmp = "back=ok";
+    xhr.open("post", "backCameraAjax", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(tmp);
 }

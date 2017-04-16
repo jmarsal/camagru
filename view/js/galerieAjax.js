@@ -27,18 +27,27 @@ function submitComment(id) {
                 nbcomments = document.getElementById("comment-span" + id)
                 ;
 
-            if (!containerDiv){
-                var containerDiv = document.createElement('div');
-                setContainerAllComments(containerDiv, id);
-                setColorsGetModulo(logins, 0);
-            }
+            // if (!containerDiv){
+            //     var containerDiv = document.createElement('div');
+            //     setContainerAllComments(containerDiv, id);
+            //     setColorsGetModulo(logins, 0);
+            // } else {
+                var getLogColorsPreComment = containerDiv.lastChild;
 
-            var getLogColorsPreComment = containerDiv.lastChild;
-            var preSpanLog = getLogColorsPreComment.firstChild.firstChild.firstChild.innerHTML;
-            var moduloDivSpan = getLogColorsPreComment.firstChild.style.left;
+                if (getLogColorsPreComment){
+                    var preSpanLog = getLogColorsPreComment.firstChild.firstChild.firstChild.innerHTML;
+                    var moduloDivSpan = getLogColorsPreComment.firstChild.style.left;
 
-            moduloDivSpan = (moduloDivSpan == '-25%') ? 1 : 0;
-            preSpanLog = preSpanLog.substr(0, preSpanLog.length - 3);
+                    moduloDivSpan = (moduloDivSpan == '-25%') ? 1 : 0;
+                    preSpanLog = preSpanLog.substr(0, preSpanLog.length - 3);
+                } else {
+                    moduloDivSpan = 0;
+                    preSpanLog = data.info.login;
+                    whichColor = 0;
+                }
+
+            // }
+
             // Recuperer le comment precedent si il existe, donc le login + la couleur + modulo
             setColorsGetModulo(data.info.login, containerDiv.length, preSpanLog, moduloDivSpan);
             setHr(hrDiv, hr, modulo);

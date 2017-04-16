@@ -3,18 +3,26 @@
  */
 
 function changeFilter(filter){
-    var xhr = getXMLHttpRequest();
+    var xhr = getXMLHttpRequest(),
+        filterOnVideo = document.getElementById("myvideo"),
+        filterOnUpload = document.getElementById("imgUpload")
+    ;
 
     xhr.onreadystatechange = function()
     {
         if((state = xhr.readyState) == 4 && xhr.status == 200) {
             toggleActiveClass(filter);
-            var cacheTakePhoto = document.getElementById('form-cache-photo'),
-                takePhoto = document.getElementById('startbutton')
+            var cacheTakePhoto = document.getElementById('buttonActionApp'),
+                cacheChooseFilter = document.getElementById('chooseFilter')
             ;
-            cacheTakePhoto.style.display = 'block';
-            cacheTakePhoto.style.cursor = 'pointer';
-            takePhoto.style.display = 'block';
+
+            cacheTakePhoto.style.display = 'inline-flex';
+            cacheChooseFilter.style.display = 'none';
+            if (filterOnUpload.classList.contains('active')){
+                filterOnUpload.style.filter = filter;
+            } else {
+                filterOnVideo.style.filter = filter;
+            }
         }
     };
 
@@ -22,7 +30,6 @@ function changeFilter(filter){
     xhr.open("post", "", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(tmp);
-    document.getElementById("myvideo").style.filter = filter;
 }
 
 function toggleActiveClass(filter){

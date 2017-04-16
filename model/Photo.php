@@ -151,23 +151,23 @@ class Photo extends Model
         if ($filterObj === 'dog'){
             imagecopy($origin, $imgObj, -30, 170, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'beardMustaches'){
-            imagecopy($origin, $imgObj, 220, 85, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 290, 250, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'chapeauPirate'){
-            imagecopy($origin, $imgObj, 150, -25, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 190, -5, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'epee'){
             imagecopy($origin, $imgObj, 90, 200, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'epeeLaser'){
             imagecopy($origin, $imgObj, 60, 200, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'largeMustache'){
-            imagecopy($origin, $imgObj, 220, 185, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 290, 205, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'lunette'){
-            imagecopy($origin, $imgObj, 220, 85, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 280, 100, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'monkey'){
-            imagecopy($origin, $imgObj, 140, 135, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 145, 115, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'policeHat'){
-            imagecopy($origin, $imgObj, 240, 0, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 235, 5, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'prismaticMustache'){
-            imagecopy($origin, $imgObj, 245, 180, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 290, 240, 0, 0, $widthObj, $heigthObj);
         }
         imagesavealpha($origin, true);
         imagepng($origin, $pathImg);
@@ -181,7 +181,7 @@ class Photo extends Model
      * @param $filter string le filtre a ajouter, par default à null.
      * @return $pathmin array pathmin['id'] = id de la miniature, pathmin['path'] = le path de la miniature.
      */
-    public function savePhotoTmpToDb($idUser, $imgPngBase64, $pathToSaveImg, $filter=null, $filterObj = null){
+    public function savePhotoTmpToDb($idUser, $imgPngBase64, $pathToSaveImg, $filter = null, $filterObj = null){
         date_default_timezone_set('UTC');
         $date = date('Y-m-d H:i:s');
 
@@ -193,7 +193,7 @@ class Photo extends Model
 
         file_put_contents($pathToSaveImg.DS.$image_name, $data);
         $_SESSION['img_name'] = $pathToSaveImg.DS.$image_name;
-        if ($filter !== 'none'){
+        if (!empty($filter) && $filter !== 'none'){
             $arrFilter = $this->findFilterAndPowForImg($filter);
             $filter = $arrFilter[0];
             if (isset($arrFilter[1])){
@@ -214,7 +214,7 @@ class Photo extends Model
 
             $this->_addFilterOnImg($pathToSaveImg.DS.$image_name, $filter, $pow, $pow2, $pow3);
         }
-        if ($filterObj) {
+        if (!empty($filterObj) && $filterObj !== 'noneObj') {
             $this->_addFilterObjOnImg($pathToSaveImg.DS.$image_name, $filterObj);
         }
 
@@ -473,6 +473,27 @@ class Photo extends Model
                 print "Erreur : ".$e->getMessage()."";
                 die();
             }
+        }
+    }
+
+    public function saveNamePhotoToDb($id, $name){
+        $idBig = $id - 1;
+        $sql = "UPDATE posts SET `name`=? WHERE id=?";
+        try {
+            $query = $this->db->prepare($sql);
+            $d = array($name, $idBig);
+            $query->execute($d);
+        } catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+        try {
+            $query = $this->db->prepare($sql);
+            $d = array($name, $id);
+            $query->execute($d);
+        } catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
         }
     }
 }

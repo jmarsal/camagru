@@ -21,6 +21,11 @@ class GalerieController extends Controller
             $_SESSION['filter'] = "";
             $_SESSION['objFilter'] = "";
             $idLog = $this->User->getIdUser($_SESSION['login']);
+            if (!empty($_SESSION['img'])){
+                foreach ($_SESSION['img'] as $v){
+
+                }
+            }
             $this->Photo->deleteDirectoryIfExist(REPO_PHOTO.$idLog.DS.'min');
             $this->Photo->deletePrevInDb($idLog);
             $_SESSION['galerie'] = $this->Post->getPhotosInDb();

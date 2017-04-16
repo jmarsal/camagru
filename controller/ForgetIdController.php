@@ -11,25 +11,22 @@ class ForgetIdController extends Controller
     public $login = "";
     public $email = "";
     public $cle = "";
-    public $popup;
+    public $popup = "";
     public $newPasswd = "";
 
     public function accueil(){
         $this->loadModel('User');
 
         if (!empty($_POST['click']) && $_POST['click'] === 'click'){
-            if (!empty($_POST['email'])){
-                $info = $this->checkForgetId();
-//                Je dois certainement renvoyer le mail par ici...
-                if (!empty($this->mess_error)){
-                    return $this->json(200, [
-                        "messError" => $this->mess_error,
-                    ]);
-                } else {
-                    return $this->json(200, [
-                        "popup" => $info
-                    ]);
-                }
+            $info = $this->checkForgetId();
+            if (!empty($this->mess_error)){
+                return $this->json(200, [
+                    "messError" => $this->mess_error,
+                ]);
+            } else {
+                return $this->json(200, [
+                    "popup" => $info
+                ]);
             }
         }
         if (!empty($_POST['sendMail'])){
@@ -40,19 +37,25 @@ class ForgetIdController extends Controller
             );
             $mailReinit = new MailSender($options);
             $mailReinit->reinitPassMail();
-            return $this->json(200);
+            return $this->json(200, [
+                "mail" => "send"
+            ]);
         }
         if (empty($_POST['click']) && empty($_POST['sendMail'])){
-            $this->render('pages/forgetId');
+            $this->render('pages/forgetId', 'forgetId_layout');
         }
     }
 
 	public function checkForgetId(){
 		$linkImg = BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";
 
-		if ($_POST['click'] === 'click' && !empty($_POST['email'])){
-			$this->email = trim(htmlentities($_POST['email']));
-			if (($options = $this->User->requestMail($this->email)) !==
+		if ($_POST['click'] === 'click'){
+            if (empty ($_POST['email'])) {
+                $this->mess_error = 'Veuillez renseigner une adresse mail !';
+                return FALSE;
+            }
+            $this->email = trim(htmlentities($_POST['email']));
+            if (($options = $this->User->requestMail($this->email)) !==
                 FALSE){
 			    if ($options !== "Veuillez renseigner une adresse mail valide"){
                     $this->login = $options['login'];
@@ -77,9 +80,8 @@ class ForgetIdController extends Controller
 			}else if ($options === FALSE){
 				$this->mess_error = 'Cette adresse mail ne correspond à aucun
 			utilisateur!';
+				return FALSE;
 			}
-		} else if ($_POST['click'] === 'click' && empty ($_POST['email'])){
-			$this->mess_error = 'Veuillez renseigner une adresse mail !';
 		}
 	}
 

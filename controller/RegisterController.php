@@ -43,7 +43,7 @@ class RegisterController extends Controller
             return $this->json(200);
         }
         if (empty($_POST['click']) && empty($_POST['sendMail'])) {
-            $this->render('pages/register');
+            $this->render('pages/register', 'register_layout');
         }
 	}
 

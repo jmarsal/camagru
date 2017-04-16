@@ -12,9 +12,10 @@
     <h1>CAMAGRU</h1>
 </div>
 <hr>
-<form id="formForgetId" action="#" method="POST">
-    <p>Vous avez perdu <br>votre mot de passe, login,<br>
-        ou votre compte n'est pas actif ?</p>
+<form class="formForgetId" id="formForgetId" action="#" method="POST">
+    <p class="questionUser">Vous avez perdu <br>votre mot de passe, login,<br>
+        ou votre compte n'est pas actif ?
+    </p>
     <div class="forget_but">
         Veuillez renseigner une adresse mail :<br><br>
         <input id="emailForgetId" type="text" name="email"><br>
@@ -25,5 +26,7 @@
 <p class="back-accueil">
     <a class="link-back-accueil" href="../">Retour accueil</a>
 </p>
-<a class="link-back-accueil" href="../register/">Not yet registered ?</a>
+<p class="notYetRegister">
+    <a class="link-back-accueil" href="../register/">Not yet registered ?</a>
+</p>
 <div class="footer"></div>

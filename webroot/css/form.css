@@ -91,28 +91,16 @@ form input {
   display: inline-block; }
 
 /* line 88, ../sass/form.scss */
-.form_error {
+.form_error, .form_error_register {
   position: relative;
-  top: -50px;
   background: indianred;
   color: snow;
   padding-top: 6px;
   padding-bottom: 10px;
   font-family: 'Raleway', cursive;
-  font-size: 1.5vw; }
+  font-size: 1em; }
 
-/* line 99, ../sass/form.scss */
-.errorForgetId {
-  position: relative;
-  top: 0px;
-  background: indianred;
-  color: snow;
-  padding-top: 6px;
-  padding-bottom: 10px;
-  font-family: 'Raleway', cursive;
-  font-size: 1.5vw; }
-
-/* line 110, ../sass/form.scss */
+/* line 98, ../sass/form.scss */
 .form_error2 {
   display: block;
   position: relative;
@@ -125,22 +113,22 @@ form input {
   font-family: 'Raleway', cursive;
   font-size: 1.5vw; }
 
-/* line 123, ../sass/form.scss */
+/* line 111, ../sass/form.scss */
 .connect {
   font-size: 2vw;
   color: #006796;
   display: block;
   text-decoration: none; }
 
-/* line 130, ../sass/form.scss */
+/* line 118, ../sass/form.scss */
 .connect:hover {
   color: indianred; }
 
-/* line 134, ../sass/form.scss */
+/* line 122, ../sass/form.scss */
 .a-connect {
   font-size: 1vw; }
 
-/* line 139, ../sass/form.scss */
+/* line 127, ../sass/form.scss */
 .logo-pop {
   margin: 0% auto;
   padding-top: 5px;

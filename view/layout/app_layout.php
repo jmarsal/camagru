@@ -3,6 +3,9 @@
 	<head>
 	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv='cache-control' content='no-cache'>
+        <meta http-equiv='expires' content='0'>
+        <meta http-equiv='pragma' content='no-cache'>
 	    <title><?php echo isset($title_for_layout) ? $title_for_layout : 'Camagru';?></title>
         <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Cairo|Indie+Flower" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"/>
@@ -21,10 +24,10 @@
                     <a href="#" class="header__icon" id="header__icon" onclick="showhide()"></a>
                     <a class="header__logo" href="#">CAMAGRU</a>
                     <nav class="menu">
-                        <a href="appCamagru">Application</a>
+                        <a href="appCamagru">Studio</a>
                         <a href="galerieCamagru">Galerie</a>
                         <a href="#">Mon compte</a>
-                        <a href="<?php echo 'logout'; ?>">Delog</a>
+                        <a href="../">Delog</a>
                     </nav>
                 </header>
                 <div class="post">

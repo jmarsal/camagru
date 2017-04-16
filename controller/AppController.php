@@ -9,11 +9,22 @@ class AppController extends Controller
 			($_SESSION['login']) || !empty($_COOKIE['camagru-log'])){
             if (!empty($_POST['filter'])) {
                 $_SESSION['filter'] = $_POST['filter'];
+                var_dump($_SESSION['filter']);
+            }
+            if (!empty($_SESSION['img'])){
+                foreach ($_SESSION['img'] as $v){
+                    if (!isset($_SESSION[$v['id']]['namePhoto']) || empty($_SESSION[$v['id']]['namePhoto'])){
+                        $_SESSION[$v['id']]['namePhoto'] = 'Nom pour votre Photo ?';
+                    }
+                }
             }
             $this->loadModel('Photo');
             $this->loadModel('User');
+
             setcookie('camagru-log', $_SESSION['login'], time() + 31556926);
-            $_SESSION['login'] = $_COOKIE['camagru-log'];
+            if (empty($_SESSION['login'])){
+                $_SESSION['login'] = $_COOKIE['camagru-log'];
+            }
             $_SESSION['log'] = 1;
             $this->_printPreview();
             $this->render('appCamagru', 'app_layout');
@@ -39,6 +50,35 @@ class AppController extends Controller
                 "thumbnail" => $thumbnail,
                 "idMin" => $idMin
             ]);
+        }
+        return $this->json(400);
+    }
+
+    public function uploadPhotoAjax(){
+        if (!empty($_POST['error']) || !empty($_POST['messFileImg'])){
+            if (!empty($_POST['error'])){
+                $_SESSION['errorOrFileUpload'] = $_POST['error'];
+            } else {
+                $_SESSION['errorOrFileUpload'] = $_POST['messFileImg'];
+                $_SESSION['colorMessUpload'] = $_POST['color'];
+            }
+        }
+        if (!empty($_POST['file']) && !empty($_POST['src'])) {
+            $_SESSION['fileUpload'] = $_POST['file'];
+            $_SESSION['srcUpload'] = $_POST['src'];
+            return $this->json(200);
+        }
+        return $this->json(400);
+    }
+
+    public function backCameraAjax(){
+        if (!empty($_POST['back'])) {
+            $_SESSION['srcUpload'] = "";
+            $_SESSION['fileUpload'] = "";
+            $_SESSION['colorMessUpload'] = "";
+            $_SESSION['errorOrFileUpload'] = "";
+
+            return $this->json(200);
         }
         return $this->json(400);
     }
@@ -70,9 +110,7 @@ class AppController extends Controller
 
     public function objFilterAjax(){
         if (!empty($_POST['objFilter'])) {
-            $this->loadModel('Photo');
             $_SESSION['objFilter'] = $_POST['objFilter'];
-
             return $this->json(200);
         }
         return $this->json(400);
@@ -81,6 +119,20 @@ class AppController extends Controller
     public function galerieCamagru(){
         $this->redirection('galerie', 'galerieCamagru');
     }
+
+    public function getNamePhoto() {
+        if (!empty($_POST['namePhoto']) && !empty($_POST['id'])) {
+            $this->loadModel('Photo');
+
+            $name = htmlentities(trim($_POST['namePhoto']));
+            $this->Photo->saveNamePhotoToDb($_POST['id'], $name);
+            $_SESSION[$_POST["id"]."namePhoto"] = $name;
+
+            return $this->json(200);
+        }
+        return $this->json(400);
+    }
+
     /**
      * Recupere l'image et l'enregistre dans la Db
      */
@@ -90,15 +142,15 @@ class AppController extends Controller
 		$this->Photo->createDirectoryIfNotExist(REPO_PHOTO.$idUser.DS, 0755);
         $this->Photo->createDirectoryIfNotExist(REPO_PHOTO.$idUser.DS.'min'.DS, 0755);
 
-        if (!empty($_SESSION['filter'])){
+        if (isset($_SESSION['filter']) && $_SESSION['filter'] !== 'none'){
             $filter = $_SESSION['filter'];
         } else {
             $filter = 'none';
         }
-        if (!empty($_SESSION['objFilter'])){
+        if (!empty($_SESSION['objFilter']) && $_SESSION['objFilter'] !== null){
             $filterObj = $_SESSION['objFilter'];
         } else {
-            $filterObj = null;
+            $filterObj = 'noneObj';
         }
         $tabPathId = $this->Photo->savePhotoTmpToDb($idUser, $_POST['img64'], REPO_PHOTO.DS.$idUser, $filter, $filterObj);
         $_POST['img64'] = "";

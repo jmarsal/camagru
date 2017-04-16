@@ -10,8 +10,8 @@
     canvas = document.getElementById('canvas');
     photo = document.getElementById('photo');
     startbutton = document.getElementById('startbutton');
-    width = 700;
-    height = 220;
+    width = 2000;
+    height = 1600;
 
     navigator.getMedia = (navigator.getUserMedia ||
         navigator.webkitGetUserMedia ||

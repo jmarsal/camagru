@@ -1,14 +1,42 @@
 @import 'compass';
 @import 'colors';
 
+$sizeImg : 1000px;
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0% auto;
+  position: relative;
+  overflow-y: hidden;
+}
 .container-galerie{
+  margin: 0% auto;
+  position: relative;
+  display: block;
+  height: 100%;
+  //max-width: 1;
+  overflow-y: scroll;
+
   .container-img{
-    display: block;
-    margin-left: 36%;
+    max-width: $sizeImg;
+    position: relative;
+    margin: 0% auto;
+
+    //margin-left: 36%;
 
     .photo-galerie{
+      position: relative;
+      margin: 0% auto;
       border: 3px solid rgba(0, 0, 0, 0.6);
       border-bottom: hidden;
+      width: $sizeImg;
+      max-width: $sizeImg;
     }
 
     .photo-galerie:hover{
@@ -22,12 +50,13 @@
 
   .galerie-login{
     text-align: center;
-    max-width: 700px;
+    max-width: $sizeImg;
+    width: $sizeImg;
     background-color: rgba(0, 0, 0, 0.6);
     border: 3px solid rgba(0, 0, 0, 0.6);
     //border-top: hidden;
-    margin-top: -11px;
-    margin-bottom: 25px;
+    margin-top: -17px;
+    margin-bottom: 75px;
     padding-top: 12px;
     //margin-left: 3px;
 

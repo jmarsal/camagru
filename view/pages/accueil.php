@@ -3,15 +3,15 @@
 		<h1>CAMAGRU</h1>
 </div>
 <hr>
-<form action="#" method="POST">
+<form id="form-accueil" action="#" method="POST">
 	<div class="log_accueil_but">
 		Login:<br>
-		<input id="log-accueil" type="text" name="login" value="<?php echo $this->login ?>">
+		<input id="log-accueil" type="text" name="login" value="<?php echo $this->_login ?>">
 		<br>	
 	</div>
 	<div class="paswrd_accueil_but">
 		Password:<br>
-		<input id="paswrd_accueil_but" type="password" name="passwd" value="<?php echo $this->passwd
+		<input id="paswrd_accueil_but" type="password" name="passwd" value="<?php echo $this->_passwd
         ?>">
 		<br>
 	</div>
@@ -23,7 +23,9 @@
         <a class="forgetPass" href="forgetId/">Forget Password or Account not Active ?</a>
     </p>
 <hr>
-<a class="registered" href="register/">Not yet registered ?</a>
+<div class="registerDiv">
+    <a class="registered" href="register/">Not yet registered ?</a>
+</div>
 <?php if (!empty($this->mess_error)){
     echo '<p class="form_error">'.$this->mess_error.'</p>';
 } ?>

@@ -3,8 +3,10 @@
     <h1>CAMAGRU</h1>
 </div>
 <hr>
-<h4>Inscrivez-vous pour voir les photos de vos amis.</h4>
-<form id="formRegister" action="#" method="POST">
+<div class="textRegister">
+    <h4>Inscrivez-vous pour voir les photos de vos amis.</h4>
+</div>
+<form class="formRegister" id="formRegister" action="#" method="POST">
 	<div class="log_register_but">
 		Login:<br>
 		<input id="loginRegister" type="text" name="login" value="<?php echo $this->login ?>">

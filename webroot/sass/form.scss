@@ -85,26 +85,14 @@ form input{
 	display: inline-block;
 }
 
-.form_error{
+.form_error, .form_error_register{
 	position: relative;
-	top: -50px;
 	background: indianred;
 	color: snow;
 	padding-top: 6px;
 	padding-bottom: 10px;
 	font-family: 'Raleway', cursive;
-	font-size: 1.5vw;
-}
-
-.errorForgetId{
-	position: relative;
-	top: 0px;
-	background: indianred;
-	color: snow;
-	padding-top: 6px;
-	padding-bottom: 10px;
-	font-family: 'Raleway', cursive;
-	font-size: 1.5vw;
+	font-size: 1em;
 }
 
 .form_error2{

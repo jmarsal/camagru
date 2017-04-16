@@ -1,0 +1,67 @@
+/*
+  Taille de base sur ecran 2560 x 1440
+*/
+/* line 9, ../sass/forgetStyle.scss */
+.container .errorForgetId {
+  position: relative;
+  top: 0px;
+  background: indianred;
+  color: snow;
+  padding-top: 6px;
+  padding-bottom: 10px;
+  font-family: 'Raleway', cursive;
+  font-size: 40px; }
+/* line 20, ../sass/forgetStyle.scss */
+.container .link-back-accueil {
+  color: #f3f3f3;
+  display: block;
+  text-decoration: none;
+  position: relative;
+  width: 26%;
+  margin-left: 38%; }
+  /* line 28, ../sass/forgetStyle.scss */
+  .container .link-back-accueil:hover {
+    color: #e35c05; }
+/* line 33, ../sass/forgetStyle.scss */
+.container .back-accueil {
+  padding-bottom: 5%;
+  color: #f3f3f3;
+  display: block;
+  text-decoration: none; }
+  /* line 39, ../sass/forgetStyle.scss */
+  .container .back-accueil .link-back-accueil {
+    margin-left: 41%;
+    position: relative;
+    text-align: center;
+    width: 18%; }
+  /* line 46, ../sass/forgetStyle.scss */
+  .container .back-accueil .link-back-accueil:hover {
+    color: #e35c05; }
+/* line 51, ../sass/forgetStyle.scss */
+.container .forget_but {
+  font-size: 40px;
+  padding-bottom: 40px; }
+/* line 56, ../sass/forgetStyle.scss */
+.container .formForgetId {
+  margin: 0px auto; }
+  /* line 59, ../sass/forgetStyle.scss */
+  .container .formForgetId .questionUser {
+    margin: 0% auto;
+    width: 100%;
+    padding-bottom: 40px; }
+  /* line 65, ../sass/forgetStyle.scss */
+  .container .formForgetId .button {
+    margin: 0px auto;
+    font-size: 25px;
+    width: 150px; }
+  /* line 71, ../sass/forgetStyle.scss */
+  .container .formForgetId .errorForgetId {
+    font-size: 30px; }
+/* line 76, ../sass/forgetStyle.scss */
+.container .back-accueil, .container .notYetRegister {
+  margin: 0px auto;
+  width: 40%; }
+  /* line 80, ../sass/forgetStyle.scss */
+  .container .back-accueil .link-back-accueil, .container .notYetRegister .link-back-accueil {
+    margin: 0% auto;
+    width: 100%; }
