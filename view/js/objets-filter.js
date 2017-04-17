@@ -42,11 +42,11 @@ function NewObjectImg(filter){
 
         if (filter === 'beardMustaches'){
             imgObj.style.width = '28%';
-            imgObj.style.marginLeft = "800px";
-            imgObj.style.marginTop = "700px";
+            imgObj.style.marginLeft = "500px";
+            imgObj.style.marginTop = "500px";
         } else if (filter === "chapeauPirate"){
             imgObj.style.width = '60%';
-            imgObj.style.marginLeft = "500px";
+            imgObj.style.marginLeft = "275px";
             imgObj.style.marginTop = "-25px";
         } else if (filter === "dog"){
             imgObj.style.width = '40%';
@@ -83,7 +83,7 @@ function NewObjectImg(filter){
         }
         imgObj.src = '../webroot/images/objets/' + filter + '.png';
         imgObj.style.position = 'absolute';
-        imgObj.style.zIndex = '1';
+        imgObj.style.zIndex = '55';
         imgObj.id = 'imgObj';
         if (enlarge){
             imgObj.style.display = 'none';

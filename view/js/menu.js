@@ -29,7 +29,7 @@ function showHideFilter() {
         }
         container.removeChild(objFilter);
         takeMenuFilter.style.display = 'block';
-        container.style.marginLeft = '180px';
+        container.style.marginLeft = '120px';
         container.style.marginRight = '-160px';
         document.getElementById('none').style.animationName = "explode";
         document.getElementById('blur(5px)').style.animationName = "explode";
@@ -93,7 +93,18 @@ function showHideObj() {
     } else {
         takeObj.style.display = 'none';
     }
+}
 
+function closeAllFilters() {
+    var takeMenuFilter = document.getElementById('menuFilter'),
+        objFilter = document.getElementById('menu-objets')
+    ;
+
+    if (takeMenuFilter.style.display === 'block'){
+        showHideFilter();
+    } else if (objFilter.style.display === 'block'){
+        showHideObj();
+    }
 }
 
 

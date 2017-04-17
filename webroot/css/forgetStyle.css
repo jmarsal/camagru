@@ -10,7 +10,7 @@
   padding-top: 6px;
   padding-bottom: 10px;
   font-family: 'Raleway', cursive;
-  font-size: 40px; }
+  font-size: 30px; }
 /* line 20, ../sass/forgetStyle.scss */
 .container .link-back-accueil {
   color: #f3f3f3;
@@ -39,7 +39,7 @@
     color: #e35c05; }
 /* line 51, ../sass/forgetStyle.scss */
 .container .forget_but {
-  font-size: 40px;
+  font-size: 30px;
   padding-bottom: 40px; }
 /* line 56, ../sass/forgetStyle.scss */
 .container .formForgetId {
@@ -60,7 +60,7 @@
 /* line 76, ../sass/forgetStyle.scss */
 .container .back-accueil, .container .notYetRegister {
   margin: 0px auto;
-  width: 40%; }
+  width: 41%; }
   /* line 80, ../sass/forgetStyle.scss */
   .container .back-accueil .link-back-accueil, .container .notYetRegister .link-back-accueil {
     margin: 0% auto;

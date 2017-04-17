@@ -9,94 +9,92 @@
   Taille de base sur ecran 2560 x 1440
 */
 
-.container{
-	display: block;
-	position: relative;
+.container {
+    display: block;
+    position: relative;
     margin-top: 5%;
-
-  /*
-  Accueil
-   */
-  .accueil_form{
-    font-size: 45px;
-    position: relative;
-    margin: 0 auto;
-    width: 1320px;
-    max-width: 1320px;
-    //min-width: 700px;
-    background-color: rgba($color_back, 0.9);
-    text-align: center;
-    box-shadow: 0px 0px 1px rgb(0, 34, 62);
-  }
-
-  .containerForm{
-    margin-left: 10%;
-    max-width: 80%;
-  }
-
-  .paswrd_accueil_but{
-    margin-top: 15px;
-    margin-bottom: 40px;
-  }
-
-  .submit-accueil{
-    position: relative;
-    margin: 0px auto;
-    width: 150px;
-
-    .button{
-      font-size: 24px;
+    
+    /*
+    Accueil
+     */
+    .accueil_form {
+        font-size: 30px;
+        position: relative;
+        margin: 0 auto;
+        width: 800px;
+        max-width: 800px;
+        background-color: rgba($color_back, 0.9);
+        text-align: center;
+        box-shadow: 0px 0px 1px rgb(0, 34, 62);
+        
+        .containerForm {
+            margin-left: 10%;
+            max-width: 80%;
+    
+            .paswrd_accueil_but {
+                margin-top: 15px;
+                margin-bottom: 40px;
+            }
+    
+            .submit-accueil {
+                position: relative;
+                margin: 0px auto;
+                width: 150px;
+        
+                .button {
+                    font-size: 24px;
+                }
+            }
+    
+            .forgetPass a {
+                color: $color_text;
+                display: block;
+                text-decoration: none;
+                font-size: 35px;
+        
+                &:hover {
+                    color: $color_button_hover;
+                }
+            }
+    
+            .registerDiv {
+                display: block;
+                position: relative;
+                padding-bottom: 5%;
+        
+                .registered {
+                    color: $color_text;
+                    text-decoration: none;
+                    width: 26%;
+            
+                    &:hover {
+                        color: $color_button_hover;
+                    }
+                }
+            }
+        }
     }
-  }
-
-  .forgetPass a{
-    color: $color_text;
-    display: block;
-    text-decoration: none;
-    font-size: 35px;
-
-    &:hover{
-      color: $color_button_hover;
+    
+    /*
+    ForgetId
+     */
+    
+    /*
+    Other
+     */
+    textarea, select {
+        padding: 3px;
+        border: 1px solid $color_text_black;
+        border-radius: 5px;
+        width: 60%;
+        height: 150%;
+        box-shadow: 1px 0px 5px $color_text_black inset;
+        font-family: 'Cairo', sans-serif;
     }
-  }
-
-  .registerDiv{
-    display: block;
-    position: relative;
-    padding-bottom: 5%;
-
-    .registered{
-      color: $color_text;
-      text-decoration: none;
-      width: 26%;
-
-      &:hover{
-        color: $color_button_hover;
-      }
+    
+    .footer {
+        height: 45px;
     }
-  }
-
-  /*
-  ForgetId
-   */
-
-
-  /*
-  Other
-   */
-  textarea, select {
-    padding: 3px;
-    border: 1px solid $color_text_black;
-    border-radius: 5px;
-    width: 60%;
-    height: 150%;
-    box-shadow: 1px 0px 5px $color_text_black inset;
-    font-family: 'Cairo', sans-serif;
-  }
-
-  .footer{
-    height: 45px;
-  }
 }
 
 @import "accueilResponsive";

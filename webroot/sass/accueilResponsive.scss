@@ -1,324 +1,324 @@
 @import "colors";
 
 @media only screen and (max-width: 1920px) {
-  .logo h1{
-    font-size: 35px;
-  }
-
-  .container{
-    .accueil_form{
-      width: 1140px;
-      font-size: 35px;
-      padding: 0;
+    .logo h1 {
+        font-size: 35px;
     }
-
-    .forgetPass a{
-      font-size: 35px;
+    
+    .container {
+        .accueil_form {
+            width: 1140px;
+            font-size: 35px;
+            padding: 0;
+        }
+        
+        .forgetPass a {
+            font-size: 35px;
+        }
+        
+        .a-connect, .forget_but {
+            font-size: 35px;
+        }
     }
-
-    .a-connect, .forget_but{
-      font-size: 35px;
-    }
-  }
 }
 
 @media only screen and (max-width: 1280px) {
-  .logo h1{
-    font-size: 40px;
-  }
-
-  .container{
-    .accueil_form{
-      width: 880px;
-      font-size: 40px;
-      padding: 0;
-    }
-
-    .forgetPass a{
-      font-size: 40px;
-    }
-
-    .a-connect, .forget_but{
-      font-size: 40px;
-    }
-
-  //  register
-    .form_error_register{
-      font-size: 38px;
-    }
-  }
-}
-
-@media only screen and (max-width: 1000px){
-  html{
-    width: 100%;
-    height: 100%;
-    margin: 0px auto;
-    padding: 0px;
-  }
-
-  body{
-    margin: 0px;
-    padding: 0px;
-  }
-
-  .container{
-    margin: 0px;
-    padding: 0px;
-
-    .logo{
-
-      img{
-        width: 65px;
-      }
-
-      h1{
-        font-size: 55px;
-      }
-    }
-
-    //Accueil
-    .accueil_form{
-      background-color: rgba($color_back, 0.5);
-      width: 800px;
-      height: 1280px;
-      font-size: 45px;
-      padding: 0;
-    }
-
-    .forgetPass a{
-      font-size: 40px;
-    }
-
-    .a-connect, .forget_but{
-      font-size: 40px;
-    }
-
-    .log_accueil_but, .paswrd_accueil_but, .log_register_but, .mail_register_but,
-    .paswrd_register_but, .repeat_paswrd_register_but{
-      input{
-        width: 450px;
-      }
-    }
-
-    .submit-accueil{
-      .button{
+    .logo h1 {
         font-size: 40px;
-      }
     }
-
-    hr{
-      height: 3px;
+    
+    .container {
+        .accueil_form {
+            width: 880px;
+            font-size: 40px;
+            padding: 0;
+        }
+        
+        .forgetPass a {
+            font-size: 40px;
+        }
+        
+        .a-connect, .forget_but {
+            font-size: 40px;
+        }
+        
+        //  register
+        .form_error_register {
+            font-size: 38px;
+        }
     }
-
-    //  forgetId
-    .formForgetId{
-      .forget_but{
-        font-size: 38px;
-      }
-    }
-
-    .back-accueil, .notYetRegister{
-      width: 100%;
-    }
-
-    // register
-    .formRegister{
-      font-size: 38px;
-    }
-
-    .form_error_register{
-      font-size: 38px;
-    }
-  }
 }
 
+@media only screen and (max-width: 1000px) {
+    html {
+        width: 100%;
+        height: 100%;
+        margin: 0px auto;
+        padding: 0px;
+    }
+    
+    body {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    .container {
+        margin: 0px;
+        padding: 0px;
+        
+        .logo {
+            
+            img {
+                width: 65px;
+            }
+            
+            h1 {
+                font-size: 55px;
+            }
+        }
+        
+        //Accueil
+        .accueil_form {
+            background-color: rgba($color_back, 0.5);
+            width: 800px;
+            height: 1280px;
+            font-size: 45px;
+            padding: 0;
+        }
+        
+        .forgetPass a {
+            font-size: 40px;
+        }
+        
+        .a-connect, .forget_but {
+            font-size: 40px;
+        }
+        
+        .log_accueil_but, .paswrd_accueil_but, .log_register_but, .mail_register_but,
+        .paswrd_register_but, .repeat_paswrd_register_but {
+            input {
+                width: 450px;
+            }
+        }
+        
+        .submit-accueil {
+            .button {
+                font-size: 40px;
+            }
+        }
+        
+        hr {
+            height: 3px;
+        }
+        
+        //  forgetId
+        .formForgetId {
+            .forget_but {
+                font-size: 38px;
+            }
+        }
+        
+        .back-accueil, .notYetRegister {
+            width: 100%;
+        }
+        
+        // register
+        .formRegister {
+            font-size: 38px;
+        }
+        
+        .form_error_register {
+            font-size: 38px;
+        }
+    }
+}
 
 @media only screen and (max-width: 750px) {
-  html{
-    width: 100%;
-    height: 100%;
-    margin: 0px auto;
-    padding: 0px;
-  }
-
-  body{
-    margin: 0px;
-    padding: 0px;
-  }
-
-  .logo h1{
-    font-size: 30px;
-  }
-
-  .container{
-    //Accueil
-    .accueil_form{
-      width: 100%;
-      font-size: 30px;
-      padding: 0;
-    }
-
-    .forgetPass a{
-      font-size: 30px;
-    }
-
-    .a-connect, .forget_but{
-      font-size: 30px;
-    }
-
-  //  forgetId
-    .formForgetId{
-      .forget_but{
-        font-size: 28px;
-      }
-    }
-
-    .back-accueil, .notYetRegister{
-      width: 100%;
-    }
-
-  //  register
-
-  }
-}
-
-@media only screen and (max-width: 414px){
-  html{
-    width: 100%;
-    height: 100%;
-    margin: 0px auto;
-    padding: 0px;
-  }
-
-  body{
-    margin: 0px;
-    padding: 0px;
-  }
-
-  .container{
-    margin: 0px;
-    padding: 0px;
-
-    .logo{
-
-      img{
-        width: 40px;
-      }
-
-      h1{
-        font-size: 35px;
-      }
-    }
-
-    //Accueil
-    .accueil_form{
-      background-color: rgba($color_back, 0.5);
-      width: 100%;
-      font-size: 25px;
-      padding: 0;
-
-      .form_error{
-        font-size: 14px;
-      }
-    }
-
-    .forgetPass a{
-      font-size: 20px;
-    }
-
-    .a-connect, .forget_but{
-      font-size: 20px;
-    }
-
-    .log_accueil_but, .paswrd_accueil_but{
-      input{
-        width: 250px;
-      }
-    }
-
-    .submit-accueil{
-      .button{
-        font-size: 20px;
-      }
-    }
-
-    hr{
-      height: 1px;
-    }
-
-  //  ForgetId
-    .formForgetId{
-
-      .questionUser{
-        font-size: 20px;
-      }
-
-      .forget_but{
-        font-size: 15px;
-      }
-
-      input{
-        width: 250px;
-        font-size: 25px;
-      }
-
-      .button{
-        font-size: 20px;
-      }
-
-      .errorForgetId{
-        top: -50px;
-        font-size: 14px;
-        margin-bottom: -30px;
-      }
-    }
-
-    .back-accueil, .notYetRegister{
-      position: relative;
-      margin: 0px auto;
-      width: 100%;
-
-      .link-back-accueil{
-       position: relative;
+    html {
+        width: 100%;
+        height: 100%;
         margin: 0px auto;
-        width: 250px;
-      }
+        padding: 0px;
     }
-
-  //  Register
-    .textRegister{
-      font-size: 15px;
+    
+    body {
+        margin: 0px;
+        padding: 0px;
     }
-
-    .formRegister{
-      font-size: 15px;
-
-      input{
-        width: 250px;
-      }
-
-      .form_error_register{
-        font-size: 14px;
-      }
-
-      .repeat_paswrd_register_but{
-        padding-bottom: 30px;
-      }
+    
+    .logo h1 {
+        font-size: 30px;
     }
-
-    .log_register_but{
-      position: relative;
-      margin: 0px auto;
-      width: 100%;
-
-      .button{
-        font-size: 20px;
-        width: 150px;
-      }
+    
+    .container {
+        //Accueil
+        .accueil_form {
+            width: 100%;
+            font-size: 30px;
+            padding: 0;
+        }
+        
+        .forgetPass a {
+            font-size: 30px;
+        }
+        
+        .a-connect, .forget_but {
+            font-size: 30px;
+        }
+        
+        //  forgetId
+        .formForgetId {
+            .forget_but {
+                font-size: 28px;
+            }
+        }
+        
+        .back-accueil, .notYetRegister {
+            width: 100%;
+        }
+        
+        //  register
+        
     }
-  }
 }
+
+@media only screen and (max-width: 414px) {
+    html {
+        width: 100%;
+        height: 100%;
+        margin: 0px auto;
+        padding: 0px;
+    }
+    
+    body {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    .container {
+        margin: 0px;
+        padding: 0px;
+        
+        .logo {
+            
+            img {
+                width: 40px;
+            }
+            
+            h1 {
+                font-size: 35px;
+            }
+        }
+        
+        //Accueil
+        .accueil_form {
+            background-color: rgba($color_back, 0.5);
+            width: 100%;
+            font-size: 25px;
+            padding: 0;
+            
+            .form_error {
+                font-size: 14px;
+            }
+        }
+        
+        .forgetPass a {
+            font-size: 20px;
+        }
+        
+        .a-connect, .forget_but {
+            font-size: 20px;
+        }
+        
+        .log_accueil_but, .paswrd_accueil_but {
+            input {
+                width: 250px;
+            }
+        }
+        
+        .submit-accueil {
+            .button {
+                font-size: 20px;
+            }
+        }
+        
+        hr {
+            height: 1px;
+        }
+        
+        //  ForgetId
+        .formForgetId {
+            
+            .questionUser {
+                font-size: 20px;
+            }
+            
+            .forget_but {
+                font-size: 15px;
+            }
+            
+            input {
+                width: 250px;
+                font-size: 25px;
+            }
+            
+            .button {
+                font-size: 20px;
+            }
+            
+            .errorForgetId {
+                top: -50px;
+                font-size: 14px;
+                margin-bottom: -30px;
+            }
+        }
+        
+        .back-accueil, .notYetRegister {
+            position: relative;
+            margin: 0px auto;
+            width: 100%;
+            
+            .link-back-accueil {
+                position: relative;
+                margin: 0px auto;
+                width: 250px;
+            }
+        }
+        
+        //  Register
+        .textRegister {
+            font-size: 15px;
+        }
+        
+        .formRegister {
+            font-size: 15px;
+            
+            input {
+                width: 250px;
+            }
+            
+            .form_error_register {
+                font-size: 14px;
+            }
+            
+            .repeat_paswrd_register_but {
+                padding-bottom: 30px;
+            }
+        }
+        
+        .log_register_but {
+            position: relative;
+            margin: 0px auto;
+            width: 100%;
+            
+            .button {
+                font-size: 20px;
+                width: 150px;
+            }
+        }
+    }
+}
+
 //  body{
 //    margin: 0% auto;
 //    overflow-y: scroll;

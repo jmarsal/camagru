@@ -36,7 +36,7 @@ if (!isset($_SESSION)){
     <div class="video-containter">
         <div class="container-all-filters" id="container-all-filters" style="display: block">
             <div class="filters" id="filters">
-                <div class="filterHideButton" onclick="showHideFilter()">
+                <div class="filterHideButton" id="filterHideButton" onclick="showHideFilter()">
                     <img class="filters__icon" id="filters__icon" title="Filtres" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'color-filters.png';?>"/>
                     <p class="textFilter">Filtres</p>
                 </div>
@@ -56,7 +56,7 @@ if (!isset($_SESSION)){
                 </nav>
             </div>
             <div class="objets-filter" id="objets-filter">
-                <div class="objHideButton" onclick="showHideObj()">
+                <div class="objHideButton" id="objHideButton" onclick="showHideObj()">
                     <img class="objets__icon" id="objets__icon" title="Objets" src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'objets'.DS.'rubix.png';?>"/>
                     <p class="textObjFilter">Objets</p>
                 </div>
@@ -84,8 +84,8 @@ if (!isset($_SESSION)){
             <div class="buttonActionApp" id="buttonActionApp">
                 <div class="action-app" id="action-app">
                     <form class="take-photo" method="post" id="form-cache-photo">
-                        <img src='<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>' id="startbutton" class="take-photo-img" title="Cheeeese !"/>
-                        <img src='<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>' id="startbuttonUpload" class="startbuttonUpload" title="Enregistrer ?"/>
+                        <img src='<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>' id="startbutton" class="take-photo-img" title="Cheeeese !" style="display: <?php if(!empty($_SESSION['colorMessUpload'])){echo 'none';}else{echo 'inline-block';} ?>"/>
+                        <img src='<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>' id="startbuttonUpload" class="startbuttonUpload" title="Enregistrer ?" onclick="ajaxPhoto(<?php echo $_SESSION["srcUpload"];?>)" style="display: <?php if(empty($_SESSION['colorMessUpload'])){echo 'none';}else{echo 'inline-block';} ?>"/>
                         <input id="getSrc" type="hidden" name="getSrc" value="takePhoto">
                         <canvas class="canvas" id="canvas"></canvas>
                         <img class="img-booth" id="photo" alt="photo" src="">

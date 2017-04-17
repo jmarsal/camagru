@@ -9,9 +9,14 @@ function getSrcImg(data) {
         }, false);
 }
 
+function doNothink() {
+    document.getElementById('menuFilter');
+}
+
 function ajaxPhoto(data64) {
     var xhr = getXMLHttpRequest();
 
+    alert('ici');
     xhr.onreadystatechange = function() {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
             var data = JSON.parse(xhr.responseText),
@@ -66,7 +71,7 @@ function ajaxPhoto(data64) {
             var countElems = document.querySelectorAll('#prev-img .container-prev img');
             if (countElems.length >= 6){
                 container.style.overflowY = "auto";
-                container.style.width = "580px";
+                // container.style.width = "580px";
             } else  {
                 container.style.overflowY = "none";
                 if (countElems.length == 0){
@@ -145,8 +150,11 @@ function enlargePhoto(id){
                 cacheTakePhoto = document.getElementById('buttonActionApp'),
                 upload = document.getElementById('imgUpload'),
                 fileUpload = document.getElementById('file-upload'),
-                closeObjFilter = document.getElementById('imgObj')
-                ;
+                closeObjFilter = document.getElementById('imgObj'),
+                containerAllFilters = document.getElementById('container-all-filters'),
+                containerFilters = document.getElementById('filterHideButton'),
+                containerObjs = document.getElementById('objHideButton')
+            ;
 
             if (closeEnlarge != null){
                 closeEnlarge.parentNode.removeChild(closeEnlarge);
@@ -160,11 +168,16 @@ function enlargePhoto(id){
             if (fileUpload){
                 fileUpload.style.marginTop = '-70px';
             }
+            closeAllFilters();
+            containerAllFilters.style.filter = "grayscale(100%)";
+            containerFilters.onclick = function () { doNothink(); };
+            containerObjs.onclick = function () { doNothink(); };
 
             container.className = "container-enlarge";
             container.id = "container-enlarge";
             container.style.display = "inline-block";
             container.style.zIndex = "50";
+            container.style.height = "1100px";
 
             img.src = '../' + data.idBig;
             img.className = "img-enlarge";
@@ -184,6 +197,14 @@ function enlargePhoto(id){
 
                 close.style.display = "none";
                 close.style.border = "1px solid red";
+                replaceVideo.removeChild(close);
+
+                containerFilters.onclick = function () { showHideFilter(); };
+                containerObjs.onclick = function () { showHideObj(); };
+                containerAllFilters.style.filter = "none";
+
+
+                replaceVideo.style.left = "-265px";
 
                 if (upload.classList.contains("active")){
                     upload.style.display = 'inline-block';
@@ -322,8 +343,8 @@ function uploadImg() {
                             newImg.setAttribute('src', reader.result);
                             backVideo.style.display = 'inline-block';
                             takePhoto.style.display = "none";
-                            uploadPhoto.onclick = function () { ajaxPhoto(encodeURIComponent(reader.result)); };
                             uploadPhoto.style.display = 'inline-block';
+                            uploadPhoto.onclick = function () { ajaxPhoto(encodeURIComponent(reader.result)); };
                             messFileOrError.style.backgroundColor = color;
                             messFileOrError.innerHTML = messFileImg;
                         } else if ((state = xhr.readyState) == 4 && xhr.status != 200){
@@ -369,6 +390,7 @@ function backCamera() {
     filter.style.marginBottom = '15px';
     newImg.style.display = 'none';
     newImg.classList.remove("active");
+    newImg.src = "";
     document.getElementById('file-upload').style.display = 'none';
     // container.style.height = '1600px';
     container.classList.remove("active");
