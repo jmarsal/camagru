@@ -16,7 +16,6 @@ function doNothink() {
 function ajaxPhoto(data64) {
     var xhr = getXMLHttpRequest();
 
-    alert('ici');
     xhr.onreadystatechange = function() {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
             var data = JSON.parse(xhr.responseText),
