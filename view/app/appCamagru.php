@@ -85,14 +85,14 @@ if (!isset($_SESSION)){
                 <div class="action-app" id="action-app">
                     <form class="take-photo" method="post" id="form-cache-photo">
                         <img src='<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>' id="startbutton" class="take-photo-img" title="Cheeeese !" style="display: <?php if(!empty($_SESSION['colorMessUpload'])){echo 'none';}else{echo 'inline-block';} ?>"/>
-                        <img src='<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>' id="startbuttonUpload" class="startbuttonUpload" title="Enregistrer ?" onclick="ajaxPhoto(<?php if (!empty($_SESSION["srcUpload"])){echo $_SESSION["srcUpload"];}?>)" style="display: <?php if(empty($_SESSION['colorMessUpload'])){echo 'none';}else{echo 'inline-block';} ?>"/>
+                        <img src='<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>' id="startbuttonUpload" class="startbuttonUpload" title="Enregistrer ?" onclick="sendBase64ForTakePhoto('<?php if (!empty($_SESSION['srcUpload'])){ echo $_SESSION['srcUpload']; }?>')" style="display: <?php if(empty($_SESSION['colorMessUpload'])){echo 'none';}else{echo 'inline-block';} ?>"/>
                         <input id="getSrc" type="hidden" name="getSrc" value="takePhoto">
                         <canvas class="canvas" id="canvas"></canvas>
                         <img class="img-booth" id="photo" alt="photo" src="">
                     </form>
                 </div>
                 <div class="upload-app" id="upload-app">
-                    <div class="input-file-container">
+                    <div class="input-file-container <?php if (!empty($_SESSION['colorMessUpload'])){echo 'active';} ?>" id="uploadButton">
                         <input class="input-file" id="my-file" type="file" accept="image/*" value="" onchange="uploadImg()">
                         <label for="my-file">
                             <img class="input-file-trigger" src='<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS."upload.png";?>' title="Select a file...">

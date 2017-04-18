@@ -70,7 +70,6 @@ function ajaxPhoto(data64) {
             var countElems = document.querySelectorAll('#prev-img .container-prev img');
             if (countElems.length >= 6){
                 container.style.overflowY = "auto";
-                // container.style.width = "580px";
             } else  {
                 container.style.overflowY = "none";
                 if (countElems.length == 0){
@@ -322,9 +321,11 @@ function uploadImg() {
                     newImg = document.getElementById('imgUpload'),
                     backVideo = document.getElementById('back-to-video'),
                     takePhoto = document.getElementById('startbutton'),
-                    uploadPhoto = document.getElementById('startbuttonUpload')
+                    uploadPhoto = document.getElementById('startbuttonUpload'),
+                    divUploadButton = document.getElementById('uploadButton')
                 ;
                 document.getElementById('myvideo').style.display = 'none';
+                divUploadButton.classList.add("active");
 
                 if (newImg){
                     newImg.style.display = 'inline-block';
@@ -382,6 +383,7 @@ function backCamera() {
         backVideo = document.getElementById('back-to-video'),
         takePhoto = document.getElementById('startbutton'),
         uploadPhoto = document.getElementById('startbuttonUpload'),
+        divUploadButton = document.getElementById('uploadButton'),
         xhr = getXMLHttpRequest()
     ;
 
@@ -391,14 +393,23 @@ function backCamera() {
     newImg.classList.remove("active");
     newImg.src = "";
     document.getElementById('file-upload').style.display = 'none';
-    // container.style.height = '1600px';
     container.classList.remove("active");
     backVideo.style.display = 'none';
     takePhoto.style.display = 'inline-block';
     uploadPhoto.style.display = 'none';
+    divUploadButton.classList.remove("active");
+
 
     var tmp = "back=ok";
     xhr.open("post", "backCameraAjax", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(tmp);
+}
+
+function sendBase64ForTakePhoto(dataBase64) {
+    if (dataBase64){
+        dataBase64 = decodeURIComponent(dataBase64);
+        dataBase64 = encodeURIComponent(dataBase64);
+        ajaxPhoto(dataBase64);
+    }
 }

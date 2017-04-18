@@ -66,7 +66,7 @@ class AppController extends Controller
         if (!empty($_POST['file']) && !empty($_POST['src'])) {
             $_SESSION['fileUpload'] = $_POST['file'];
             $_SESSION['srcUpload'] = $_POST['src'];
-            var_dump($_SESSION['srcUpload']);
+//            var_dump($_SESSION['srcUpload']);
             return $this->json(200);
         }
         return $this->json(400);

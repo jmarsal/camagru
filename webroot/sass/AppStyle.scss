@@ -384,8 +384,7 @@ html, body {
                                     margin: 0px auto;
                                     position: relative;
                                     right: 520px;
-                                    top: -5px;
-                                    
+
                                     .input-file {
                                         display: none;
                                     }
@@ -417,6 +416,10 @@ html, body {
                                         }
                                     }
                                     
+                                }
+
+                                .active {
+                                    top: -5px;
                                 }
                             }
                             

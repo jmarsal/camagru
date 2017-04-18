@@ -459,22 +459,21 @@ html, body {
               .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container {
                 margin: 0px auto;
                 position: relative;
-                right: 520px;
-                top: -5px; }
-                /* line 389, ../sass/AppStyle.scss */
+                right: 520px; }
+                /* line 388, ../sass/AppStyle.scss */
                 .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container .input-file {
                   display: none; }
-                /* line 393, ../sass/AppStyle.scss */
+                /* line 392, ../sass/AppStyle.scss */
                 .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container .input-file-trigger {
                   position: relative;
                   cursor: pointer;
                   width: 52px; }
-                  /* line 398, ../sass/AppStyle.scss */
+                  /* line 397, ../sass/AppStyle.scss */
                   .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container .input-file-trigger:hover {
                     border-radius: 60%;
                     transition-duration: 1s;
                     filter: hue-rotate(360deg); }
-                /* line 405, ../sass/AppStyle.scss */
+                /* line 404, ../sass/AppStyle.scss */
                 .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container .back-to-video {
                   display: none;
                   position: relative;
@@ -482,21 +481,24 @@ html, body {
                   width: 50px;
                   left: 135px;
                   top: -65px; }
-                  /* line 413, ../sass/AppStyle.scss */
+                  /* line 412, ../sass/AppStyle.scss */
                   .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container .back-to-video:hover {
                     filter: invert(100%);
                     transition-duration: 1s;
                     filter: hue-rotate(360deg); }
-              /* line 423, ../sass/AppStyle.scss */
+              /* line 421, ../sass/AppStyle.scss */
+              .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .active {
+                top: -5px; }
+              /* line 426, ../sass/AppStyle.scss */
               .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .container-enlarge {
                 display: inline-block;
                 z-index: 50;
                 width: 1280px;
                 height: 960px; }
-                /* line 429, ../sass/AppStyle.scss */
+                /* line 432, ../sass/AppStyle.scss */
                 .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .container-enlarge .img-enlarge {
                   margin-bottom: -56px; }
-            /* line 435, ../sass/AppStyle.scss */
+            /* line 438, ../sass/AppStyle.scss */
             .site-container .site-pusher .post .elems-app .video-containter .booth .chooseFilter {
               padding-top: 20px;
               position: relative;
@@ -504,7 +506,7 @@ html, body {
               text-align: center;
               font-size: 30px;
               margin-bottom: -50px; }
-            /* line 444, ../sass/AppStyle.scss */
+            /* line 447, ../sass/AppStyle.scss */
             .site-container .site-pusher .post .elems-app .video-containter .booth .file-upload {
               margin: 0px auto;
               position: relative;
@@ -512,7 +514,7 @@ html, body {
               font-size: 20px;
               left: 0px;
               background-color: indianred; }
-          /* line 456, ../sass/AppStyle.scss */
+          /* line 459, ../sass/AppStyle.scss */
           .site-container .site-pusher .post .elems-app .video-containter .prev-img {
             display: none;
             background: #535f6a;
@@ -521,7 +523,7 @@ html, body {
             margin-right: 90px;
             max-height: 1032px;
             width: 360px; }
-            /* line 465, ../sass/AppStyle.scss */
+            /* line 468, ../sass/AppStyle.scss */
             .site-container .site-pusher .post .elems-app .video-containter .prev-img .container-prev {
               position: relative;
               margin: 0px auto;
@@ -530,7 +532,7 @@ html, body {
               padding-top: 20px;
               margin-top: -1px;
               margin-left: -5px; }
-            /* line 476, ../sass/AppStyle.scss */
+            /* line 479, ../sass/AppStyle.scss */
             .site-container .site-pusher .post .elems-app .video-containter .prev-img img {
               display: block;
               width: 300px;
@@ -538,11 +540,11 @@ html, body {
               margin-top: 2px;
               margin-right: 27px;
               margin-bottom: 10px; }
-            /* line 485, ../sass/AppStyle.scss */
+            /* line 488, ../sass/AppStyle.scss */
             .site-container .site-pusher .post .elems-app .video-containter .prev-img .prev-action {
               position: relative;
               top: 20px; }
-              /* line 489, ../sass/AppStyle.scss */
+              /* line 492, ../sass/AppStyle.scss */
               .site-container .site-pusher .post .elems-app .video-containter .prev-img .prev-action .del-button {
                 left: 275px;
                 cursor: pointer;
@@ -550,7 +552,7 @@ html, body {
                 position: absolute;
                 width: 28px;
                 top: -26px; }
-                /* line 497, ../sass/AppStyle.scss */
+                /* line 500, ../sass/AppStyle.scss */
                 .site-container .site-pusher .post .elems-app .video-containter .prev-img .prev-action .del-button:hover {
                   filter: invert(100%);
                   filter: hue-rotate(360deg);
@@ -558,12 +560,12 @@ html, body {
                   width: 40px;
                   left: 270px;
                   top: -30px; }
-              /* line 507, ../sass/AppStyle.scss */
+              /* line 510, ../sass/AppStyle.scss */
               .site-container .site-pusher .post .elems-app .video-containter .prev-img .prev-action .div-namePhoto {
                 display: inline-block;
                 position: relative;
                 margin: 0px auto; }
-                /* line 512, ../sass/AppStyle.scss */
+                /* line 515, ../sass/AppStyle.scss */
                 .site-container .site-pusher .post .elems-app .video-containter .prev-img .prev-action .div-namePhoto .name-photo {
                   display: inline-block;
                   position: absolute;
@@ -574,7 +576,7 @@ html, body {
                   font-style: italic;
                   text-align: center;
                   color: lightgrey; }
-              /* line 525, ../sass/AppStyle.scss */
+              /* line 528, ../sass/AppStyle.scss */
               .site-container .site-pusher .post .elems-app .video-containter .prev-img .prev-action .see-button {
                 cursor: pointer;
                 display: inline-block;
@@ -583,7 +585,7 @@ html, body {
                 width: 28px;
                 top: -28px;
                 left: 10px; }
-                /* line 534, ../sass/AppStyle.scss */
+                /* line 537, ../sass/AppStyle.scss */
                 .site-container .site-pusher .post .elems-app .video-containter .prev-img .prev-action .see-button:hover {
                   filter: invert(100%);
                   filter: hue-rotate(360deg);
@@ -592,7 +594,7 @@ html, body {
                   left: 10px;
                   top: -30px; }
 
-/* line 576, ../sass/AppStyle.scss */
+/* line 579, ../sass/AppStyle.scss */
 .booth_filter {
   background: rgba(94, 108, 120, 0.9);
   border: 10px solid #535f6a;
@@ -603,7 +605,7 @@ html, body {
   margin-left: 20%;
   margin-right: 52px; }
 
-/* line 587, ../sass/AppStyle.scss */
+/* line 590, ../sass/AppStyle.scss */
 .booth_prev {
   background: rgba(94, 108, 120, 0.9);
   border: 10px solid #535f6a;

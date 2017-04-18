@@ -213,19 +213,20 @@ function setElementsInDocument(loginDiv, spanLogin, dateDiv, spanDate, interacts
 }
 
 function setBottomPartComment(commentsDiv, spanComment, comments, i, id,  color1, color2, modulo) {
+    // Ajouter une classe left ou right en fonction du modulo
     commentsDiv.className = "comments";
     commentsDiv.id = "comments" + id;
     commentsDiv.style.background = "rgba(" + color2 + ", 0.6)";
     commentsDiv.style.borderLeft = "2px solid " + color1 + "";
     commentsDiv.style.borderRight = "2px solid " + color2 + "";
     commentsDiv.style.borderBottom = "6px solid " + color2 + "";
-    commentsDiv.style.width = "50%";
+    // commentsDiv.style.width = "50%";
     commentsDiv.style.textAlign = "left";
     if (modulo == 0){
         commentsDiv.style.marginLeft = "0%";
         commentsDiv.style.borderRadius = "0px 0px 20px 0px";
     } else {
-        commentsDiv.style.marginLeft = "50%";
+        commentsDiv.style.marginLeft = "507px";
         commentsDiv.style.borderRadius = "0px 0px 0px 20px";
     }
     spanComment.style.display = "relative";
@@ -258,6 +259,7 @@ function setDateCreated(dateDiv, spanDate, formatDate, id){
 }
 
 function setColorsGetModulo(logins, i, preSpanLog, moduloDivSpan){
+    // Ajouter une classe left ou right en fonction du modulo
     if (logins && logins[i - 1] && !preSpanLog){
         var log = logins[i - 1];
         if (log !== logins[i]){
@@ -331,18 +333,19 @@ function setColorsGetModulo(logins, i, preSpanLog, moduloDivSpan){
 }
 
 function setTopPartComment(interactsDiv, id,  color1, modulo){
+    // Ajouter une classe left ou right en fonction du modulo
     interactsDiv.className = "container-interact";
     interactsDiv.id = "container-interact" + id;
     interactsDiv.style.background = "rgba(" + color1 + ",0.6)";
     interactsDiv.style.bottom = "-10px";
-    interactsDiv.style.width = "50%";
+    // interactsDiv.style.width = "50%";
     interactsDiv.style.display = "inline-block";
-    interactsDiv.style.width = "100%";
+    // interactsDiv.style.width = "100%";
     if (modulo == 0){
-        interactsDiv.style.left = "-25%";
+        interactsDiv.style.left = "-239px";
         interactsDiv.style.borderRadius = "0px 20px 0px 0px";
     } else {
-        interactsDiv.style.left = "25%";
+        interactsDiv.style.left = "268px";
         interactsDiv.style.borderRadius = "20px 0px 0px 0px";
     }
 }
@@ -353,17 +356,19 @@ function setContainerAllComments(containerInteract, id) {
 }
 
 function setHr(hrDiv, hr, modulo) {
+    // Ajouter une classe left ou right en fonction du modulo
     hrDiv.className = "hr-div";
     hrDiv.position = "relative";
     hrDiv.style.marginBottom = "1.7%";
-    hrDiv.style.width = "50%";
+    // hrDiv.style.width = "50%";
     if (modulo == 0){
-        hrDiv.style.marginLeft = "0%";
+        hrDiv.style.marginLeft = "0px";
     } else {
-        hrDiv.style.marginLeft = "50%";
+        hrDiv.style.marginLeft = "507px";
     }
     hr.style.backgroundColor = "darkgrey";
     hr.style.color = "darkgrey";
+    hr.height = '1px';
 }
 
 function removeContainerComments(id){
