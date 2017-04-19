@@ -36,6 +36,9 @@
         <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'oXHR.js';?>" ></script>
         <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'ajaxApp.js';?>" ></script>
         <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'GalerieAjax.js';?>" ></script>
+        <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'printGalerie.js';?>" ></script>
+        <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'delOrLikePhotoGalerie.js';?>" ></script>
+        <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'date.js';?>" ></script>
         <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'menu.js';?>" ></script>
     </body>
 </html>

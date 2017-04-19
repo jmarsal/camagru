@@ -83,7 +83,8 @@ class GalerieController extends Controller
             }
             return $this->json(200, [
                 "comments" => $_SESSION['comments'],
-                "logins" => $login
+                "logins" => $login,
+                "logSession" => $_SESSION['login']
             ]);
         }
         return $this->json(400);
