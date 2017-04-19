@@ -4,8 +4,9 @@
 
 function submitComment(id) {
     var xhr = getXMLHttpRequest(),
-        getInput = document.getElementById("input-comment-text" + id).value
-        ;
+        getInput = document.getElementById("input-comment-text" + id).value //recupere l'imput
+    ;
+
     xhr.onreadystatechange = function () {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
             var data = JSON.parse(xhr.responseText),
@@ -13,6 +14,7 @@ function submitComment(id) {
                 spanComment = document.createElement('span'),
                 spanDate = document.createElement('span'),
                 spanLogin = document.createElement('span'),
+
                 containerInteract = document.createElement("div"),
                 interactsDiv = document.createElement("div"),
                 dateDiv = document.createElement("div"),
@@ -22,19 +24,13 @@ function submitComment(id) {
                 hr = document.createElement('hr'),
                 date = new Date(data.info.date),
                 formatDate = reformatDate(date),
-                logins = null,
                 getInput = document.getElementById("input-comment-text" + id),
                 nbcomments = document.getElementById("comment-span" + id)
                 ;
 
-            // if (!containerDiv){
-            //     var containerDiv = document.createElement('div');
-            //     setContainerAllComments(containerDiv, id);
-            //     setColorsGetModulo(logins, 0);
-            // } else {
                 var getLogColorsPreComment = containerDiv.lastChild;
 
-                if (getLogColorsPreComment){
+                if (getLogColorsPreComment){ // recupere le dernier login et sa position (left or right)
                     var preSpanLog = getLogColorsPreComment.firstChild.firstChild.firstChild.innerHTML;
                     var moduloDivSpan = getLogColorsPreComment.firstChild.style.left;
 
@@ -46,10 +42,10 @@ function submitComment(id) {
                     whichColor = 0;
                 }
 
-            // }
 
             // Recuperer le comment precedent si il existe, donc le login + la couleur + modulo
-            setColorsGetModulo(data.info.login, containerDiv.length, preSpanLog, moduloDivSpan);
+            // setColorsGetModulo(logins, i, preSpanLog, moduloDivSpan, id)
+            setColorsGetModulo(data.info, containerDiv.length, preSpanLog, moduloDivSpan, id);
             setHr(hrDiv, hr, modulo);
             setTopPartComment(interactsDiv, id,  color1, modulo);
             setDateCreated(dateDiv, spanDate, formatDate, id);
@@ -96,7 +92,7 @@ function delImgDb(id) {
 function likeImg(id) {
     var xhr = getXMLHttpRequest(),
         likeImg = document.getElementById("like-galerie" + id)
-        ;
+    ;
 
     xhr.onreadystatechange = function() {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
@@ -104,17 +100,15 @@ function likeImg(id) {
                 likeSpan = document.getElementById("like-span" + id)
             ;
             if (likeImg) {
-                if (likeImg.src.indexOf("none") == -1){
-                    var replaceLike = likeImg.src.replace('like', 'nonelike');
-                    likeImg.title = "j'aime";
-                } else {
-                    var replaceLike = likeImg.src.replace('nonelike', 'like');
-                    likeImg.title = "j'aime plus";
-                }
-                likeImg.src = replaceLike;
-                if (likeSpan){
-                    likeSpan.firstChild.nodeValue = data.nbLike;
-                }
+                var replanullke = likeImg.src.replace('like', 'nonelike');
+                likeImg.title = "j'aime";
+            } else {
+                var replaceLike = likeImg.src.replace('nonelike', 'like');
+                likeImg.title = "j'aime plus";
+            }
+            likeImg.src = replaceLike;
+            if (likeSpan){
+                likeSpan.firstChild.nodeValue = data.nbLike;
             }
         }
     };
@@ -143,10 +137,10 @@ function commmentsClick(id) {
             if (newcommentsDiv.style.display != "block"){
                 newcommentsDiv.style.display = "block";
 
-                for (i = 0; i < comments.length; i++){
+                for (i = 0; i < comments.length; i++) {
                     if (comments[i].userComment !== null) {
                         commentsNotNull[j] = comments[i].userComment;
-                        j++;
+                        j++
                     }
                 }
                 for (i = 0; i < commentsNotNull.length; i++){
@@ -181,7 +175,9 @@ function constructCommentsInDocument(containerDiv, comments, logins, id, i){
         formatDate = reformatDate(date)
         ;
 
-    setColorsGetModulo(logins, i);
+    // setColorsGetModulo(logins, i, preSpanLog, moduloDivSpan, id)
+    // setColorsGetModulo(data.info, containerDiv.length, preSpanLog, moduloDivSpan, id);
+    setColorsGetModulo(logins, i, id);
     setHr(hrDiv, hr, modulo);
     setContainerAllComments(containerInteract, id);
     setTopPartComment(interactsDiv, id,  color1, modulo);
@@ -258,18 +254,37 @@ function setDateCreated(dateDiv, spanDate, formatDate, id){
     spanDate.innerHTML = "le " + formatDate;
 }
 
-function setColorsGetModulo(logins, i, preSpanLog, moduloDivSpan){
+function setColorsGetModulo(logins, i, preSpanLog, moduloDivSpan, id){
     // Ajouter une classe left ou right en fonction du modulo
+    alert(id);
+
     if (logins && logins[i - 1] && !preSpanLog){
-        var log = logins[i - 1];
+        var log = logins[i - 1],
+            container = document.getElementById('container_message' + id)
+        ;
+
+        console.log(container);
+
         if (log !== logins[i]){
             whichColor = (whichColor == 0) ? 1 : 0;
             if (whichColor == 0){
+                if (container){
+                    if (container.classList.contains('right')){
+                        container.classList.remove('right');
+                    }
+                    container.classList.add('left');
+                }
                 modulo = 0;
                 color1 = "250, 118, 33";
                 color2 = "243, 146, 55";
                 whichColor = 0;
             } else {
+                if (container){
+                    if (container.classList.contains('left')){
+                        container.classList.remove('left');
+                    }
+                    container.classList.add('right');
+                }
                 modulo = 1;
                 color1 = "115, 115, 104";
                 color2 = "47, 79, 79";
@@ -277,11 +292,23 @@ function setColorsGetModulo(logins, i, preSpanLog, moduloDivSpan){
             }
         } else if (log === logins[i]) {
             if (whichColor == 0){
+                if (container){
+                    if (container.classList.contains('right')){
+                        container.classList.remove('right');
+                    }
+                    container.classList.add('left');
+                }
                 modulo = 0;
                 color1 = "250, 118, 33";
                 color2 = "243, 146, 55";
                 whichColor = 0;
             } else {
+                if (container){
+                    if (container.classList.contains('left')){
+                        container.classList.remove('left');
+                    }
+                    container.classList.add('right');
+                }
                 modulo = 1;
                 color1 = "115, 115, 104";
                 color2 = "47, 79, 79";
@@ -292,11 +319,23 @@ function setColorsGetModulo(logins, i, preSpanLog, moduloDivSpan){
         if (preSpanLog !== logins){
             whichColor = (moduloDivSpan == 0) ? 1 : 0;
             if (whichColor == 1){
+                if (container){
+                    if (container.classList.contains('right')){
+                        container.classList.remove('right');
+                    }
+                    container.classList.add('left');
+                }
                 modulo = 0;
                 color1 = "250, 118, 33";
                 color2 = "243, 146, 55";
                 whichColor = 0;
             } else {
+                if (container){
+                    if (container.classList.contains('left')){
+                        container.classList.remove('left');
+                    }
+                    container.classList.add('right');
+                }
                 modulo = 1;
                 color1 = "115, 115, 104";
                 color2 = "47, 79, 79";
@@ -304,11 +343,23 @@ function setColorsGetModulo(logins, i, preSpanLog, moduloDivSpan){
             }
         } else if (logins === preSpanLog) {
             if (whichColor == 0){
+                if (container){
+                    if (container.classList.contains('right')){
+                        container.classList.remove('right');
+                    }
+                    container.classList.add('left');
+                }
                 modulo = 0;
                 color1 = "250, 118, 33";
                 color2 = "243, 146, 55";
                 whichColor = 0;
             } else {
+                if (container){
+                    if (container.classList.contains('left')){
+                        container.classList.remove('left');
+                    }
+                    container.classList.add('right');
+                }
                 modulo = 1;
                 color1 = "115, 115, 104";
                 color2 = "47, 79, 79";
@@ -318,11 +369,23 @@ function setColorsGetModulo(logins, i, preSpanLog, moduloDivSpan){
     }
     else {
         if ((i % 2) == 0 || (whichColor && whichColor == 0)){
+            if (container){
+                if (container.classList.contains('right')){
+                    container.classList.remove('right');
+                }
+                container.classList.add('left');
+            }
             modulo = 0;
             color1 = "250, 118, 33";
             color2 = "243, 146, 55";
             whichColor = 0;
         } else if ((i % 2) == 1 || (whichColor && whichColor == 1)){
+            if (container){
+                if (container.classList.contains('left')){
+                    container.classList.remove('left');
+                }
+                container.classList.add('right');
+            }
             modulo = 1;
             color1 = "115, 115, 104";
             color2 = "47, 79, 79";
@@ -397,5 +460,5 @@ function convertDate(inputFormat) {
 function convertHours(inputFormat) {
     function pad(s) { return (s < 10) ? '0' + s : s; }
     var d = new Date(inputFormat);
-    return [d.getHours(), d.getMinutes()].join(':');
+    return [pad(d.getHours()), pad(d.getMinutes())].join(':');
 }
