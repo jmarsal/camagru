@@ -3,72 +3,72 @@
  */
 
 function submitComment(id) {
-    // var xhr = getXMLHttpRequest(),
-    //     getInput = document.getElementById("input-comment-text" + id).value //recupere l'imput
-    // ;
-    //
-    // xhr.onreadystatechange = function () {
-    //     if ((state = xhr.readyState) == 4 && xhr.status == 200) {
-    //         var data = JSON.parse(xhr.responseText),
-    //             containerDiv = document.getElementById("container-comments" + id),
-    //             spanComment = document.createElement('span'),
-    //             spanDate = document.createElement('span'),
-    //             spanLogin = document.createElement('span'),
-    //
-    //             containerInteract = document.createElement("div"),
-    //             interactsDiv = document.createElement("div"),
-    //             dateDiv = document.createElement("div"),
-    //             loginDiv = document.createElement("div"),
-    //             commentsDiv = document.createElement("div"),
-    //             hrDiv = document.createElement("div"),
-    //             hr = document.createElement('hr'),
-    //             date = new Date(data.info.date),
-    //             formatDate = reformatDate(date),
-    //             getInput = document.getElementById("input-comment-text" + id),
-    //             nbcomments = document.getElementById("comment-span" + id)
-    //             ;
-    //
-    //             var getLogColorsPreComment = containerDiv.lastChild;
-    //
-    //             if (getLogColorsPreComment){ // recupere le dernier login et sa position (left or right)
-    //                 var preSpanLog = getLogColorsPreComment.firstChild.firstChild.firstChild.innerHTML;
-    //                 var moduloDivSpan = getLogColorsPreComment.firstChild.style.left;
-    //
-    //                 moduloDivSpan = (moduloDivSpan == '-25%') ? 1 : 0;
-    //                 preSpanLog = preSpanLog.substr(0, preSpanLog.length - 3);
-    //             } else {
-    //                 moduloDivSpan = 0;
-    //                 preSpanLog = data.info.login;
-    //                 whichColor = 0;
-    //             }
-    //
-    //
-    //         // Recuperer le comment precedent si il existe, donc le login + la couleur + modulo
-    //         // setColorsGetModulo(logins, i, preSpanLog, moduloDivSpan, id)
-    //         setColorsGetModulo(data.info, containerDiv.length, preSpanLog, moduloDivSpan, id);
-    //         setHr(hrDiv, hr, modulo);
-    //         setTopPartComment(interactsDiv, id,  color1, modulo);
-    //         setDateCreated(dateDiv, spanDate, formatDate, id);
-    //         if (!containerDiv){
-    //             setBottomPartComment(commentsDiv, spanComment, data.info.comment, 0, id,  color1, color2, modulo);
-    //             setLoginDiv(loginDiv, spanLogin, data.info.login, id, null);
-    //         } else {
-    //             setBottomPartComment(commentsDiv, spanComment, data.info.comment, null, id,  color1, color2, modulo);
-    //             setLoginDiv(loginDiv, spanLogin, data.info.login, id, null);
-    //         }
-    //         containerDiv.style.display = "block";
-    //         setElementsInDocument(loginDiv, spanLogin, dateDiv, spanDate, interactsDiv, commentsDiv,
-    //             spanComment, hrDiv, hr,  containerInteract, containerDiv, containerDiv.length);
-    //         containerDiv.scrollTop = containerDiv.scrollHeight + 100;
-    //         getInput.value = "";
-    //         nbcomments.innerHTML = data.nbComments;
-    //     }
-    // };
-    //
-    // var tmp = "idPostGalerie=" + id + "&contentComment=" + getInput;
-    // xhr.open("post", "getNewCommentAjaxGalerie", true);
-    // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    // xhr.send(tmp);
+    var xhr = getXMLHttpRequest(),
+        getInput = document.getElementById("input-comment-text" + id).value //recupere l'imput
+    ;
+
+    xhr.onreadystatechange = function () {
+        if ((state = xhr.readyState) == 4 && xhr.status == 200) {
+            var data = JSON.parse(xhr.responseText),
+                containerDiv = document.getElementById("container-comments" + id),
+                spanComment = document.createElement('span'),
+                spanDate = document.createElement('span'),
+                spanLogin = document.createElement('span'),
+
+                containerInteract = document.createElement("div"),
+                interactsDiv = document.createElement("div"),
+                dateDiv = document.createElement("div"),
+                loginDiv = document.createElement("div"),
+                commentsDiv = document.createElement("div"),
+                hrDiv = document.createElement("div"),
+                hr = document.createElement('hr'),
+                date = new Date(data.info.date),
+                formatDate = reformatDate(date),
+                getInput = document.getElementById("input-comment-text" + id),
+                nbcomments = document.getElementById("comment-span" + id)
+                ;
+
+                var getLogColorsPreComment = containerDiv.lastChild;
+
+                if (getLogColorsPreComment){ // recupere le dernier login et sa position (left or right)
+                    var preSpanLog = getLogColorsPreComment.firstChild.firstChild.firstChild.innerHTML;
+                    var moduloDivSpan = getLogColorsPreComment.firstChild.style.left;
+
+                    moduloDivSpan = (moduloDivSpan == '-25%') ? 1 : 0;
+                    preSpanLog = preSpanLog.substr(0, preSpanLog.length - 3);
+                } else {
+                    moduloDivSpan = 0;
+                    preSpanLog = data.info.login;
+                    whichColor = 0;
+                }
+
+
+            // Recuperer le comment precedent si il existe, donc le login + la couleur + modulo
+            // setColorsGetModulo(logins, i, preSpanLog, moduloDivSpan, id)
+            setColorsGetModulo(data.info, containerDiv.length, preSpanLog, moduloDivSpan, id);
+            setHr(hrDiv, hr, modulo);
+            setTopPartComment(interactsDiv, id,  color1, modulo);
+            setDateCreated(dateDiv, spanDate, formatDate, id);
+            if (!containerDiv){
+                setBottomPartComment(commentsDiv, spanComment, data.info.comment, 0, id,  color1, color2, modulo);
+                setLoginDiv(loginDiv, spanLogin, data.info.login, id, null);
+            } else {
+                setBottomPartComment(commentsDiv, spanComment, data.info.comment, null, id,  color1, color2, modulo);
+                setLoginDiv(loginDiv, spanLogin, data.info.login, id, null);
+            }
+            containerDiv.style.display = "block";
+            setElementsInDocument(loginDiv, spanLogin, dateDiv, spanDate, interactsDiv, commentsDiv,
+                spanComment, hrDiv, hr,  containerInteract, containerDiv, containerDiv.length);
+            containerDiv.scrollTop = containerDiv.scrollHeight + 100;
+            getInput.value = "";
+            nbcomments.innerHTML = data.nbComments;
+        }
+    };
+
+    var tmp = "idPostGalerie=" + id + "&contentComment=" + getInput;
+    xhr.open("post", "getNewCommentAjaxGalerie", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(tmp);
 }
 
 function setElementsInDocument(loginDiv, spanLogin, dateDiv, spanDate, interactsDiv, commentsDiv,
@@ -90,7 +90,7 @@ function setElementsInDocument(loginDiv, spanLogin, dateDiv, spanDate, interacts
     containerDiv.insertBefore(containerInteract, containerDiv[i]);
 }
 
-function setBottomPartComment(commentsDiv, spanComment, comments, i, id,  color1, color2, modulo) {
+function setBottomPartComment(commentsDiv, spanComment, comments, i, id) {
     // Ajouter une classe left ou right en fonction du modulo
     commentsDiv.className = "comments";
     commentsDiv.id = "comments" + id;
@@ -108,6 +108,7 @@ function setBottomPartComment(commentsDiv, spanComment, comments, i, id,  color1
         commentsDiv.style.borderRadius = "0px 0px 0px 20px";
     }
     spanComment.style.display = "relative";
+    spanComment.className = "span-comment";
     if (i != null){
         spanComment.innerHTML = comments[i + 1].userComment;
     } else {
@@ -126,14 +127,6 @@ function setLoginDiv(loginDiv, spanLogin, logins, id, i){
     } else {
         spanLogin.innerHTML = ""+logins + " : ";
     }
-}
-
-function setDateCreated(dateDiv, spanDate, formatDate, id){
-    dateDiv.className = "date-comments";
-    dateDiv.id = "date-comments" + id;
-    spanDate.style.position = "relative";
-    spanDate.style.right = "60px";
-    spanDate.innerHTML = "le " + formatDate;
 }
 
 function setColorsGetModulo(logins, i, preSpanLog, moduloDivSpan, id){

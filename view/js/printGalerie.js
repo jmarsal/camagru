@@ -18,38 +18,30 @@ function commmentsClick(id) {
                 newcommentsDiv = document.getElementById("new-comments-container" + id),
                 comments = data.comments,
                 logins = data.logins,
-                commentsNotNull = new Array,
                 idCreateComments = 0,
-                j = 0,
-                sameUser = 0,
                 loginPrec = ""
             ;
 
+            // debugger;
             if (newcommentsDiv.style.display != "block"){
                 newcommentsDiv.style.display = "block";
 
-                // recupere les commentaires non vide
-                for (i = 0; i < comments.length; i++) {
-                    if (comments[i].userComment !== null) {
-                        commentsNotNull[j] = comments[i].userComment;
-                        j++
-                    }
-                }
                 //Check si il existe des message precedent, et si ils sont du meme user que celui qui est log
                 if (!logins){
                     logins = new Array;
                     logins[0] = data.logSession;
                 }
 
-                for (i = 0; i < commentsNotNull.length; i++){
+                for (i = 0; i < comments.length - 1; i++){
                     if (i == 0){
-                        sameUser = getModulo(data.logSession, data.logSession, logins[i]);
+                        getModulo(data.logSession, data.logSession, logins[i]);
                     }
                     else {
                         loginPrec = logins[i - 1];
-                        sameUser = getModulo(data.logSession, loginPrec, logins[i]);
+                        getModulo(data.logSession, loginPrec, logins[i]);
                     }
-                    constructCommentsInDocument(containerDiv, comments, logins, idCreateComments, i, sameUser);
+                    // console.log(comments.userComment);
+                    constructCommentsInDocument(containerDiv, comments, logins, idCreateComments, i);
                     containerDiv.scrollTop = containerDiv.scrollHeight + 100;
                     idCreateComments++;
                 }
@@ -77,6 +69,31 @@ function checkIfMessAndUser(userLogin, firstUserComment) {
 }
 
 function getModulo(userLogin, login1, login2) {
+    /*
+     Si le login precedent est le meme que l'actuel et que le meme que l'user
+     ex:    jibe jibe jibe
+            cote gauche
+
+     Si le login precedent est le meme que l'actuel et que != de l'user
+     ex:    jibe jibe elodie
+            cote droit
+
+     Si le login precedent est != de l'actuel et que le meme que l'user
+     ex:    jibe elodie jibe
+            cote gauche
+
+     Si le login precedent est != de l'actuel et que != de l'user
+     ex:    jibe elodie elodie
+            cote droit
+
+     Inversement de position si user a commente, un autre login et encore un autre login et a nouveau l'user
+     ex:    jibe elodie antoine jibe
+            jibe
+                elodie
+            antoine
+                jibe
+            cote gauche
+     */
     if ((checkIfMessAndUser(login1, login2)) == 0 && userLogin === login1){
         modulo = 0;
         color1 = "250, 118, 33";
@@ -90,9 +107,9 @@ function getModulo(userLogin, login1, login2) {
     }
 }
 
-function constructCommentsInDocument(containerComments, comments, logins, id, i, sameUser){ // containerDiv = conatiner-comments; sameUser = meme utilisateur que le premier comment ? 0 pour oui, -1 non
+function constructCommentsInDocument(containerComments, comments, logins, id, i){ // containerDiv = conatiner-comments; sameUser = meme utilisateur que le premier comment ? 0 pour oui, -1 non
     console.log(containerComments, comments, logins, id, i);
-    var spanComment = document.createElement('span'),
+    var spanComment = document.createElement('div'),
         spanDate = document.createElement('span'),
         spanLogin = document.createElement('span'),
         containerInteract = document.createElement("div"),
@@ -112,7 +129,8 @@ function constructCommentsInDocument(containerComments, comments, logins, id, i,
     setTopPartComment(interactsDiv, id,  color1, modulo);
     setDateCreated(dateDiv, spanDate, formatDate, id);
     setLoginDiv(loginDiv, spanLogin, logins, id, i);
-    setBottomPartComment(commentsDiv, spanComment, comments, i, id,  color1, color2, modulo);
+    setBottomPartComment(commentsDiv, spanComment, comments, i, id);
+
     containerComments.style.display = "block";
     setElementsInDocument(loginDiv, spanLogin, dateDiv, spanDate, interactsDiv, commentsDiv,
         spanComment, hrDiv, hr,  containerInteract, containerComments, i);

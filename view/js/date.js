@@ -2,6 +2,14 @@
  * Created by jmarsal on 4/19/17.
  */
 
+function setDateCreated(dateDiv, spanDate, formatDate, id){
+    dateDiv.className = "date-comments";
+    dateDiv.id = "date-comments" + id;
+    spanDate.style.position = "relative";
+    spanDate.style.right = "60px";
+    spanDate.innerHTML = "le " + formatDate;
+}
+
 function reformatDate(date){
     var formatDate = convertDate(date);
     var formatHours = convertHours(date);

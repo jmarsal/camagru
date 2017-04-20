@@ -99,7 +99,7 @@ body {
           display: none;
           position: relative;
           width: 100%;
-          max-height: 215px;
+          max-height: 355px;
           overflow-y: scroll;
           overflow-x: hidden; }
           /* line 131, ../sass/galerie.scss */
@@ -164,5 +164,11 @@ body {
   padding-bottom: 1.5%;
   width: 478px; }
   /* line 211, ../sass/galerie.scss */
-  .comments span {
-    margin-left: 7%; }
+  .comments .span-comment {
+    margin-left: 13px;
+    width: 95%;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word; }
