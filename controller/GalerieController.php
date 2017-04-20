@@ -97,6 +97,7 @@ class GalerieController extends Controller
             $newComment = trim(htmlentities($_POST['contentComment']));
             $idUser = $this->User->getIdUser($_SESSION['login']);
             $idPost = $_POST['idPostGalerie'];
+            utf8_decode($newComment);
 
             $infoComment = $this->Post->setCommemtInDb($idUser, $newComment, $idPost);
             $nbComments = $this->Post->getNbCommentsInDb($idPost);
@@ -117,7 +118,8 @@ class GalerieController extends Controller
             }
             return $this->json(200, [
                 "info" => $infoComment,
-                "nbComments" => $nbComments
+                "nbComments" => $nbComments,
+                "logSession" => $_SESSION['login']
             ]);
         }
         return $this->json(400);

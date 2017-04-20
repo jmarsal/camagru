@@ -13,10 +13,10 @@ class Model {
 		}
 		try{
 			$pdo = new PDO(
-			'mysql:host='.$conf['host'].';dbname='.$conf['database'].';',
+			'mysql:host='.$conf['host'].';dbname='.$conf['database'].';charset=utf8mb4',
 			$conf['login'],
 			$conf['password'],
-			array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
+			array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4')
 			);
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -45,15 +45,11 @@ class Model {
 			} else {
 				$cond = array();
 				foreach($req['conditions'] as $k => $v) {
-					// if(!is_numeric($v)) {
-					// 	$v = $this->db->quote($v);
-					// }
 					$cond[] = "$k = $v";
 				}
 				$sql .= implode(' AND ', $cond);
 			}
 		}
-		// die($sql);
 		$pre = $this->db->prepare($sql);
 		$pre->execute();
 		return $pre->fetchAll(PDO::FETCH_OBJ);

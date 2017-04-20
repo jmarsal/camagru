@@ -13,7 +13,7 @@ function getXMLHttpRequest() {
                 xhr = new ActiveXObject("Microsoft.XMLHTTP");
             }
         } else {
-            xhr = new XMLHttpRequest();// alert('connection ok 3');
+            xhr = new XMLHttpRequest();
         }
     } else {
         alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");

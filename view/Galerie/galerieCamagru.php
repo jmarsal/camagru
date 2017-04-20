@@ -9,6 +9,7 @@
 <div class="container-galerie">
     <div class="container-img">
         <?php if (!empty($_SESSION['galerie'])){
+            $modulo = 1;
             foreach($_SESSION['galerie'] as $v){
                 if (!empty($_SESSION['interactions'])){
                    foreach ($_SESSION['interactions'] as $val){
@@ -18,7 +19,7 @@
                        }
                    }
                 }?>
-                <div class="container-interact" id="<?php echo $v['id']; ?>">
+                <div class="container-interact <?php if ($modulo % 2 != 0){echo 'left';}else {echo 'right';}?>" id="<?php echo $v['id']; ?>">
                     <img class="photo-galerie" src="<?php echo BASE_URL . $v['file'].'.png'; ?>">
                     <div class="galerie-login" id="<?php echo 'galerie-login'.$v['id']; ?>">
                         <?php
@@ -61,6 +62,7 @@
                     </div>
                 </div>
                 <?php
+                $modulo++;
             }
         }  ?>
     </div>

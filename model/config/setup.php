@@ -19,7 +19,7 @@ class Database
 
 	private function _getPod() {
 		if ($this->_pdo === null) {
-		    $dsn = 'mysql:host='.$this->_dbHost.';dbname='.$this->_dbName;
+		    $dsn = 'mysql:host='.$this->_dbHost.';dbname='.$this->_dbName;'charset=utf8mb4';
 			$pdo = new PDO(     $dsn,
 								$this->_dbUser,
 								$this->_dbPassword);

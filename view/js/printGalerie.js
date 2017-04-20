@@ -19,10 +19,10 @@ function commmentsClick(id) {
                 comments = data.comments,
                 logins = data.logins,
                 idCreateComments = 0,
-                loginPrec = ""
+                loginPrec = "",
+                lastSetting = Array
             ;
 
-            // debugger;
             if (newcommentsDiv.style.display != "block"){
                 newcommentsDiv.style.display = "block";
 
@@ -34,14 +34,14 @@ function commmentsClick(id) {
 
                 for (i = 0; i < comments.length - 1; i++){
                     if (i == 0){
-                        getModulo(data.logSession, data.logSession, logins[i]);
+                        lastSetting = getModulo(data.logSession, data.logSession, logins[i], lastSetting, i);
                     }
                     else {
                         loginPrec = logins[i - 1];
-                        getModulo(data.logSession, loginPrec, logins[i]);
+                        lastSetting = getModulo(data.logSession, loginPrec, logins[i], lastSetting, i);
                     }
                     // console.log(comments.userComment);
-                    constructCommentsInDocument(containerDiv, comments, logins, idCreateComments, i);
+                    constructCommentsInDocument(containerDiv, comments, logins, idCreateComments, i, lastSetting);
                     containerDiv.scrollTop = containerDiv.scrollHeight + 100;
                     idCreateComments++;
                 }
@@ -68,47 +68,34 @@ function checkIfMessAndUser(userLogin, firstUserComment) {
     }
 }
 
-function getModulo(userLogin, login1, login2) {
-    /*
-     Si le login precedent est le meme que l'actuel et que le meme que l'user
-     ex:    jibe jibe jibe
-            cote gauche
+function getModulo(userLogin, login1, login2, lastSettings, i) {
 
-     Si le login precedent est le meme que l'actuel et que != de l'user
-     ex:    jibe jibe elodie
-            cote droit
-
-     Si le login precedent est != de l'actuel et que le meme que l'user
-     ex:    jibe elodie jibe
-            cote gauche
-
-     Si le login precedent est != de l'actuel et que != de l'user
-     ex:    jibe elodie elodie
-            cote droit
-
-     Inversement de position si user a commente, un autre login et encore un autre login et a nouveau l'user
-     ex:    jibe elodie antoine jibe
-            jibe
-                elodie
-            antoine
-                jibe
-            cote gauche
-     */
-    if ((checkIfMessAndUser(login1, login2)) == 0 && userLogin === login1){
-        modulo = 0;
-        color1 = "250, 118, 33";
-        color2 = "243, 146, 55";
-        whichColor = 0;
+    if (i == 0){
+        if ((checkIfMessAndUser(login1, login2)) == 0 && userLogin === login1){
+            lastSettings['modulo'] = 0;
+            return lastSettings;
+        } else {
+            lastSettings['modulo'] = 1;
+            return lastSettings;
+        }
     } else {
-        modulo = 1;
-        color1 = "115, 115, 104";
-        color2 = "47, 79, 79";
-        whichColor = 1;
+        if (lastSettings['modulo'] == 0 && login1 != login2){
+            lastSettings['modulo'] = 1;
+            return lastSettings;
+        } else if (lastSettings['modulo'] == 0 && login1 == login2){
+            lastSettings['modulo'] = 0;
+            return lastSettings;
+        } else if (lastSettings['modulo'] == 1 && login1 != login2){
+            lastSettings['modulo'] = 0;
+            return lastSettings;
+        } else {
+            lastSettings['modulo'] = 1;
+            return lastSettings;
+        }
     }
 }
 
-function constructCommentsInDocument(containerComments, comments, logins, id, i){ // containerDiv = conatiner-comments; sameUser = meme utilisateur que le premier comment ? 0 pour oui, -1 non
-    console.log(containerComments, comments, logins, id, i);
+function constructCommentsInDocument(containerComments, comments, logins, id, i, lastSettings){ // containerDiv = conatiner-comments; sameUser = meme utilisateur que le premier comment ? 0 pour oui, -1 non
     var spanComment = document.createElement('div'),
         spanDate = document.createElement('span'),
         spanLogin = document.createElement('span'),
@@ -123,44 +110,14 @@ function constructCommentsInDocument(containerComments, comments, logins, id, i)
         formatDate = reformatDate(date)
     ;
 
-    // setColorsGetModulo(logins, id, i, null, 1);
-    setHr(hrDiv, hr, modulo);
-    setContainerAllComments(containerInteract, id);
-    setTopPartComment(interactsDiv, id,  color1, modulo);
+    setHr(hrDiv, hr, lastSettings['modulo']);
+    setContainerAllComments(containerInteract, id, lastSettings['modulo']);
+    setTopPartComment(interactsDiv, id,  lastSettings['color1'], lastSettings['modulo']);
     setDateCreated(dateDiv, spanDate, formatDate, id);
     setLoginDiv(loginDiv, spanLogin, logins, id, i);
-    setBottomPartComment(commentsDiv, spanComment, comments, i, id);
+    setBottomPartComment(commentsDiv, spanComment, comments, i, id, lastSettings);
 
     containerComments.style.display = "block";
     setElementsInDocument(loginDiv, spanLogin, dateDiv, spanDate, interactsDiv, commentsDiv,
         spanComment, hrDiv, hr,  containerInteract, containerComments, i);
 }
-
-// function constructCommentsInDocument(containerComments, comments, logins, id, i){ // containerDiv = conatiner-comments
-//     var spanComment = document.createElement('span'),
-//         spanDate = document.createElement('span'),
-//         spanLogin = document.createElement('span'),
-//         containerInteract = document.createElement("div"),
-//         interactsDiv = document.createElement("div"),
-//         dateDiv = document.createElement("div"),
-//         loginDiv = document.createElement("div"),
-//         commentsDiv = document.createElement("div"),
-//         hrDiv = document.createElement("div"),
-//         hr = document.createElement('hr'),
-//         date = new Date(comments[i].created),
-//         formatDate = reformatDate(date)
-//     ;
-//
-//     // setColorsGetModulo(logins, i, preSpanLog, moduloDivSpan, id)
-//     // setColorsGetModulo(data.info, containerDiv.length, preSpanLog, moduloDivSpan, id);
-//     setColorsGetModulo(logins, id, i, null, 1);
-//     setHr(hrDiv, hr, modulo);
-//     setContainerAllComments(containerInteract, id);
-//     setTopPartComment(interactsDiv, id,  color1, modulo);
-//     setDateCreated(dateDiv, spanDate, formatDate, id);
-//     setLoginDiv(loginDiv, spanLogin, logins, id, i);
-//     setBottomPartComment(commentsDiv, spanComment, comments, i, id,  color1, color2, modulo);
-//     containerComments.style.display = "block";
-//     setElementsInDocument(loginDiv, spanLogin, dateDiv, spanDate, interactsDiv, commentsDiv,
-//         spanComment, hrDiv, hr,  containerInteract, containerComments, i);
-// }

@@ -32,7 +32,6 @@ function likeImg(id) {
                 tmp = null;
             ;
 
-            // alert(replaceLike);
             if (replaceLike === -1) {
                 tmp = likeImg.src.replace('like', 'nonelike');
                 likeImg.title = "j'aime";

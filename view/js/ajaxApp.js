@@ -347,8 +347,6 @@ function uploadImg() {
                             uploadPhoto.onclick = function () { ajaxPhoto(encodeURIComponent(reader.result)); };
                             messFileOrError.style.backgroundColor = color;
                             messFileOrError.innerHTML = messFileImg;
-                        } else if ((state = xhr.readyState) == 4 && xhr.status != 200){
-                            alert('status = ' + xhr.status);
                         }
                     };
 
