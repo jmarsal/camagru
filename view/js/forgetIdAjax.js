@@ -14,8 +14,6 @@ function submitForgetId() {
                 container = document.getElementById('formForgetId');
             ;
 
-            // var tmp = (xhr.responseText);
-            // console.log(tmp);
             if (data.messError && !prevMessError){
                 var messError = document.createElement('p')
                 ;

@@ -5,8 +5,6 @@
 function setDateCreated(dateDiv, spanDate, formatDate, id){
     dateDiv.className = "date-comments";
     dateDiv.id = "date-comments" + id;
-    spanDate.style.position = "relative";
-    spanDate.style.right = "60px";
     spanDate.innerHTML = "le " + formatDate;
 }
 

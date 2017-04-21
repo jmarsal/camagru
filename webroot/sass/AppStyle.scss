@@ -1,6 +1,7 @@
 @import 'compass';
 @import 'colors';
 @import "form";
+@import "objStyle";
 
 $menu-width: 250px !default;
 $width: 1280px;
@@ -96,7 +97,7 @@ html, body {
                     
                     /* Filtres */
                     .container-all-filters {
-                        display: flex;
+                        display: block;
                         margin-left: 120px;
                         margin-right: -160px;
                         
@@ -264,6 +265,14 @@ html, body {
                                     }
                                 }
                                 
+                            }
+                            
+                            &.obj-back{
+                                margin-left: -10px;
+                                
+                                &.filter-back{
+                                    margin-left: 0px;
+                                }
                             }
                         }
                         
@@ -551,7 +560,6 @@ html, body {
         }
     }
 }
-
 //@media only screen and (max-width: 2250px) {
 //  .menu{
 //

@@ -40,51 +40,30 @@ function NewObjectImg(filter){
             enlarge = enlarge = document.getElementById('container-enlarge')
         ;
 
-        if (filter === 'beardMustaches'){
-            imgObj.style.width = '28%';
-            imgObj.style.marginLeft = "500px";
-            imgObj.style.marginTop = "500px";
-        } else if (filter === "chapeauPirate"){
-            imgObj.style.width = '60%';
-            imgObj.style.marginLeft = "275px";
-            imgObj.style.marginTop = "-25px";
-        } else if (filter === "dog"){
-            imgObj.style.width = '40%';
-            imgObj.style.marginLeft = "-80px";
-            imgObj.style.marginTop = "410px";
-        } else if (filter === "epee"){
-            imgObj.style.width = '30%';
-            imgObj.style.marginLeft = "251px";
-            imgObj.style.marginTop = "581px";
-        } else if (filter === "epeeLaser"){
-            imgObj.style.width = '40%';
-            imgObj.style.marginLeft = "170px";
-            imgObj.style.marginTop = "580px";
-        } else if (filter === 'largeMustache'){
-            imgObj.style.width = '18%';
-            imgObj.style.marginLeft = "850px";
-            imgObj.style.marginTop = "582px";
-        } else if (filter === 'lunette'){
-            imgObj.style.width = '24%';
-            imgObj.style.marginLeft = "800px";
-            imgObj.style.marginTop = "289px";
-        } else if (filter === 'monkey'){
-            imgObj.style.width = '18%';
-            imgObj.style.marginLeft = "421px";
-            imgObj.style.marginTop = "317px";
-        } else if (filter === 'policeHat'){
-            imgObj.style.width = '38%';
-            imgObj.style.marginLeft = "643px";
-            imgObj.style.marginTop = "-4px";
-        } else if (filter === 'prismaticMustache'){
-            imgObj.style.width = '22%';
-            imgObj.style.marginLeft = "800px";
-            imgObj.style.marginTop = "700px";
-        }
+        imgObj.className = 'obj-img';
         imgObj.src = '../webroot/images/objets/' + filter + '.png';
-        imgObj.style.position = 'absolute';
-        imgObj.style.zIndex = '55';
         imgObj.id = 'imgObj';
+        if (filter === 'beardMustaches'){
+            imgObj.classList.add('beardMustaches');
+        } else if (filter === "chapeauPirate"){
+            imgObj.classList.add('chapeauPirate');
+        } else if (filter === "dog"){
+            imgObj.classList.add('dog');
+        } else if (filter === "epee"){
+            imgObj.classList.add('epee');
+        } else if (filter === "epeeLaser"){
+            imgObj.classList.add('epeeLaser');
+        } else if (filter === 'largeMustache'){
+            imgObj.classList.add('largeMustache');
+        } else if (filter === 'lunette'){
+            imgObj.classList.add('lunette');
+        } else if (filter === 'monkey'){
+            imgObj.classList.add('monkey');
+        } else if (filter === 'policeHat'){
+            imgObj.classList.add('policeHat');
+        } else if (filter === 'prismaticMustache'){
+            imgObj.classList.add('prismaticMustache');
+        }
         if (enlarge){
             imgObj.style.display = 'none';
         }

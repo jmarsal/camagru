@@ -17,20 +17,21 @@ function showHideFilter() {
     var takeMenuFilter = document.getElementById('menuFilter'),
         objFilter = document.getElementById('objets-filter'),
         newFilters = objFilter,
-        container = document.getElementById('container-all-filters')
+        container = document.getElementById('container-all-filters'),
+        checkObj = document.getElementById('menu-objets')
     ;
 
     if (takeMenuFilter.style.display === 'none'){
 
-        var checkObj = document.getElementById('menu-objets');
-
         if (checkObj.style.display === 'block'){
             checkObj.style.display = 'none';
         }
+
+        objFilter.classList.add('obj-back');
+        objFilter.classList.remove('filter-back');
         container.removeChild(objFilter);
         takeMenuFilter.style.display = 'block';
-        container.style.marginLeft = '120px';
-        container.style.marginRight = '-160px';
+
         document.getElementById('none').style.animationName = "explode";
         document.getElementById('blur(5px)').style.animationName = "explode";
         document.getElementById('brightness(0.4)').style.animationName = "explode";
@@ -42,17 +43,16 @@ function showHideFilter() {
         document.getElementById('invert(100%)').style.animationName = "explode";
         document.getElementById('sepia(60%)').style.animationName = "explode";
         takeMenuFilter.insertBefore(newFilters, takeMenuFilter.lastChild);
-        newFilters.style.marginLeft = '-10px';
 
     } else {
         var newFilters = document.getElementById('objets-filter'),
             objFilter = newFilters
         ;
 
+        newFilters.classList.remove('obj-back');
         takeMenuFilter.removeChild(newFilters);
         takeMenuFilter.style.display = 'none';
         container.insertBefore(objFilter, container.lastChild);
-        objFilter.style.marginLeft = '0px';
     }
 
 }
@@ -88,7 +88,7 @@ function showHideObj() {
         if (checkFilters.style.display === 'block'){
             checkFilters.style.display = 'none';
             container.insertBefore(containerObj, container.lastChild);
-            containerObj.style.marginLeft = "0px";
+            containerObj.classList.add('filter-back');
         }
     } else {
         takeObj.style.display = 'none';

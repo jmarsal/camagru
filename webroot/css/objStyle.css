@@ -1,0 +1,54 @@
+/* line 3, ../sass/objStyle.scss */
+.obj-img {
+  position: absolute;
+  z-index: 55; }
+  /* line 7, ../sass/objStyle.scss */
+  .obj-img.beardMustaches {
+    width: 28%;
+    margin-left: 500px;
+    margin-top: 400px; }
+  /* line 13, ../sass/objStyle.scss */
+  .obj-img.chapeauPirate {
+    width: 60%;
+    margin-left: 275px;
+    margin-top: -25px; }
+  /* line 19, ../sass/objStyle.scss */
+  .obj-img.dog {
+    width: 40%;
+    margin-left: -80px;
+    margin-top: 410px; }
+  /* line 25, ../sass/objStyle.scss */
+  .obj-img.epee {
+    width: 30%;
+    margin-left: 251px;
+    margin-top: 581px; }
+  /* line 31, ../sass/objStyle.scss */
+  .obj-img.epeeLaser {
+    width: 40%;
+    margin-left: 170px;
+    margin-top: 580px; }
+  /* line 37, ../sass/objStyle.scss */
+  .obj-img.largeMustache {
+    width: 18%;
+    margin-left: 850px;
+    margin-top: 582px; }
+  /* line 43, ../sass/objStyle.scss */
+  .obj-img.lunette {
+    width: 24%;
+    margin-left: 800px;
+    margin-top: 289px; }
+  /* line 49, ../sass/objStyle.scss */
+  .obj-img.monkey {
+    width: 18%;
+    margin-left: 421px;
+    margin-top: 317px; }
+  /* line 55, ../sass/objStyle.scss */
+  .obj-img.policeHat {
+    width: 38%;
+    margin-left: 643px;
+    margin-top: -4px; }
+  /* line 61, ../sass/objStyle.scss */
+  .obj-img.prismaticMustache {
+    width: 22%;
+    margin-left: 800px;
+    margin-top: 700px; }
