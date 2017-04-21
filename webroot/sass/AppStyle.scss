@@ -530,7 +530,11 @@ html, body {
                                     font-size: 18px;
                                     font-style: italic;
                                     text-align: center;
-                                    color: lightgrey;
+                                    color: darkslategrey;
+                                    
+                                    &.error-name-input{
+                                        color: indianred;
+                                    }
                                 }
                             }
                             

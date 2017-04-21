@@ -119,7 +119,7 @@ if (!isset($_SESSION)){
                         <div class="prev-action" id="prev-action">
                             <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'Loupe.png'; ?>" class="see-button" id="see-button" title="Agrandir ?" onclick="enlargePhoto(<?php echo $v['id'];?>)"/>
                             <div class="div-namePhoto">
-                                <input id="name-photo-<?php echo $v['id'];?>" class="name-photo" type="text" name="namePhoto" value="<?php if (!empty($_SESSION[$v['id'].'namePhoto'])){echo $_SESSION[$v['id'].'namePhoto'];}else{echo "Nom pour votre Photo ?";}?>" onfocus="delValue(<?php echo $v['id'];?>)" onblur="addValue(<?php echo $v['id'];?>)">
+                                <input id="name-photo-<?php echo $v['id'];?>" class="name-photo" type="text" name="namePhoto" placeholder="Nom pour votre Photo" onblur="addValue(<?php echo $v['id'];?>)">
                                 <input id="tmp-photo-<?php echo $v['id'];?>" class="tmp-photo" type="hidden" value="">
                             </div>
                             <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'Trash.ico'; ?>" class="del-button" id="del-button" title="Supprimer la photo ?" onclick="delImg(<?php echo $v['id'];?>)"/>

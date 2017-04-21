@@ -43,8 +43,9 @@ function ajaxPhoto(data64) {
             inputName.type = "text";
             inputName.name = "namePhoto";
             inputName.id = "name-photo-" + data.idMin;
-            inputName.value = "Nom pour votre Photo ?";
-            inputName.onclick = function () { delValue(data.idMin); };
+            inputName.placeholder = 'Nom pour votre Photo';
+            // inputName.value = "Nom pour votre Photo ?";
+            // inputName.onclick = function () { delValue(data.idMin); };
             inputName.onblur = function () { addValue(data.idMin); };
             //Path de l'img trash pour supprimer la prev
             del.className = "del-button";
@@ -239,31 +240,40 @@ function enlargePhoto(id){
     xhr.send(tmp);
 }
 
-function delValue(id){
-    var changeVal = document.getElementById('name-photo-' + id);
-    if (changeVal.value === 'Nom pour votre Photo ?' || changeVal.value !== ''){
-        if (changeVal.value !== 'Nom pour votre Photo ?' && changeVal.value !== ''){
-            document.getElementById('tmp-photo-' + id).value = changeVal.value;
-        }
-        changeVal.value = "";
-        changeVal.style.fontStyle = "normal";
-        changeVal.style.color = "black";
-    }
-}
+// function delValue(id){
+//     var changeVal = document.getElementById('name-photo-' + id);
+//     if (changeVal.value === 'Nom pour votre Photo ?' || changeVal.value !== ''){
+//         if (changeVal.value !== 'Nom pour votre Photo ?' && changeVal.value !== ''){
+//             document.getElementById('tmp-photo-' + id).value = changeVal.value;
+//         }
+//         changeVal.value = "";
+//         changeVal.style.fontStyle = "normal";
+//         changeVal.style.color = "black";
+//     }
+// }
 
 function addValue(id) {
     var changeVal = document.getElementById('name-photo-' + id);
-    if (changeVal.value === ''){
-        if (document.getElementById('tmp-photo-' + id).value !== ''){
-            changeVal.value = document.getElementById('tmp-photo-' + id).value;
-            document.getElementById('tmp-photo-' + id).value = '';
+
+    changeVal.classList.remove('error-name-input');
+    // if (changeVal.value === ''){
+    //     if (document.getElementById('tmp-photo-' + id).value !== ''){
+    //         changeVal.value = document.getElementById('tmp-photo-' + id).value;
+    //         document.getElementById('tmp-photo-' + id).value = '';
+    //     } else {
+    //         changeVal.value = "Nom pour votre Photo ?";
+    //     }
+    //     changeVal.style.fontStyle = "italic";
+    //     changeVal.style.color = "lightgrey";
+    // } else if (changeVal.value !== "Nom pour votre Photo ?"){
+    if (changeVal.value !== "Nom pour votre Photo" && changeVal.value !== ""){
+        if (changeVal.value.length < 255){
+            goGalerie(id, changeVal.value);
         } else {
-            changeVal.value = "Nom pour votre Photo ?";
+            changeVal.value = "255 caracteres maximum";
+            // changeVal.placeholder = "255 caracteres maximum !";
+            changeVal.classList.add('error-name-input');
         }
-        changeVal.style.fontStyle = "italic";
-        changeVal.style.color = "lightgrey";
-    } else if (changeVal.value !== "Nom pour votre Photo ?"){
-        goGalerie(id, changeVal.value);
     }
 }
 

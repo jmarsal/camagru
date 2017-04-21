@@ -636,8 +636,11 @@ html, body {
                   font-size: 18px;
                   font-style: italic;
                   text-align: center;
-                  color: lightgrey; }
-              /* line 537, ../sass/AppStyle.scss */
+                  color: darkslategrey; }
+                  /* line 535, ../sass/AppStyle.scss */
+                  .site-container .site-pusher .post .elems-app .video-containter .prev-img .prev-action .div-namePhoto .name-photo.error-name-input {
+                    color: indianred; }
+              /* line 541, ../sass/AppStyle.scss */
               .site-container .site-pusher .post .elems-app .video-containter .prev-img .prev-action .see-button {
                 cursor: pointer;
                 display: inline-block;
@@ -646,7 +649,7 @@ html, body {
                 width: 28px;
                 top: -28px;
                 left: 10px; }
-                /* line 546, ../sass/AppStyle.scss */
+                /* line 550, ../sass/AppStyle.scss */
                 .site-container .site-pusher .post .elems-app .video-containter .prev-img .prev-action .see-button:hover {
                   filter: invert(100%);
                   filter: hue-rotate(360deg);
@@ -655,7 +658,7 @@ html, body {
                   left: 10px;
                   top: -30px; }
 
-/* line 587, ../sass/AppStyle.scss */
+/* line 591, ../sass/AppStyle.scss */
 .booth_filter {
   background: rgba(94, 108, 120, 0.9);
   border: 10px solid #535f6a;
@@ -666,7 +669,7 @@ html, body {
   margin-left: 20%;
   margin-right: 52px; }
 
-/* line 598, ../sass/AppStyle.scss */
+/* line 602, ../sass/AppStyle.scss */
 .booth_prev {
   background: rgba(94, 108, 120, 0.9);
   border: 10px solid #535f6a;
