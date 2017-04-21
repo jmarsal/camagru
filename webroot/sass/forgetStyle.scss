@@ -4,82 +4,91 @@
   Taille de base sur ecran 2560 x 1440
 */
 
-.container{
+.container {
 
-  .errorForgetId{
-    position: relative;
-    top: 0px;
-    background: indianred;
-    color: snow;
-    padding-top: 6px;
-    padding-bottom: 10px;
-    font-family: 'Raleway', cursive;
-    font-size: 30px;
-  }
+    .accueil_form {
+        .containerForm {
 
-  .link-back-accueil{
-    color: $color_text;
-    display: block;
-    text-decoration: none;
-    position: relative;
-    width: 26%;
-    margin-left: 38%;
+            .errorForgetId {
+                position: relative;
+                top: 0px;
+                background: indianred;
+                color: snow;
+                padding-top: 6px;
+                padding-bottom: 10px;
+                font-family: 'Raleway', cursive;
+                font-size: 30px;
+            }
 
-    &:hover{
-      color: $color_button_hover;
+            .link-back-accueil {
+                color: $color_text;
+                display: block;
+                text-decoration: none;
+                position: relative;
+                width: 26%;
+                margin-left: 38%;
+
+                &:hover {
+                    color: $color_button_hover;
+                }
+            }
+
+            .back-accueil {
+                padding-bottom: 5%;
+                color: $color_text;
+                display: block;
+                text-decoration: none;
+
+                .link-back-accueil {
+                    margin-left: 41%;
+                    position: relative;
+                    text-align: center;
+                    width: 18%;
+                }
+
+                .link-back-accueil:hover {
+                    color: $color_button_hover;
+                }
+            }
+
+            .forget_but {
+                font-size: 30px;
+                padding-bottom: 40px;
+            }
+
+            .formForgetId {
+                margin: 0px auto;
+
+                .questionUser {
+                    margin: 0% auto;
+                    width: 100%;
+                    padding-bottom: 40px;
+                }
+
+                .button {
+                    margin: 0px auto;
+                    font-size: 25px;
+                    width: 150px;
+                }
+
+                .errorForgetId {
+                    font-size: 30px;
+                }
+            }
+
+            .back-accueil, .notYetRegister {
+                margin: 0px auto;
+                width: 41%;
+
+                .link-back-accueil {
+                    margin: 0% auto;
+                    width: 100%;
+                }
+            }
+
+            &.popup-mail {
+                padding-bottom: 34%;
+            }
+        }
     }
-  }
-
-  .back-accueil{
-  	padding-bottom: 5%;
-  	color: $color_text;
-  	display: block;
-  	text-decoration: none;
-
-    .link-back-accueil{
-      margin-left: 41%;
-      position: relative;
-      text-align: center;
-      width: 18%;
-    }
-
-    .link-back-accueil:hover{
-      color: $color_button_hover;
-    }
-  }
-
-  .forget_but{
-  	font-size: 30px;
-    padding-bottom: 40px;
-  }
-
-  .formForgetId{
-    margin: 0px auto;
-
-    .questionUser{
-      margin: 0% auto;
-      width: 100%;
-      padding-bottom: 40px;
-    }
-
-    .button{
-      margin: 0px auto;
-      font-size: 25px;
-      width: 150px;
-    }
-
-    .errorForgetId{
-      font-size: 30px;
-    }
-  }
-
-  .back-accueil, .notYetRegister{
-    margin: 0px auto;
-    width: 41%;
-
-    .link-back-accueil{
-      margin: 0% auto;
-      width: 100%;
-    }
-  }
 }

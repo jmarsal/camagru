@@ -11,14 +11,14 @@
         <title><?php echo isset($title_for_layout) ? $title_for_layout : 'Camagru';?></title>
         <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Cairo|Indie+Flower" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-        <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'forgetStyle.css';?> >
         <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'accueilStyle.css';?> >
+        <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'forgetStyle.css';?> >
         <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'404Style.css';?> >
 	</head>
 	<body>
 	<div class="container">
         <div class="accueil_form" id="accueil_form">
-            <div class="containerForm">
+            <div class="containerForm" id="containerForm">
                 <?php echo $content_for_layout;?>
             </div>
         </div>

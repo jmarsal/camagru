@@ -20,16 +20,17 @@ if (!isset($_SESSION)){
         }
     });
     <?php } ?>
-    <?php if (!empty($_SESSION['colorMessUpload'])){ ?>
-    var colorMessUpload = "<?php echo $_SESSION['colorMessUpload'];?>";
-    window.addEventListener("DOMContentLoaded", function() {
-        if (colorMessUpload){
-            document.getElementById('file-upload').style.backgroundColor = colorMessUpload;
-            document.getElementById('imgUpload').classList.add('active');
-            document.getElementById('booth').classList.add('active');
-        }
-    });
-    <?php } ?>
+<!--    --><?php //if (!empty($_SESSION['colorMessUpload'])){ ?>
+//    var colorMessUpload = "<?php //echo $_SESSION['colorMessUpload'];?>//";
+//    window.addEventListener("DOMContentLoaded", function() {
+//        if (colorMessUpload){
+////            document.getElementById('file-upload').style.backgroundColor = colorMessUpload;
+//            document.getElementById('imgUpload').classList.add('active');
+//            document.getElementById('booth').classList.add('active');
+//            document.getElementById('fileUpload').classList.add('upload');
+//        }
+//    });
+//    <?php //} ?>
 </script>
 <h2 class='bienvenue'>Bienvenue <?php echo $_SESSION["login"];?> </h2>
 <div class="elems-app">
@@ -79,7 +80,7 @@ if (!isset($_SESSION)){
         </div>
         <div class="booth" id="booth" >
             <img id="imgUpload" class="imgUpload" src="<?php if (!empty($_SESSION['srcUpload'])){ echo $_SESSION['srcUpload']; }?>" style="display: <?php if (empty($_SESSION['fileUpload'])){ echo 'none'; } else { echo 'inline-block'; }?>">
-            <video id="myvideo" style="display: <?php if (!empty($_SESSION['fileUpload'])){ echo 'none'; } else { echo 'inline-block'; }?>"></video>
+            <video id="myvideo" class="myvideo" style="display: <?php if (!empty($_SESSION['fileUpload'])){ echo 'none'; } else { echo 'inline-block'; }?>"></video>
             <audio id="audioPlayer" src="<?php echo BASE_URL.DS.'webroot'.DS.'sounds'.DS."photo2.ogg";?>"></audio>
             <div class="buttonActionApp" id="buttonActionApp">
                 <div class="action-app" id="action-app">
@@ -102,10 +103,10 @@ if (!isset($_SESSION)){
                 </div>
             </div>
             <p class="chooseFilter" id="chooseFilter">Choisis un filtre ou un objet pour prendre une photo</p>
-            <p class="file-upload" id="file-upload"><?php if (!empty($_SESSION['errorOrFileUpload'])){echo $_SESSION['errorOrFileUpload'];}?></p>
+            <p class="file-upload <?php if (!empty($_SESSION['colorMessUpload'])){ echo 'upload'; } ?>" id="file-upload"><?php if (!empty($_SESSION['errorOrFileUpload'])){echo $_SESSION['errorOrFileUpload'];}?></p>
         </div>
         <div class="prev-img-container">
-            <div class="prev-img" id="prev-img" style="overflow-y: <?php if (!empty($_SESSION["img"]) && (count($_SESSION["img"]) > 2)){echo "scroll";}else{echo "hidden";}?>">
+            <div class="prev-img <?php if($_SESSION['countElemPrev'] && $_SESSION['countElemPrev'] >= 6){ echo 'scroll-container-prev';} ?>" id="prev-img" style="overflow-y: <?php if (!empty($_SESSION["img"]) && (count($_SESSION["img"]) > 2)){echo "scroll";}else{echo "hidden";}?>">
                 <?php
                 if (!empty($_SESSION["img"])){
                     ?> <script type="text/javascript">
@@ -119,7 +120,7 @@ if (!isset($_SESSION)){
                         <div class="prev-action" id="prev-action">
                             <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'Loupe.png'; ?>" class="see-button" id="see-button" title="Agrandir ?" onclick="enlargePhoto(<?php echo $v['id'];?>)"/>
                             <div class="div-namePhoto">
-                                <input id="name-photo-<?php echo $v['id'];?>" class="name-photo" type="text" name="namePhoto" placeholder="Nom pour votre Photo" onblur="addValue(<?php echo $v['id'];?>)">
+                                <input id="name-photo-<?php echo $v['id'];?>" class="name-photo" type="text" name="namePhoto" placeholder="Nom pour votre Photo" onclick="delValue(<?php echo $v['id'];?>)" onblur="addValue(<?php echo $v['id'];?>)">
                                 <input id="tmp-photo-<?php echo $v['id'];?>" class="tmp-photo" type="hidden" value="">
                             </div>
                             <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'app'.DS.'Trash.ico'; ?>" class="del-button" id="del-button" title="Supprimer la photo ?" onclick="delImg(<?php echo $v['id'];?>)"/>

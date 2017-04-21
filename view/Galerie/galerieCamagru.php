@@ -11,6 +11,11 @@
         <?php if (!empty($_SESSION['galerie'])){
             $modulo = 1;
             foreach($_SESSION['galerie'] as $v){
+                $changeType = $v['file'];
+                $tmp = explode('.', $v['file']);
+                if (empty($tmp[1])){
+                    $changeType .= '.png';
+                }
                 if (!empty($_SESSION['interactions'])){
                    foreach ($_SESSION['interactions'] as $val){
                        if ($val['post_id'] == $v['id']){
@@ -20,7 +25,7 @@
                    }
                 }?>
                 <div class="container-interact <?php if ($modulo % 2 != 0){echo 'left';}else {echo 'right';}?>" id="<?php echo $v['id']; ?>">
-                    <img class="photo-galerie" src="<?php echo BASE_URL . $v['file'].'.png'; ?>">
+                    <img class="photo-galerie" src="<?php echo BASE_URL . $changeType; ?>">
                     <div class="galerie-login" id="<?php echo 'galerie-login'.$v['id']; ?>">
                         <?php
                         if ($_SESSION['login'] === $v['login']){ ?>

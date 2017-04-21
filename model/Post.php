@@ -10,7 +10,7 @@ class Post extends Model {
             $query = $this->db->prepare($sql);
             $d = array('big');
             $query->execute($d);
-            $pathPhoto = $query->fetchAll();
+            $pathPhoto = $query->fetchAll(PDO::FETCH_ASSOC);
             return $pathPhoto;
         } catch (PDOexception $e){
             print "Erreur : ".$e->getMessage()."";

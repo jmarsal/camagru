@@ -6,7 +6,7 @@
 <form id="form-accueil" action="#" method="POST">
 	<div class="log_accueil_but">
 		Login:<br>
-		<input id="log-accueil" type="text" name="login" value="<?php echo $this->_login ?>">
+		<input id="log-accueil" type="text" name="login" value="<?php echo $this->_login ?>" autofocus>
 		<br>	
 	</div>
 	<div class="paswrd_accueil_but">

@@ -9,7 +9,7 @@
 <form class="formRegister" id="formRegister" action="#" method="POST">
 	<div class="log_register_but">
 		Login:<br>
-		<input id="loginRegister" type="text" name="login" value="<?php echo $this->login ?>">
+		<input id="loginRegister" type="text" name="login" value="<?php echo $this->login ?>" autofocus>
 		<br>
 	</div>
 	<div class="mail_register_but">

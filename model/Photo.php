@@ -113,8 +113,15 @@ class Photo extends Model
         return $arr;
     }
 
-    private function _addFilterOnImg($pathImg, $filter, $pow=null, $pow2=null, $pow3=null){
-        $im = imagecreatefrompng($pathImg);
+    private function _addFilterOnImg($pathImg, $filter, $pow=null, $pow2=null, $pow3=null, $type){
+
+        if ($type === 'png'){
+            $im = imagecreatefrompng($pathImg);
+        } else if ($type === 'jpeg'){
+            $im = imagecreatefromjpeg($pathImg);
+        } else if ($type === 'gif'){
+            $im = imagecreatefromgif($pathImg);
+        }
         if ($filter !== 'blur(5px)' && $filter !== 'sepia(60%)'){
             if ($pow !== null && !$pow2){
                 imagefilter($im, $filter, $pow);
@@ -134,15 +141,31 @@ class Photo extends Model
                 imagefilter($im, IMG_FILTER_GAUSSIAN_BLUR);
             }
         }
-        imagepng($im, $pathImg);
+        if ($type === 'png'){
+            imagepng($im, $pathImg);
+        } else if ($type === 'jpeg'){
+            imagejpeg($im, $pathImg);
+        } else if ($type === 'gif'){
+            imagegif($im, $pathImg);
+        }
         imagedestroy($im);
     }
 
-    private function _addFilterObjOnImg($pathImg, $filterObj){
+    private function _addFilterObjOnImg($pathImg, $filterObj, $type){
         $pathFilterObj = 'webroot'.DS.'images'.DS.'objets'.DS.$filterObj.'.png';
 
-        $origin = imagecreatefrompng($pathImg);
-        $imgObj = imagecreatefrompng($pathFilterObj);
+        if ($type === 'png'){
+            $origin = imagecreatefrompng($pathImg);
+            $imgObj = imagecreatefrompng($pathFilterObj);
+        } else if ($type === 'jpeg'){
+            $origin = imagecreatefromjpeg($pathImg);
+            $imgObj = imagecreatefromjpeg($pathFilterObj);
+        } else if ($type === 'gif'){
+            $origin = imagecreatefromgif($pathImg);
+            $imgObj = imagecreatefromgif($pathFilterObj);
+        }
+//        $origin = imagecreatefrompng($pathImg);
+//        $imgObj = imagecreatefrompng($pathFilterObj);
         $widthObj = imagesx($imgObj);
         $heigthObj = imagesy($imgObj);
 
@@ -170,7 +193,13 @@ class Photo extends Model
             imagecopy($origin, $imgObj, 290, 240, 0, 0, $widthObj, $heigthObj);
         }
         imagesavealpha($origin, true);
-        imagepng($origin, $pathImg);
+        if ($type === 'png'){
+            imagepng($origin, $pathImg);
+        } else if ($type === 'jpeg'){
+            imagejpeg($origin, $pathImg);
+        } else if ($type === 'gif'){
+            imagegif($origin, $pathImg);
+        }
     }
 
     /**
@@ -181,11 +210,11 @@ class Photo extends Model
      * @param $filter string le filtre a ajouter, par default à null.
      * @return $pathmin array pathmin['id'] = id de la miniature, pathmin['path'] = le path de la miniature.
      */
-    public function savePhotoTmpToDb($idUser, $imgPngBase64, $pathToSaveImg, $filter = null, $filterObj = null){
-        date_default_timezone_set('UTC');
+    public function savePhotoTmpToDb($idUser, $imgBase64, $pathToSaveImg, $filter = null, $filterObj = null){
+        date_default_timezone_set('Europe/Paris');
         $date = date('Y-m-d H:i:s');
 
-        list($type, $data) = explode(';', $imgPngBase64);
+        list($type, $data) = explode(';', $imgBase64);
         list(, $type) = explode('/',$type);
         list(, $data) = explode(',', $data);
         $data = base64_decode($data);
@@ -212,10 +241,10 @@ class Photo extends Model
                 $pow3 = null;
             }
 
-            $this->_addFilterOnImg($pathToSaveImg.DS.$image_name, $filter, $pow, $pow2, $pow3);
+            $this->_addFilterOnImg($pathToSaveImg.DS.$image_name, $filter, $pow, $pow2, $pow3, $type);
         }
         if (!empty($filterObj) && $filterObj !== 'noneObj') {
-            $this->_addFilterObjOnImg($pathToSaveImg.DS.$image_name, $filterObj);
+            $this->_addFilterObjOnImg($pathToSaveImg.DS.$image_name, $filterObj, $type);
         }
 
         $this->resizeImg($pathToSaveImg.DS.$image_name, $pathToSaveImg.DS.'min', $image_name.'Min', 150, 150);
@@ -232,7 +261,11 @@ class Photo extends Model
                             VALUES (:post_id, :user_id, :created)";
 	    try {
 //	        Pour l'image original
-            $pathBig = '/photo-users/'.$idUser.DS.substr($image_name, 0, -4);
+            if ($type === 'png'){
+                $pathBig = '/photo-users/'.$idUser.DS.substr($image_name, 0, -4);
+            } else if ($type === 'jpeg' || $type === 'gif'){
+                $pathBig = '/photo-users/'.$idUser.DS.$image_name;
+            }
 	        $query = $this->db->prepare($sql);
 	        $d = array("file" => $pathBig,
                         "created" => $date,
@@ -260,8 +293,16 @@ class Photo extends Model
             );
             $query4->execute($d4);
 //	        pour la miniature
-            $pathmin['path'] = '/photo-users/'.$idUser.DS.'min'.DS.substr
-				($image_name, 0, -4).'Min'.'.jpg';
+            if ($type === 'png'){
+                $pathmin['path'] = '/photo-users/'.$idUser.DS.'min'.DS.substr
+                    ($image_name, 0, -4).'Min'.'.jpg';
+            } else if ($type === 'jpeg'){
+                $pathmin['path'] = '/photo-users/'.$idUser.DS.'min'.DS.substr
+                    ($image_name, 0, -5).'Min.jpg';
+            } else if ($type === 'gif'){
+                $pathmin['path'] = '/photo-users/'.$idUser.DS.'min'.DS.substr
+                    ($image_name, 0, -4).'Min'.'.gif';
+            }
             $d = array("file" => $pathmin['path'],
                 "created" => $date,
                 "type" => 'min',
@@ -293,12 +334,14 @@ class Photo extends Model
         }
 
         $name = str_replace('.png', '', $name);
-        $name = str_replace('.jpg', '', $name);
+        $name = str_replace('.jpeg', '', $name);
         $name = str_replace('.gif', '', $name);
 
 //        $name = substr($name, 0, -6);
         $dimension = getimagesize($img);
-        if (substr(strtolower($img), -4) == ".jpg"){ $image = imagecreatefromjpeg($img); }
+        if (substr(strtolower($img), -4) == ".jpg" || substr(strtolower($img), -5) == ".jpeg"){
+            $image = imagecreatefromjpeg($img);
+        }
         else if(substr(strtolower($img), -4) == ".png"){ $image = imagecreatefrompng($img); }
         else if(substr(strtolower($img), -4) == ".gif"){ $image = imagecreatefromgif($img); }
         // L'image ne peut etre redimensionne
@@ -337,7 +380,11 @@ class Photo extends Model
         imagecopyresampled($miniature, $image, $decalX, $decalY, 0, 0, $dimX, $dimY, $dimension[0], $dimension[1]);
 
         // On sauvegarde le tout
-        imagejpeg($miniature, $path.DS.$name.".jpg", 100);
+        if(substr(strtolower($img), -4) !== ".gif"){
+            imagejpeg($miniature, $path.DS.$name.".jpg", 100);
+        } else {
+            imagegif($miniature, $path.DS.$name.".gif", 100);
+        }
         return true;
     }
 
@@ -435,7 +482,12 @@ class Photo extends Model
             $d = array($id);
             $query->execute($d);
             $pathBig = $query->fetch();
-            return substr($pathBig[0], 1).'.png';
+            $type = explode('.', $pathBig[0]);
+            if (empty($type[1])){
+                return substr($pathBig[0], 1).'.png';
+            } else {
+                return substr($pathBig[0], 1);
+            }
         } catch (PDOexception $e){
             print "Erreur : ".$e->getMessage()."";
             die();

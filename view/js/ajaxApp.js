@@ -2,81 +2,74 @@
  * Created by jmarsal on 3/7/17.
  */
 
-function getSrcImg(data) {
-    finish = document.getElementById('form-cache-photo'),
-        finish.addEventListener('click', function(ev) {
-            ajaxPhoto(data);
-        }, false);
-}
-
 function doNothink() {
     document.getElementById('menuFilter');
 }
 
 function ajaxPhoto(data64) {
-    var xhr = getXMLHttpRequest();
+    var xhr = getXMLHttpRequest(),
+        container = document.getElementById('prev-img'),
+        divInputName = document.createElement('div'),
+        inputName = document.createElement('input'),
+        img = document.createElement('img'),
+        del = document.createElement('img'),
+        see = document.createElement('img'),
+        countElems = document.querySelectorAll('#prev-img .container-prev img')
+    ;
+
+    //Path et id de la prev dans la nouvelle balise img
+    divInputName.className = "div-namePhoto";
+    inputName.className = "name-photo";
+    inputName.type = "text";
+    inputName.name = "namePhoto";
+    inputName.placeholder = 'Nom pour votre Photo';
+    //Path de l'img trash pour supprimer la prev
+    del.className = "del-button";
+    del.src = "../webroot/images/app/Trash.ico";
+    del.id = "del-button";
+    del.title = "Supprimer la photo ?";
+
+    //Path de l'img see pour afficher l'image en grand
+    see.src = "../webroot/images/app/Loupe.png";
+    see.className = "see-button";
+    see.id = "see-button";
+    see.title = "Agrandir ?";
 
     xhr.onreadystatechange = function() {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
             var data = JSON.parse(xhr.responseText),
                 //container = le container de toutes les prev
-                container = document.getElementById('prev-img'),
-                //img = new prev
-                img = document.createElement('img'),
-                //del = img de trash
-                del = document.createElement('img'),
-                //see = img see
-                see = document.createElement('img'),
-                //div = container pour chaque photos
                 divContainer = document.createElement('div'),
-                divInputName = document.createElement('div'),
-                inputName = document.createElement('input'),
                 divContainerAction = document.createElement('div')
             ;
 
-            //Path et id de la prev dans la nouvelle balise img
             img.src = '../' + data.thumbnail;
             img.id = data.idMin;
 
-            divInputName.className = "div-namePhoto";
-            inputName.className = "name-photo";
-            inputName.type = "text";
-            inputName.name = "namePhoto";
             inputName.id = "name-photo-" + data.idMin;
-            inputName.placeholder = 'Nom pour votre Photo';
-            // inputName.value = "Nom pour votre Photo ?";
-            // inputName.onclick = function () { delValue(data.idMin); };
+            inputName.onclick = function () { delValue(data.idMin); };
             inputName.onblur = function () { addValue(data.idMin); };
-            //Path de l'img trash pour supprimer la prev
-            del.className = "del-button";
-            del.src = "../webroot/images/app/Trash.ico";
-            del.id = "del-button";
-            del.title = "Supprimer la photo ?";
+
             del.onclick = function() { delImg(data.idMin); };
 
-            //Path de l'img see pour afficher l'image en grand
-            see.src = "../webroot/images/app/Loupe.png";
-            see.className = "see-button";
-            see.id = "see-button";
-            see.title = "Agrandir ?";
-            see.onclick = function () {
-                enlargePhoto(data.idMin);
-            };
+            see.onclick = function () { enlargePhoto(data.idMin); };
+
+            if (countElems.length >= 6){
+                container.style.overflowY = "auto";
+                container.classList.add('scroll-container-prev');
+            } else  {
+                container.style.overflowY = "none";
+                container.classList.remove('scroll-container-prev');
+                if (countElems.length == 0){
+                    container.style.display = "none";
+                }
+            }
 
             divContainerAction.className = "prev-action";
 
             divContainer.className = "container-prev";
             divContainer.id = "" + data.idMin + "";
 
-            var countElems = document.querySelectorAll('#prev-img .container-prev img');
-            if (countElems.length >= 6){
-                container.style.overflowY = "auto";
-            } else  {
-                container.style.overflowY = "none";
-                if (countElems.length == 0){
-                    container.style.display = "none";
-                }
-            }
             divInputName.insertBefore(inputName, divInputName.childNodes[0]);
 
             divContainerAction.insertBefore(see, divContainerAction.childNodes[0]);
@@ -91,7 +84,7 @@ function ajaxPhoto(data64) {
             containerPrev.insertBefore(divContainerAction, containerPrev.childNodes[1]);
         }
     };
-    var tmp = "img64=" + data64;
+    var tmp = "img64=" + data64 + "&countElem=" + countElems.length;
     xhr.open("post", "uploadAjax", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(tmp);
@@ -165,7 +158,7 @@ function enlargePhoto(id){
                 upload.style.display = 'none';
             }
             if (fileUpload){
-                fileUpload.style.marginTop = '-70px';
+                fileUpload.classList.add('active');
             }
             closeAllFilters();
             containerAllFilters.style.filter = "grayscale(100%)";
@@ -174,9 +167,6 @@ function enlargePhoto(id){
 
             container.className = "container-enlarge";
             container.id = "container-enlarge";
-            container.style.display = "inline-block";
-            container.style.zIndex = "50";
-            container.style.height = "1100px";
 
             img.src = '../' + data.idBig;
             img.className = "img-enlarge";
@@ -185,7 +175,6 @@ function enlargePhoto(id){
             close.className = "close-enlarge";
             close.title = "Fermer photo ?";
 
-            // Bug ici lorsque je close img_enlarge
             close.onclick = function () {
                 var close = document.getElementById("container-enlarge"),
                     video = document.getElementById('myvideo'),
@@ -195,15 +184,12 @@ function enlargePhoto(id){
                     ;
 
                 close.style.display = "none";
-                close.style.border = "1px solid red";
                 replaceVideo.removeChild(close);
+                fileUpload.classList.remove('active');
 
                 containerFilters.onclick = function () { showHideFilter(); };
                 containerObjs.onclick = function () { showHideObj(); };
                 containerAllFilters.style.filter = "none";
-
-
-                replaceVideo.style.left = "-265px";
 
                 if (upload.classList.contains("active")){
                     upload.style.display = 'inline-block';
@@ -212,10 +198,6 @@ function enlargePhoto(id){
                     video.style.display = "inline-block";
                     upload.style.display = 'none';
                 }
-                if (fileUpload){
-                    fileUpload.style.marginTop = '0px';
-                }
-
                 cacheTakePhoto.style.display = 'inline-flex';
 
                 if (closeObjFilter){
@@ -240,38 +222,28 @@ function enlargePhoto(id){
     xhr.send(tmp);
 }
 
-// function delValue(id){
-//     var changeVal = document.getElementById('name-photo-' + id);
-//     if (changeVal.value === 'Nom pour votre Photo ?' || changeVal.value !== ''){
-//         if (changeVal.value !== 'Nom pour votre Photo ?' && changeVal.value !== ''){
-//             document.getElementById('tmp-photo-' + id).value = changeVal.value;
-//         }
-//         changeVal.value = "";
-//         changeVal.style.fontStyle = "normal";
-//         changeVal.style.color = "black";
-//     }
-// }
+function delValue(id){
+    var changeVal = document.getElementById('name-photo-' + id);
+
+    changeVal.style.fontStyle = "normal";
+    changeVal.style.color = "black";
+    if (changeVal.value === '255 caracteres maximum'){
+        changeVal.value = "";
+    }
+}
 
 function addValue(id) {
     var changeVal = document.getElementById('name-photo-' + id);
 
     changeVal.classList.remove('error-name-input');
-    // if (changeVal.value === ''){
-    //     if (document.getElementById('tmp-photo-' + id).value !== ''){
-    //         changeVal.value = document.getElementById('tmp-photo-' + id).value;
-    //         document.getElementById('tmp-photo-' + id).value = '';
-    //     } else {
-    //         changeVal.value = "Nom pour votre Photo ?";
-    //     }
-    //     changeVal.style.fontStyle = "italic";
-    //     changeVal.style.color = "lightgrey";
-    // } else if (changeVal.value !== "Nom pour votre Photo ?"){
     if (changeVal.value !== "Nom pour votre Photo" && changeVal.value !== ""){
         if (changeVal.value.length < 255){
+            changeVal.style.fontStyle = 'italic';
+            changeVal.style.color = 'lightgrey';
             goGalerie(id, changeVal.value);
         } else {
+            changeVal.style.fontStyle = 'normal';
             changeVal.value = "255 caracteres maximum";
-            // changeVal.placeholder = "255 caracteres maximum !";
             changeVal.classList.add('error-name-input');
         }
     }
@@ -280,14 +252,6 @@ function addValue(id) {
 function goGalerie(id, namePhoto) {
     var xhr = getXMLHttpRequest()
     ;
-
-    xhr.onreadystatechange = function() {
-        if ((state = xhr.readyState) == 4 && xhr.status == 200) {
-            var changeVal = document.getElementById('name-photo-' + id);
-            changeVal.style.fontStyle = "italic";
-            changeVal.style.color = "lightgrey";
-        }
-    };
 
     var tmp = "namePhoto=" + namePhoto + "&id=" + id;
     xhr.open("post", "getNamePhoto", true);
@@ -305,6 +269,7 @@ function uploadImg() {
     ;
 
     messFileOrError.style.display = 'block';
+    messFileOrError.classList.remove('upload');
     if (pathFile){
         var n = pathFile.lastIndexOf("\\"),
             path = pathFile.substr(n + 1),
@@ -345,8 +310,7 @@ function uploadImg() {
                 }
 
                 reader.addEventListener('load', function() {
-                    var messFileImg = "image chargée : " + path,
-                        color = "#F39237";
+                    var messFileImg = "image chargée : " + path;
 
                     xhr.onreadystatechange = function() {
                         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
@@ -355,13 +319,13 @@ function uploadImg() {
                             takePhoto.style.display = "none";
                             uploadPhoto.style.display = 'inline-block';
                             uploadPhoto.onclick = function () { ajaxPhoto(encodeURIComponent(reader.result)); };
-                            messFileOrError.style.backgroundColor = color;
+                            messFileOrError.classList.add('upload');
                             messFileOrError.innerHTML = messFileImg;
                         }
                     };
 
                     var tmp = "messFileImg=" + messFileImg + "&file=" + pathFile +
-                                "&src=" + encodeURIComponent(reader.result) + "&color=" + color;
+                                "&src=" + encodeURIComponent(reader.result) + "&upload=ok";
                     xhr.open("post", "uploadPhotoAjax", true);
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     xhr.send(tmp);
@@ -396,7 +360,7 @@ function backCamera() {
     ;
 
     filter.style.display = 'block';
-    filter.style.marginBottom = '15px';
+    filter.classList.add('back-video');
     newImg.style.display = 'none';
     newImg.classList.remove("active");
     newImg.src = "";

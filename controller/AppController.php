@@ -36,6 +36,7 @@ class AppController extends Controller
     public function uploadAjax(){
         // recupere le lien a afficher sur la page
         if (!empty($_POST['img64'])){
+            $_SESSION['countElemPrev'] = $_POST['countElem'];
             $this->loadModel('Photo');
             $this->loadModel('User');
 
@@ -60,7 +61,7 @@ class AppController extends Controller
                 $_SESSION['errorOrFileUpload'] = $_POST['error'];
             } else {
                 $_SESSION['errorOrFileUpload'] = $_POST['messFileImg'];
-                $_SESSION['colorMessUpload'] = $_POST['color'];
+                $_SESSION['colorMessUpload'] = $_POST['upload'];
             }
         }
         if (!empty($_POST['file']) && !empty($_POST['src'])) {

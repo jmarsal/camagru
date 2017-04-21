@@ -291,39 +291,52 @@ html, body {
                         left: -265px;
                         
                         // Agrandissement d'image
-                        .img-enlarge {
+                        .container-enlarge {
+                            display: inline-block;
+                            z-index: 50;
                             width: $width;
-                            height: $height + 70px;
-                        }
-                        
-                        // Boutton Close
-                        .close-enlarge {
-                            position: absolute;
-                            top: 20px;
-                            left: 1220px;
-                            width: 40px;
-                            cursor: pointer;
-                            
-                            &:hover {
-                                filter: invert(100%);
-                                filter: hue-rotate(360deg);
-                                transition-duration: 1s;
-                                width: 80px;
-                                left: 1190px;
-                                top: 10px;
+                            height: 1030px;
+
+                            .img-enlarge {
+                                margin-bottom: -56px;
+                                width: $width;
+                                height: $height + 72px;
+                            }
+
+                            // Boutton Close
+                            .close-enlarge {
+                                position: absolute;
+                                top: 20px;
+                                left: 1220px;
+                                width: 40px;
+                                cursor: pointer;
+
+                                &:hover {
+                                    filter: invert(100%);
+                                    filter: hue-rotate(360deg);
+                                    transition-duration: 1s;
+                                    width: 80px;
+                                    left: 1190px;
+                                    top: 10px;
+                                }
                             }
                         }
                         
                         .imgUpload {
                             width: $width;
                             max-height: $height;
-                            margin-bottom: 20px;
+                            margin-bottom: 7px;
                         }
                         
-                        video {
+                        .myvideo {
                             transform: scaleX(-1);
                             width: $width;
                             height: $height;
+                            margin-bottom: 0px;
+
+                            &.back-video{
+                                margin-bottom: 11px;
+                            }
                         }
                         
                         hr {
@@ -431,17 +444,6 @@ html, body {
                                     top: -5px;
                                 }
                             }
-                            
-                            .container-enlarge {
-                                display: inline-block;
-                                z-index: 50;
-                                width: $width;
-                                height: $height;
-                                
-                                .img-enlarge {
-                                    margin-bottom: -56px;
-                                }
-                            }
                         }
                         
                         .chooseFilter {
@@ -454,14 +456,27 @@ html, body {
                         }
                         
                         .file-upload {
+                            display: block;
                             margin: 0px auto;
                             position: relative;
                             text-align: center;
                             font-size: 20px;
                             left: 0px;
                             background-color: indianred;
+
+                            &.active{
+                                display: none;
+                                //margin-top: -10px;
+                                //padding-top: 5px;
+                                //margin-bottom: -8px;
+                            }
+
+                            &.upload{
+                                display: block;
+                                background-color: $color_button;
+                            }
                         }
-                        
+
                     }
                     
                     /* Preview photos */
@@ -522,6 +537,7 @@ html, body {
                                 margin: 0px auto;
                                 
                                 .name-photo {
+                                    width: 210px;
                                     display: inline-block;
                                     position: absolute;
                                     margin: 0px auto;
@@ -558,6 +574,10 @@ html, body {
                             }
                             
                         }
+                        &.scroll-container-prev{
+                            width: 370px;
+                        }
+
                     }
                 }
             }

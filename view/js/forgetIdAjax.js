@@ -11,7 +11,8 @@ function submitForgetId() {
         if ((state = xhr.readyState) == 4 && xhr.status == 200 ) {
             var data = JSON.parse(xhr.responseText),
                 prevMessError = document.getElementById('errorForgetId'),
-                container = document.getElementById('formForgetId');
+                container = document.getElementById('formForgetId'),
+                containerForm = document.getElementById('containerForm')
             ;
 
             if (data.messError && !prevMessError){
@@ -26,12 +27,12 @@ function submitForgetId() {
                 prevMessError.innerHTML = data.messError;
             } else {
                 var xhrMail = getXMLHttpRequest();
+                containerForm.classList.add('popup-mail');
 
                 //Send Mail
                 xhrMail.onreadystatechange = function () {
                     if ((state = xhrMail.readyState) == 4 && xhrMail.status == 200) {
                         container.innerHTML = data.popup.popup;
-                        container.style.paddingBottom = "25%";
 
                         //Popup et back accueil
                         compte = 5;

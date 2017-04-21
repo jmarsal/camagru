@@ -14,7 +14,8 @@ function submitRegister() {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
             var data = JSON.parse(xhr.responseText),
                 prevMessError = document.getElementById('form_error_register'),
-                container = document.getElementById('formRegister')
+                container = document.getElementById('formRegister'),
+                containerForm = document.getElementById('accueil_form')
             ;
 
             if (data.messError && !prevMessError && data.messError !== "true"){
@@ -33,11 +34,10 @@ function submitRegister() {
                 //Send Mail
                 xhrMail.onreadystatechange = function () {
                     if ((state = xhrMail.readyState) == 4 && xhrMail.status == 200) {
-                        console.log(data.info.popup);
-                        container.innerHTML = data.info.popup;
-                        container.style.paddingBottom = "25%";
 
                         //Popup et back accueil
+                        container.innerHTML = data.info.popup;
+                        containerForm.classList.add('popup-mail-register');
                         compte = 5;
                         document.getElementById("compt").innerHTML = compte + " secondes";
                         timer = setInterval('decompte()', 1000);

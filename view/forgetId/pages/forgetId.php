@@ -18,7 +18,7 @@
     </p>
     <div class="forget_but">
         Veuillez renseigner une adresse mail :<br><br>
-        <input id="emailForgetId" type="text" name="email"><br>
+        <input id="emailForgetId" type="text" name="email" autofocus><br>
     </div>
     <div class="button" id="buttonForgetId" onclick="submitForgetId()">Récuperer</div>
 </form>
