@@ -79,7 +79,7 @@ class MailSender
     }
 
 	public function newsMail(){
-		date_default_timezone_set('UTC');
+		date_default_timezone_set('Europe/Paris');
 		$date = date('d F Y');
 		if (empty($this->title)){
 			$this->title = 'Newsletter du '.$date;

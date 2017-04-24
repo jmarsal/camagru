@@ -20,17 +20,6 @@ if (!isset($_SESSION)){
         }
     });
     <?php } ?>
-<!--    --><?php //if (!empty($_SESSION['colorMessUpload'])){ ?>
-//    var colorMessUpload = "<?php //echo $_SESSION['colorMessUpload'];?>//";
-//    window.addEventListener("DOMContentLoaded", function() {
-//        if (colorMessUpload){
-////            document.getElementById('file-upload').style.backgroundColor = colorMessUpload;
-//            document.getElementById('imgUpload').classList.add('active');
-//            document.getElementById('booth').classList.add('active');
-//            document.getElementById('fileUpload').classList.add('upload');
-//        }
-//    });
-//    <?php //} ?>
 </script>
 <h2 class='bienvenue'>Bienvenue <?php echo $_SESSION["login"];?> </h2>
 <div class="elems-app">
@@ -106,11 +95,11 @@ if (!isset($_SESSION)){
             <p class="file-upload <?php if (!empty($_SESSION['colorMessUpload'])){ echo 'upload'; } ?>" id="file-upload"><?php if (!empty($_SESSION['errorOrFileUpload'])){echo $_SESSION['errorOrFileUpload'];}?></p>
         </div>
         <div class="prev-img-container">
-            <div class="prev-img <?php if($_SESSION['countElemPrev'] && $_SESSION['countElemPrev'] >= 6){ echo 'scroll-container-prev';} ?>" id="prev-img" style="overflow-y: <?php if (!empty($_SESSION["img"]) && (count($_SESSION["img"]) > 2)){echo "scroll";}else{echo "hidden";}?>">
+            <div class="prev-img <?php if(!empty($_SESSION['countElemPrev']) && $_SESSION['countElemPrev'] >= 6){ echo 'scroll-container-prev';} ?>" id="prev-image" style="overflow-y: <?php if (!empty($_SESSION["img"]) && (count($_SESSION["img"]) > 2)){echo "scroll";}else{echo "hidden";}?>">
                 <?php
                 if (!empty($_SESSION["img"])){
                     ?> <script type="text/javascript">
-                        var container = document.getElementById('prev-img');
+                        var container = document.getElementById('prev-image');
                         container.style.display = "block";
                     </script><?php
                 foreach($_SESSION['img'] as $v){

@@ -152,7 +152,7 @@ class Post extends Model {
     }
 
     public function setCommemtInDb($idUser, $newComment, $idPost){
-        date_default_timezone_set('UTC');
+        date_default_timezone_set('Europe/Paris');
         $date = date('Y-m-d H:i:s');
 
         //Recherche si l'idPost avec idUser se trouve deja dans la table comments

@@ -8,21 +8,16 @@ function doNothink() {
 
 function ajaxPhoto(data64) {
     var xhr = getXMLHttpRequest(),
-        container = document.getElementById('prev-img'),
+        container = document.getElementById('prev-image'),
         divInputName = document.createElement('div'),
-        // inputName = document.createElement('input'),
         img = document.createElement('img'),
         del = document.createElement('img'),
         see = document.createElement('img'),
-        countElems = document.querySelectorAll('#prev-img .container-prev img')
+        countElems = document.querySelectorAll('#prev-image .container-prev img')
     ;
 
     //Path et id de la prev dans la nouvelle balise img
     divInputName.className = "div-namePhoto";
-    // inputName.className = "name-photo";
-    // inputName.type = "text";
-    // inputName.name = "namePhoto";
-    // inputName.placeholder = 'Nom pour votre Photo';
     //Path de l'img trash pour supprimer la prev
     del.className = "del-button";
     del.src = "../webroot/images/app/Trash.ico";
@@ -46,10 +41,6 @@ function ajaxPhoto(data64) {
             img.src = '../' + data.thumbnail;
             img.id = data.idMin;
 
-            // inputName.id = "name-photo-" + data.idMin;
-            // inputName.onclick = function () { delValue(data.idMin); };
-            // inputName.onblur = function () { addValue(data.idMin); };
-
             del.onclick = function() { delImg(data.idMin); };
 
             see.onclick = function () { enlargePhoto(data.idMin); };
@@ -57,7 +48,7 @@ function ajaxPhoto(data64) {
             if (countElems.length >= 6){
                 container.style.overflowY = "auto";
                 container.classList.add('scroll-container-prev');
-            } else  {
+            } else {
                 container.style.overflowY = "none";
                 container.classList.remove('scroll-container-prev');
                 if (countElems.length == 0){
@@ -116,10 +107,10 @@ function delImg(id){
                 cacheButtons.style.cursor = 'pointer';
             }
             imgs.parentNode.removeChild(imgs);
-            var countElems = document.querySelectorAll('#prev-img .container-prev img');
+            var countElems = document.querySelectorAll('#prev-image .container-prev img');
 
             if (countElems.length <= 6){
-                var container = document.getElementById('prev-img');
+                var container = document.getElementById('prev-image');
 
                 container.style.overflowY = "hidden";
                 container.classList.remove('scroll-container-prev');

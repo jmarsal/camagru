@@ -34,3 +34,27 @@
         }
     }
 }
+
+// iphone5
+@media only screen and (max-width: 414px) {
+    .container{
+        .accueil_form{
+            .containerForm{
+                .textRegister{
+                    font-size: 25px;
+                }
+                .formRegister{
+                    font-size: 25px;
+                }
+                .log_register_but{
+                    .button{
+                        width: 200px;
+                    }
+                }
+            }
+        }
+        
+    }
+    
+}
+

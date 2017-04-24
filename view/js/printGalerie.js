@@ -32,7 +32,7 @@ function commmentsClick(id) {
                     logins[0] = data.logSession;
                 }
 
-                for (i = 0; i < comments.length - 1; i++){
+                for (i = 1; i < comments.length; i++){
                     if (i == 0){
                         lastSetting = getModulo(data.logSession, data.logSession, logins[i], lastSetting, i);
                     }
@@ -78,7 +78,7 @@ function getModulo(userLogin, login1, login2, lastSettings, i) {
             return lastSettings;
         }
     } else {
-        if (lastSettings['modulo'] == 0 && login1 != login2){
+        if (lastSettings['modulo'] == 0 && login1 != login2 && login2 != null){
             lastSettings['modulo'] = 1;
             return lastSettings;
         } else if (lastSettings['modulo'] == 0 && login1 == login2){
@@ -88,7 +88,7 @@ function getModulo(userLogin, login1, login2, lastSettings, i) {
             lastSettings['modulo'] = 0;
             return lastSettings;
         } else {
-            lastSettings['modulo'] = 1;
+            lastSettings['modulo'] = 0;
             return lastSettings;
         }
     }

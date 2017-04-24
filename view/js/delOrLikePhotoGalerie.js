@@ -22,24 +22,23 @@ function delImgDb(id) {
 function likeImg(id) {
     var xhr = getXMLHttpRequest(),
         likeImg = document.getElementById("like-galerie" + id),
-        replaceLike = likeImg.src.search('nonelike');
+        replaceLike = likeImg.src.search('nonelike'),
+        likeSpan = document.getElementById("like-span" + id),
+        tmp = null
     ;
 
+    if (replaceLike === -1) {
+        tmp = likeImg.src.replace('like', 'nonelike');
+        likeImg.title = "j'aime";
+    } else {
+        tmp = likeImg.src.replace('nonelike', 'like');
+        likeImg.title = "j'aime plus";
+    }
+    likeImg.src = tmp;
     xhr.onreadystatechange = function() {
         if ((state = xhr.readyState) == 4 && xhr.status == 200) {
-            var data = JSON.parse(xhr.responseText),
-                likeSpan = document.getElementById("like-span" + id)
-                tmp = null;
-            ;
+            var data = JSON.parse(xhr.responseText);
 
-            if (replaceLike === -1) {
-                tmp = likeImg.src.replace('like', 'nonelike');
-                likeImg.title = "j'aime";
-            } else {
-                tmp = likeImg.src.replace('nonelike', 'like');
-                likeImg.title = "j'aime plus";
-            }
-            likeImg.src = tmp;
             if (likeSpan){
                 likeSpan.firstChild.nodeValue = data.nbLike;
             }

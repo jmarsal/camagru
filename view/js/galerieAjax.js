@@ -108,7 +108,7 @@ function setLoginDiv(loginDiv, spanLogin, logins, id, i){
     loginDiv.className = "login-comments";
     loginDiv.id = "login-comments" + id;
     if (i != null){
-        spanLogin.innerHTML = ""+logins[i] + " : ";
+        spanLogin.innerHTML = ""+logins[i - 1] + " : ";
     } else {
         spanLogin.innerHTML = ""+logins + " : ";
     }

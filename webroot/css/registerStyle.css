@@ -18,3 +18,14 @@
 /* line 32, ../sass/registerStyle.scss */
 .container .accueil_form.popup-mail-register {
   padding-bottom: 11%; }
+
+@media only screen and (max-width: 414px) {
+  /* line 43, ../sass/registerStyle.scss */
+  .container .accueil_form .containerForm .textRegister {
+    font-size: 25px; }
+  /* line 46, ../sass/registerStyle.scss */
+  .container .accueil_form .containerForm .formRegister {
+    font-size: 25px; }
+  /* line 50, ../sass/registerStyle.scss */
+  .container .accueil_form .containerForm .log_register_but .button {
+    width: 200px; } }

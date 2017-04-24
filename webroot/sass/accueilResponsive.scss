@@ -156,6 +156,10 @@
             width: 100%;
             font-size: 30px;
             padding: 0;
+            
+            input {
+                width: 80%;
+            }
         }
         
         .forgetPass a {
@@ -318,49 +322,3 @@
         }
     }
 }
-
-//  body{
-//    margin: 0% auto;
-//    overflow-y: scroll;
-//    -webkit-overflow-scrolling:touch;
-//  }
-//
-//  .logo h1{
-//    font-size: 15px;
-//  }
-//  .accueil_form{
-//    font-size: 12px;
-//    padding: 0;
-//    min-width: 320px;
-//    max-width: 320px;
-//    width: 250px;
-//    overflow: hidden;
-//  }
-//  .containerForm{
-//    max-width: 320px;
-//    width: 250px;
-//    overflow: hidden;
-//  }
-//  .forgetPass a{
-//    cursor: pointer;
-//    font-size: 12px;
-//  }
-//
-//  .a-connect, .forget_but{
-//    font-size: 12px;
-//  }
-//}
-//
-//.submit-accueil, .button{
-//  margin: 0% auto;
-//  //margin-top: 40px;
-//  font-size: 12px;
-//  width:100px;
-//}
-//
-//.button-close{
-//  margin: 0% auto;
-//  .button{
-//    font-size: 30px;
-//  }
-//}

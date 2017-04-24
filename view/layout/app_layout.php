@@ -14,7 +14,7 @@
         <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'colors.css';?> />
         <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'form.css';?> />
         <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'AppStyle.css';?> />
-        <link rel="stylesheet" href=<?php echo BASE_URL.DS.'webroot'.DS.'css'.DS.'galerie.css';?> />
+<!--        <link rel="stylesheet" href=--><?php //echo BASE_URL.DS.'webroot'.DS.'css'.DS.'galerie.css';?><!-- />-->
         <link rel="icon" type="image/png" href="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>"/>
 	</head>
 	<body id="demo">
