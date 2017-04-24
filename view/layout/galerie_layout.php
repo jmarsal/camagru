@@ -23,7 +23,6 @@
                     <nav class="menu">
                         <a href="appCamagru">Studio</a>
                         <a href="galerieCamagru">Galerie</a>
-                        <a href="#">Mon compte</a>
                         <a href="<?php echo 'logout'; ?>">Delog</a>
                     </nav>
                 </header>

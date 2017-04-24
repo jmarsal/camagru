@@ -326,6 +326,10 @@ html, body {
                             width: $width;
                             max-height: $height;
                             margin-bottom: 7px;
+
+                            &.delImg{
+                                margin-bottom: 18px;
+                            }
                         }
                         
                         .myvideo {
@@ -444,6 +448,10 @@ html, body {
                                     top: -5px;
                                 }
                             }
+
+                            &.delImg{
+                                margin-top: 11px;
+                            }
                         }
                         
                         .chooseFilter {
@@ -511,8 +519,9 @@ html, body {
                         
                         .prev-action {
                             position: relative;
+                            display: inline-block;
                             top: 20px;
-                            
+
                             .del-button {
                                 left: 275px;
                                 cursor: pointer;
@@ -535,23 +544,23 @@ html, body {
                                 display: inline-block;
                                 position: relative;
                                 margin: 0px auto;
-                                
-                                .name-photo {
-                                    width: 210px;
-                                    display: inline-block;
-                                    position: absolute;
-                                    margin: 0px auto;
-                                    top: -46px;
-                                    left: 72px;
-                                    font-size: 18px;
-                                    font-style: italic;
-                                    text-align: center;
-                                    color: darkslategrey;
-                                    
-                                    &.error-name-input{
-                                        color: indianred;
-                                    }
-                                }
+
+                            //    .name-photo {
+                            //        width: 210px;
+                            //        display: inline-block;
+                            //        position: absolute;
+                            //        margin: 0px auto;
+                            //        top: -46px;
+                            //        left: 72px;
+                            //        font-size: 18px;
+                            //        font-style: italic;
+                            //        text-align: center;
+                            //        color: darkslategrey;
+                            //
+                            //        &.error-name-input{
+                            //            color: indianred;
+                            //        }
+                            //    }
                             }
                             
                             .see-button {
@@ -560,7 +569,7 @@ html, body {
                                 margin-left: 19px;
                                 position: absolute;
                                 width: 28px;
-                                top: -28px;
+                                top: -26px;
                                 left: 10px;
                                 
                                 &:hover {

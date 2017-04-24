@@ -40,7 +40,6 @@ function commmentsClick(id) {
                         loginPrec = logins[i - 1];
                         lastSetting = getModulo(data.logSession, loginPrec, logins[i], lastSetting, i);
                     }
-                    // console.log(comments.userComment);
                     constructCommentsInDocument(containerDiv, comments, logins, idCreateComments, i, lastSetting);
                     containerDiv.scrollTop = containerDiv.scrollHeight + 100;
                     idCreateComments++;

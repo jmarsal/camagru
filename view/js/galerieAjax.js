@@ -98,7 +98,7 @@ function setBottomPartComment(commentsDiv, spanComment, comments, i, id, lastSet
     }
     spanComment.className = "span-comment";
     if (i != null){
-        spanComment.innerHTML = comments[i + 1].userComment;
+        spanComment.innerHTML = comments[i].userComment;
     } else {
         spanComment.innerHTML = comments;
     }

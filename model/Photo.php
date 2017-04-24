@@ -159,40 +159,36 @@ class Photo extends Model
             $imgObj = imagecreatefrompng($pathFilterObj);
         } else if ($type === 'jpeg'){
             $origin = imagecreatefromjpeg($pathImg);
-            $imgObj = imagecreatefromjpeg($pathFilterObj);
+            $imgObj = imagecreatefrompng($pathFilterObj);
         } else if ($type === 'gif'){
             $origin = imagecreatefromgif($pathImg);
-            $imgObj = imagecreatefromgif($pathFilterObj);
+            $imgObj = imagecreatefrompng($pathFilterObj);
         }
-//        $origin = imagecreatefrompng($pathImg);
-//        $imgObj = imagecreatefrompng($pathFilterObj);
+
         $widthObj = imagesx($imgObj);
         $heigthObj = imagesy($imgObj);
 
-        imagealphablending($origin, true);
-        imagesavealpha($origin, true);
         if ($filterObj === 'dog'){
-            imagecopy($origin, $imgObj, -30, 170, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 220, 170, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'beardMustaches'){
-            imagecopy($origin, $imgObj, 290, 250, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 500, 400, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'chapeauPirate'){
-            imagecopy($origin, $imgObj, 190, -5, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 370, -45, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'epee'){
-            imagecopy($origin, $imgObj, 90, 200, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 345, 265, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'epeeLaser'){
-            imagecopy($origin, $imgObj, 60, 200, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 280, 210, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'largeMustache'){
-            imagecopy($origin, $imgObj, 290, 205, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 545, 380, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'lunette'){
-            imagecopy($origin, $imgObj, 280, 100, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 500, 100, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'monkey'){
-            imagecopy($origin, $imgObj, 145, 115, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 345, 315, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'policeHat'){
-            imagecopy($origin, $imgObj, 235, 5, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 435, 0, 0, 0, $widthObj, $heigthObj);
         } else if ($filterObj === 'prismaticMustache'){
-            imagecopy($origin, $imgObj, 290, 240, 0, 0, $widthObj, $heigthObj);
+            imagecopy($origin, $imgObj, 550, 400, 0, 0, $widthObj, $heigthObj);
         }
-        imagesavealpha($origin, true);
         if ($type === 'png'){
             imagepng($origin, $pathImg);
         } else if ($type === 'jpeg'){

@@ -10,7 +10,7 @@ function ajaxPhoto(data64) {
     var xhr = getXMLHttpRequest(),
         container = document.getElementById('prev-img'),
         divInputName = document.createElement('div'),
-        inputName = document.createElement('input'),
+        // inputName = document.createElement('input'),
         img = document.createElement('img'),
         del = document.createElement('img'),
         see = document.createElement('img'),
@@ -19,10 +19,10 @@ function ajaxPhoto(data64) {
 
     //Path et id de la prev dans la nouvelle balise img
     divInputName.className = "div-namePhoto";
-    inputName.className = "name-photo";
-    inputName.type = "text";
-    inputName.name = "namePhoto";
-    inputName.placeholder = 'Nom pour votre Photo';
+    // inputName.className = "name-photo";
+    // inputName.type = "text";
+    // inputName.name = "namePhoto";
+    // inputName.placeholder = 'Nom pour votre Photo';
     //Path de l'img trash pour supprimer la prev
     del.className = "del-button";
     del.src = "../webroot/images/app/Trash.ico";
@@ -46,9 +46,9 @@ function ajaxPhoto(data64) {
             img.src = '../' + data.thumbnail;
             img.id = data.idMin;
 
-            inputName.id = "name-photo-" + data.idMin;
-            inputName.onclick = function () { delValue(data.idMin); };
-            inputName.onblur = function () { addValue(data.idMin); };
+            // inputName.id = "name-photo-" + data.idMin;
+            // inputName.onclick = function () { delValue(data.idMin); };
+            // inputName.onblur = function () { addValue(data.idMin); };
 
             del.onclick = function() { delImg(data.idMin); };
 
@@ -70,7 +70,7 @@ function ajaxPhoto(data64) {
             divContainer.className = "container-prev";
             divContainer.id = "" + data.idMin + "";
 
-            divInputName.insertBefore(inputName, divInputName.childNodes[0]);
+            // divInputName.insertBefore(inputName, divInputName.childNodes[0]);
 
             divContainerAction.insertBefore(see, divContainerAction.childNodes[0]);
             divContainerAction.insertBefore(divInputName, divContainerAction.childNodes[1]);
@@ -99,15 +99,21 @@ function delImg(id){
             var closeEnlarge = document.getElementById('container-enlarge'),
                 replaceVideo = document.getElementById('myvideo'),
                 upload = document.getElementById('imgUpload'),
-                cacheTakePhoto = document.getElementById('form-cache-photo')
+                fileUpload = document.getElementById('file-upload'),
+                cacheButtons = document.getElementById('buttonActionApp')
             ;
+
             if (closeEnlarge != null){
                 closeEnlarge.parentNode.removeChild(closeEnlarge);
-                if (!upload){
-                    replaceVideo.style.display = "inline-block";
+                if (fileUpload.classList.contains('upload')){
+                    upload.style.display = 'block';
+                    upload.classList.add('delImg');
+                } else {
+                    replaceVideo.style.display = "block";
+                    cacheButtons.classList.add('delImg');
                 }
-                cacheTakePhoto.style.display = 'block';
-                cacheTakePhoto.style.cursor = 'pointer';
+                cacheButtons.style.display = 'inline-flex';
+                cacheButtons.style.cursor = 'pointer';
             }
             imgs.parentNode.removeChild(imgs);
             var countElems = document.querySelectorAll('#prev-img .container-prev img');
@@ -116,6 +122,7 @@ function delImg(id){
                 var container = document.getElementById('prev-img');
 
                 container.style.overflowY = "hidden";
+                container.classList.remove('scroll-container-prev');
                 if (countElems.length == 0){
                     container.style.display = "none";
                 }
@@ -157,8 +164,8 @@ function enlargePhoto(id){
             if (upload){
                 upload.style.display = 'none';
             }
-            if (fileUpload){
-                fileUpload.classList.add('active');
+            if (upload.src === ""){
+                fileUpload.classList.remove('active');
             }
             closeAllFilters();
             containerAllFilters.style.filter = "grayscale(100%)";
@@ -218,43 +225,6 @@ function enlargePhoto(id){
 
     var tmp = "enlargeImg=" + id;
     xhr.open("post", "enlargeAjax", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send(tmp);
-}
-
-function delValue(id){
-    var changeVal = document.getElementById('name-photo-' + id);
-
-    changeVal.style.fontStyle = "normal";
-    changeVal.style.color = "black";
-    if (changeVal.value === '255 caracteres maximum'){
-        changeVal.value = "";
-    }
-}
-
-function addValue(id) {
-    var changeVal = document.getElementById('name-photo-' + id);
-
-    changeVal.classList.remove('error-name-input');
-    if (changeVal.value !== "Nom pour votre Photo" && changeVal.value !== ""){
-        if (changeVal.value.length < 255){
-            changeVal.style.fontStyle = 'italic';
-            changeVal.style.color = 'lightgrey';
-            goGalerie(id, changeVal.value);
-        } else {
-            changeVal.style.fontStyle = 'normal';
-            changeVal.value = "255 caracteres maximum";
-            changeVal.classList.add('error-name-input');
-        }
-    }
-}
-
-function goGalerie(id, namePhoto) {
-    var xhr = getXMLHttpRequest()
-    ;
-
-    var tmp = "namePhoto=" + namePhoto + "&id=" + id;
-    xhr.open("post", "getNamePhoto", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(tmp);
 }
@@ -356,6 +326,7 @@ function backCamera() {
         takePhoto = document.getElementById('startbutton'),
         uploadPhoto = document.getElementById('startbuttonUpload'),
         divUploadButton = document.getElementById('uploadButton'),
+        fileUpload = document.getElementById('file-upload'),
         xhr = getXMLHttpRequest()
     ;
 
@@ -364,7 +335,8 @@ function backCamera() {
     newImg.style.display = 'none';
     newImg.classList.remove("active");
     newImg.src = "";
-    document.getElementById('file-upload').style.display = 'none';
+    fileUpload.style.display = 'none';
+    fileUpload.classList.remove('active');
     container.classList.remove("active");
     backVideo.style.display = 'none';
     takePhoto.style.display = 'inline-block';
