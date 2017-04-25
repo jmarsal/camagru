@@ -1,0 +1,191 @@
+@import 'compass';
+@import 'colors';
+@import "form";
+@import "objStyle";
+
+@media only screen and (max-width: 1920px) {
+    $widthImg: 1000px;
+    $heightImg: 825px;
+    
+    @keyframes explode {
+        0% {
+            height: 0px;
+        }
+        25% {
+            height: 23px;
+        }
+        50% {
+            height: 40px;
+        }
+        100% {
+            height: 52px;
+        }
+    }
+    
+    html{
+        overflow-y: hidden;
+    }
+    .site-container{
+        .site-pusher{
+            .post{
+                .elems-app{
+                    .video-containter{
+                        .container-all-filters{
+                            margin-left: 40px;
+                            margin-right: 0px;
+                            
+                            .filters{
+                                width: 260px;
+                                
+                                .filterHideButton{
+                                    .filters__icon{
+                                        margin-left: 30px;
+                                    }
+                                }
+                                
+                                .menu2{
+                                    .filters-button{
+                                        .button{
+                                            width: 255px;
+                                            font-size: 30px;
+                                            height: 52px;
+                                            padding-top: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            .objets-filter{
+                                width: 260px;
+                                
+                                .objHideButton{
+                                    .objets__icon{
+                                        margin-left: 30px;
+                                    }
+                                }
+                                
+                                .menu-objets{
+                                    .objets-button{
+                                        max-height: 645px;
+                                        height: 750px;
+
+                                        .button{
+                                            width: 255px;
+                                            font-size: 30px;
+                                            padding-top: 30px;
+                                            height: 52px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                        .booth{
+                            width: $widthImg;
+                            height: $heightImg;
+                            
+                            .container-enlarge{
+                                width: $widthImg;
+                                height: $heightImg;
+                                
+                                .img-enlarge{
+                                    width: $widthImg;
+                                    height: $heightImg;
+                                }
+                                
+                                .close-enlarge{
+                                    left: 940px;
+                                    
+                                    &:hover{
+                                        left: 915px;
+                                    }
+                                }
+                            }
+                            
+                            .imgUpload{
+                                width: $widthImg;
+                            }
+                            
+                            .myvideo{
+                                width: $widthImg;
+                                margin-top: -105px;
+                            }
+                            
+                            .buttonActionApp{
+                                top: -100px;
+                                
+                                .action-app{
+                                    .take-photo{
+                                        .take-photo-img{
+                                            left: 430px;
+                                        }
+                                        
+                                        .startbuttonUpload{
+                                        
+                                        }
+                                    }
+                                }
+                                
+                                .upload-app{
+                                    .input-file-container{
+                                        right: 385px;
+                                    }
+                                }
+                            }
+                            
+                            .chooseFilter{
+                                bottom: 150px;
+                            }
+                        }
+                        
+                        .prev-img-container{
+                            .prev-img{
+                                width: 260px;
+                                margin-right: 40px;
+                                margin-left: -320px;
+                                max-height: 750px;
+                                
+                                .container-prev{
+                                    padding-top: 10px;
+                                    margin-left: -20px;
+                                    
+                                    img{
+                                        width: 218px;
+                                    }
+                                    
+                                    .prev-action{
+                                        .see-button{
+                                            width: 25px;
+                                        }
+                                        
+                                        .del-button{
+                                            width: 25px;
+                                            left: 190px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+@media only screen and (max-width: 1280px) {
+
+}
+
+@media only screen and (max-width: 1000px) {
+
+}
+
+@media only screen and (max-width: 750px) {
+
+}
+
+@media only screen and (max-width: 414px) {
+
+}

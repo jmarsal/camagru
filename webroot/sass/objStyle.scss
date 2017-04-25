@@ -65,3 +65,338 @@
     }
 }
 
+@media only screen and (max-width: 1920px) {
+    .obj-img{
+        position: absolute;
+        z-index: 55;
+        
+        &.beardMustaches {
+            width: 230px;
+            margin-left: 400px;
+            margin-top: 300px;
+        }
+        
+        &.chapeauPirate{
+            width: 600px;
+            margin-left: 355px;
+            margin-top: -50px;
+        }
+        
+        &.dog{
+            width: 280px;
+            margin-left: 220px;
+            margin-top: 150px;
+        }
+        
+        &.epee{
+            width: 300px;
+            margin-left: 251px;
+            margin-top: 270px;
+        }
+        
+        &.epeeLaser{
+            width: 400px;
+            margin-left: 170px;
+            margin-top: 200px;
+        }
+        
+        &.largeMustache{
+            width: 200px;
+            margin-left: 550px;
+            margin-top: 382px;
+        }
+        
+        &.lunette{
+            width: 300px;
+            margin-left: 500px;
+            margin-top: 100px;
+        }
+        
+        &.monkey{
+            width: 180px;
+            margin-left: 355px;
+            margin-top: 310px;
+        }
+        
+        &.policeHat{
+            width: 380px;
+            margin-left: 443px;
+            margin-top: -4px;
+        }
+        
+        &.prismaticMustache{
+            width: 200px;
+            margin-left: 550px;
+            margin-top: 400px;
+        }
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .obj-img{
+        position: absolute;
+        z-index: 55;
+        
+        &.beardMustaches {
+            width: 310px;
+            margin-left: 500px;
+            margin-top: 400px;
+        }
+        
+        &.chapeauPirate{
+            width: 600px;
+            margin-left: 355px;
+            margin-top: -50px;
+        }
+        
+        &.dog{
+            width: 280px;
+            margin-left: 220px;
+            margin-top: 150px;
+        }
+        
+        &.epee{
+            width: 300px;
+            margin-left: 251px;
+            margin-top: 270px;
+        }
+        
+        &.epeeLaser{
+            width: 400px;
+            margin-left: 170px;
+            margin-top: 200px;
+        }
+        
+        &.largeMustache{
+            width: 200px;
+            margin-left: 550px;
+            margin-top: 382px;
+        }
+        
+        &.lunette{
+            width: 300px;
+            margin-left: 500px;
+            margin-top: 100px;
+        }
+        
+        &.monkey{
+            width: 180px;
+            margin-left: 355px;
+            margin-top: 310px;
+        }
+        
+        &.policeHat{
+            width: 380px;
+            margin-left: 443px;
+            margin-top: -4px;
+        }
+        
+        &.prismaticMustache{
+            width: 200px;
+            margin-left: 550px;
+            margin-top: 400px;
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .obj-img{
+        position: absolute;
+        z-index: 55;
+        
+        &.beardMustaches {
+            width: 310px;
+            margin-left: 500px;
+            margin-top: 400px;
+        }
+        
+        &.chapeauPirate{
+            width: 600px;
+            margin-left: 355px;
+            margin-top: -50px;
+        }
+        
+        &.dog{
+            width: 280px;
+            margin-left: 220px;
+            margin-top: 150px;
+        }
+        
+        &.epee{
+            width: 300px;
+            margin-left: 251px;
+            margin-top: 270px;
+        }
+        
+        &.epeeLaser{
+            width: 400px;
+            margin-left: 170px;
+            margin-top: 200px;
+        }
+        
+        &.largeMustache{
+            width: 200px;
+            margin-left: 550px;
+            margin-top: 382px;
+        }
+        
+        &.lunette{
+            width: 300px;
+            margin-left: 500px;
+            margin-top: 100px;
+        }
+        
+        &.monkey{
+            width: 180px;
+            margin-left: 355px;
+            margin-top: 310px;
+        }
+        
+        &.policeHat{
+            width: 380px;
+            margin-left: 443px;
+            margin-top: -4px;
+        }
+        
+        &.prismaticMustache{
+            width: 200px;
+            margin-left: 550px;
+            margin-top: 400px;
+        }
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .obj-img{
+        position: absolute;
+        z-index: 55;
+        
+        &.beardMustaches {
+            width: 310px;
+            margin-left: 500px;
+            margin-top: 400px;
+        }
+        
+        &.chapeauPirate{
+            width: 600px;
+            margin-left: 355px;
+            margin-top: -50px;
+        }
+        
+        &.dog{
+            width: 280px;
+            margin-left: 220px;
+            margin-top: 150px;
+        }
+        
+        &.epee{
+            width: 300px;
+            margin-left: 251px;
+            margin-top: 270px;
+        }
+        
+        &.epeeLaser{
+            width: 400px;
+            margin-left: 170px;
+            margin-top: 200px;
+        }
+        
+        &.largeMustache{
+            width: 200px;
+            margin-left: 550px;
+            margin-top: 382px;
+        }
+        
+        &.lunette{
+            width: 300px;
+            margin-left: 500px;
+            margin-top: 100px;
+        }
+        
+        &.monkey{
+            width: 180px;
+            margin-left: 355px;
+            margin-top: 310px;
+        }
+        
+        &.policeHat{
+            width: 380px;
+            margin-left: 443px;
+            margin-top: -4px;
+        }
+        
+        &.prismaticMustache{
+            width: 200px;
+            margin-left: 550px;
+            margin-top: 400px;
+        }
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .obj-img{
+        position: absolute;
+        z-index: 55;
+        
+        &.beardMustaches {
+            width: 310px;
+            margin-left: 500px;
+            margin-top: 400px;
+        }
+        
+        &.chapeauPirate{
+            width: 600px;
+            margin-left: 355px;
+            margin-top: -50px;
+        }
+        
+        &.dog{
+            width: 280px;
+            margin-left: 220px;
+            margin-top: 150px;
+        }
+        
+        &.epee{
+            width: 300px;
+            margin-left: 251px;
+            margin-top: 270px;
+        }
+        
+        &.epeeLaser{
+            width: 400px;
+            margin-left: 170px;
+            margin-top: 200px;
+        }
+        
+        &.largeMustache{
+            width: 200px;
+            margin-left: 550px;
+            margin-top: 382px;
+        }
+        
+        &.lunette{
+            width: 300px;
+            margin-left: 500px;
+            margin-top: 100px;
+        }
+        
+        &.monkey{
+            width: 180px;
+            margin-left: 355px;
+            margin-top: 310px;
+        }
+        
+        &.policeHat{
+            width: 380px;
+            margin-left: 443px;
+            margin-top: -4px;
+        }
+        
+        &.prismaticMustache{
+            width: 200px;
+            margin-left: 550px;
+            margin-top: 400px;
+        }
+    }
+}
+

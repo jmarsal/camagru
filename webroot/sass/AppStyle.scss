@@ -593,29 +593,6 @@ html, body {
         }
     }
 }
-//@media only screen and (max-width: 2250px) {
-//  .menu{
-//
-//    font-size: 20px;
-//    float: left;
-//
-//    a {
-//      padding: 0 10px;
-//    }
-//    a:hover{
-//      color: $color_button_hover;
-//    }
-//  }
-//}
-
-//@media only screen and (max-width: 750px) {
-//  video, .booth {
-//    width: 100%;
-//  }
-//  .bienvenue {
-//    font-size: 15px;
-//  }
-//}
 
 .booth_filter {
     background: rgba(94, 108, 120, 0.9);
@@ -640,6 +617,7 @@ html, body {
 }
 
 @import "menuResponsive";
+@import "appResponsive";
 
 
 

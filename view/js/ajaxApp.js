@@ -42,7 +42,6 @@ function ajaxPhoto(data64) {
             img.id = data.idMin;
 
             del.onclick = function() { delImg(data.idMin); };
-
             see.onclick = function () { enlargePhoto(data.idMin); };
 
             if (countElems.length >= 6){
