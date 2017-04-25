@@ -62,52 +62,52 @@
     .obj-img.beardMustaches {
       width: 230px;
       margin-left: 400px;
-      margin-top: 300px; }
+      margin-top: 310px; }
     /* line 79, ../sass/objStyle.scss */
     .obj-img.chapeauPirate {
-      width: 600px;
-      margin-left: 355px;
-      margin-top: -50px; }
+      width: 500px;
+      margin-left: 260px;
+      margin-top: -40px; }
     /* line 85, ../sass/objStyle.scss */
     .obj-img.dog {
-      width: 280px;
+      width: 200px;
       margin-left: 220px;
-      margin-top: 150px; }
+      margin-top: 140px; }
     /* line 91, ../sass/objStyle.scss */
     .obj-img.epee {
-      width: 300px;
-      margin-left: 251px;
-      margin-top: 270px; }
+      width: 250px;
+      margin-left: 190px;
+      margin-top: 210px; }
     /* line 97, ../sass/objStyle.scss */
     .obj-img.epeeLaser {
-      width: 400px;
-      margin-left: 170px;
-      margin-top: 200px; }
+      width: 300px;
+      margin-left: 140px;
+      margin-top: 150px; }
     /* line 103, ../sass/objStyle.scss */
     .obj-img.largeMustache {
-      width: 200px;
-      margin-left: 550px;
-      margin-top: 382px; }
+      width: 150px;
+      margin-left: 430px;
+      margin-top: 300px; }
     /* line 109, ../sass/objStyle.scss */
     .obj-img.lunette {
-      width: 300px;
-      margin-left: 500px;
-      margin-top: 100px; }
+      width: 200px;
+      margin-left: 410px;
+      margin-top: 90px; }
     /* line 115, ../sass/objStyle.scss */
     .obj-img.monkey {
-      width: 180px;
-      margin-left: 355px;
-      margin-top: 310px; }
+      width: 100px;
+      margin-left: 300px;
+      margin-top: 280px; }
     /* line 121, ../sass/objStyle.scss */
     .obj-img.policeHat {
-      width: 380px;
-      margin-left: 443px;
+      width: 290px;
+      margin-left: 343px;
       margin-top: -4px; }
     /* line 127, ../sass/objStyle.scss */
     .obj-img.prismaticMustache {
-      width: 200px;
-      margin-left: 550px;
-      margin-top: 400px; } }
+      width: 160px;
+      margin-left: 430px;
+      margin-top: 300px; } }
 @media only screen and (max-width: 1280px) {
   /* line 136, ../sass/objStyle.scss */
   .obj-img {

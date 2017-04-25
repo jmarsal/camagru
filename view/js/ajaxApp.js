@@ -156,6 +156,9 @@ function enlargePhoto(id){
             }
             if (upload.src === ""){
                 fileUpload.classList.remove('active');
+            } else {
+                replaceVideo.classList.add('enlarge');
+                fileUpload.style.display = 'none';
             }
             closeAllFilters();
             containerAllFilters.style.filter = "grayscale(100%)";
@@ -180,6 +183,8 @@ function enlargePhoto(id){
                     closeObjFilter = document.getElementById('imgObj')
                     ;
 
+                // replaceVideo.classList.remove('upload');
+                // replaceVideo.classList.remove('enlarge');
                 close.style.display = "none";
                 replaceVideo.removeChild(close);
                 fileUpload.classList.remove('active');
@@ -188,6 +193,9 @@ function enlargePhoto(id){
                 containerObjs.onclick = function () { showHideObj(); };
                 containerAllFilters.style.filter = "none";
 
+                if (upload.src !== ""){
+                    fileUpload.style.display = 'block';
+                }
                 if (upload.classList.contains("active")){
                     upload.style.display = 'inline-block';
                     video.style.display = 'none';
@@ -251,6 +259,7 @@ function uploadImg() {
         //    Si c'est bon
         } else {
             // Si l'image a une taille correct
+            booth.classList.add('upload');
             if (document.getElementById('my-file').files[0].size < 2100000){
                 var filter = document.getElementById('myvideo').style.filter,
                     newImg = document.getElementById('imgUpload'),
@@ -328,6 +337,8 @@ function backCamera() {
     fileUpload.style.display = 'none';
     fileUpload.classList.remove('active');
     container.classList.remove("active");
+    container.classList.remove('upload');
+    container.classList.remove('enlarge');
     backVideo.style.display = 'none';
     takePhoto.style.display = 'inline-block';
     uploadPhoto.style.display = 'none';

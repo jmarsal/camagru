@@ -98,7 +98,7 @@ html, body {
                     /* Filtres */
                     .container-all-filters {
                         display: block;
-                        margin-left: 120px;
+                        margin-left: 4%;
                         margin-right: -160px;
                         
                         /* Filtres sur image */
@@ -493,7 +493,7 @@ html, body {
                         background: darken($color_back, 5);
                         border: 10px solid darken($color_back, 10);
                         margin-left: -510px;
-                        margin-right: 90px;
+                        margin-right: 9%;
                         max-height: $height + 72px;
                         width: 360px;
                         
@@ -545,22 +545,6 @@ html, body {
                                 position: relative;
                                 margin: 0px auto;
 
-                            //    .name-photo {
-                            //        width: 210px;
-                            //        display: inline-block;
-                            //        position: absolute;
-                            //        margin: 0px auto;
-                            //        top: -46px;
-                            //        left: 72px;
-                            //        font-size: 18px;
-                            //        font-style: italic;
-                            //        text-align: center;
-                            //        color: darkslategrey;
-                            //
-                            //        &.error-name-input{
-                            //            color: indianred;
-                            //        }
-                            //    }
                             }
                             
                             .see-button {

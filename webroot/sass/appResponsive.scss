@@ -3,9 +3,125 @@
 @import "form";
 @import "objStyle";
 
-@media only screen and (max-width: 1920px) {
-    $widthImg: 1000px;
-    $heightImg: 825px;
+@media only screen and (max-width: 2340px){
+    $width: 1000px;
+    $height: 825px;
+
+    .site-container {
+        .site-pusher {
+            .post {
+                .elems-app {
+                    .video-containter {
+                        .booth {
+                            width: $width;
+                            height: $height;
+
+                            .container-enlarge{
+                                width: $width;
+                                height: $height;
+
+                                .img-enlarge{
+                                    width: $width;
+                                    height: $height;
+                                }
+
+                                .close-enlarge{
+                                    left: 940px;
+
+                                    &:hover{
+                                        left: 935px;
+                                        width: 60px;
+                                    }
+                                }
+                            }
+
+                            .imgUpload{
+                                width: $width;
+                            }
+
+                            .myvideo{
+                                width: $width;
+                                margin-top: -105px;
+                            }
+
+                            .buttonActionApp{
+                                top: -100px;
+
+                                .action-app{
+                                    .take-photo{
+                                        .take-photo-img{
+                                            left: 430px;
+                                        }
+
+                                        .startbuttonUpload{
+                                            top: 95px;
+                                            left: 400px;
+                                        }
+                                    }
+                                }
+
+                                .upload-app{
+                                    .input-file-container{
+                                        right: 385px;
+
+                                        .input-file-trigger{
+                                            //top: 100px;
+                                        }
+
+                                        .back-to-video{
+                                            top: 40px;
+                                            left: 125px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .chooseFilter{
+                                bottom: 150px;
+                            }
+
+                            &.upload {
+                                height: 855px;
+                                .buttonActionApp{
+                                    .upload-app{
+                                        .input-file-trigger{
+                                            top: 100px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.active{
+                                height: 855px;
+                            }
+
+                            &.enlarge{
+                                .myvideo{
+                                    margin-bottom: 0px;
+                                }
+                            }
+
+                            &.upload.active{
+                                height: 855px;
+                            }
+                        }
+
+                        .prev-img-container {
+                            .prev-img {
+                                max-height: 857px;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 2035px) {
+    $width: 1000px;
+    $height: 825px;
     
     @keyframes explode {
         0% {
@@ -31,7 +147,7 @@
                 .elems-app{
                     .video-containter{
                         .container-all-filters{
-                            margin-left: 40px;
+                            margin-left: 4%;
                             margin-right: 0px;
                             
                             .filters{
@@ -67,7 +183,6 @@
                                 .menu-objets{
                                     .objets-button{
                                         max-height: 645px;
-                                        height: 750px;
 
                                         .button{
                                             width: 255px;
@@ -81,33 +196,34 @@
                         }
                         
                         .booth{
-                            width: $widthImg;
-                            height: $heightImg;
+                            width: $width;
+                            height: $height;
                             
                             .container-enlarge{
-                                width: $widthImg;
-                                height: $heightImg;
+                                width: $width;
+                                height: $height;
                                 
                                 .img-enlarge{
-                                    width: $widthImg;
-                                    height: $heightImg;
+                                    width: $width;
+                                    height: $height;
                                 }
                                 
                                 .close-enlarge{
                                     left: 940px;
                                     
                                     &:hover{
-                                        left: 915px;
+                                        left: 935px;
+                                        width: 60px;
                                     }
                                 }
                             }
                             
                             .imgUpload{
-                                width: $widthImg;
+                                width: $width;
                             }
                             
                             .myvideo{
-                                width: $widthImg;
+                                width: $width;
                                 margin-top: -105px;
                             }
                             
@@ -121,7 +237,8 @@
                                         }
                                         
                                         .startbuttonUpload{
-                                        
+                                            top: 95px;
+                                            left: 400px;
                                         }
                                     }
                                 }
@@ -129,6 +246,15 @@
                                 .upload-app{
                                     .input-file-container{
                                         right: 385px;
+
+                                        .input-file-trigger{
+                                            //top: 100px;
+                                        }
+
+                                        .back-to-video{
+                                            top: 40px;
+                                            left: 125px;
+                                        }
                                     }
                                 }
                             }
@@ -136,12 +262,41 @@
                             .chooseFilter{
                                 bottom: 150px;
                             }
+
+                            &.upload {
+                                height: 855px;
+                                .buttonActionApp{
+                                    .upload-app{
+                                        .input-file-trigger{
+                                            top: 100px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.active{
+                                height: 855px;
+                            }
+
+                            &.enlarge{
+                                .buttonActionApp{
+                                    top: -200px;
+                                }
+
+                                .myvideo{
+                                    margin-bottom: 0px;
+                                }
+
+                                .file-upload{
+                                    top: -97px;
+                                }
+                            }
                         }
                         
                         .prev-img-container{
                             .prev-img{
-                                width: 260px;
-                                margin-right: 40px;
+                                width: 245px;
+                                margin-right: 4%;
                                 margin-left: -320px;
                                 max-height: 750px;
                                 
@@ -156,13 +311,27 @@
                                     .prev-action{
                                         .see-button{
                                             width: 25px;
+
+                                            &:hover {
+                                                width: 35px;
+                                                top: -30px;
+                                            }
                                         }
                                         
                                         .del-button{
                                             width: 25px;
                                             left: 190px;
+
+                                            &:hover {
+                                                width: 35px;
+                                                top: -30px;
+                                            }
                                         }
                                     }
+                                }
+
+                                &.scroll-container-prev{
+                                    width: 260px;
                                 }
                             }
                         }
@@ -174,12 +343,402 @@
     
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1740px) {
+    $width: 700px;
+    $height: 600px;
 
+    .site-container {
+        .site-pusher {
+            .header{
+                .menu{
+                    font-size: 25px;
+                }
+            }
+            .post {
+                .elems-app {
+                    .video-containter {
+                        .container-all-filters{
+                            font-size: 25px;
+                            .objets-filter{
+                                .menu-objets{
+                                }
+                            }
+                        }
+
+                        .booth {
+                            width: $width;
+                            height: $height;
+
+                            .container-enlarge{
+                                width: $width;
+                                height: $height;
+
+                                .img-enlarge{
+                                    width: $width;
+                                    height: $height;
+                                }
+
+                                .close-enlarge{
+                                    left: 660px;
+                                    width: 20px;
+
+                                    &:hover{
+                                        left: 655px;
+                                        width: 40px;
+                                    }
+                                }
+                            }
+
+                            .imgUpload{
+                                width: $width;
+                            }
+
+                            .myvideo{
+                                width: $width;
+                                margin-top: -218px;
+                            }
+
+                            .buttonActionApp{
+                                top: -210px;
+
+                                .action-app{
+                                    .take-photo{
+                                        .take-photo-img{
+                                            left: 430px;
+                                        }
+
+                                        .startbuttonUpload{
+                                            top: 95px;
+                                            left: 340px;
+                                        }
+                                    }
+                                }
+
+                                .upload-app{
+                                    .input-file-container{
+                                        right: 385px;
+
+                                        .input-file-trigger{
+                                            //top: 100px;
+                                        }
+
+                                        .back-to-video{
+                                            top: 40px;
+                                            left: 225px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .chooseFilter{
+                                bottom: 150px;
+                            }
+
+                            &.upload {
+                                height: 558px;
+
+                                .buttonActionApp{
+                                    top: -97px;
+                                    .upload-app{
+                                        .input-file-trigger{
+                                            top: 100px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.active{
+                                height: 630px;
+                            }
+
+                            &.enlarge{
+                                height: 600px;
+
+                                .myvideo {
+                                    margin-bottom: 0px;
+                                }
+
+                                .buttonActionApp{
+                                    top: -310px;
+                                    .upload-app{
+                                        .input-file-trigger{
+                                            top: 100px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .chooseFilter{
+                                bottom: 255px;
+                            }
+
+                            &.upload.enlarge {
+                                height: $height + 30px;
+
+                                .file-upload{
+                                    top: -210px;
+                                }
+                            }
+                        }
+
+                        .prev-img-container{
+                            .prev-img{
+                                max-height: 600px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1420px) {
+    $width: 500px;
+    $height: 435px;
 
+    .site-container {
+        .site-pusher {
+            .post {
+                .elems-app {
+                    .video-containter {
+                        .container-all-filters{
+                            .objets-filter{
+                                .menu-objets{
+                                }
+                            }
+                        }
+
+                        .booth {
+                            width: $width;
+                            height: $height;
+
+                            .container-enlarge{
+                                width: $width;
+                                height: $height;
+
+                                .img-enlarge{
+                                    width: $width;
+                                    height: $height;
+                                }
+
+                                .close-enlarge{
+                                    left: 460px;
+
+                                    &:hover{
+                                        left: 455px;
+                                        width: 40px;
+                                    }
+                                }
+                            }
+
+                            .imgUpload{
+                                width: $width;
+                            }
+
+                            .myvideo{
+                                width: $width;
+                                margin-top: -293px;
+                            }
+
+                            .buttonActionApp{
+                                top: -292px;
+
+                                .action-app{
+                                    .take-photo{
+                                        .take-photo-img{
+                                            left: 170px;
+                                        }
+
+                                        .startbuttonUpload{
+                                            top: 95px;
+                                            left: 340px;
+                                        }
+                                    }
+                                }
+
+                                .upload-app{
+                                    .input-file-container{
+                                        right: 165px;
+
+                                        .input-file-trigger{
+                                            //top: 100px;
+                                        }
+
+                                        .back-to-video{
+                                            top: 40px;
+                                            left: 225px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .chooseFilter{
+                                bottom: 150px;
+                            }
+
+                            &.upload {
+                                height: 445px;
+
+                                .buttonActionApp{
+                                    top: -97px;
+                                    left: -125px;
+
+                                    .take-photo{
+                                        .startbuttonUpload{
+                                            left: 365px;
+                                        }
+                                    }
+
+                                    .upload-app{
+                                        .input-file-trigger{
+                                            top: 100px;
+                                        }
+
+                                    }
+                                }
+                            }
+
+                            &.active{
+                                height: 855px;
+                            }
+
+                            &.enlarge{
+                                height: 445px;
+
+                                .myvideo{
+                                    margin-bottom: 0px;
+                                }
+                                .buttonActionApp{
+                                    .take-photo{
+                                        .take-photo-img{
+                                            top: 20px;
+                                        }
+                                    }
+                                }
+                                .upload-app{
+                                    .input-file-container{
+                                        top: -79px;
+                                    }
+                                }
+                            }
+
+                            &.upload.active{
+                                height: 478px;
+                            }
+
+                            &.upload.active.enlarge{
+                                .buttonActionApp{
+                                    top: -305px;
+                                    left: -125px;
+
+                                    .take-photo{
+                                        .startbuttonUpload{
+                                            top: 20px;
+                                            //left: 365px;
+                                        }
+                                    }
+
+                                    .upload-app{
+                                        .input-file-trigger{
+                                            top: 100px;
+                                        }
+
+                                    }
+                                }
+
+                                .file-upload {
+                                    top: -282px;
+                                }
+                            }
+
+                        }
+
+                        .prev-img-container{
+                            .prev-img{
+                                max-height: 600px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1190px) {
+    .site-container {
+
+        .site-pusher {
+
+            .post {
+
+                .elems-app {
+
+                    .video-containter {
+                        .booth{
+                            margin-left: 14%;
+                        }
+
+                        .prev-img-container{
+                            position: relative;
+                            top: 525px;
+                            left:-365px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 910px) {
+    .site-container {
+
+        .site-pusher {
+
+            .post {
+
+                .elems-app {
+
+                    .video-containter {
+                        .booth {
+                            margin-left: 7%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 835px) {
+    html{
+        overflow-y: auto;
+    }
+    .site-container {
+
+        .site-pusher {
+
+            .post {
+
+                .elems-app {
+
+                    .video-containter {
+                        .booth{
+                            margin-left: 14%;
+                        }
+
+                        .prev-img-container{
+                            position: relative;
+                            top: 525px;
+                            left:-365px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 750px) {

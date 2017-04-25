@@ -67,7 +67,7 @@ if (!isset($_SESSION)){
                 </nav>
             </div>
         </div>
-        <div class="booth" id="booth" >
+        <div class="booth <?php if(!empty($_SESSION['upload'])){echo 'upload active';} ?>" id="booth" >
             <img id="imgUpload" class="imgUpload" src="<?php if (!empty($_SESSION['srcUpload'])){ echo $_SESSION['srcUpload']; }?>" style="display: <?php if (empty($_SESSION['fileUpload'])){ echo 'none'; } else { echo 'inline-block'; }?>">
             <video id="myvideo" class="myvideo" style="display: <?php if (!empty($_SESSION['fileUpload'])){ echo 'none'; } else { echo 'inline-block'; }?>"></video>
             <audio id="audioPlayer" src="<?php echo BASE_URL.DS.'webroot'.DS.'sounds'.DS."photo2.ogg";?>"></audio>
