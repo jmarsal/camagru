@@ -139,8 +139,15 @@
     }
     
     html{
-        overflow-y: hidden;
+        overflow-x: hidden;
     }
+    
+    body {
+        width: 105%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    
     .site-container{
         .site-pusher{
             .post{
@@ -294,9 +301,11 @@
                         }
                         
                         .prev-img-container{
+                            margin-right: 4%;
+                            margin-left: -2%;
+
                             .prev-img{
                                 width: 245px;
-                                margin-right: 4%;
                                 margin-left: -320px;
                                 max-height: 750px;
                                 
@@ -346,7 +355,7 @@
 @media only screen and (max-width: 1740px) {
     $width: 700px;
     $height: 600px;
-
+    
     .site-container {
         .site-pusher {
             .header{
@@ -496,7 +505,7 @@
 @media only screen and (max-width: 1420px) {
     $width: 500px;
     $height: 435px;
-
+    
     .site-container {
         .site-pusher {
             .post {
@@ -667,6 +676,17 @@
 }
 
 @media only screen and (max-width: 1190px) {
+    html{
+        overflow-x: hidden;
+    }
+    
+    body {
+        height: 160%;
+        width: 105%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    
     .site-container {
 
         .site-pusher {
@@ -676,14 +696,26 @@
                 .elems-app {
 
                     .video-containter {
+                        .container-all-filters {
+                            position: relative;
+                            margin: 0% auto;
+                            top:525px;
+                            left: 200px;
+                        }
+                        
                         .booth{
-                            margin-left: 14%;
+                            margin: 0% auto;
                         }
 
+                        .prev-img{
+                            margin: 0% auto;
+                        }
+                        
                         .prev-img-container{
                             position: relative;
+                            margin: 0% auto;
                             top: 525px;
-                            left:-365px;
+                            left:-203px;
                         }
                     }
                 }
@@ -702,8 +734,20 @@
                 .elems-app {
 
                     .video-containter {
+                        .container-all-filters {
+                            margin: 0% auto;
+                        }
+                        
                         .booth {
-                            margin-left: 7%;
+                            margin: 0% auto;
+                        }
+
+                        .prev-img-container{
+                            left: -180px;
+                        }
+                        
+                        .prev-img {
+                            margin: 0% auto;
                         }
                     }
                 }
@@ -725,8 +769,12 @@
                 .elems-app {
 
                     .video-containter {
+                        .container-all-filters {
+                            left: 10px;
+                        }
                         .booth{
-                            margin-left: 14%;
+                            margin: 0% auto;
+                            left: -335px;
                         }
 
                         .prev-img-container{
@@ -742,9 +790,52 @@
 }
 
 @media only screen and (max-width: 750px) {
-
+    html {
+        height: 300%;
+    }
+    .site-container {
+    
+        .site-pusher {
+        
+            .post {
+            
+                .elems-app {
+                
+                    .video-containter {
+                        position: relative;
+                        .booth {
+                            margin: 0% auto;
+                            left: -457px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 414px) {
-
+    html {
+        height: 200%;
+    }
+    
+    .site-container {
+        
+        .site-pusher {
+            
+            .post {
+                
+                .elems-app {
+                    
+                    .video-containter {
+                        position: relative;
+                        .booth {
+                            margin: 0% auto;
+                            left: -390px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

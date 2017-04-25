@@ -862,11 +862,11 @@ html, body {
               /* line 475, ../sass/AppStyle.scss */
               .site-container .site-pusher .post .elems-app .video-containter .booth .file-upload.active {
                 display: none; }
-              /* line 482, ../sass/AppStyle.scss */
+              /* line 479, ../sass/AppStyle.scss */
               .site-container .site-pusher .post .elems-app .video-containter .booth .file-upload.upload {
                 display: block;
                 background-color: #F39237; }
-          /* line 491, ../sass/AppStyle.scss */
+          /* line 488, ../sass/AppStyle.scss */
           .site-container .site-pusher .post .elems-app .video-containter .prev-img {
             display: none;
             background: #535f6a;
@@ -875,7 +875,7 @@ html, body {
             margin-right: 9%;
             max-height: 1032px;
             width: 360px; }
-            /* line 500, ../sass/AppStyle.scss */
+            /* line 497, ../sass/AppStyle.scss */
             .site-container .site-pusher .post .elems-app .video-containter .prev-img .container-prev {
               position: relative;
               margin: 0px auto;
@@ -884,7 +884,7 @@ html, body {
               padding-top: 20px;
               margin-top: -1px;
               margin-left: -5px; }
-            /* line 511, ../sass/AppStyle.scss */
+            /* line 508, ../sass/AppStyle.scss */
             .site-container .site-pusher .post .elems-app .video-containter .prev-img img {
               display: block;
               width: 300px;
@@ -892,12 +892,12 @@ html, body {
               margin-top: 2px;
               margin-right: 27px;
               margin-bottom: 10px; }
-            /* line 520, ../sass/AppStyle.scss */
+            /* line 517, ../sass/AppStyle.scss */
             .site-container .site-pusher .post .elems-app .video-containter .prev-img .prev-action {
               position: relative;
               display: inline-block;
               top: 20px; }
-              /* line 525, ../sass/AppStyle.scss */
+              /* line 522, ../sass/AppStyle.scss */
               .site-container .site-pusher .post .elems-app .video-containter .prev-img .prev-action .del-button {
                 left: 275px;
                 cursor: pointer;
@@ -905,7 +905,7 @@ html, body {
                 position: absolute;
                 width: 28px;
                 top: -26px; }
-                /* line 533, ../sass/AppStyle.scss */
+                /* line 530, ../sass/AppStyle.scss */
                 .site-container .site-pusher .post .elems-app .video-containter .prev-img .prev-action .del-button:hover {
                   filter: invert(100%);
                   filter: hue-rotate(360deg);
@@ -913,12 +913,12 @@ html, body {
                   width: 40px;
                   left: 270px;
                   top: -30px; }
-              /* line 543, ../sass/AppStyle.scss */
+              /* line 540, ../sass/AppStyle.scss */
               .site-container .site-pusher .post .elems-app .video-containter .prev-img .prev-action .div-namePhoto {
                 display: inline-block;
                 position: relative;
                 margin: 0px auto; }
-              /* line 550, ../sass/AppStyle.scss */
+              /* line 547, ../sass/AppStyle.scss */
               .site-container .site-pusher .post .elems-app .video-containter .prev-img .prev-action .see-button {
                 cursor: pointer;
                 display: inline-block;
@@ -927,7 +927,7 @@ html, body {
                 width: 28px;
                 top: -26px;
                 left: 10px; }
-                /* line 559, ../sass/AppStyle.scss */
+                /* line 556, ../sass/AppStyle.scss */
                 .site-container .site-pusher .post .elems-app .video-containter .prev-img .prev-action .see-button:hover {
                   filter: invert(100%);
                   filter: hue-rotate(360deg);
@@ -935,11 +935,11 @@ html, body {
                   width: 40px;
                   left: 10px;
                   top: -30px; }
-            /* line 570, ../sass/AppStyle.scss */
+            /* line 567, ../sass/AppStyle.scss */
             .site-container .site-pusher .post .elems-app .video-containter .prev-img.scroll-container-prev {
               width: 370px; }
 
-/* line 581, ../sass/AppStyle.scss */
+/* line 578, ../sass/AppStyle.scss */
 .booth_filter {
   background: rgba(94, 108, 120, 0.9);
   border: 10px solid #535f6a;
@@ -950,7 +950,7 @@ html, body {
   margin-left: 20%;
   margin-right: 52px; }
 
-/* line 592, ../sass/AppStyle.scss */
+/* line 589, ../sass/AppStyle.scss */
 .booth_prev {
   background: rgba(94, 108, 120, 0.9);
   border: 10px solid #535f6a;
@@ -1176,341 +1176,408 @@ html, body {
       height: 52px; } }
   /* line 141, ../sass/appResponsive.scss */
   html {
-    overflow-y: hidden; }
+    overflow-x: hidden; }
 
-  /* line 149, ../sass/appResponsive.scss */
+  /* line 145, ../sass/appResponsive.scss */
+  body {
+    width: 105%;
+    overflow-y: scroll;
+    overflow-x: hidden; }
+
+  /* line 156, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .container-all-filters {
     margin-left: 4%;
     margin-right: 0px; }
-    /* line 153, ../sass/appResponsive.scss */
+    /* line 160, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .filters {
       width: 260px; }
-      /* line 157, ../sass/appResponsive.scss */
+      /* line 164, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .filters .filterHideButton .filters__icon {
         margin-left: 30px; }
-      /* line 164, ../sass/appResponsive.scss */
+      /* line 171, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .filters .menu2 .filters-button .button {
         width: 255px;
         font-size: 30px;
         height: 52px;
         padding-top: 10px; }
-    /* line 174, ../sass/appResponsive.scss */
+    /* line 181, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .objets-filter {
       width: 260px; }
-      /* line 178, ../sass/appResponsive.scss */
+      /* line 185, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .objets-filter .objHideButton .objets__icon {
         margin-left: 30px; }
-      /* line 184, ../sass/appResponsive.scss */
+      /* line 191, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .objets-filter .menu-objets .objets-button {
         max-height: 645px; }
-        /* line 187, ../sass/appResponsive.scss */
+        /* line 194, ../sass/appResponsive.scss */
         .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .objets-filter .menu-objets .objets-button .button {
           width: 255px;
           font-size: 30px;
           padding-top: 30px;
           height: 52px; }
-  /* line 198, ../sass/appResponsive.scss */
+  /* line 205, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .booth {
     width: 1000px;
     height: 825px; }
-    /* line 202, ../sass/appResponsive.scss */
+    /* line 209, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge {
       width: 1000px;
       height: 825px; }
-      /* line 206, ../sass/appResponsive.scss */
+      /* line 213, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .img-enlarge {
         width: 1000px;
         height: 825px; }
-      /* line 211, ../sass/appResponsive.scss */
+      /* line 218, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .close-enlarge {
         left: 940px; }
-        /* line 214, ../sass/appResponsive.scss */
+        /* line 221, ../sass/appResponsive.scss */
         .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .close-enlarge:hover {
           left: 935px;
           width: 60px; }
-    /* line 221, ../sass/appResponsive.scss */
+    /* line 228, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth .imgUpload {
       width: 1000px; }
-    /* line 225, ../sass/appResponsive.scss */
+    /* line 232, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth .myvideo {
       width: 1000px;
       margin-top: -105px; }
-    /* line 230, ../sass/appResponsive.scss */
+    /* line 237, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp {
       top: -100px; }
-      /* line 235, ../sass/appResponsive.scss */
+      /* line 242, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .action-app .take-photo .take-photo-img {
         left: 430px; }
-      /* line 239, ../sass/appResponsive.scss */
+      /* line 246, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .action-app .take-photo .startbuttonUpload {
         top: 95px;
         left: 400px; }
-      /* line 247, ../sass/appResponsive.scss */
+      /* line 254, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container {
         right: 385px; }
-        /* line 254, ../sass/appResponsive.scss */
+        /* line 261, ../sass/appResponsive.scss */
         .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container .back-to-video {
           top: 40px;
           left: 125px; }
-    /* line 262, ../sass/appResponsive.scss */
+    /* line 269, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth .chooseFilter {
       bottom: 150px; }
-    /* line 266, ../sass/appResponsive.scss */
+    /* line 273, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth.upload {
       height: 855px; }
-      /* line 270, ../sass/appResponsive.scss */
+      /* line 277, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth.upload .buttonActionApp .upload-app .input-file-trigger {
         top: 100px; }
-    /* line 277, ../sass/appResponsive.scss */
+    /* line 284, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth.active {
       height: 855px; }
-    /* line 282, ../sass/appResponsive.scss */
+    /* line 289, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .buttonActionApp {
       top: -200px; }
-    /* line 286, ../sass/appResponsive.scss */
+    /* line 293, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .myvideo {
       margin-bottom: 0px; }
-    /* line 290, ../sass/appResponsive.scss */
+    /* line 297, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .file-upload {
       top: -97px; }
-  /* line 297, ../sass/appResponsive.scss */
-  .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img {
-    width: 245px;
+  /* line 303, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .prev-img-container {
     margin-right: 4%;
-    margin-left: -320px;
-    max-height: 750px; }
-    /* line 303, ../sass/appResponsive.scss */
-    .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev {
-      padding-top: 10px;
-      margin-left: -20px; }
-      /* line 307, ../sass/appResponsive.scss */
-      .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev img {
-        width: 218px; }
+    margin-left: -2%; }
+    /* line 307, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img {
+      width: 245px;
+      margin-left: -320px;
+      max-height: 750px; }
       /* line 312, ../sass/appResponsive.scss */
-      .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev .prev-action .see-button {
-        width: 25px; }
-        /* line 315, ../sass/appResponsive.scss */
-        .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev .prev-action .see-button:hover {
-          width: 35px;
-          top: -30px; }
-      /* line 321, ../sass/appResponsive.scss */
-      .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev .prev-action .del-button {
-        width: 25px;
-        left: 190px; }
-        /* line 325, ../sass/appResponsive.scss */
-        .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev .prev-action .del-button:hover {
-          width: 35px;
-          top: -30px; }
-    /* line 333, ../sass/appResponsive.scss */
-    .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img.scroll-container-prev {
-      width: 260px; } }
+      .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev {
+        padding-top: 10px;
+        margin-left: -20px; }
+        /* line 316, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev img {
+          width: 218px; }
+        /* line 321, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev .prev-action .see-button {
+          width: 25px; }
+          /* line 324, ../sass/appResponsive.scss */
+          .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev .prev-action .see-button:hover {
+            width: 35px;
+            top: -30px; }
+        /* line 330, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev .prev-action .del-button {
+          width: 25px;
+          left: 190px; }
+          /* line 334, ../sass/appResponsive.scss */
+          .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev .prev-action .del-button:hover {
+            width: 35px;
+            top: -30px; }
+      /* line 342, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img.scroll-container-prev {
+        width: 260px; } }
 @media only screen and (max-width: 1740px) {
-  /* line 353, ../sass/appResponsive.scss */
+  /* line 362, ../sass/appResponsive.scss */
   .site-container .site-pusher .header .menu {
     font-size: 25px; }
-  /* line 360, ../sass/appResponsive.scss */
+  /* line 369, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .container-all-filters {
     font-size: 25px; }
-  /* line 368, ../sass/appResponsive.scss */
+  /* line 377, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .booth {
     width: 700px;
     height: 600px; }
-    /* line 372, ../sass/appResponsive.scss */
+    /* line 381, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge {
       width: 700px;
       height: 600px; }
-      /* line 376, ../sass/appResponsive.scss */
+      /* line 385, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .img-enlarge {
         width: 700px;
         height: 600px; }
-      /* line 381, ../sass/appResponsive.scss */
+      /* line 390, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .close-enlarge {
         left: 660px;
         width: 20px; }
-        /* line 385, ../sass/appResponsive.scss */
+        /* line 394, ../sass/appResponsive.scss */
         .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .close-enlarge:hover {
           left: 655px;
           width: 40px; }
-    /* line 392, ../sass/appResponsive.scss */
+    /* line 401, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth .imgUpload {
       width: 700px; }
-    /* line 396, ../sass/appResponsive.scss */
+    /* line 405, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth .myvideo {
       width: 700px;
       margin-top: -218px; }
-    /* line 401, ../sass/appResponsive.scss */
+    /* line 410, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp {
       top: -210px; }
-      /* line 406, ../sass/appResponsive.scss */
+      /* line 415, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .action-app .take-photo .take-photo-img {
         left: 430px; }
-      /* line 410, ../sass/appResponsive.scss */
+      /* line 419, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .action-app .take-photo .startbuttonUpload {
         top: 95px;
         left: 340px; }
-      /* line 418, ../sass/appResponsive.scss */
+      /* line 427, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container {
         right: 385px; }
-        /* line 425, ../sass/appResponsive.scss */
+        /* line 434, ../sass/appResponsive.scss */
         .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container .back-to-video {
           top: 40px;
           left: 225px; }
-    /* line 433, ../sass/appResponsive.scss */
+    /* line 442, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth .chooseFilter {
       bottom: 150px; }
-    /* line 437, ../sass/appResponsive.scss */
+    /* line 446, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth.upload {
       height: 558px; }
-      /* line 440, ../sass/appResponsive.scss */
+      /* line 449, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth.upload .buttonActionApp {
         top: -97px; }
-        /* line 443, ../sass/appResponsive.scss */
+        /* line 452, ../sass/appResponsive.scss */
         .site-container .site-pusher .post .elems-app .video-containter .booth.upload .buttonActionApp .upload-app .input-file-trigger {
           top: 100px; }
-    /* line 450, ../sass/appResponsive.scss */
+    /* line 459, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth.active {
       height: 630px; }
-    /* line 454, ../sass/appResponsive.scss */
+    /* line 463, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge {
       height: 600px; }
-      /* line 457, ../sass/appResponsive.scss */
+      /* line 466, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .myvideo {
         margin-bottom: 0px; }
-      /* line 461, ../sass/appResponsive.scss */
+      /* line 470, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .buttonActionApp {
         top: -310px; }
-        /* line 464, ../sass/appResponsive.scss */
+        /* line 473, ../sass/appResponsive.scss */
         .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .buttonActionApp .upload-app .input-file-trigger {
           top: 100px; }
-    /* line 471, ../sass/appResponsive.scss */
+    /* line 480, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth .chooseFilter {
       bottom: 255px; }
-    /* line 475, ../sass/appResponsive.scss */
+    /* line 484, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth.upload.enlarge {
       height: 630px; }
-      /* line 478, ../sass/appResponsive.scss */
+      /* line 487, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth.upload.enlarge .file-upload {
         top: -210px; }
-  /* line 485, ../sass/appResponsive.scss */
+  /* line 494, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img {
     max-height: 600px; } }
 @media only screen and (max-width: 1420px) {
-  /* line 512, ../sass/appResponsive.scss */
+  /* line 521, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .booth {
     width: 500px;
     height: 435px; }
-    /* line 516, ../sass/appResponsive.scss */
+    /* line 525, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge {
       width: 500px;
       height: 435px; }
-      /* line 520, ../sass/appResponsive.scss */
+      /* line 529, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .img-enlarge {
         width: 500px;
         height: 435px; }
-      /* line 525, ../sass/appResponsive.scss */
+      /* line 534, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .close-enlarge {
         left: 460px; }
-        /* line 528, ../sass/appResponsive.scss */
+        /* line 537, ../sass/appResponsive.scss */
         .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .close-enlarge:hover {
           left: 455px;
           width: 40px; }
-    /* line 535, ../sass/appResponsive.scss */
+    /* line 544, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth .imgUpload {
       width: 500px; }
-    /* line 539, ../sass/appResponsive.scss */
+    /* line 548, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth .myvideo {
       width: 500px;
       margin-top: -293px; }
-    /* line 544, ../sass/appResponsive.scss */
+    /* line 553, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp {
       top: -292px; }
-      /* line 549, ../sass/appResponsive.scss */
+      /* line 558, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .action-app .take-photo .take-photo-img {
         left: 170px; }
-      /* line 553, ../sass/appResponsive.scss */
+      /* line 562, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .action-app .take-photo .startbuttonUpload {
         top: 95px;
         left: 340px; }
-      /* line 561, ../sass/appResponsive.scss */
+      /* line 570, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container {
         right: 165px; }
-        /* line 568, ../sass/appResponsive.scss */
+        /* line 577, ../sass/appResponsive.scss */
         .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container .back-to-video {
           top: 40px;
           left: 225px; }
-    /* line 576, ../sass/appResponsive.scss */
+    /* line 585, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth .chooseFilter {
       bottom: 150px; }
-    /* line 580, ../sass/appResponsive.scss */
+    /* line 589, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth.upload {
       height: 445px; }
-      /* line 583, ../sass/appResponsive.scss */
+      /* line 592, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth.upload .buttonActionApp {
         top: -97px;
         left: -125px; }
-        /* line 588, ../sass/appResponsive.scss */
+        /* line 597, ../sass/appResponsive.scss */
         .site-container .site-pusher .post .elems-app .video-containter .booth.upload .buttonActionApp .take-photo .startbuttonUpload {
           left: 365px; }
-        /* line 594, ../sass/appResponsive.scss */
+        /* line 603, ../sass/appResponsive.scss */
         .site-container .site-pusher .post .elems-app .video-containter .booth.upload .buttonActionApp .upload-app .input-file-trigger {
           top: 100px; }
-    /* line 602, ../sass/appResponsive.scss */
+    /* line 611, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth.active {
       height: 855px; }
-    /* line 606, ../sass/appResponsive.scss */
+    /* line 615, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge {
       height: 445px; }
-      /* line 609, ../sass/appResponsive.scss */
+      /* line 618, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .myvideo {
         margin-bottom: 0px; }
-      /* line 614, ../sass/appResponsive.scss */
+      /* line 623, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .buttonActionApp .take-photo .take-photo-img {
         top: 20px; }
-      /* line 620, ../sass/appResponsive.scss */
+      /* line 629, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .upload-app .input-file-container {
         top: -79px; }
-    /* line 626, ../sass/appResponsive.scss */
+    /* line 635, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth.upload.active {
       height: 478px; }
-    /* line 631, ../sass/appResponsive.scss */
+    /* line 640, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth.upload.active.enlarge .buttonActionApp {
       top: -305px;
       left: -125px; }
-      /* line 636, ../sass/appResponsive.scss */
+      /* line 645, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth.upload.active.enlarge .buttonActionApp .take-photo .startbuttonUpload {
         top: 20px; }
-      /* line 643, ../sass/appResponsive.scss */
+      /* line 652, ../sass/appResponsive.scss */
       .site-container .site-pusher .post .elems-app .video-containter .booth.upload.active.enlarge .buttonActionApp .upload-app .input-file-trigger {
         top: 100px; }
-    /* line 650, ../sass/appResponsive.scss */
+    /* line 659, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth.upload.active.enlarge .file-upload {
       top: -282px; }
-  /* line 658, ../sass/appResponsive.scss */
+  /* line 667, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img {
     max-height: 600px; } }
 @media only screen and (max-width: 1190px) {
   /* line 679, ../sass/appResponsive.scss */
-  .site-container .site-pusher .post .elems-app .video-containter .booth {
-    margin-left: 14%; }
+  html {
+    overflow-x: hidden; }
+
   /* line 683, ../sass/appResponsive.scss */
+  body {
+    height: 160%;
+    width: 105%;
+    overflow-y: scroll;
+    overflow-x: hidden; }
+
+  /* line 699, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .container-all-filters {
+    position: relative;
+    margin: 0% auto;
+    top: 525px;
+    left: 200px; }
+  /* line 706, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .booth {
+    margin: 0% auto; }
+  /* line 710, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .prev-img {
+    margin: 0% auto; }
+  /* line 714, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .prev-img-container {
     position: relative;
+    margin: 0% auto;
     top: 525px;
-    left: -365px; } }
+    left: -203px; } }
 @media only screen and (max-width: 910px) {
-  /* line 705, ../sass/appResponsive.scss */
+  /* line 737, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .container-all-filters {
+    margin: 0% auto; }
+  /* line 741, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .booth {
-    margin-left: 7%; } }
+    margin: 0% auto; }
+  /* line 745, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .prev-img-container {
+    left: -180px; }
+  /* line 749, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .prev-img {
+    margin: 0% auto; } }
 @media only screen and (max-width: 835px) {
-  /* line 716, ../sass/appResponsive.scss */
+  /* line 760, ../sass/appResponsive.scss */
   html {
     overflow-y: auto; }
 
-  /* line 728, ../sass/appResponsive.scss */
+  /* line 772, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .container-all-filters {
+    left: 10px; }
+  /* line 775, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .booth {
-    margin-left: 14%; }
-  /* line 732, ../sass/appResponsive.scss */
+    margin: 0% auto;
+    left: -335px; }
+  /* line 780, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .prev-img-container {
     position: relative;
     top: 525px;
     left: -365px; } }
+@media only screen and (max-width: 750px) {
+  /* line 793, ../sass/appResponsive.scss */
+  html {
+    height: 300%; }
+
+  /* line 804, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter {
+    position: relative; }
+    /* line 806, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth {
+      margin: 0% auto;
+      left: -457px; } }
+@media only screen and (max-width: 414px) {
+  /* line 818, ../sass/appResponsive.scss */
+  html {
+    height: 200%; }
+
+  /* line 830, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter {
+    position: relative; }
+    /* line 832, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth {
+      margin: 0% auto;
+      left: -390px; } }
