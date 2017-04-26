@@ -2,21 +2,406 @@
 @import 'colors';
 
 @media only screen and (max-width: 1920px) {
+    .site-container {
+        .site-pusher {
+            .post {
+                .container-galerie {
+                    margin-left: -2%;
+                    
+                    .container-img {
+                        max-width: 1930px;
+                        
+                        .container-interact {
+                            .photo-galerie {
+                                max-width: 800px;
+                                width: 800px;
+                            }
+                            
+                            .galerie-login {
+                                max-width: 800px;
+                                font-size: medium;
+                            }
+    
+                            .container_message {
+                                .container-login-date {
+                                    &.left{
+                                        left: -155px;
+                                    }
+                                    
+                                    &.right {
+                                        left: 152px;
+                                    }
+                                }
+                                
+                                .hr-div{
+                                    hr {
+                                    
+                                    }
+    
+                                    &.left {
+                                        margin-left: 0px;
+                                    }
+    
+                                    &.right {
+                                        margin-left: 303px;
+                                    }
+                                }
+                                
+                                .comments {
+                                    &.left {
+                                    
+                                    }
+                                    
+                                    &.right{
+                                        margin-left: 303px;
+                                    }
+                                }
+                                
+                                &.right {
+                                    .hr-div{
+                                        hr {
+            
+                                        }
+        
+                                        &.left {
+                                            margin-left: 0px;
+                                        }
+        
+                                        &.right {
+                                            margin-left: 303px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                        .new-comments-container{
+                            .input-comment-submit{
+                                margin-left: 310px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
+@media only screen and (max-width: 1800px) {
+    .site-container {
+        .site-pusher {
+            .post {
+                .container-galerie {
+                    margin-left: -8%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1680px) {
+    .site-container {
+        .site-pusher {
+            .post {
+                .container-galerie {
+                    width: 150%;
+                    margin: 0% auto;
+                    left: 15%;
+                    //margin-left: -2%;
+                    
+                    .container-img {
+                        max-width: 900px;
+                        
+                        .container-interact {
+                            .photo-galerie {
+                                max-width: 800px;
+                                width: 800px;
+                            }
+                            
+                            .galerie-login {
+                                max-width: 800px;
+                            }
+                            
+                            .container_message {
+                                .container-login-date {
+                                    &.left{
+                                        left: -155px;
+                                    }
+                                    
+                                    &.right {
+                                        left: 152px;
+                                    }
+                                }
+                                
+                                .hr-div{
+                                    hr {
+                                    
+                                    }
+                                    
+                                    &.left {
+                                        margin-left: 0px;
+                                    }
+                                    
+                                    &.right {
+                                        margin-left: 303px;
+                                    }
+                                }
+                                
+                                .comments {
+                                    &.left {
+                                    
+                                    }
+                                    
+                                    &.right{
+                                        margin-left: 303px;
+                                    }
+                                }
+                                
+                                &.right {
+                                    .hr-div{
+                                        hr {
+                                        
+                                        }
+                                        
+                                        &.left {
+                                            margin-left: 0px;
+                                        }
+                                        
+                                        &.right {
+                                            margin-left: 303px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 1280px) {
-
+    .site-container {
+        .site-pusher {
+            .post {
+                .container-galerie {
+                    margin-left: -16%;
+                    margin-right: 4%;
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 1000px) {
+    .site-container {
+        .site-pusher {
+            .post {
+                .container-galerie {
+                    margin-left: -30%;
+                    margin-right: 16%;
+                }
+            }
+        }
+    }
+}
 
+@media only screen and (max-width: 850px) {
+    .site-container {
+        .site-pusher {
+            .post {
+                .container-galerie {
+                    margin-left: -30%;
+                    margin-right: 16%;
+                    
+                    .container-img {
+                        .container-interact {
+                            .photo-galerie {
+                                max-width: 500px;
+                            }
+                            
+                            .galerie-login {
+                                max-width: 500px;
+                            }
+                            
+                            .container_message {
+                                font-size: medium;
+                                .container-login-date {
+                                    font-size: medium;
+                                    &.left{
+                                        left: -2px;
+                                        padding-bottom: 3%;
+                                        margin-bottom: 2.5%;
+                                    }
+        
+                                    &.right {
+                                        left: 2px;
+                                        margin-bottom: 14px;
+                                    }
+                                }
+    
+                                .hr-div {
+                                    top: -12px;
+                                    margin-bottom: 4px;
+                                    
+                                    hr {
+        
+                                    }
+    
+                                    &.left {
+                                        margin-left: 0px;
+                                    }
+    
+                                    &.right {
+                                        margin-left: 303px;
+                                    }
+                                }
+    
+                                .comments {
+                                    &.left {
+            
+                                    }
+        
+                                    &.right{
+                                        margin-left: 2px;
+                                    }
+                                }
+    
+                                &.right {
+                                    .hr-div{
+                                        hr {
+                
+                                        }
+            
+                                        &.left {
+                                            margin-left: 0px;
+                                        }
+            
+                                        &.right {
+                                            margin-left: 2px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                        .new-comments-container {
+                            .input-comment-submit {
+                                margin-left: 165px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 750px) {
+    .site-container {
+        .site-pusher {
+            .post {
+                .container-galerie {
+                    margin-left: -35%;
+                    margin-right: 40%;
+                }
+            }
+        }
+    }
+}
 
+@media only screen and (max-width: 570px) {
+    .site-container {
+        .site-pusher {
+            .post {
+                .container-galerie {
+                    margin-left: -225px;
+                    margin-right: 0px;
+                    
+                    .container-img {
+                        .container-interact {
+                            .photo-galerie {
+                                max-width: 414px;
+                                width: 414px;
+                            }
+                            
+                            .galerie-login {
+                                max-width: 414px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 414px) {
-
+    .site-container {
+        .site-pusher {
+            .post {
+                .container-galerie {
+                    margin-left: -225px;
+                    margin-right: 0px;
+                    
+                    .container-img {
+                        .container-interact {
+                            .container_message {
+                                .container-login-date {
+                                    &.left {
+                                        left: -155px;
+                                    }
+        
+                                    &.right {
+                                        left: -9px;
+                                    }
+                                }
+    
+                                .hr-div {
+                                    hr {
+            
+                                    }
+        
+                                    &.left {
+                                        margin-left: 0px;
+                                    }
+        
+                                    &.right {
+                                        margin-left: -9px;
+                                    }
+                                }
+    
+                                .comments {
+                                    &.left {
+            
+                                    }
+        
+                                    &.right {
+                                        margin-left: -9px;
+                                    }
+                                }
+    
+                                &.right {
+                                    .hr-div {
+                                        hr {
+                
+                                        }
+            
+                                        &.left {
+                                            margin-left: 0px;
+                                        }
+            
+                                        &.right {
+                                            margin-left: 303px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

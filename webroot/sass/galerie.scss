@@ -22,7 +22,6 @@ body {
     display: inline-block;
     overflow-y: scroll;
     height: 100%;
-    //margin-right: 50px;
     margin-left: 140px;
     margin-top: 60px;
     margin-bottom: 2000px;
@@ -127,7 +126,6 @@ body {
                             position: relative;
                             max-width: 478px;
                             width: 478px;
-                            //left: -255px;
                             padding-bottom: 2%;
                             padding-top: 10px;
                             margin-bottom: -0.5%;
@@ -292,3 +290,5 @@ body {
         }
     }
 }
+
+@import "galerieResponsive";
