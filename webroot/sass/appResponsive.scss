@@ -697,10 +697,25 @@
 
                     .video-containter {
                         .container-all-filters {
+                            width: 100%;
                             position: relative;
                             margin: 0% auto;
                             top:525px;
                             left: 200px;
+
+                            .filters{
+                                margin-left: -146px;
+                            }
+
+                            .objets-filter {
+                                margin-left: -146px;
+
+                                .objHideButton{
+                                    .objets__icon {
+                                        left: 0px;
+                                    }
+                                }
+                            }
                         }
                         
                         .booth{
@@ -765,7 +780,7 @@
         .site-pusher {
 
             .post {
-
+                padding-left: 20%;
                 .elems-app {
 
                     .video-containter {
@@ -798,11 +813,15 @@
         .site-pusher {
         
             .post {
-            
+                margin-left: 2%;
                 .elems-app {
                 
                     .video-containter {
                         position: relative;
+
+                        .container-all-filters {
+                            width: 100%;
+                        }
                         .booth {
                             margin: 0% auto;
                             left: -457px;
@@ -832,6 +851,28 @@
                         .booth {
                             margin: 0% auto;
                             left: -390px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .site-container {
+
+        .site-pusher {
+
+            .post {
+
+                .elems-app {
+
+                    .video-containter {
+                        position: relative;
+                        .booth {
+                            margin: 0% auto;
+                            left: -480px;
                         }
                     }
                 }

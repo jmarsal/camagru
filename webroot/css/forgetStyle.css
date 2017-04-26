@@ -68,3 +68,9 @@
 /* line 89, ../sass/forgetStyle.scss */
 .container .accueil_form .containerForm.popup-mail {
   padding-bottom: 34%; }
+
+/* line 97, ../sass/forgetStyle.scss */
+body .footer-copy {
+  position: relative;
+  font-size: 15px;
+  top: 468px; }

@@ -1,181 +1,193 @@
-@media only screen and (max-width: 1920px) {
+@media only screen and (max-width: 2350px) {
   /* line 8, ../sass/galerieResponsive.scss */
   .site-container .site-pusher .post .container-galerie {
-    margin-left: -2%; }
-    /* line 11, ../sass/galerieResponsive.scss */
+    margin-left: -4%; } }
+@media only screen and (max-width: 2130px) {
+  /* line 17, ../sass/galerieResponsive.scss */
+  html {
+    width: 150%; }
+
+  /* line 24, ../sass/galerieResponsive.scss */
+  .site-container .site-pusher .post .container-galerie {
+    margin-left: 2%; }
+    /* line 27, ../sass/galerieResponsive.scss */
     .site-container .site-pusher .post .container-galerie .container-img {
       max-width: 1930px; }
-      /* line 15, ../sass/galerieResponsive.scss */
+      /* line 31, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .photo-galerie {
         max-width: 800px;
         width: 800px; }
-      /* line 20, ../sass/galerieResponsive.scss */
+      /* line 36, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .galerie-login {
         max-width: 800px;
         font-size: medium; }
-      /* line 27, ../sass/galerieResponsive.scss */
+      /* line 43, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .container-login-date.left {
         left: -155px; }
-      /* line 31, ../sass/galerieResponsive.scss */
+      /* line 47, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .container-login-date.right {
         left: 152px; }
-      /* line 41, ../sass/galerieResponsive.scss */
+      /* line 57, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .hr-div.left {
         margin-left: 0px; }
-      /* line 45, ../sass/galerieResponsive.scss */
+      /* line 61, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .hr-div.right {
         margin-left: 303px; }
-      /* line 55, ../sass/galerieResponsive.scss */
+      /* line 71, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .comments.right {
         margin-left: 303px; }
-      /* line 66, ../sass/galerieResponsive.scss */
+      /* line 82, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message.right .hr-div.left {
         margin-left: 0px; }
-      /* line 70, ../sass/galerieResponsive.scss */
+      /* line 86, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message.right .hr-div.right {
         margin-left: 303px; }
-      /* line 79, ../sass/galerieResponsive.scss */
+      /* line 95, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .new-comments-container .input-comment-submit {
         margin-left: 310px; } }
+@media only screen and (max-width: 1920px) {
+  /* line 110, ../sass/galerieResponsive.scss */
+  .site-container .site-pusher .post .container-galerie {
+    margin-left: -2%; } }
 @media only screen and (max-width: 1800px) {
-  /* line 94, ../sass/galerieResponsive.scss */
+  /* line 122, ../sass/galerieResponsive.scss */
   .site-container .site-pusher .post .container-galerie {
     margin-left: -8%; } }
 @media only screen and (max-width: 1680px) {
-  /* line 106, ../sass/galerieResponsive.scss */
+  /* line 134, ../sass/galerieResponsive.scss */
   .site-container .site-pusher .post .container-galerie {
     width: 150%;
     margin: 0% auto;
     left: 15%; }
-    /* line 112, ../sass/galerieResponsive.scss */
+    /* line 140, ../sass/galerieResponsive.scss */
     .site-container .site-pusher .post .container-galerie .container-img {
       max-width: 900px; }
-      /* line 116, ../sass/galerieResponsive.scss */
+      /* line 144, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .photo-galerie {
         max-width: 800px;
         width: 800px; }
-      /* line 121, ../sass/galerieResponsive.scss */
+      /* line 149, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .galerie-login {
         max-width: 800px; }
-      /* line 127, ../sass/galerieResponsive.scss */
+      /* line 155, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .container-login-date.left {
         left: -155px; }
-      /* line 131, ../sass/galerieResponsive.scss */
+      /* line 159, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .container-login-date.right {
         left: 152px; }
-      /* line 141, ../sass/galerieResponsive.scss */
+      /* line 169, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .hr-div.left {
         margin-left: 0px; }
-      /* line 145, ../sass/galerieResponsive.scss */
+      /* line 173, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .hr-div.right {
         margin-left: 303px; }
-      /* line 155, ../sass/galerieResponsive.scss */
+      /* line 183, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .comments.right {
         margin-left: 303px; }
-      /* line 166, ../sass/galerieResponsive.scss */
+      /* line 194, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message.right .hr-div.left {
         margin-left: 0px; }
-      /* line 170, ../sass/galerieResponsive.scss */
+      /* line 198, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message.right .hr-div.right {
         margin-left: 303px; } }
 @media only screen and (max-width: 1280px) {
-  /* line 188, ../sass/galerieResponsive.scss */
+  /* line 216, ../sass/galerieResponsive.scss */
   .site-container .site-pusher .post .container-galerie {
     margin-left: -16%;
     margin-right: 4%; } }
 @media only screen and (max-width: 1000px) {
-  /* line 201, ../sass/galerieResponsive.scss */
+  /* line 229, ../sass/galerieResponsive.scss */
   .site-container .site-pusher .post .container-galerie {
     margin-left: -30%;
     margin-right: 16%; } }
 @media only screen and (max-width: 850px) {
-  /* line 214, ../sass/galerieResponsive.scss */
+  /* line 242, ../sass/galerieResponsive.scss */
   .site-container .site-pusher .post .container-galerie {
     margin-left: -30%;
     margin-right: 16%; }
-    /* line 220, ../sass/galerieResponsive.scss */
+    /* line 248, ../sass/galerieResponsive.scss */
     .site-container .site-pusher .post .container-galerie .container-img .container-interact .photo-galerie {
       max-width: 500px; }
-    /* line 224, ../sass/galerieResponsive.scss */
+    /* line 252, ../sass/galerieResponsive.scss */
     .site-container .site-pusher .post .container-galerie .container-img .container-interact .galerie-login {
       max-width: 500px; }
-    /* line 228, ../sass/galerieResponsive.scss */
+    /* line 256, ../sass/galerieResponsive.scss */
     .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message {
       font-size: medium; }
-      /* line 230, ../sass/galerieResponsive.scss */
+      /* line 258, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .container-login-date {
         font-size: medium; }
-        /* line 232, ../sass/galerieResponsive.scss */
+        /* line 260, ../sass/galerieResponsive.scss */
         .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .container-login-date.left {
           left: -2px;
           padding-bottom: 3%;
           margin-bottom: 2.5%; }
-        /* line 238, ../sass/galerieResponsive.scss */
+        /* line 266, ../sass/galerieResponsive.scss */
         .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .container-login-date.right {
           left: 2px;
           margin-bottom: 14px; }
-      /* line 244, ../sass/galerieResponsive.scss */
+      /* line 272, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .hr-div {
         top: -12px;
         margin-bottom: 4px; }
-        /* line 252, ../sass/galerieResponsive.scss */
+        /* line 280, ../sass/galerieResponsive.scss */
         .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .hr-div.left {
           margin-left: 0px; }
-        /* line 256, ../sass/galerieResponsive.scss */
+        /* line 284, ../sass/galerieResponsive.scss */
         .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .hr-div.right {
           margin-left: 303px; }
-      /* line 266, ../sass/galerieResponsive.scss */
+      /* line 294, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .comments.right {
         margin-left: 2px; }
-      /* line 277, ../sass/galerieResponsive.scss */
+      /* line 305, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message.right .hr-div.left {
         margin-left: 0px; }
-      /* line 281, ../sass/galerieResponsive.scss */
+      /* line 309, ../sass/galerieResponsive.scss */
       .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message.right .hr-div.right {
         margin-left: 2px; }
-    /* line 290, ../sass/galerieResponsive.scss */
+    /* line 318, ../sass/galerieResponsive.scss */
     .site-container .site-pusher .post .container-galerie .container-img .new-comments-container .input-comment-submit {
       margin-left: 165px; } }
 @media only screen and (max-width: 750px) {
-  /* line 305, ../sass/galerieResponsive.scss */
+  /* line 333, ../sass/galerieResponsive.scss */
   .site-container .site-pusher .post .container-galerie {
     margin-left: -35%;
     margin-right: 40%; } }
 @media only screen and (max-width: 570px) {
-  /* line 318, ../sass/galerieResponsive.scss */
-  .site-container .site-pusher .post .container-galerie {
-    margin-left: -225px;
-    margin-right: 0px; }
-    /* line 324, ../sass/galerieResponsive.scss */
-    .site-container .site-pusher .post .container-galerie .container-img .container-interact .photo-galerie {
-      max-width: 414px;
-      width: 414px; }
-    /* line 329, ../sass/galerieResponsive.scss */
-    .site-container .site-pusher .post .container-galerie .container-img .container-interact .galerie-login {
-      max-width: 414px; } }
-@media only screen and (max-width: 414px) {
-  /* line 344, ../sass/galerieResponsive.scss */
+  /* line 346, ../sass/galerieResponsive.scss */
   .site-container .site-pusher .post .container-galerie {
     margin-left: -225px;
     margin-right: 0px; }
     /* line 352, ../sass/galerieResponsive.scss */
+    .site-container .site-pusher .post .container-galerie .container-img .container-interact .photo-galerie {
+      max-width: 414px;
+      width: 414px; }
+    /* line 357, ../sass/galerieResponsive.scss */
+    .site-container .site-pusher .post .container-galerie .container-img .container-interact .galerie-login {
+      max-width: 414px; } }
+@media only screen and (max-width: 414px) {
+  /* line 372, ../sass/galerieResponsive.scss */
+  .site-container .site-pusher .post .container-galerie {
+    margin-left: -225px;
+    margin-right: 0px; }
+    /* line 380, ../sass/galerieResponsive.scss */
     .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .container-login-date.left {
       left: -155px; }
-    /* line 356, ../sass/galerieResponsive.scss */
+    /* line 384, ../sass/galerieResponsive.scss */
     .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .container-login-date.right {
       left: -9px; }
-    /* line 366, ../sass/galerieResponsive.scss */
+    /* line 394, ../sass/galerieResponsive.scss */
     .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .hr-div.left {
       margin-left: 0px; }
-    /* line 370, ../sass/galerieResponsive.scss */
+    /* line 398, ../sass/galerieResponsive.scss */
     .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .hr-div.right {
       margin-left: -9px; }
-    /* line 380, ../sass/galerieResponsive.scss */
+    /* line 408, ../sass/galerieResponsive.scss */
     .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message .comments.right {
       margin-left: -9px; }
-    /* line 391, ../sass/galerieResponsive.scss */
+    /* line 419, ../sass/galerieResponsive.scss */
     .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message.right .hr-div.left {
       margin-left: 0px; }
-    /* line 395, ../sass/galerieResponsive.scss */
+    /* line 423, ../sass/galerieResponsive.scss */
     .site-container .site-pusher .post .container-galerie .container-img .container-interact .container_message.right .hr-div.right {
       margin-left: 303px; } }

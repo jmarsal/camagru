@@ -29,3 +29,8 @@
   /* line 50, ../sass/registerStyle.scss */
   .container .accueil_form .containerForm .log_register_but .button {
     width: 200px; } }
+/* line 62, ../sass/registerStyle.scss */
+body .footer-copy {
+  position: relative;
+  font-size: 15px;
+  top: 468px; }

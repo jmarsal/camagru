@@ -32,6 +32,9 @@
                 <div class="site-cache" id="site-cache" onclick="showhide()"></div>
             </div>
         </div>
+        <footer class="footer-copy">
+            &copy; <?PHP echo date("Y"); ?> - Made by Jmarsal
+        </footer>
         <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'oXHR.js';?>" ></script>
         <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'ajaxApp.js';?>" ></script>
         <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'GalerieAjax.js';?>" ></script>

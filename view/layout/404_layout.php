@@ -21,5 +21,8 @@ if (!isset($_SESSION)){
 	<div class="hero-unit">
 		<?php echo $content_for_layout;?>
 	</div>
+    <footer class="footer-copy">
+        &copy; <?PHP echo date("Y"); ?> - Made by Jmarsal
+    </footer>
 	</body>
 </html>

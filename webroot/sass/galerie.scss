@@ -10,10 +10,14 @@ html {
 
 body {
     width: 100%;
-    height: 100%;
+    height: 95%;
     margin: 0% auto;
     position: relative;
     overflow-y: hidden;
+
+    .site-container {
+        margin-bottom: -435px;
+    }
 }
 
 .container-galerie {
@@ -22,7 +26,7 @@ body {
     display: inline-block;
     overflow-y: scroll;
     height: 100%;
-    margin-left: 140px;
+    margin-left: 2%;
     margin-top: 60px;
     margin-bottom: 2000px;
 
@@ -55,11 +59,9 @@ body {
                 width: $sizeImg;
                 background-color: rgba(0, 0, 0, 0.6);
                 border: 3px solid rgba(0, 0, 0, 0.6);
-                //border-top: hidden;
                 margin-top: -17px;
                 margin-bottom: 75px;
                 padding-top: 12px;
-                //margin-left: 3px;
 
                 .trash-galerie {
                     width: 30px;
@@ -292,3 +294,10 @@ body {
 }
 
 @import "galerieResponsive";
+body {
+    .footer-copy {
+        position: relative;
+        font-size: 15px;
+        top: 468px;
+    }
+}

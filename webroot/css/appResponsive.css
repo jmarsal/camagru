@@ -192,7 +192,7 @@ form input {
     margin-left: 550px;
     margin-top: 400px; }
 
-@media only screen and (max-width: 1920px) {
+@media only screen and (max-width: 2340px) {
   /* line 69, ../sass/objStyle.scss */
   .obj-img {
     position: absolute;
@@ -200,7 +200,7 @@ form input {
     /* line 73, ../sass/objStyle.scss */
     .obj-img.beardMustaches {
       width: 230px;
-      margin-left: 400px;
+      margin-left: 390px;
       margin-top: 310px; }
     /* line 79, ../sass/objStyle.scss */
     .obj-img.chapeauPirate {
@@ -210,7 +210,7 @@ form input {
     /* line 85, ../sass/objStyle.scss */
     .obj-img.dog {
       width: 200px;
-      margin-left: 220px;
+      margin-left: 200px;
       margin-top: 140px; }
     /* line 91, ../sass/objStyle.scss */
     .obj-img.epee {
@@ -247,226 +247,391 @@ form input {
       width: 160px;
       margin-left: 430px;
       margin-top: 300px; } }
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1920px) {
   /* line 136, ../sass/objStyle.scss */
   .obj-img {
     position: absolute;
     z-index: 55; }
     /* line 140, ../sass/objStyle.scss */
     .obj-img.beardMustaches {
-      width: 310px;
-      margin-left: 500px;
-      margin-top: 400px; }
+      width: 230px;
+      margin-left: 400px;
+      margin-top: 310px; }
     /* line 146, ../sass/objStyle.scss */
     .obj-img.chapeauPirate {
-      width: 600px;
-      margin-left: 355px;
-      margin-top: -50px; }
+      width: 500px;
+      margin-left: 260px;
+      margin-top: -40px; }
     /* line 152, ../sass/objStyle.scss */
     .obj-img.dog {
-      width: 280px;
+      width: 200px;
       margin-left: 220px;
-      margin-top: 150px; }
+      margin-top: 140px; }
     /* line 158, ../sass/objStyle.scss */
     .obj-img.epee {
-      width: 300px;
-      margin-left: 251px;
-      margin-top: 270px; }
+      width: 250px;
+      margin-left: 190px;
+      margin-top: 210px; }
     /* line 164, ../sass/objStyle.scss */
     .obj-img.epeeLaser {
-      width: 400px;
-      margin-left: 170px;
-      margin-top: 200px; }
+      width: 300px;
+      margin-left: 140px;
+      margin-top: 150px; }
     /* line 170, ../sass/objStyle.scss */
     .obj-img.largeMustache {
-      width: 200px;
-      margin-left: 550px;
-      margin-top: 382px; }
+      width: 150px;
+      margin-left: 430px;
+      margin-top: 300px; }
     /* line 176, ../sass/objStyle.scss */
     .obj-img.lunette {
-      width: 300px;
-      margin-left: 500px;
-      margin-top: 100px; }
+      width: 200px;
+      margin-left: 410px;
+      margin-top: 90px; }
     /* line 182, ../sass/objStyle.scss */
     .obj-img.monkey {
-      width: 180px;
-      margin-left: 355px;
-      margin-top: 310px; }
+      width: 100px;
+      margin-left: 300px;
+      margin-top: 280px; }
     /* line 188, ../sass/objStyle.scss */
     .obj-img.policeHat {
-      width: 380px;
-      margin-left: 443px;
+      width: 290px;
+      margin-left: 343px;
       margin-top: -4px; }
     /* line 194, ../sass/objStyle.scss */
     .obj-img.prismaticMustache {
-      width: 200px;
-      margin-left: 550px;
-      margin-top: 400px; } }
-@media only screen and (max-width: 1000px) {
+      width: 160px;
+      margin-left: 430px;
+      margin-top: 300px; } }
+@media only screen and (max-width: 1740px) {
   /* line 203, ../sass/objStyle.scss */
   .obj-img {
     position: absolute;
     z-index: 55; }
     /* line 207, ../sass/objStyle.scss */
     .obj-img.beardMustaches {
-      width: 310px;
-      margin-left: 500px;
-      margin-top: 400px; }
+      width: 200px;
+      margin-left: 250px;
+      margin-top: 210px; }
     /* line 213, ../sass/objStyle.scss */
     .obj-img.chapeauPirate {
-      width: 600px;
-      margin-left: 355px;
-      margin-top: -50px; }
+      width: 400px;
+      margin-left: 160px;
+      margin-top: -40px; }
     /* line 219, ../sass/objStyle.scss */
     .obj-img.dog {
-      width: 280px;
-      margin-left: 220px;
-      margin-top: 150px; }
+      width: 180px;
+      margin-left: 100px;
+      margin-top: 80px; }
     /* line 225, ../sass/objStyle.scss */
     .obj-img.epee {
-      width: 300px;
-      margin-left: 251px;
-      margin-top: 270px; }
+      width: 130px;
+      margin-left: 170px;
+      margin-top: 140px; }
     /* line 231, ../sass/objStyle.scss */
     .obj-img.epeeLaser {
-      width: 400px;
-      margin-left: 170px;
-      margin-top: 200px; }
+      width: 200px;
+      margin-left: 110px;
+      margin-top: 110px; }
     /* line 237, ../sass/objStyle.scss */
     .obj-img.largeMustache {
-      width: 200px;
-      margin-left: 550px;
-      margin-top: 382px; }
+      width: 100px;
+      margin-left: 300px;
+      margin-top: 200px; }
     /* line 243, ../sass/objStyle.scss */
     .obj-img.lunette {
-      width: 300px;
-      margin-left: 500px;
-      margin-top: 100px; }
+      width: 150px;
+      margin-left: 280px;
+      margin-top: 70px; }
     /* line 249, ../sass/objStyle.scss */
     .obj-img.monkey {
-      width: 180px;
-      margin-left: 355px;
-      margin-top: 310px; }
+      width: 90px;
+      margin-left: 175px;
+      margin-top: 200px; }
     /* line 255, ../sass/objStyle.scss */
     .obj-img.policeHat {
-      width: 380px;
-      margin-left: 443px;
+      width: 190px;
+      margin-left: 243px;
       margin-top: -4px; }
     /* line 261, ../sass/objStyle.scss */
     .obj-img.prismaticMustache {
-      width: 200px;
-      margin-left: 550px;
-      margin-top: 400px; } }
-@media only screen and (max-width: 750px) {
+      width: 120px;
+      margin-left: 300px;
+      margin-top: 220px; } }
+@media only screen and (max-width: 1420px) {
   /* line 270, ../sass/objStyle.scss */
   .obj-img {
     position: absolute;
     z-index: 55; }
     /* line 274, ../sass/objStyle.scss */
     .obj-img.beardMustaches {
-      width: 310px;
-      margin-left: 500px;
-      margin-top: 400px; }
+      width: 100px;
+      margin-left: 210px;
+      margin-top: 150px; }
     /* line 280, ../sass/objStyle.scss */
     .obj-img.chapeauPirate {
-      width: 600px;
-      margin-left: 355px;
-      margin-top: -50px; }
+      width: 250px;
+      margin-left: 140px;
+      margin-top: -20px; }
     /* line 286, ../sass/objStyle.scss */
     .obj-img.dog {
-      width: 280px;
-      margin-left: 220px;
-      margin-top: 150px; }
+      width: 110px;
+      margin-left: 80px;
+      margin-top: 60px; }
     /* line 292, ../sass/objStyle.scss */
     .obj-img.epee {
-      width: 300px;
-      margin-left: 251px;
-      margin-top: 270px; }
+      width: 80px;
+      margin-left: 140px;
+      margin-top: 110px; }
     /* line 298, ../sass/objStyle.scss */
     .obj-img.epeeLaser {
-      width: 400px;
-      margin-left: 170px;
-      margin-top: 200px; }
+      width: 150px;
+      margin-left: 70px;
+      margin-top: 80px; }
     /* line 304, ../sass/objStyle.scss */
     .obj-img.largeMustache {
-      width: 200px;
-      margin-left: 550px;
-      margin-top: 382px; }
+      width: 75px;
+      margin-left: 210px;
+      margin-top: 160px; }
     /* line 310, ../sass/objStyle.scss */
     .obj-img.lunette {
-      width: 300px;
-      margin-left: 500px;
-      margin-top: 100px; }
+      width: 100px;
+      margin-left: 205px;
+      margin-top: 40px; }
     /* line 316, ../sass/objStyle.scss */
     .obj-img.monkey {
-      width: 180px;
-      margin-left: 355px;
-      margin-top: 310px; }
+      width: 55px;
+      margin-left: 125px;
+      margin-top: 125px; }
     /* line 322, ../sass/objStyle.scss */
     .obj-img.policeHat {
-      width: 380px;
-      margin-left: 443px;
-      margin-top: -4px; }
+      width: 120px;
+      margin-left: 180px;
+      margin-top: 15px; }
     /* line 328, ../sass/objStyle.scss */
     .obj-img.prismaticMustache {
-      width: 200px;
-      margin-left: 550px;
-      margin-top: 400px; } }
-@media only screen and (max-width: 414px) {
+      width: 80px;
+      margin-left: 210px;
+      margin-top: 150px; } }
+@media only screen and (max-width: 1280px) {
   /* line 337, ../sass/objStyle.scss */
   .obj-img {
     position: absolute;
     z-index: 55; }
     /* line 341, ../sass/objStyle.scss */
     .obj-img.beardMustaches {
-      width: 310px;
-      margin-left: 500px;
-      margin-top: 400px; }
+      width: 100px;
+      margin-left: 210px;
+      margin-top: 150px; }
     /* line 347, ../sass/objStyle.scss */
     .obj-img.chapeauPirate {
-      width: 600px;
-      margin-left: 355px;
-      margin-top: -50px; }
+      width: 250px;
+      margin-left: 140px;
+      margin-top: -20px; }
     /* line 353, ../sass/objStyle.scss */
     .obj-img.dog {
-      width: 280px;
-      margin-left: 220px;
-      margin-top: 150px; }
+      width: 110px;
+      margin-left: 80px;
+      margin-top: 60px; }
     /* line 359, ../sass/objStyle.scss */
     .obj-img.epee {
-      width: 300px;
-      margin-left: 251px;
-      margin-top: 270px; }
+      width: 80px;
+      margin-left: 140px;
+      margin-top: 110px; }
     /* line 365, ../sass/objStyle.scss */
     .obj-img.epeeLaser {
-      width: 400px;
-      margin-left: 170px;
-      margin-top: 200px; }
+      width: 150px;
+      margin-left: 70px;
+      margin-top: 80px; }
     /* line 371, ../sass/objStyle.scss */
     .obj-img.largeMustache {
-      width: 200px;
-      margin-left: 550px;
-      margin-top: 382px; }
+      width: 75px;
+      margin-left: 210px;
+      margin-top: 160px; }
     /* line 377, ../sass/objStyle.scss */
     .obj-img.lunette {
-      width: 300px;
-      margin-left: 500px;
-      margin-top: 100px; }
+      width: 100px;
+      margin-left: 205px;
+      margin-top: 40px; }
     /* line 383, ../sass/objStyle.scss */
     .obj-img.monkey {
-      width: 180px;
-      margin-left: 355px;
-      margin-top: 310px; }
+      width: 55px;
+      margin-left: 125px;
+      margin-top: 125px; }
     /* line 389, ../sass/objStyle.scss */
     .obj-img.policeHat {
-      width: 380px;
-      margin-left: 443px;
-      margin-top: -4px; }
+      width: 120px;
+      margin-left: 180px;
+      margin-top: 15px; }
     /* line 395, ../sass/objStyle.scss */
     .obj-img.prismaticMustache {
-      width: 200px;
-      margin-left: 550px;
-      margin-top: 400px; } }
+      width: 80px;
+      margin-left: 210px;
+      margin-top: 150px; } }
+@media only screen and (max-width: 1000px) {
+  /* line 404, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 408, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 100px;
+      margin-left: 210px;
+      margin-top: 150px; }
+    /* line 414, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 250px;
+      margin-left: 140px;
+      margin-top: -20px; }
+    /* line 420, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 110px;
+      margin-left: 80px;
+      margin-top: 60px; }
+    /* line 426, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 80px;
+      margin-left: 140px;
+      margin-top: 110px; }
+    /* line 432, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 150px;
+      margin-left: 70px;
+      margin-top: 80px; }
+    /* line 438, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 75px;
+      margin-left: 210px;
+      margin-top: 160px; }
+    /* line 444, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 100px;
+      margin-left: 205px;
+      margin-top: 40px; }
+    /* line 450, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 55px;
+      margin-left: 125px;
+      margin-top: 125px; }
+    /* line 456, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 120px;
+      margin-left: 180px;
+      margin-top: 15px; }
+    /* line 462, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 80px;
+      margin-left: 210px;
+      margin-top: 150px; } }
+@media only screen and (max-width: 750px) {
+  /* line 471, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 475, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 100px;
+      margin-left: 210px;
+      margin-top: 150px; }
+    /* line 481, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 250px;
+      margin-left: 140px;
+      margin-top: -20px; }
+    /* line 487, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 110px;
+      margin-left: 80px;
+      margin-top: 60px; }
+    /* line 493, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 80px;
+      margin-left: 140px;
+      margin-top: 110px; }
+    /* line 499, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 150px;
+      margin-left: 70px;
+      margin-top: 80px; }
+    /* line 505, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 75px;
+      margin-left: 210px;
+      margin-top: 160px; }
+    /* line 511, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 100px;
+      margin-left: 205px;
+      margin-top: 40px; }
+    /* line 517, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 55px;
+      margin-left: 125px;
+      margin-top: 125px; }
+    /* line 523, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 120px;
+      margin-left: 180px;
+      margin-top: 15px; }
+    /* line 529, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 80px;
+      margin-left: 210px;
+      margin-top: 150px; } }
+@media only screen and (max-width: 414px) {
+  /* line 538, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 542, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 100px;
+      margin-left: 210px;
+      margin-top: 150px; }
+    /* line 548, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 250px;
+      margin-left: 140px;
+      margin-top: -20px; }
+    /* line 554, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 110px;
+      margin-left: 80px;
+      margin-top: 60px; }
+    /* line 560, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 80px;
+      margin-left: 140px;
+      margin-top: 110px; }
+    /* line 566, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 150px;
+      margin-left: 70px;
+      margin-top: 80px; }
+    /* line 572, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 75px;
+      margin-left: 210px;
+      margin-top: 160px; }
+    /* line 578, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 100px;
+      margin-left: 205px;
+      margin-top: 40px; }
+    /* line 584, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 55px;
+      margin-left: 125px;
+      margin-top: 125px; }
+    /* line 590, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 120px;
+      margin-left: 180px;
+      margin-top: 15px; }
+    /* line 596, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 80px;
+      margin-left: 210px;
+      margin-top: 150px; } }
 @media only screen and (max-width: 2340px) {
   /* line 15, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .booth {
@@ -879,73 +1044,100 @@ form input {
 
   /* line 699, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .container-all-filters {
+    width: 100%;
     position: relative;
     margin: 0% auto;
     top: 525px;
     left: 200px; }
-  /* line 706, ../sass/appResponsive.scss */
+    /* line 706, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .filters {
+      margin-left: -146px; }
+    /* line 710, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .objets-filter {
+      margin-left: -146px; }
+      /* line 714, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .objets-filter .objHideButton .objets__icon {
+        left: 0px; }
+  /* line 721, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .booth {
     margin: 0% auto; }
-  /* line 710, ../sass/appResponsive.scss */
+  /* line 725, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .prev-img {
     margin: 0% auto; }
-  /* line 714, ../sass/appResponsive.scss */
+  /* line 729, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .prev-img-container {
     position: relative;
     margin: 0% auto;
     top: 525px;
     left: -203px; } }
 @media only screen and (max-width: 910px) {
-  /* line 737, ../sass/appResponsive.scss */
+  /* line 752, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .container-all-filters {
     margin: 0% auto; }
-  /* line 741, ../sass/appResponsive.scss */
+  /* line 756, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .booth {
     margin: 0% auto; }
-  /* line 745, ../sass/appResponsive.scss */
+  /* line 760, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .prev-img-container {
     left: -180px; }
-  /* line 749, ../sass/appResponsive.scss */
+  /* line 764, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter .prev-img {
     margin: 0% auto; } }
 @media only screen and (max-width: 835px) {
-  /* line 760, ../sass/appResponsive.scss */
+  /* line 775, ../sass/appResponsive.scss */
   html {
     overflow-y: auto; }
 
-  /* line 772, ../sass/appResponsive.scss */
-  .site-container .site-pusher .post .elems-app .video-containter .container-all-filters {
-    left: 10px; }
-  /* line 775, ../sass/appResponsive.scss */
-  .site-container .site-pusher .post .elems-app .video-containter .booth {
-    margin: 0% auto;
-    left: -335px; }
-  /* line 780, ../sass/appResponsive.scss */
-  .site-container .site-pusher .post .elems-app .video-containter .prev-img-container {
-    position: relative;
-    top: 525px;
-    left: -365px; } }
+  /* line 782, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post {
+    padding-left: 20%; }
+    /* line 787, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .container-all-filters {
+      left: 10px; }
+    /* line 790, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth {
+      margin: 0% auto;
+      left: -335px; }
+    /* line 795, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .prev-img-container {
+      position: relative;
+      top: 525px;
+      left: -365px; } }
 @media only screen and (max-width: 750px) {
-  /* line 793, ../sass/appResponsive.scss */
+  /* line 808, ../sass/appResponsive.scss */
   html {
     height: 300%; }
 
-  /* line 804, ../sass/appResponsive.scss */
-  .site-container .site-pusher .post .elems-app .video-containter {
-    position: relative; }
-    /* line 806, ../sass/appResponsive.scss */
-    .site-container .site-pusher .post .elems-app .video-containter .booth {
-      margin: 0% auto;
-      left: -457px; } }
+  /* line 815, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post {
+    margin-left: 2%; }
+    /* line 819, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter {
+      position: relative; }
+      /* line 822, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .container-all-filters {
+        width: 100%; }
+      /* line 825, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth {
+        margin: 0% auto;
+        left: -457px; } }
 @media only screen and (max-width: 414px) {
-  /* line 818, ../sass/appResponsive.scss */
+  /* line 837, ../sass/appResponsive.scss */
   html {
     height: 200%; }
 
-  /* line 830, ../sass/appResponsive.scss */
+  /* line 849, ../sass/appResponsive.scss */
   .site-container .site-pusher .post .elems-app .video-containter {
     position: relative; }
-    /* line 832, ../sass/appResponsive.scss */
+    /* line 851, ../sass/appResponsive.scss */
     .site-container .site-pusher .post .elems-app .video-containter .booth {
       margin: 0% auto;
       left: -390px; } }
+@media only screen and (max-width: 320px) {
+  /* line 871, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter {
+    position: relative; }
+    /* line 873, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth {
+      margin: 0% auto;
+      left: -480px; } }

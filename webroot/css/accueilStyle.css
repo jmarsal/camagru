@@ -217,22 +217,16 @@ form input {
 /*
   Taille de base sur ecran 2560 x 1440
 */
-/* line 12, ../sass/accueilStyle.scss */
-.container {
+/* line 13, ../sass/accueilStyle.scss */
+body .container {
   display: block;
   position: relative;
   margin-top: 5%;
   /*
   Accueil
-   */
-  /*
-  ForgetId
-   */
-  /*
-  Other
    */ }
-  /* line 20, ../sass/accueilStyle.scss */
-  .container .accueil_form {
+  /* line 21, ../sass/accueilStyle.scss */
+  body .container .accueil_form {
     font-size: 30px;
     position: relative;
     margin: 0 auto;
@@ -241,56 +235,62 @@ form input {
     background-color: rgba(94, 108, 120, 0.9);
     text-align: center;
     box-shadow: 0px 0px 1px #00223e; }
-    /* line 30, ../sass/accueilStyle.scss */
-    .container .accueil_form .containerForm {
+    /* line 31, ../sass/accueilStyle.scss */
+    body .container .accueil_form .containerForm {
       margin-left: 10%;
       max-width: 80%; }
-      /* line 34, ../sass/accueilStyle.scss */
-      .container .accueil_form .containerForm .paswrd_accueil_but {
+      /* line 35, ../sass/accueilStyle.scss */
+      body .container .accueil_form .containerForm .paswrd_accueil_but {
         margin-top: 15px;
         margin-bottom: 40px; }
-      /* line 39, ../sass/accueilStyle.scss */
-      .container .accueil_form .containerForm .submit-accueil {
+      /* line 40, ../sass/accueilStyle.scss */
+      body .container .accueil_form .containerForm .submit-accueil {
         position: relative;
         margin: 0px auto;
         width: 150px; }
-        /* line 44, ../sass/accueilStyle.scss */
-        .container .accueil_form .containerForm .submit-accueil .button {
+        /* line 45, ../sass/accueilStyle.scss */
+        body .container .accueil_form .containerForm .submit-accueil .button {
           font-size: 24px; }
-      /* line 49, ../sass/accueilStyle.scss */
-      .container .accueil_form .containerForm .forgetPass a {
+      /* line 50, ../sass/accueilStyle.scss */
+      body .container .accueil_form .containerForm .forgetPass a {
         color: #f3f3f3;
         display: block;
         text-decoration: none;
         font-size: 35px; }
-        /* line 55, ../sass/accueilStyle.scss */
-        .container .accueil_form .containerForm .forgetPass a:hover {
+        /* line 56, ../sass/accueilStyle.scss */
+        body .container .accueil_form .containerForm .forgetPass a:hover {
           color: #e35c05; }
-      /* line 60, ../sass/accueilStyle.scss */
-      .container .accueil_form .containerForm .registerDiv {
+      /* line 61, ../sass/accueilStyle.scss */
+      body .container .accueil_form .containerForm .registerDiv {
         display: block;
         position: relative;
         padding-bottom: 5%; }
-        /* line 65, ../sass/accueilStyle.scss */
-        .container .accueil_form .containerForm .registerDiv .registered {
+        /* line 66, ../sass/accueilStyle.scss */
+        body .container .accueil_form .containerForm .registerDiv .registered {
           color: #f3f3f3;
           text-decoration: none;
           width: 26%; }
-          /* line 70, ../sass/accueilStyle.scss */
-          .container .accueil_form .containerForm .registerDiv .registered:hover {
+          /* line 71, ../sass/accueilStyle.scss */
+          body .container .accueil_form .containerForm .registerDiv .registered:hover {
             color: #e35c05; }
-  /* line 85, ../sass/accueilStyle.scss */
-  .container textarea, .container select {
-    padding: 3px;
-    border: 1px solid #222222;
-    border-radius: 5px;
-    width: 60%;
-    height: 150%;
-    box-shadow: 1px 0px 5px #222222 inset;
-    font-family: 'Cairo', sans-serif; }
-  /* line 95, ../sass/accueilStyle.scss */
-  .container .footer {
-    height: 45px; }
+/* line 81, ../sass/accueilStyle.scss */
+body .footer-copy {
+  position: relative;
+  font-size: 15px;
+  top: 468px; }
+
+/*
+Other
+ */
+/* line 91, ../sass/accueilStyle.scss */
+textarea, select {
+  padding: 3px;
+  border: 1px solid #222222;
+  border-radius: 5px;
+  width: 60%;
+  height: 150%;
+  box-shadow: 1px 0px 5px #222222 inset;
+  font-family: 'Cairo', sans-serif; }
 
 @media only screen and (max-width: 1920px) {
   /* line 4, ../sass/accueilResponsive.scss */

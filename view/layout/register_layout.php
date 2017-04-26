@@ -24,6 +24,9 @@
         </div>
     </div>
     <div class="footer" id="footer"></div>
+    <footer class="footer-copy">
+        &copy; <?PHP echo date("Y"); ?> - Made by Jmarsal
+    </footer>
     <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'oXHR.js';?>" ></script>
     <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'popup.js';?>" ></script>
     <script type="text/javascript" src="<?php echo BASE_URL.DS.'view'.DS.'js'.DS.'accueilAjax.js';?>" ></script>
