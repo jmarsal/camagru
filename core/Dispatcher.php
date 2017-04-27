@@ -44,7 +44,6 @@ class Dispatcher {
 	}
 	
 	function error($message) {
-//		$controller = new Controller($this->request);
 		$this->request->url = "";
 		$controller = $this->loadController();
 		$controller->e404($message);

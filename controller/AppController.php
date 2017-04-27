@@ -11,13 +11,6 @@ class AppController extends Controller
                 $_SESSION['filter'] = $_POST['filter'];
                 var_dump($_SESSION['filter']);
             }
-//            if (!empty($_SESSION['img'])){
-//                foreach ($_SESSION['img'] as $v){
-//                    if (!isset($_SESSION[$v['id']]['namePhoto']) || empty($_SESSION[$v['id']]['namePhoto'])){
-//                        $_SESSION[$v['id']]['namePhoto'] = 'Nom pour votre Photo ?';
-//                    }
-//                }
-//            }
             $this->loadModel('Photo');
             $this->loadModel('User');
 

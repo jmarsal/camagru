@@ -183,8 +183,6 @@ function enlargePhoto(id){
                     closeObjFilter = document.getElementById('imgObj')
                     ;
 
-                // replaceVideo.classList.remove('upload');
-                // replaceVideo.classList.remove('enlarge');
                 close.style.display = "none";
                 replaceVideo.removeChild(close);
                 fileUpload.classList.remove('active');
