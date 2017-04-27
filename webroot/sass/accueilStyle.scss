@@ -98,4 +98,20 @@ body {
         font-family: 'Cairo', sans-serif;
     }
 
+    .reinitForm {
+        padding-bottom: 30px;
+        font-size: 35px;
+    }
+    .reinitButton{
+        position: relative;
+        left: 138px;
+        margin-top: 30px;
+    }
+
+    .registered.reinit{
+        position: relative;
+        left: 138px;
+        width: 365px;
+    }
+
 @import "accueilResponsive";

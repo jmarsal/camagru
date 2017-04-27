@@ -292,6 +292,23 @@ textarea, select {
   box-shadow: 1px 0px 5px #222222 inset;
   font-family: 'Cairo', sans-serif; }
 
+/* line 101, ../sass/accueilStyle.scss */
+.reinitForm {
+  padding-bottom: 30px;
+  font-size: 35px; }
+
+/* line 105, ../sass/accueilStyle.scss */
+.reinitButton {
+  position: relative;
+  left: 138px;
+  margin-top: 30px; }
+
+/* line 111, ../sass/accueilStyle.scss */
+.registered.reinit {
+  position: relative;
+  left: 138px;
+  width: 365px; }
+
 @media only screen and (max-width: 1920px) {
   /* line 4, ../sass/accueilResponsive.scss */
   .logo h1 {
