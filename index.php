@@ -13,9 +13,11 @@ ini_set('display_errors', '1');
 
 require_once CORE.DS.'includes.php';
 
-$_SERVER['debug'] = 1;
+$_SERVER['debug'] = 0;
+
 // Creation de la bdd si inexistante
-new Database('CamagruDb');
+$conf = Conf::$databases['default'];
+new Database($conf, $conf['database']);
 
 // Parse l'URL et envoi directement sur le bon Controller
 new dispatcher();
