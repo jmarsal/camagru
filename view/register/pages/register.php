@@ -32,10 +32,10 @@
 	<div class="log_register_but">
         <div class="button" id="submitRegister" onclick="submitRegister()">Inscription</div>
 	</div>
+    <hr>
+    <p class='a-connect'>Vous avez un compte ?</p>
+    <div class="log_register_but">
+        <a class="button" href="../">Connection</a>
+    </div>
 </form>
-<hr>
-<p class='a-connect'>Vous avez un compte ?</p>
-<div class="log_register_but">
-	<a class="button" href="../">Connection</a>
-</div>
 <div class="footer"></div>

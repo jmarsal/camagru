@@ -1,35 +1,38 @@
 /*
   Taille de base sur ecran 2560 x 1440
 */
-/* line 11, ../sass/registerStyle.scss */
-.container .accueil_form .formRegister .repeat_paswrd_register_but {
-  padding-bottom: 60px; }
-/* line 15, ../sass/registerStyle.scss */
-.container .accueil_form .formRegister .a-connect {
+/* line 10, ../sass/registerStyle.scss */
+.container .accueil_form .formRegister {
   padding-bottom: 40px; }
-/* line 19, ../sass/registerStyle.scss */
-.container .accueil_form .formRegister .form_error_register {
-  top: 0px; }
-/* line 25, ../sass/registerStyle.scss */
+  /* line 12, ../sass/registerStyle.scss */
+  .container .accueil_form .formRegister .repeat_paswrd_register_but {
+    padding-bottom: 60px; }
+  /* line 16, ../sass/registerStyle.scss */
+  .container .accueil_form .formRegister .a-connect {
+    padding-bottom: 40px; }
+  /* line 20, ../sass/registerStyle.scss */
+  .container .accueil_form .formRegister .form_error_register {
+    top: 0px; }
+/* line 26, ../sass/registerStyle.scss */
 .container .accueil_form .log_register_but .button {
   margin: 0px auto;
   font-size: 35px;
   width: 300px; }
-/* line 32, ../sass/registerStyle.scss */
+/* line 33, ../sass/registerStyle.scss */
 .container .accueil_form.popup-mail-register {
   padding-bottom: 11%; }
 
 @media only screen and (max-width: 414px) {
-  /* line 43, ../sass/registerStyle.scss */
+  /* line 44, ../sass/registerStyle.scss */
   .container .accueil_form .containerForm .textRegister {
     font-size: 25px; }
-  /* line 46, ../sass/registerStyle.scss */
+  /* line 47, ../sass/registerStyle.scss */
   .container .accueil_form .containerForm .formRegister {
     font-size: 25px; }
-  /* line 50, ../sass/registerStyle.scss */
+  /* line 51, ../sass/registerStyle.scss */
   .container .accueil_form .containerForm .log_register_but .button {
     width: 200px; } }
-/* line 62, ../sass/registerStyle.scss */
+/* line 63, ../sass/registerStyle.scss */
 body .footer-copy {
   position: relative;
   font-size: 15px;

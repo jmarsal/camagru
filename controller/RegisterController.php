@@ -25,6 +25,7 @@ class RegisterController extends Controller
             } else {
                 return $this->json(200, [
                     "info" => $this->info,
+					"baseUrl" => BASE_URL
                 ]);
             }
         }

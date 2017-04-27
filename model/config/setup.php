@@ -8,11 +8,11 @@ class Database
 	private $_dbPassword;
 	private $_pdo;
 	
-	public function __construct($dbName) {
+	public function __construct($conf, $dbName) {
 		$this->$dbName =		$dbName;
-		$this->_dbHost =		'localhost';
-		$this->_dbUser =		'root';
-		$this->_dbPassword =	'root';
+		$this->_dbHost =		$conf['host'];
+		$this->_dbUser =		$conf['login'];
+		$this->_dbPassword =	$conf['password'];
 		$this->_pdo = 			$this->_createDb($dbName);
 		$this->_pdo =			$this->_createTables($dbName);
 	}

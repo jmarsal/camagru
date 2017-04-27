@@ -21,12 +21,12 @@
         <input id="emailForgetId" type="text" name="email" autofocus><br>
     </div>
     <div class="button" id="buttonForgetId" onclick="submitForgetId()">Récuperer</div>
+    <hr>
+    <p class="back-accueil">
+        <a class="link-back-accueil" href="../">Retour accueil</a>
+    </p>
+    <p class="notYetRegister">
+        <a class="link-back-accueil" href="../register/">Not yet registered ?</a>
+    </p>
 </form>
-<hr>
-<p class="back-accueil">
-    <a class="link-back-accueil" href="../">Retour accueil</a>
-</p>
-<p class="notYetRegister">
-    <a class="link-back-accueil" href="../register/">Not yet registered ?</a>
-</p>
 <div class="footer"></div>
