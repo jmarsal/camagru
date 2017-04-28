@@ -74,7 +74,6 @@ class User extends Model {
                 "cle" => $cle
             );
 			if ($req->execute($info)){
-                //$this->_sendMailRegister($cle, $email, $login);
                 return ($info);
 			}else{
 					return (FALSE);
@@ -83,26 +82,6 @@ class User extends Model {
 			return (FALSE);
 		}
 	}
-
-	/**
-	 * Envoie un mail au nouvel utilisateur
-	 * @param $cle string la cle de verification qui sera placer dans le mail.
-	 * @param $email l'email de l'user.
-	 * @param $login le login de l'user qui sera placer dans le mail.
-	 */
-//	private function _sendMailRegister($cle, $email, $login){
-//		$options = array(
-//			'email' => $email,
-//			'login' => $login,
-//			'subject' => 'Inscription a CAMAGRU',
-//			'message' => '',
-//			'title' => '',
-//			'from' => '',
-//			'cle' => $cle);
-//
-//		$sender = new MailSender($options);
-//		$sender->confirmSubscribeMail();
-//	}
 
 	/**
 	 * Verifie que le param email est valide, verifie que le user existe,
