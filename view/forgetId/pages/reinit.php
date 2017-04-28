@@ -12,7 +12,7 @@
     <h1>CAMAGRU</h1>
 </div>
 <hr>
-<form id="reinitForm" action="#" method="POST">
+<form id="reinitForm" class="reinitForm" action="#" method="POST">
     <p>Alors <?php echo ucfirst($_GET['log']) ?>...<br>
         on change de mot de passe ?</p>
 	<div class="forget_but">
@@ -22,17 +22,18 @@
         Une deuxieme fois, histoire d'etre sur ! <img src="<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'reinitPass'.DS.'WInky.png' ?>" width="30px"> <br><br>
         <input type="password" name="repNewPass"><br>
 	</div>
-	<div>
-		<input class="button" type="submit" name="submitRe" value="Enregistrer">
+	<div class="reinitButton">
+		<input class="button" type="submit" name="submitRe"
+               value="Enregistrer">
 	</div>
-</form>
-<?php
-if (!empty($this->mess_error)){
-	echo '<p class="form_error">'.$this->mess_error.'</p>';
-}
-?>
+	<?php
+	if (!empty($this->mess_error)){
+		echo '<p class="form_error">'.$this->mess_error.'</p>';
+	}
+	?>
     <hr>
-    <p class="registered">
-        <a class="registered" href="../">Retour accueil</a>
+    <p class="registered reinit">
+        <a class="registered button" href="../">Retour accueil</a>
     </p>
-    <div class="footer"></div>
+</form>
+<div class="footer"></div>
