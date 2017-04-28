@@ -11,7 +11,7 @@ abstract class Controller {
 	
 	function __construct($request) {
 		$this->request = $request;
-	}
+    }
 	
 	public function render($view, $layout = NULL) {
 		if ($layout === NULL){

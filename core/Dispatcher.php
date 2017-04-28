@@ -64,7 +64,7 @@ class Dispatcher {
 			$index = new ErrorController();
 		}
 		require $file;
-		return new $name($this->request);
+        return new $name($this->request);
 	}
 }
 
