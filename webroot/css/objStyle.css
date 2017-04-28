@@ -1,0 +1,495 @@
+/* line 3, ../sass/objStyle.scss */
+.obj-img {
+  position: absolute;
+  z-index: 55; }
+  /* line 7, ../sass/objStyle.scss */
+  .obj-img.beardMustaches {
+    width: 310px;
+    margin-left: 500px;
+    margin-top: 400px; }
+  /* line 13, ../sass/objStyle.scss */
+  .obj-img.chapeauPirate {
+    width: 600px;
+    margin-left: 355px;
+    margin-top: -50px; }
+  /* line 19, ../sass/objStyle.scss */
+  .obj-img.dog {
+    width: 280px;
+    margin-left: 220px;
+    margin-top: 150px; }
+  /* line 25, ../sass/objStyle.scss */
+  .obj-img.epee {
+    width: 300px;
+    margin-left: 251px;
+    margin-top: 270px; }
+  /* line 31, ../sass/objStyle.scss */
+  .obj-img.epeeLaser {
+    width: 400px;
+    margin-left: 170px;
+    margin-top: 200px; }
+  /* line 37, ../sass/objStyle.scss */
+  .obj-img.largeMustache {
+    width: 200px;
+    margin-left: 550px;
+    margin-top: 382px; }
+  /* line 43, ../sass/objStyle.scss */
+  .obj-img.lunette {
+    width: 300px;
+    margin-left: 500px;
+    margin-top: 100px; }
+  /* line 49, ../sass/objStyle.scss */
+  .obj-img.monkey {
+    width: 180px;
+    margin-left: 355px;
+    margin-top: 310px; }
+  /* line 55, ../sass/objStyle.scss */
+  .obj-img.policeHat {
+    width: 380px;
+    margin-left: 443px;
+    margin-top: -4px; }
+  /* line 61, ../sass/objStyle.scss */
+  .obj-img.prismaticMustache {
+    width: 200px;
+    margin-left: 550px;
+    margin-top: 400px; }
+
+@media only screen and (max-width: 2340px) {
+  /* line 69, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 73, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 230px;
+      margin-left: 390px;
+      margin-top: 310px; }
+    /* line 79, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 500px;
+      margin-left: 260px;
+      margin-top: -40px; }
+    /* line 85, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 200px;
+      margin-left: 200px;
+      margin-top: 140px; }
+    /* line 91, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 250px;
+      margin-left: 190px;
+      margin-top: 210px; }
+    /* line 97, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 300px;
+      margin-left: 140px;
+      margin-top: 150px; }
+    /* line 103, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 150px;
+      margin-left: 430px;
+      margin-top: 300px; }
+    /* line 109, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 200px;
+      margin-left: 410px;
+      margin-top: 90px; }
+    /* line 115, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 100px;
+      margin-left: 300px;
+      margin-top: 280px; }
+    /* line 121, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 290px;
+      margin-left: 343px;
+      margin-top: -4px; }
+    /* line 127, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 160px;
+      margin-left: 430px;
+      margin-top: 300px; } }
+@media only screen and (max-width: 1920px) {
+  /* line 136, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 140, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 230px;
+      margin-left: 400px;
+      margin-top: 310px; }
+    /* line 146, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 500px;
+      margin-left: 260px;
+      margin-top: -40px; }
+    /* line 152, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 200px;
+      margin-left: 220px;
+      margin-top: 140px; }
+    /* line 158, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 250px;
+      margin-left: 190px;
+      margin-top: 210px; }
+    /* line 164, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 300px;
+      margin-left: 140px;
+      margin-top: 150px; }
+    /* line 170, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 150px;
+      margin-left: 430px;
+      margin-top: 300px; }
+    /* line 176, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 200px;
+      margin-left: 410px;
+      margin-top: 90px; }
+    /* line 182, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 100px;
+      margin-left: 300px;
+      margin-top: 280px; }
+    /* line 188, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 290px;
+      margin-left: 343px;
+      margin-top: -4px; }
+    /* line 194, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 160px;
+      margin-left: 430px;
+      margin-top: 300px; } }
+@media only screen and (max-width: 1740px) {
+  /* line 203, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 207, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 200px;
+      margin-left: 250px;
+      margin-top: 210px; }
+    /* line 213, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 400px;
+      margin-left: 160px;
+      margin-top: -40px; }
+    /* line 219, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 180px;
+      margin-left: 100px;
+      margin-top: 80px; }
+    /* line 225, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 130px;
+      margin-left: 170px;
+      margin-top: 140px; }
+    /* line 231, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 200px;
+      margin-left: 110px;
+      margin-top: 110px; }
+    /* line 237, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 100px;
+      margin-left: 300px;
+      margin-top: 200px; }
+    /* line 243, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 150px;
+      margin-left: 280px;
+      margin-top: 70px; }
+    /* line 249, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 90px;
+      margin-left: 175px;
+      margin-top: 200px; }
+    /* line 255, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 190px;
+      margin-left: 243px;
+      margin-top: -4px; }
+    /* line 261, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 120px;
+      margin-left: 300px;
+      margin-top: 220px; } }
+@media only screen and (max-width: 1420px) {
+  /* line 270, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 274, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 100px;
+      margin-left: 210px;
+      margin-top: 150px; }
+    /* line 280, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 250px;
+      margin-left: 140px;
+      margin-top: -20px; }
+    /* line 286, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 110px;
+      margin-left: 80px;
+      margin-top: 60px; }
+    /* line 292, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 80px;
+      margin-left: 140px;
+      margin-top: 110px; }
+    /* line 298, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 150px;
+      margin-left: 70px;
+      margin-top: 80px; }
+    /* line 304, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 75px;
+      margin-left: 210px;
+      margin-top: 160px; }
+    /* line 310, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 100px;
+      margin-left: 205px;
+      margin-top: 40px; }
+    /* line 316, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 55px;
+      margin-left: 125px;
+      margin-top: 125px; }
+    /* line 322, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 120px;
+      margin-left: 180px;
+      margin-top: 15px; }
+    /* line 328, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 80px;
+      margin-left: 210px;
+      margin-top: 150px; } }
+@media only screen and (max-width: 1280px) {
+  /* line 337, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 341, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 100px;
+      margin-left: 210px;
+      margin-top: 150px; }
+    /* line 347, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 250px;
+      margin-left: 140px;
+      margin-top: -20px; }
+    /* line 353, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 110px;
+      margin-left: 80px;
+      margin-top: 60px; }
+    /* line 359, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 80px;
+      margin-left: 140px;
+      margin-top: 110px; }
+    /* line 365, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 150px;
+      margin-left: 70px;
+      margin-top: 80px; }
+    /* line 371, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 75px;
+      margin-left: 210px;
+      margin-top: 160px; }
+    /* line 377, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 100px;
+      margin-left: 205px;
+      margin-top: 40px; }
+    /* line 383, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 55px;
+      margin-left: 125px;
+      margin-top: 125px; }
+    /* line 389, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 120px;
+      margin-left: 180px;
+      margin-top: 15px; }
+    /* line 395, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 80px;
+      margin-left: 210px;
+      margin-top: 150px; } }
+@media only screen and (max-width: 1000px) {
+  /* line 404, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 408, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 100px;
+      margin-left: 210px;
+      margin-top: 150px; }
+    /* line 414, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 250px;
+      margin-left: 140px;
+      margin-top: -20px; }
+    /* line 420, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 110px;
+      margin-left: 80px;
+      margin-top: 60px; }
+    /* line 426, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 80px;
+      margin-left: 140px;
+      margin-top: 110px; }
+    /* line 432, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 150px;
+      margin-left: 70px;
+      margin-top: 80px; }
+    /* line 438, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 75px;
+      margin-left: 210px;
+      margin-top: 160px; }
+    /* line 444, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 100px;
+      margin-left: 205px;
+      margin-top: 40px; }
+    /* line 450, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 55px;
+      margin-left: 125px;
+      margin-top: 125px; }
+    /* line 456, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 120px;
+      margin-left: 180px;
+      margin-top: 15px; }
+    /* line 462, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 80px;
+      margin-left: 210px;
+      margin-top: 150px; } }
+@media only screen and (max-width: 750px) {
+  /* line 471, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 475, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 100px;
+      margin-left: 210px;
+      margin-top: 150px; }
+    /* line 481, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 250px;
+      margin-left: 140px;
+      margin-top: -20px; }
+    /* line 487, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 110px;
+      margin-left: 80px;
+      margin-top: 60px; }
+    /* line 493, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 80px;
+      margin-left: 140px;
+      margin-top: 110px; }
+    /* line 499, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 150px;
+      margin-left: 70px;
+      margin-top: 80px; }
+    /* line 505, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 75px;
+      margin-left: 210px;
+      margin-top: 160px; }
+    /* line 511, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 100px;
+      margin-left: 205px;
+      margin-top: 40px; }
+    /* line 517, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 55px;
+      margin-left: 125px;
+      margin-top: 125px; }
+    /* line 523, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 120px;
+      margin-left: 180px;
+      margin-top: 15px; }
+    /* line 529, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 80px;
+      margin-left: 210px;
+      margin-top: 150px; } }
+@media only screen and (max-width: 414px) {
+  /* line 538, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 542, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 100px;
+      margin-left: 210px;
+      margin-top: 150px; }
+    /* line 548, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 250px;
+      margin-left: 140px;
+      margin-top: -20px; }
+    /* line 554, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 110px;
+      margin-left: 80px;
+      margin-top: 60px; }
+    /* line 560, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 80px;
+      margin-left: 140px;
+      margin-top: 110px; }
+    /* line 566, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 150px;
+      margin-left: 70px;
+      margin-top: 80px; }
+    /* line 572, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 75px;
+      margin-left: 210px;
+      margin-top: 160px; }
+    /* line 578, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 100px;
+      margin-left: 205px;
+      margin-top: 40px; }
+    /* line 584, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 55px;
+      margin-left: 125px;
+      margin-top: 125px; }
+    /* line 590, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 120px;
+      margin-left: 180px;
+      margin-top: 15px; }
+    /* line 596, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 80px;
+      margin-left: 210px;
+      margin-top: 150px; } }

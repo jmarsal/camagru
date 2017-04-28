@@ -1,104 +1,133 @@
 @import 'compass';
+@import "colors";
 
-$color_back: snow;
-$color_text: #006796;
-
-
-form input{
-	background-color: $color_back;
-	color: $color_text;
-	text-align: center;
-	width: 57%;
-	font-size: 1.5vw;
-	border: solid 1px darken($color_back, 5);
-	@include border-radius(5px);
-	@include background-image( linear-gradient(top, $color_back, darken($color_back, 5)));
+form input {
+    color: $color_input_text;
+    text-align: center;
+    width: 57%;
+    font-size: 1em;
+    border: solid 1px darken($color_input_back, 5);
+    @include border-radius(5px);
+    @include background-image(linear-gradient(top, $color_input_back, darken($color_input_back, 5)));
 }
 
-.popup{
-	display: none;
-	@include box-shadow(0px 0px 10px darken(indianred, 20));
-	position: absolute;
-	background: snow;
-	padding: 10px;
-	left: 20px;
-	top: 20px;
-	right: 20px;
-	z-index: 1;
+.popup {
+    display: block;
+    @include box-shadow(0px 0px 10px darken($color_button_hover, 20));
+    position: absolute;
+    background: $color_back;
+    width: 98%;
+    height: 115%;
+    padding: 10px;
+    right: 20px;
+    z-index: 1;
+    left: 0%;
+    top: 0%;
 }
 
-.popup .overlay{
-	position: absolute;
-	display: none;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	background: black;
-	z-index: 0;
-	opacity: .5;
+.popup .overlay {
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    z-index: 0;
+    opacity: .5;
 }
 
 .popup .waiting {
-	padding-bottom: 15px;
+    padding-bottom: 15px;
 }
 
-.popup .login{
-	color: indianred;
+.popup .login {
+    font-family: 'Raleway', cursive;
+    font-size: 1.3vw;
+    color: $color_button;
     padding-bottom: 55px;
 }
 
-.popup, .mail_confirm, .text{
-	font-family: 'Raleway', cursive;
-	font-size: 1.5vw;
+.popup .text {
+    font-family: 'Cabin Sketch', cursive;
+    color: $color_text;
+    font-size: 1.5vw;
 }
 
-.popup .img_logo{
-	left: 15%;
-    position: absolute;
-    width: 8%;
-    top: 48.4%;
-}
-
-.popup .mail{
-	color: indianred;
+.popup .mail {
+    font-family: 'Raleway', cursive;
+    font-size: 1.3vw;
+    color: $color_button;
     padding-top: 5%;
-    padding-bottom: 98%;
+    padding-bottom: 10%;
 }
 
-.popup .text{
-	padding-bottom: 10%;
+.popup .mail_reinit {
+    color: $color_button_hover;
+    padding-top: 5%;
+    padding-bottom: 20%;
 }
 
-.form_error{
-	background: indianred;
-	color: snow;
-	padding-top: 6px;
-	padding-bottom: 6px;
-	font-family: 'Raleway', cursive;
-	font-size: 1.5vw;
+.popup .mail_reinit2 {
+    font-family: 'Raleway', cursive;
+    font-size: 1.3vw;
+    color: $color_button;
+    padding-top: 5%;
+    padding-bottom: 11%;
 }
 
-.connect{
-	font-size: 2vw;
-	color: $color_text;
-	display: block;
-	text-decoration: none;
+.popup .text {
+    padding-bottom: 4%;
 }
 
-.connect:hover{
-  color: indianred;
+.popup .buttons-reinit {
+    display: inline-block;
 }
 
-.a-connect{
-	font-size: 2vw;
-	color: $color_text;
+.form_error, .form_error_register {
+    position: relative;
+    background: indianred;
+    color: snow;
+    padding-top: 6px;
+    padding-bottom: 10px;
+    font-family: 'Raleway', cursive;
+    font-size: 1em;
 }
 
-.logo-pop{
-	padding-top: 5px;
-	display: block;
-	position: relative;
-	width: 100%;
-	margin-bottom: 6%;
+.form_error2 {
+    display: block;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    background: indianred;
+    color: snow;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-family: 'Raleway', cursive;
+    font-size: 1.5vw;
+}
+
+.connect {
+    font-size: 2vw;
+    color: $color_input_text;
+    display: block;
+    text-decoration: none;
+}
+
+.connect:hover {
+    color: indianred;
+}
+
+.a-connect {
+    //cursor: pointer;
+    font-size: 1vw;
+}
+
+.logo-pop {
+    margin: 0% auto;
+    padding-top: 5px;
+    display: block;
+    position: relative;
+    width: 80%;
+    margin-bottom: 3%;
 }

@@ -1,0 +1,612 @@
+@import 'compass';
+@import 'colors';
+@import "form";
+@import "objStyle";
+
+$menu-width: 250px !default;
+$width: 1280px;
+$height: 960px;
+
+@keyframes explode {
+    0% {
+        height: 0px;
+    }
+    25% {
+        height: 22px;
+    }
+    50% {
+        height: 42px;
+    }
+    100% {
+        height: 62px;
+    }
+}
+
+html, body {
+    height: 100%;
+    line-height: 1.4;
+    padding: 0;
+    margin: 0;
+}
+
+.site-container {
+    height: 100%;
+    
+    .site-pusher {
+        height: 100%;
+        
+        .header {
+            top: 0;
+            position: fixed;
+            left: 0;
+            right: 0;
+            height: 66px;
+            line-height: 66px;
+            z-index: 10;
+            background-color: $color_button;
+            
+            .header__logo {
+                background-color: $color_button_hover;
+                font-size: 25px;
+                font-weight: bold;
+                float: left;
+                padding: 0 25px;
+                text-decoration: none;
+                color: inherit;
+                border-right: 1px solid $color_button_hover;
+                
+                img {
+                    width: 100%;
+                }
+            }
+            
+            .menu {
+                float: left;
+                
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                    padding: 0 35px;
+                    border-right: 1px solid $color_button_hover;
+                    
+                    &:hover {
+                        color: $color_button_hover;
+                    }
+                }
+            }
+        }
+        .post {
+            @include clearfix;
+            padding-top: 66px;
+            height: 100%;
+            
+            .bienvenue {
+                text-align: center;
+            }
+            
+            .elems-app {
+                position: relative;
+                margin: 0% auto;
+                
+                .video-containter {
+                    display: inline-flex;
+                    position: relative;
+                    margin: 0% auto;
+                    width: 100%;
+                    padding: 0;
+                    
+                    /* Filtres */
+                    .container-all-filters {
+                        display: block;
+                        margin-left: 4%;
+                        margin-right: -160px;
+                        
+                        /* Filtres sur image */
+                        .filters {
+                            position: relative;
+                            margin: 0% auto;
+                            margin-right: 200px;
+                            width: 350px;
+                            height: 80px;
+                            background: rgba($color_back, 0.9);
+                            border: 10px solid darken($color_back, 5);
+                            
+                            .filterHideButton {
+                                position: relative;
+                                cursor: pointer;
+                                margin: 0% auto;
+                                height: 100px;
+                                
+                                img {
+                                    width: 50px;
+                                    display: inline-block;
+                                    position: relative;
+                                    top: 15px;
+                                    margin-left: 60px;
+                                    margin-right: 30px;
+                                }
+                                
+                                .textFilter {
+                                    display: inline-block;
+                                    position: relative;
+                                    margin: 0% auto;
+                                }
+                                
+                                &:hover {
+                                    filter: invert(100%);
+                                    transition-duration: 5s;
+                                    filter: hue-rotate(360deg);
+                                    
+                                    p {
+                                        filter: invert(100%);
+                                        transition-duration: 1s;
+                                    }
+                                }
+                            }
+                            
+                            a:hover {
+                                color: $color_button_hover;
+                            }
+                            
+                            .menu2 {
+                                display: none;
+                                position: relative;
+                                margin-top: -13px;
+                                
+                                .button {
+                                    animation-duration: 0.5s;
+                                    position: relative;
+                                    padding: 0;
+                                    padding-top: 18px;
+                                    margin: 0px auto;
+                                    width: 350px;
+                                    height: 65px;
+                                    font-size: 35px;
+                                    text-align: center;
+                                }
+                            }
+                            
+                            .filters__icon {
+                                cursor: pointer;
+                                width: 65px;
+                            }
+                            
+                            .filters-button {
+                                .button {
+                                    margin-top: 0;
+                                }
+                            }
+                        }
+                        
+                        /* Objets */
+                        .objets-filter {
+                            position: relative;
+                            margin: 0% auto;
+                            margin-left: 0px;
+                            width: 350px;
+                            height: 80px;
+                            background: rgba($color_back, 0.9);
+                            border: 10px solid darken($color_back, 5);
+                            
+                            /* container hide Objets */
+                            .objHideButton {
+                                position: relative;
+                                cursor: pointer;
+                                margin: 0px auto;
+                                height: 100px;
+                                
+                                .objets__icon {
+                                    display: inline-block;
+                                    position: relative;
+                                    width: 50px;
+                                    top: 15px;
+                                    margin-left: 60px;
+                                    margin-right: 30px;
+                                }
+                                
+                                .textObjFilter {
+                                    display: inline-block;
+                                    position: relative;
+                                    margin: 0% auto;
+                                    //top: -13px;
+                                }
+                                
+                                &:hover {
+                                    filter: invert(100%);
+                                    transition-duration: 5s;
+                                    filter: hue-rotate(360deg);
+                                    
+                                    p {
+                                        filter: invert(100%);
+                                        transition-duration: 1s;
+                                    }
+                                }
+                            }
+                            
+                            /* all objets */
+                            .menu-objets{
+                                margin-top: -13px;
+                                
+                                .objets-button {
+                                    position: relative;
+                                    margin-top: 3px;
+                                    padding: 0%;
+                                    margin: 0% auto;
+                                    height: 850px;
+                                    overflow-y: scroll;
+                                    overflow-x: hidden;
+        
+                                    .button {
+                                        animation-duration: 0.5s;
+                                        position: relative;
+                                        padding: 0;
+                                        margin: 0% auto;
+                                        margin-top: 0;
+                                        width: 350px;
+                                        height: 80px;
+                                        font-size: 20px;
+                                        text-align: center;
+                                        padding-top: 20px;
+                                        padding-bottom: 60px;
+            
+                                        img {
+                                            position: relative;
+                                            margin: 0px auto;
+                                            padding-top: 20px;
+                                            width: 30%;
+                                        }
+                                    }
+        
+                                    .button-none {
+                                        font-size: 35px;
+                                        padding-top: 48px;
+                                        width: 350px;
+                                        height: 50px;
+                                    }
+                                }
+                                
+                            }
+                            
+                            &.obj-back{
+                                margin-left: -10px;
+                                
+                                &.filter-back{
+                                    margin-left: 0px;
+                                }
+                            }
+                        }
+                        
+                    }
+                    
+                    /* Camera */
+                    .booth {
+                        position: relative;
+                        display: inline-block;
+                        width: 1280px;
+                        background: rgba($color_back, 0.9);
+                        border: 10px solid darken($color_back, 5);
+                        margin: 0px auto;
+                        z-index: 5;
+                        padding: 0px;
+                        left: -265px;
+                        
+                        // Agrandissement d'image
+                        .container-enlarge {
+                            display: inline-block;
+                            z-index: 50;
+                            width: $width;
+                            height: 1030px;
+
+                            .img-enlarge {
+                                margin-bottom: -56px;
+                                width: $width;
+                                height: $height + 72px;
+                            }
+
+                            // Boutton Close
+                            .close-enlarge {
+                                position: absolute;
+                                top: 20px;
+                                left: 1220px;
+                                width: 40px;
+                                cursor: pointer;
+
+                                &:hover {
+                                    filter: invert(100%);
+                                    filter: hue-rotate(360deg);
+                                    transition-duration: 1s;
+                                    width: 80px;
+                                    left: 1190px;
+                                    top: 10px;
+                                }
+                            }
+                        }
+                        
+                        .imgUpload {
+                            width: $width;
+                            max-height: $height;
+                            margin-bottom: 7px;
+
+                            &.delImg{
+                                margin-bottom: 18px;
+                            }
+                        }
+                        
+                        .myvideo {
+                            transform: scaleX(-1);
+                            width: $width;
+                            height: $height;
+                            margin-bottom: 0px;
+
+                            &.back-video{
+                                margin-bottom: 11px;
+                            }
+                        }
+                        
+                        hr {
+                            margin-left: -329px;
+                            padding-left: 698px;
+                            color: darken($color_button, 10);
+                            background-color: darken($color_button, 10);
+                        }
+                        
+                        .buttonActionApp {
+                            display: none;
+                            position: relative;
+                            width: 100%;
+                            height: 90px;
+                            
+                            margin: 0% auto;
+                            margin-bottom: -30px;
+                            
+                            .action-app {
+                                display: inline-block;
+                                margin: 0px auto;
+                                width: 100%;
+                                
+                                .take-photo {
+                                    position: relative;
+                                    margin: 0px auto;
+                                    
+                                    .take-photo-img {
+                                        position: relative;
+                                        margin: 0% auto;
+                                        padding: 0;
+                                        width: 50px;
+                                        cursor: pointer;
+                                        left: 550px;
+                                        
+                                        &:hover {
+                                            border-radius: 60%;
+                                            transition-duration: 1s;
+                                        }
+                                    }
+                                    
+                                    .startbuttonUpload {
+                                        display: none;
+                                        position: relative;
+                                        top: -5px;
+                                        margin: 0% auto;
+                                        padding: 0;
+                                        width: 50px;
+                                        cursor: pointer;
+                                        left: 525px;
+                                        
+                                        &:hover {
+                                            border-radius: 60%;
+                                            transition-duration: 1s;
+                                        }
+                                    }
+                                }
+                                
+                                .img-booth, .canvas {
+                                    display: none;
+                                }
+                            }
+                            
+                            .upload-app {
+                                
+                                .input-file-container {
+                                    margin: 0px auto;
+                                    position: relative;
+                                    right: 520px;
+
+                                    .input-file {
+                                        display: none;
+                                    }
+                                    
+                                    .input-file-trigger {
+                                        position: relative;
+                                        cursor: pointer;
+                                        width: 52px;
+                                        
+                                        &:hover {
+                                            border-radius: 60%;
+                                            transition-duration: 1s;
+                                            filter: hue-rotate(360deg);
+                                        }
+                                    }
+                                    
+                                    .back-to-video {
+                                        display: none;
+                                        position: relative;
+                                        cursor: pointer;
+                                        width: 50px;
+                                        left: 135px;
+                                        top: -65px;
+                                        
+                                        &:hover {
+                                            filter: invert(100%);
+                                            transition-duration: 1s;
+                                            filter: hue-rotate(360deg);
+                                        }
+                                    }
+                                    
+                                }
+
+                                .active {
+                                    top: -5px;
+                                }
+                            }
+
+                            &.delImg{
+                                margin-top: 11px;
+                            }
+                        }
+                        
+                        .chooseFilter {
+                            padding-top: 20px;
+                            position: relative;
+                            bottom: 55px;
+                            text-align: center;
+                            font-size: 30px;
+                            margin-bottom: -50px;
+                        }
+                        
+                        .file-upload {
+                            display: block;
+                            margin: 0px auto;
+                            position: relative;
+                            text-align: center;
+                            font-size: 20px;
+                            left: 0px;
+                            background-color: indianred;
+
+                            &.active{
+                                display: none;
+                            }
+
+                            &.upload{
+                                display: block;
+                                background-color: $color_button;
+                            }
+                        }
+
+                    }
+                    
+                    /* Preview photos */
+                    .prev-img {
+                        display: none;
+                        background: darken($color_back, 5);
+                        border: 10px solid darken($color_back, 10);
+                        margin-left: -510px;
+                        margin-right: 9%;
+                        max-height: $height + 72px;
+                        width: 360px;
+                        
+                        .container-prev {
+                            position: relative;
+                            margin: 0px auto;
+                            
+                            background: linear-gradient(to bottom right, darken($color_button_hover, 5), lighten($color_button, 30));
+                            border: 2px solid darken($color_back, 10);
+                            padding-top: 20px;
+                            margin-top: -1px;
+                            margin-left: -5px;
+                        }
+                        
+                        img {
+                            display: block;
+                            width: 300px;
+                            margin-left: 30px;
+                            margin-top: 2px;
+                            margin-right: 27px;
+                            margin-bottom: 10px;
+                        }
+                        
+                        .prev-action {
+                            position: relative;
+                            display: inline-block;
+                            top: 20px;
+
+                            .del-button {
+                                left: 275px;
+                                cursor: pointer;
+                                display: inline-block;
+                                position: absolute;
+                                width: 28px;
+                                top: -26px;
+                                
+                                &:hover {
+                                    filter: invert(100%);
+                                    filter: hue-rotate(360deg);
+                                    transition-duration: 1s;
+                                    width: 40px;
+                                    left: 270px;
+                                    top: -30px;
+                                }
+                            }
+                            
+                            .div-namePhoto {
+                                display: inline-block;
+                                position: relative;
+                                margin: 0px auto;
+
+                            }
+                            
+                            .see-button {
+                                cursor: pointer;
+                                display: inline-block;;
+                                margin-left: 19px;
+                                position: absolute;
+                                width: 28px;
+                                top: -26px;
+                                left: 10px;
+                                
+                                &:hover {
+                                    filter: invert(100%);
+                                    filter: hue-rotate(360deg);
+                                    transition-duration: 1s;
+                                    width: 40px;
+                                    left: 10px;
+                                    top: -30px;
+                                }
+                            }
+                            
+                        }
+                        &.scroll-container-prev{
+                            width: 370px;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+.booth_filter {
+    background: rgba(94, 108, 120, 0.9);
+    border: 10px solid #535f6a;
+    z-index: 5;
+    width: 273px;
+    height: 600px;
+    display: inline-block;
+    margin-left: 20%;
+    margin-right: 52px;
+}
+
+.booth_prev {
+    background: rgba(94, 108, 120, 0.9);
+    border: 10px solid #535f6a;
+    z-index: 5;
+    width: 273px;
+    height: 600px;
+    display: inline-block;
+    margin-left: 52px;
+    margin-right: 20%;
+}
+
+@import "menuResponsive";
+@import "appResponsive";
+
+body {
+    .footer-copy {
+        position: relative;
+        font-size: 15px;
+        top: 468px;
+    }
+}
+
+
+

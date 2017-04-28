@@ -1,0 +1,22 @@
+/* line 4, ../sass/base.scss */
+html {
+  margin: 0;
+  padding: 0;
+  background: url(../images/background/wallpaper_06.png) no-repeat center fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  font-size: 2vw; }
+
+/* line 13, ../sass/base.scss */
+body {
+  height: 100%;
+  font-family: 'Cabin Sketch', cursive;
+  color: #f3f3f3;
+  font-size: 1vw; }
+
+/* line 20, ../sass/base.scss */
+hr {
+  color: #F39237;
+  background-color: #F39237;
+  border: none;
+  height: 0.1vw; }

@@ -1,1 +1,5 @@
 *.xml
+/.sass-cache/
+/.idea/
+
+photo-users/

@@ -9,7 +9,7 @@ class Mail
 	 */
 	static function validEmail($email)
 	{
-		$isValid = true;
+        $isValid = true;
 		$atIndex = strrpos($email, "@");
 		if (is_bool($atIndex) && !$atIndex) {
 			$isValid = false;
@@ -44,7 +44,7 @@ class Mail
 				}
 			}
 			if ($isValid && !(checkdnsrr($domain, "MX") || checkdnsrr($domain, "A"))) {
-				// 		domain not found in DNS
+//				 		domain not found in DNS
 				$isValid = false;
 			}
 		}

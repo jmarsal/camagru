@@ -1,0 +1,20 @@
+/* line 4, ../sass/logo.scss */
+.logo {
+  padding-top: 5px;
+  display: block;
+  position: relative;
+  width: 80%;
+  margin-bottom: 6%;
+  color: #f3f3f3;
+  left: 10%; }
+
+/* line 14, ../sass/logo.scss */
+.logo h1 {
+  position: relative;
+  width: 100%;
+  font-size: 1em; }
+
+/* line 20, ../sass/logo.scss */
+.img_logo_Principal {
+  border: 0;
+  width: 10%; }

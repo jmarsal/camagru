@@ -1,139 +1,329 @@
 <?php
+if (!isset($_SESSION)){
+    session_start();
+}
 class User extends Model {
 
 	public $table = 'users';
-	public $formOk = 0;
-	public $mess_error;
-	public $login = "";
-	public $email = "";
-	public $passwd = "";
-	public $repPasswd = "";
-	public $hashPasswd = "";
-//	private $_mailCon;
 
-	// Check dans la table user si le login et le passwd == ce que je recois de
-	// $_POST et so ok -> va sur la page Camagru, sinon propose de creer un compte.
-	public function __construct() {
-		if (isset($_POST['login'])){
-			if (isset($_POST['login'], $_POST['passwd']) &&
-				!empty($_POST['login']) && !empty($_POST['passwd']) &&
-				($_POST['submit'] === 'Login' || $_POST['submit'] === 'Inscription')){
-				$this->login = htmlentities($_POST['login']);
-				$this->passwd = htmlentities($_POST['passwd']);
-				$this->hashPasswd = hash('sha256', $this->passwd);
-				$this->formOk = 1;
-			}else if (empty($_POST['login']) && empty($_POST['passwd'])){
-				$this->mess_error = '<p class="form_error">Veuillez saisir tous les champs !</p>';
-			}else if (empty($_POST['login'])){
-				$this->passwd = $_POST['passwd'];
-				$this->mess_error = '<p class="form_error">Veuillez saisir votre nom d\'utilisateur !</p>';
-			}else if (empty($_POST['passwd'])){
-				$this->login = $_POST['login'];
-				$this->mess_error = '<p class="form_error">Veuillez saisir votre mot de passe !</p>';
+	/**
+	 * check dans la bdd si le login et le passwd match et envoie vers l'app
+	 * si existant.
+	 * @param $login string le login a check
+	 * @param $passwd string le passwd a check
+	 * @return bool|string true si ca match, message d'erreur au contraire
+	 */
+	public function checkLogin($login, $passwd)
+	{
+//		cherche dans la DB si un user a ce login et passwd
+		$sql = "SELECT id, actif, password FROM users
+							WHERE login=?";
+		try {
+			$query = $this->db->prepare($sql);
+			$d = array($login);
+			$query->execute($d);
+			$row = $query->fetch(PDO::FETCH_ASSOC);
+			if (!empty($row['id'])) {
+			    if (!empty($row['password']) && $row['password'] === $passwd){
+                    if (!empty($row['actif']) && $row['actif'] == 1) {
+                        return (TRUE);
+                    } else {
+                        return ("Le compte n'est pas actif!<br/>Clique sur 'Forget Password or Account not 
+					    		Active'<br/>pour obtenir un mail avec un nouveau lien d'activation! ");
+                    }
+                } else {
+                    return ("Mauvais mot de passe...");
+                }
+            } else {
+                return ('Le Login n\'existe pas !');
 			}
-			if (isset($_POST['repPasswd']) && $_POST['submit'] === 'Inscription') {
-				if (!empty($_POST['repPasswd'])){
-					$this->repPasswd = htmlentities($_POST['repPasswd']);
-				} else if (empty($_POST['repPasswd']) && !empty($_POST['passwd'])){
-					$this->login = htmlentities($_POST['login']);
-					$this->passwd = htmlentities($_POST['passwd']);
-					$this->mess_error = '<p class="form_error">Le champ de verification de 	mot de passe est vide!</p>';
-					$this->formOk = 0;
-				}
-				if (!empty($_POST['repPasswd']) && !empty($_POST['passwd'])){
-					if ($_POST['repPasswd'] !== $_POST['passwd']){
-						$this->mess_error = '<p class="form_error">Les deux champs de mot de passe ne sont pas identiques!</p>';
-						$this->formOk = 0;
-					}
-				}
-			}
-			if (isset($_POST['email']) && $_POST['submit'] === 'Inscription') {
-				if (!empty($_POST['email'])){
-					$this->email = htmlentities($_POST['email']);
-//					$this->_mailCon = new Mail($this->email, $this->login);
-					if (Mail::validEmail($this->email) !== TRUE){
-						$this->mess_error = '<p class="form_error">Veuillez renseigner une adresse email valide!</p>';
-						$this->formOk = 0;
-					}
-				}else{
-					$this->mess_error = '<p class="form_error">Veuillez renseigner votre adresse email!</p>';
-					$this->formOk = 0;
-				}
-			}
-		}
-	}
-	
-	// check si dans la bdd et envoie vers l'app si existant...
-	public function checkLogin($login, $passwd){
-		$con = new Model;
- 
-		$st = $con->db->query("SELECT COUNT(*) FROM users 
-								WHERE login='".$this->login."' 
-								AND password='".$this->hashPasswd."'")->fetch();
-		if ($st['COUNT(*)'] == 1){
-			$_SESSION['login'] = $this->login;
-			$_SESSION['loged'] = 1;
-			return (TRUE);
-		}
-		else{
-			$st = $con->db->query("SELECT COUNT(*) FROM users 
-									WHERE login='".$this->login."'")->fetch();
-			if ($st['COUNT(*)'] == 1){
-				$this->mess_error = "<p class='form_error'>Wrong Password</p>";
-			}else{
-				$this->mess_error = '<p class="form_error">Le Login n\'existe pas !</p>';
-			}
+		} catch (PDOexception $e) {
+			print "Erreur : " . $e->getMessage() . "";
+			die();
 		}
 	}
 
 
-	// Enregistre un nouvel user dans la bdd + send mail de confirmation
+	/**
+	 * Enregistre un nouvel user dans la bdd + send mail de confirmation
+	 * @param $login string le login user.
+	 * @param $email string l'email user.
+	 * @param $passwd string le password user (recu en parametre deja hash).
+	 * @return bool|string return true si tout c'est bien passe, False pour
+	 * le contraire, ou un message d'erreur.
+	 */
 	public function addUser($login, $email, $passwd) {
-		$con = new Model;
 		$cle = uniqid('', true);
-
-		if (preg_match('/^[a-zA-Z0-9_]{3,16}$/', $this->login)){
-			$st = $con->db->query("SELECT COUNT(*) FROM users
-									WHERE login='".$this->login."'")->fetch();
-			if ($st['COUNT(*)'] == 1){
-				$this->mess_error = '<p class="form_error">Ce Login est deja utilise !</p>';
-				return (FALSE);
+		if (preg_match('/^[a-zA-Z0-9_]{3,16}$/', $login)){
+			$query = $this->db->query("SELECT COUNT(*) FROM users
+									WHERE login='".$login."'")->fetch();
+			if ($query['COUNT(*)'] == 1){
+				return $this->mess_error = 'Ce Login est deja utilise !';
 			}
-			$st = $con->db->query("SELECT COUNT(*) FROM users
-									WHERE email='".$this->email."'")->fetch();
-			if ($st['COUNT(*)'] == 1){
-				$this->mess_error = '<p class="form_error">Cet email est deja utilise !</p>';
-				return (FALSE);
+			$query = $this->db->query("SELECT COUNT(*) FROM users
+									WHERE email='".$email."'")->fetch();
+			if ($query['COUNT(*)'] == 1){
+				return $this->mess_error = 'Cet email est deja utilise !';
 			}
-			$req = $con->db->prepare("INSERT INTO `users`(`login`, `password`, `email`, `cle`)
+			$req = $this->db->prepare("INSERT INTO `users`(`login`, `password`, `email`, `cle`)
 										VALUES (:login, :password, :email, :cle)");
-			if ($req->execute(array(
-				"login" => $login,
-				"password" => $passwd,
-				"email" => $email,
-				"cle" => $cle))){
-
-				$options = array(
-					'email' => $this->email,
-					'login' => $this->login,
-					'subject' => 'Inscription a CAMAGRU',
-					'message' => '',
-					'title' => '',
-					'from' => '',
-					'cle' => $cle);
-
-				$sender = new MailSender($options);
-				$sender->confirmSubscribeMail();
-				return (TRUE);
+			$info = array(
+                "login" => $login,
+                "password" => $passwd,
+                "email" => $email,
+                "cle" => $cle
+            );
+			if ($req->execute($info)){
+                return ($info);
 			}else{
-				if ($_SERVER['debug'] === 1)
-					$this->mess_error = '<p class="form_error">l\'insertion n\'a pas marche!</p>';
 					return (FALSE);
 			}
 		}else{
-			$this->mess_error = '<p class="form_error">Votre login doit faire entre trois et seize caracteres et les caracteres speciaux ne sont pas autorises !</p>';
 			return (FALSE);
 		}
 	}
+
+	/**
+	 * Verifie que le param email est valide, verifie que le user existe,
+	 * auquel cas renvoi un array contenant le login et la cle correspondant
+	 * a l'email.
+	 * Return False si l'user n'existe pas.
+	 * Return message d'erreur si l'adresse mail n'est pas valide.
+	 * @param $email string l'adresse mail a chercher dans la DB
+	 * @return array|bool|string Array contenant login et cle si tout c'est
+	 * bien passer, False si l'user n'existe pas et un message d'erreur si le
+	 * mail n'est pas valide.
+	 */
+	public function requestMail($email){
+        if (Mail::validEmail($email)){
+			$sql = "SELECT email FROM users
+							WHERE email=?";
+			try{
+				$query = $this->db->prepare($sql);
+				$d = array($email);
+				$query->execute($d);
+				$user_exist = $query->rowCount();
+				if ($user_exist === 1){
+					$options = array();
+					$options['login'] = $this->getLoginByEmail($email);
+					$options['cle'] = $this->getCleByEmail($email);
+				}
+			}catch (PDOexception $e){
+				print "Erreur : ".$e->getMessage()."";
+				die();
+			}
+			if ($user_exist !== 1){
+				return FALSE;
+			}
+			return $options;
+		}
+        return "Veuillez renseigner une adresse mail valide";
+	}
+
+    public function getMailByIdPost($idPost){
+        $sql = "SELECT user_id
+	            FROM posts
+	            WHERE id = ?";
+        try{
+            $query = $this->db->prepare($sql);
+            $d = array($idPost);
+            $query->execute($d);
+            $userId = $query->fetch(PDO::FETCH_ASSOC);
+        }catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+        if ($userId){
+            $sql = "SELECT email, login FROM users
+							WHERE id=?";
+            try{
+                $query = $this->db->prepare($sql);
+                $d = array($userId['user_id']);
+                $query->execute($d);
+                $email = $query->fetch(PDO::FETCH_ASSOC);
+                if ($email){
+                    return $email;
+                }
+                return FALSE;
+            }catch (PDOexception $e){
+                print "Erreur : ".$e->getMessage()."";
+                die();
+            }
+        }
+    }
+
+	/**
+	 * Trouve a quel user correspond l'email
+	 * @param $email string l'email a rechercher dans la DB
+	 * @return mixed return le login qui correspond a l'email
+	 */
+	public function getLoginByEmail($email){
+		try{
+			$query = $this->db->prepare("SELECT login FROM users WHERE email=?");
+			$d = array($email);
+			$query->execute($d);
+			$row = $query->fetch();
+			return $row[0];
+		}catch (PDOexception $e){
+			print "Erreur : ".$e->getMessage()."";
+			die();
+		}
+	}
+
+	/**
+	 * Return la cle user de par son email
+	 * @param $email string l'email a chercher dans la bdd
+	 * @return mixed return la cle dans la DB
+	 */
+	public function getCleByEmail($email){
+		try{
+			$query = $this->db->prepare("SELECT cle FROM users WHERE email=?");
+			$d = array($email);
+			$query->execute($d);
+			$row = $query->fetch();
+			return $row[0];
+		}catch (PDOexception $e){
+			print "Erreur : ".$e->getMessage()."";
+			die();
+		}
+	}
+
+	/**
+	 * Check si le login et la cle correspondent dans la bdd
+	 * @param $login string le nom de l'user a update
+	 * @param $cle string la cle a verifier
+	 * @return bool return TRUE si trouve dans la DB, FALSE autrement.
+	 */
+	public function checkValueOfGetForValidation($login, $cle){
+		$sql = "SELECT cle FROM users
+							WHERE login=?";
+		$cle_comp = NULL;
+
+		try{
+			$query = $this->db->prepare($sql);
+			$d = array($login);
+			$query->execute($d);
+			$user_exist = $query->rowCount();
+			if ($user_exist === 1) {
+				$row = $query->fetch();
+				$cle_comp = $row[0];
+				if ($cle_comp === $cle) {
+					return (TRUE);
+				} else {
+					return FALSE;
+				}
+			}
+		}catch (PDOexception $e){
+			print "Erreur : ".$e->getMessage()."";
+			die();
+			}
+	}
+
+	/**
+	 * Change la cle user
+	 * @param $log string le nom de l'user a mettre actif
+	 */
+	public function changeKeyUser($log){
+		$newcle = uniqid('', true);
+		$sql = "UPDATE users SET cle=? WHERE login=?";
+		try{
+			$query = $this->db->prepare($sql);
+			$d = array($newcle, $log);
+			$query->execute($d);
+		}catch (PDOexception $e){
+			print "Erreur : ".$e->getMessage()."";
+			die();
+		}
+	}
+
+	/**
+	 * Change l'etat de l'user a actif
+	 * @param $log string le nom de l'user a mettre actif
+	 */
+	public function changeActifUser($log){
+		$actif = 1;
+		$sql = "UPDATE users SET actif=? WHERE login=?";
+		try{
+			$query = $this->db->prepare($sql);
+			$d = array($actif, $log);
+			$query->execute($d);
+		}catch (PDOexception $e){
+			print "Erreur : ".$e->getMessage()."";
+			die();
+		}
+	}
+
+	/**
+	 * Change la cle user
+	 * @param $log string le nom de l'user a update
+	 * @param $newPasswd string le nouveau password a update
+	 */
+	public function changePasswdUser($log, $newPasswd){
+		$sql = "UPDATE users SET password=? WHERE login=?";
+		try{
+			$query = $this->db->prepare($sql);
+			$d = array($newPasswd, $log);
+			$query->execute($d);
+		}catch (PDOexception $e){
+			print "Erreur : ".$e->getMessage()."";
+			die();
+		}
+	}
+
+	/**
+	 * Check si User a valider son compte
+	 * @param $login string le login a check
+	 * @return bool true si compte valide, false autrement.
+	 */
+	public function checkIfUserActif($login){
+		$sql = "SELECT actif FROM users WHERE login=?";
+		try{
+			$query = $this->db->prepare($sql);
+			$d = array($login);
+			$query->execute($d);
+			if (($query->rowCount()) == 1){
+				return TRUE;
+			}else {
+				return FALSE;
+			}
+		}catch (PDOexception $e){
+			print "Erreur : ".$e->getMessage()."";
+			die();
+		}
+	}
+
+    /**
+     * Recupere id user par le login.
+     * @param $login string login user.
+     * @return mixed return id user ou die avec erreur.
+     */
+	public function getIdUser($login){
+	    $sql = "SELECT id FROM users WHERE login=?";
+	    try{
+	        $query = $this->db->prepare($sql);
+	        $d = array($login);
+	        $query->execute(($d));
+            $row = $query->fetch();
+            return $row[0];
+        } catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+    }
+
+    public function getLoginById($id){
+        $sql = "SELECT login FROM users WHERE id=?";
+        try{
+            $query = $this->db->prepare($sql);
+            $d = array($id);
+            $query->execute(($d));
+            $row = $query->fetch();
+            return $row[0];
+        } catch (PDOexception $e){
+            print "Erreur : ".$e->getMessage()."";
+            die();
+        }
+    }
 }
+
 ?>

@@ -1,94 +1,101 @@
 @import 'compass';
+@import "colors";
+@import "button_flat_input";
+@import "base";
+@import "form";
+@import "logo";
 
-$color_back: snow;
-$color_text: #006796;
+/*
+  Taille de base sur ecran 2560 x 1440
+*/
 
 body {
-	background-color: #222222;
-	font-family: 'Cabin Sketch', cursive;
-	color: #262626;
-	font-size: 2.5vw;
+    .container {
+        display: block;
+        position: relative;
+        margin-top: 5%;
+
+        /*
+        Accueil
+         */
+        .accueil_form {
+            font-size: 30px;
+            position: relative;
+            margin: 0 auto;
+            width: 800px;
+            max-width: 800px;
+            background-color: rgba($color_back, 0.9);
+            text-align: center;
+            box-shadow: 0px 0px 1px rgb(0, 34, 62);
+
+            .containerForm {
+                margin-left: 10%;
+                max-width: 80%;
+
+                .paswrd_accueil_but {
+                    margin-top: 15px;
+                    margin-bottom: 40px;
+                }
+
+                .submit-accueil {
+                    position: relative;
+                    margin: 0px auto;
+                    width: 150px;
+
+                    .button {
+                        font-size: 24px;
+                    }
+                }
+
+                .forgetPass a {
+                    color: $color_text;
+                    display: block;
+                    text-decoration: none;
+                    font-size: 35px;
+
+                    &:hover {
+                        color: $color_button_hover;
+                    }
+                }
+
+                .registerDiv {
+                    display: block;
+                    position: relative;
+                    padding-bottom: 5%;
+
+                    .registered {
+                        color: $color_text;
+                        text-decoration: none;
+                        width: 26%;
+
+                        &:hover {
+                            color: $color_button_hover;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    .footer-copy {
+        position: relative;
+        font-size: 15px;
+        top: 468px;
+    }
 }
 
-.container{
-	display: block;
-	position: relative;
-  margin-top: 130px;
-	margin-left: 150px;
-}
+    /*
+    Other
+     */
+    textarea, select {
+        padding: 3px;
+        border: 1px solid $color_text_black;
+        border-radius: 5px;
+        width: 60%;
+        height: 150%;
+        box-shadow: 1px 0px 5px $color_text_black inset;
+        font-family: 'Cairo', sans-serif;
+    }
 
-
-.accueil_log{
-	position: relative;
-	margin-left: 35%;
-	width: 35%;
-	/*max-height: 400px;*/
-	background-color: white;
-	text-align: center;
-	box-shadow: 0px 0px 1px rgb(0, 34, 62);
-}
-
-textarea, select {
-	padding: 3px;
-	border: 1px solid #222222;
-	border-radius: 5px;
-	width: 60%;
-	height: 150%;
-	box-shadow: 1px 0px 5px #222222 inset;
-	font-family: 'Cairo', sans-serif;
- }
-
-.logo {
-	padding-top: 5px;
-	display: block;
-	position: relative;
-	width:100%;
-	margin-bottom: 6%;
-}
-
-h1{
-	position: relative;
-	width: 100%;
-	background-color: indianred; 
-	font-size: 1.5em;
-}
-
-.img_logo{
-	left: 7%;
-    position: absolute;
-    width: 11%;
-	top: 44%;
-}
-
-.paswrd_accueil_but{
-  margin-top: 15px; 
-}
-
-.forgetPass a{
-	color: $color_text;
-	display: block;
-	text-decoration: none;
-	font-size: 1.2vw;
-}
-
-.forgetPass:hover{
-	color: indianred;
-}
-
-.registered{
-  color: $color_text;
-  display: block;
-  text-decoration: none;
-}
-
-.registered:hover{
-  color: indianred;
-}
-
-.footer{
-	height: 45px;
-}
-
-.forget_but{
-	font-size: 1.5vw;
-}
+@import "accueilResponsive";

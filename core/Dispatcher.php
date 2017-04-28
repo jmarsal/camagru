@@ -1,12 +1,19 @@
 <?php
+if (!isset($_SESSION)){
+    session_start();
+}
 class Dispatcher {
 	
 	var $request;
 	
-	function __construct() {
+	function __construct($redirect = NULL) {
 		// Recupere l'URL et la parse
-		$this->request = new Request();
-		Router::parse($this->request->url, $this->request);
+		if (!$redirect){
+			$this->request = new Request();
+			Router::parse($this->request->url, $this->request);
+		}else{
+			$this->request = $redirect;
+		}
 		// Charge le controller correspondant, si erreur, renvoi sur Controller 404
 		try {
 			$controller = $this->loadController();
@@ -28,14 +35,17 @@ class Dispatcher {
 
 		// Appel de la fonction qui correspond a l'action dans le controller
 		call_user_func_array(array($controller, $this->request->action), $this->request->params);
-		$controller->render($this->request->action);
+		if(empty($_SERVER['HTTP_X_REQUESTED_WITH'])){
+			$controller->render($this->request->action);
+		}
 		if ($this->request->controller === 'PagesController' && !empty($this->request->params)) {
 			$this->error('Le controller '.$this->request->controller.' a besoin de parametres !');
 		}
 	}
 	
 	function error($message) {
-		$controller = new Controller($this->request);
+		$this->request->url = "";
+		$controller = $this->loadController();
 		$controller->e404($message);
 	}
 	
