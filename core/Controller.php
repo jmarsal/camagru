@@ -11,7 +11,7 @@ abstract class Controller {
 	
 	function __construct($request) {
 		$this->request = $request;
-	}
+    }
 	
 	public function render($view, $layout = NULL) {
 		if ($layout === NULL){
@@ -34,6 +34,11 @@ abstract class Controller {
 		$this->_rendered = TRUE;
 	}
 	
+	public function json($httpCode, $data = []){
+		http_response_code($httpCode);
+		die(json_encode($data));
+	}
+
 	public function set($key, $value=NULL) {
 		if ($_SERVER['debug'] === 1) {
 			if (is_array($key)) {

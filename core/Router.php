@@ -10,24 +10,28 @@ class Router {
 	 * @return TRUE
 	 */
 	static function parse($url, $request){
-		$url = trim($url, '/');
-		$params = explode('/', $url);
-		$request->controller = $params[0];
+        $url = trim($url, '/');
+        $params = explode('/', $url);
+        if (!empty($params[1])){
+            $request->controller = $params[1];
+        } else {
+            $request->controller = "";
+        }
+
 		if ($request->controller === 'register' ||
 			$request->controller === 'forgetId') {
-			$params[1] = Router::validAccountByMail($params);
-//			die(var_dump($params[0]));
+			$params[2] = Router::validAccountByMail($params);
 		}
-		$request->action = isset($params[1]) ? $params[1] : 'accueil';
-		$request->params = array_slice($params, 2);
+		$request->action = isset($params[2]) ? $params[2] : 'accueil';
+		$request->params = array_slice($params, 3);
 
 		return TRUE;
 	}
 
 	static private function validAccountByMail($params)
 	{
-		if (!empty($params[1])) {
-			$tmpAction = explode('?', $params[1]);
+		if (!empty($params[2])) {
+			$tmpAction = explode('?', $params[2]);
 		}
 		if (isset($tmpAction[0]) && ($tmpAction[0] === 'validation' ||
 				$tmpAction[0] === 'reinit')) {

@@ -1,0 +1,68 @@
+@import "colors";
+
+/*
+  Taille de base sur ecran 2560 x 1440
+*/
+
+.container {
+
+    .accueil_form {
+        .formRegister {
+            padding-bottom: 40px;
+            .repeat_paswrd_register_but {
+                padding-bottom: 60px;
+            }
+
+            .a-connect {
+                padding-bottom: 40px;
+            }
+
+            .form_error_register {
+                top: 0px;
+            }
+        }
+
+        .log_register_but {
+            .button {
+                margin: 0px auto;
+                font-size: 35px;
+                width: 300px;
+            }
+        }
+
+        &.popup-mail-register {
+            padding-bottom: 17%;
+        }
+    }
+}
+
+// iphone5
+@media only screen and (max-width: 414px) {
+    .container{
+        .accueil_form{
+            .containerForm{
+                .textRegister{
+                    font-size: 25px;
+                }
+                .formRegister{
+                    font-size: 25px;
+                }
+                .log_register_but{
+                    .button{
+                        width: 200px;
+                    }
+                }
+            }
+        }
+        
+    }
+    
+}
+
+body {
+    .footer-copy {
+        position: relative;
+        font-size: 15px;
+        top: 468px;
+    }
+}

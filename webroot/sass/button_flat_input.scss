@@ -1,39 +1,87 @@
  @import 'compass';
  @import "colors";
 
-input, .button2 {
-   input {
-     &:hover{
-       background: $color_button_hover;
-     }
-     cursor: pointer;
-     width: 35%;
-     background: $color_button;
-     color: #FFF;
-     text-decoration: none;
-     position: relative;
-     font-size: 1.5vw;
-     padding: 10px;
-     border: solid 1px darken($color_button, 20);
-     @include border-radius(5px);
-     @include box-shadow(inset 0px 1px 1px lighten($color_button, 20));
-     @include background-image( linear-gradient(top, $color_button, darken($color_button, 10)));
-   }
-   input:active{
-     @include background-image( linear-gradient(bottom, $color_button, darken($color_button, 10)));
-     @include box-shadow(inset 0px 0px 0px lighten($color_button, 20));
-   }
-   input:before{
-     content:'';
-     background-color: #ccd0d5;
-     display: block;
-     position: absolute;
-     width: 100%;
-     height: 100%;
-     padding: 8px;
-     top: -8px; left: -8px;
-     z-index: -1;
-     @include border-radius(6px);
-     @include box-shadow(inset 8px 1px 1px #909193, 0px 1px 0px #FFF);
-   }
- }
+.button {
+  display: block;
+  cursor: pointer;
+  background: $color_button;
+  color: #FFF;
+  text-decoration: none;
+  position: relative;
+  font-size: 1.5vw;
+  padding: 10px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  border: solid 1px darken($color_button, 20);
+  @include border-radius(5px);
+  @include box-shadow(inset 0px 1px 1px lighten($color_button, 20));
+  @include background-image(linear-gradient(top, $color_button, darken($color_button, 10)));
+  margin-bottom: 14px;
+
+  &:hover, &.active {
+    background: $color_button_hover;
+  }
+  &:focus {
+    outline: none;
+  }
+  //&.filters-button {
+
+  //&:active{
+  //  @include background-image( linear-gradient(bottom, $color_button, darken($color_button, 10)));
+  //  @include box-shadow(inset 0px 0px 0px lighten($color_button, 20));
+  //}
+  //&:before {
+  //  content: '';
+  //  background-color: #ccd0d5;
+  //  display: block;
+  //  position: absolute;
+  //  width: 100%;
+  //  height: 100%;
+  //  padding: 8px;
+  //  top: -8px;
+  //  left: -8px;
+  //  z-index: -1;
+  //  @include border-radius(6px);
+  //  @include box-shadow(inset 8px 1px 1px #909193, 0px 1px 0px #FFF);
+  //}
+  //}
+}
+ //input, .button2 {
+ //  input {
+ //    &:hover{
+ //      background: $color_button_hover;
+ //    }
+ //    &:focus {
+ //      outline: none;
+ //    }
+ //    cursor: pointer;
+ //    width: 35%;
+ //    background: $color_button;
+ //    color: #FFF;
+ //    text-decoration: none;
+ //    position: relative;
+ //    font-size: 1.5vw;
+ //    padding: 10px;
+ //    border: solid 1px darken($color_button, 20);
+ //    @include border-radius(5px);
+ //    @include box-shadow(inset 0px 1px 1px lighten($color_button, 20));
+ //    @include background-image( linear-gradient(top, $color_button, darken($color_button, 10)));
+ //  }
+ //  input:active{
+ //    @include background-image( linear-gradient(bottom, $color_button, darken($color_button, 10)));
+ //    @include box-shadow(inset 0px 0px 0px lighten($color_button, 20));
+ //  }
+ //  input:before{
+ //    content:'';
+ //    background-color: #ccd0d5;
+ //    display: block;
+ //    position: absolute;
+ //    width: 100%;
+ //    height: 100%;
+ //    padding: 8px;
+ //    top: -8px; left: -8px;
+ //    z-index: -1;
+ //    @include border-radius(6px);
+ //    @include box-shadow(inset 8px 1px 1px #909193, 0px 1px 0px #FFF);
+ //  }
+ //}

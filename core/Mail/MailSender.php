@@ -52,14 +52,34 @@ class MailSender
 		// Le code HTML
 		//---------------------------------
 		$this->_msg .= "--$this->_delimiteur\r\n";
-		$this->_msg .= "Content-Type: text/html; charset=\"iso-8859-1\"\r\n";
+		$this->_msg .= "Content-Type: text/html; charset=\"utf-8\"\r\n";
 		$this->_msg .= "Content-Transfer-Encoding:8bit\r\n";
 		$this->_msg .= "\r\n";
 
 	}
 
+	public function newCommentMail(){
+        if (empty($this->title)){
+            $this->title = 'Nouveau Commentaire !';
+        }
+        if (empty($this->from)){
+            $this->from = 'camagru@student.42.fr';
+        }
+        if (empty($this->subject)){
+            $this->subject = 'Nouveau Commentaire !';
+        }
+        $_link = $this->base_url;
+        $this->_msg .= str_replace('^^title^^', $this->title,
+            str_replace('^^login^^', ucfirst($this->login) ,
+                str_replace('^^link^^', $_link,
+                file_get_contents("core/Mail/template/newCommentMail.html"))));
+
+        $this->_msg .= "\r\n\r\n";
+        $this->SendMail();
+    }
+
 	public function newsMail(){
-		date_default_timezone_set('UTC');
+		date_default_timezone_set('Europe/Paris');
 		$date = date('d F Y');
 		if (empty($this->title)){
 			$this->title = 'Newsletter du '.$date;
@@ -82,7 +102,7 @@ class MailSender
 			$this->title = 'Bienvenue sur Camagru !';
 		}
 		if (empty($this->from)){
-			$this->from = 'inscription@camagru.com';
+			$this->from = 'camagru@student.42.fr';
 		}
 		if (empty($this->subject)){
 			$this->subject = 'Inscription a CAMAGRU';
@@ -101,7 +121,7 @@ class MailSender
 			$this->title = '<p>Reinitialisation</p><p>de Mot de Passe ...</p>';
 		}
         if (empty($this->from)){
-            $this->from = 'camagru@camagru.fr';
+            $this->from = 'camagru@student.42.fr';
 		}
         if (empty($this->subject)){
             $this->subject = 'Reinitialisation de mot de passe';

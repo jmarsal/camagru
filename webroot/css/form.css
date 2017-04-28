@@ -1,9 +1,9 @@
-/* line 5, ../sass/form.scss */
+/* line 4, ../sass/form.scss */
 form input {
   color: #006796;
   text-align: center;
   width: 57%;
-  font-size: 1rem;
+  font-size: 1em;
   border: solid 1px rgba(202, 82, 4, 0.14);
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -15,7 +15,7 @@ form input {
   background-image: -webkit-linear-gradient(top, rgba(227, 92, 5, 0.14), rgba(202, 82, 4, 0.14));
   background-image: linear-gradient(to bottom, rgba(227, 92, 5, 0.14), rgba(202, 82, 4, 0.14)); }
 
-/* line 15, ../sass/form.scss */
+/* line 14, ../sass/form.scss */
 .popup {
   display: block;
   -moz-box-shadow: 0px 0px 10px #7f3403;
@@ -31,7 +31,7 @@ form input {
   left: 0%;
   top: 0%; }
 
-/* line 29, ../sass/form.scss */
+/* line 28, ../sass/form.scss */
 .popup .overlay {
   position: absolute;
   display: none;
@@ -43,61 +43,62 @@ form input {
   z-index: 0;
   opacity: .5; }
 
-/* line 41, ../sass/form.scss */
+/* line 40, ../sass/form.scss */
 .popup .waiting {
   padding-bottom: 15px; }
 
-/* line 45, ../sass/form.scss */
+/* line 44, ../sass/form.scss */
 .popup .login {
   font-family: 'Raleway', cursive;
   font-size: 1.3vw;
-  color: #e35c05;
+  color: #F39237;
   padding-bottom: 55px; }
 
-/* line 52, ../sass/form.scss */
+/* line 51, ../sass/form.scss */
 .popup .text {
   font-family: 'Cabin Sketch', cursive;
   color: #f3f3f3;
   font-size: 1.5vw; }
 
-/* line 58, ../sass/form.scss */
+/* line 57, ../sass/form.scss */
 .popup .mail {
   font-family: 'Raleway', cursive;
   font-size: 1.3vw;
-  color: #e35c05;
+  color: #F39237;
   padding-top: 5%;
   padding-bottom: 10%; }
 
-/* line 66, ../sass/form.scss */
+/* line 65, ../sass/form.scss */
 .popup .mail_reinit {
   color: #e35c05;
   padding-top: 5%;
   padding-bottom: 20%; }
 
-/* line 72, ../sass/form.scss */
+/* line 71, ../sass/form.scss */
 .popup .mail_reinit2 {
   font-family: 'Raleway', cursive;
   font-size: 1.3vw;
-  color: #e35c05;
+  color: #F39237;
   padding-top: 5%;
   padding-bottom: 11%; }
 
-/* line 80, ../sass/form.scss */
+/* line 79, ../sass/form.scss */
 .popup .text {
-  padding-bottom: 10%; }
+  padding-bottom: 4%; }
 
-/* line 84, ../sass/form.scss */
+/* line 83, ../sass/form.scss */
 .popup .buttons-reinit {
   display: inline-block; }
 
-/* line 88, ../sass/form.scss */
-.form_error {
+/* line 87, ../sass/form.scss */
+.form_error, .form_error_register {
+  position: relative;
   background: indianred;
   color: snow;
   padding-top: 6px;
-  padding-bottom: 6px;
+  padding-bottom: 10px;
   font-family: 'Raleway', cursive;
-  font-size: 1.5vw; }
+  font-size: 1em; }
 
 /* line 97, ../sass/form.scss */
 .form_error2 {
@@ -125,8 +126,7 @@ form input {
 
 /* line 121, ../sass/form.scss */
 .a-connect {
-  font-size: 2vw;
-  color: #e35c05; }
+  font-size: 1vw; }
 
 /* line 126, ../sass/form.scss */
 .logo-pop {

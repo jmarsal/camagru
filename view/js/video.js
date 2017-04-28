@@ -2,25 +2,23 @@
  * Created by jmarsal on 2/21/17.
  */
 
-(function () {
+(function() {
 
     var streaming = false;
     video = document.getElementById('myvideo');
-    console.log(video);
     cover = document.getElementById('cover');
     canvas = document.getElementById('canvas');
     photo = document.getElementById('photo');
-    startbutton  = document.getElementById('startbutton'),
-        width = 700;
-    height = 220;
+    startbutton = document.getElementById('startbutton');
+    width = 1280;
+    height = 720;
 
-    navigator.getMedia = (  navigator.getUserMedia ||
-    navigator.webkitGetUserMedia ||
-    navigator.mozGetUserMedia ||
-    navigator.msGetUserMedia);
+    navigator.getMedia = (navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia);
 
-    navigator.getMedia(
-        {
+    navigator.getMedia({
             video: true,
             audio: false
         },
@@ -38,9 +36,9 @@
         }
     );
 
-    video.addEventListener('canplay', function(ev){
+    video.addEventListener('canplay', function(ev) {
         if (!streaming) {
-            height = video.videoHeight / (video.videoWidth/width);
+            height = video.videoHeight / (video.videoWidth / width);
             video.setAttribute('width', width);
             video.setAttribute('height', height);
             canvas.setAttribute('width', width);
@@ -52,15 +50,17 @@
     function takepicture() {
         canvas.width = width;
         canvas.height = height;
-        var ctx =canvas.getContext('2d');
-        ctx.translate(width,  0);
+        var ctx = canvas.getContext('2d');
+        ctx.translate(width, 0);
         ctx.scale(-1, 1);
         ctx.drawImage(video, 0, 0, width, height);
-        var data = canvas.toDataURL('image/png');
-        photo.setAttribute('src', data);
+        var data = encodeURIComponent(canvas.toDataURL('image/png'));
+        ajaxPhoto(data);
     }
 
-    startbutton.addEventListener('click', function(ev){
+    startbutton.addEventListener('click', function(ev) {
+        var player = document.querySelector('#audioPlayer');
+        player.play();
         takepicture();
         ev.preventDefault();
     }, false);

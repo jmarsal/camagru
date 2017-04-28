@@ -1,0 +1,79 @@
+/*
+  Taille de base sur ecran 2560 x 1440
+*/
+/* line 10, ../sass/forgetStyle.scss */
+.container .accueil_form .containerForm {
+  padding-bottom: 30px; }
+  /* line 13, ../sass/forgetStyle.scss */
+  .container .accueil_form .containerForm .errorForgetId {
+    position: relative;
+    top: 0px;
+    background: indianred;
+    color: snow;
+    padding-top: 6px;
+    padding-bottom: 10px;
+    font-family: 'Raleway', cursive;
+    font-size: 30px; }
+  /* line 24, ../sass/forgetStyle.scss */
+  .container .accueil_form .containerForm .link-back-accueil {
+    color: #f3f3f3;
+    display: block;
+    text-decoration: none;
+    position: relative;
+    width: 26%;
+    margin-left: 38%; }
+    /* line 32, ../sass/forgetStyle.scss */
+    .container .accueil_form .containerForm .link-back-accueil:hover {
+      color: #e35c05; }
+  /* line 37, ../sass/forgetStyle.scss */
+  .container .accueil_form .containerForm .back-accueil {
+    padding-bottom: 5%;
+    color: #f3f3f3;
+    display: block;
+    text-decoration: none; }
+    /* line 43, ../sass/forgetStyle.scss */
+    .container .accueil_form .containerForm .back-accueil .link-back-accueil {
+      margin-left: 41%;
+      position: relative;
+      text-align: center;
+      width: 18%; }
+    /* line 50, ../sass/forgetStyle.scss */
+    .container .accueil_form .containerForm .back-accueil .link-back-accueil:hover {
+      color: #e35c05; }
+  /* line 55, ../sass/forgetStyle.scss */
+  .container .accueil_form .containerForm .forget_but {
+    font-size: 30px;
+    padding-bottom: 40px; }
+  /* line 60, ../sass/forgetStyle.scss */
+  .container .accueil_form .containerForm .formForgetId {
+    margin: 0px auto; }
+    /* line 63, ../sass/forgetStyle.scss */
+    .container .accueil_form .containerForm .formForgetId .questionUser {
+      margin: 0% auto;
+      width: 100%;
+      padding-bottom: 40px; }
+    /* line 69, ../sass/forgetStyle.scss */
+    .container .accueil_form .containerForm .formForgetId .button {
+      margin: 0px auto;
+      font-size: 25px;
+      width: 150px; }
+    /* line 75, ../sass/forgetStyle.scss */
+    .container .accueil_form .containerForm .formForgetId .errorForgetId {
+      font-size: 30px; }
+  /* line 80, ../sass/forgetStyle.scss */
+  .container .accueil_form .containerForm .back-accueil, .container .accueil_form .containerForm .notYetRegister {
+    margin: 0px auto;
+    width: 41%; }
+    /* line 84, ../sass/forgetStyle.scss */
+    .container .accueil_form .containerForm .back-accueil .link-back-accueil, .container .accueil_form .containerForm .notYetRegister .link-back-accueil {
+      margin: 0% auto;
+      width: 100%; }
+  /* line 90, ../sass/forgetStyle.scss */
+  .container .accueil_form .containerForm.popup-mail {
+    padding-bottom: 60%; }
+
+/* line 98, ../sass/forgetStyle.scss */
+body .footer-copy {
+  position: relative;
+  font-size: 15px;
+  top: 468px; }

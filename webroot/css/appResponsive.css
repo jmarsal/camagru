@@ -1,0 +1,1143 @@
+/* line 4, ../sass/form.scss */
+form input {
+  color: #006796;
+  text-align: center;
+  width: 57%;
+  font-size: 1em;
+  border: solid 1px rgba(202, 82, 4, 0.14);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2UzNWMwNSIgc3RvcC1vcGFjaXR5PSIwLjE0Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjY2E1MjA0IiBzdG9wLW9wYWNpdHk9IjAuMTQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(227, 92, 5, 0.14)), color-stop(100%, rgba(202, 82, 4, 0.14)));
+  background-image: -moz-linear-gradient(top, rgba(227, 92, 5, 0.14), rgba(202, 82, 4, 0.14));
+  background-image: -webkit-linear-gradient(top, rgba(227, 92, 5, 0.14), rgba(202, 82, 4, 0.14));
+  background-image: linear-gradient(to bottom, rgba(227, 92, 5, 0.14), rgba(202, 82, 4, 0.14)); }
+
+/* line 14, ../sass/form.scss */
+.popup {
+  display: block;
+  -moz-box-shadow: 0px 0px 10px #7f3403;
+  -webkit-box-shadow: 0px 0px 10px #7f3403;
+  box-shadow: 0px 0px 10px #7f3403;
+  position: absolute;
+  background: #5e6c78;
+  width: 98%;
+  height: 115%;
+  padding: 10px;
+  right: 20px;
+  z-index: 1;
+  left: 0%;
+  top: 0%; }
+
+/* line 28, ../sass/form.scss */
+.popup .overlay {
+  position: absolute;
+  display: none;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  z-index: 0;
+  opacity: .5; }
+
+/* line 40, ../sass/form.scss */
+.popup .waiting {
+  padding-bottom: 15px; }
+
+/* line 44, ../sass/form.scss */
+.popup .login {
+  font-family: 'Raleway', cursive;
+  font-size: 1.3vw;
+  color: #F39237;
+  padding-bottom: 55px; }
+
+/* line 51, ../sass/form.scss */
+.popup .text {
+  font-family: 'Cabin Sketch', cursive;
+  color: #f3f3f3;
+  font-size: 1.5vw; }
+
+/* line 57, ../sass/form.scss */
+.popup .mail {
+  font-family: 'Raleway', cursive;
+  font-size: 1.3vw;
+  color: #F39237;
+  padding-top: 5%;
+  padding-bottom: 10%; }
+
+/* line 65, ../sass/form.scss */
+.popup .mail_reinit {
+  color: #e35c05;
+  padding-top: 5%;
+  padding-bottom: 20%; }
+
+/* line 71, ../sass/form.scss */
+.popup .mail_reinit2 {
+  font-family: 'Raleway', cursive;
+  font-size: 1.3vw;
+  color: #F39237;
+  padding-top: 5%;
+  padding-bottom: 11%; }
+
+/* line 79, ../sass/form.scss */
+.popup .text {
+  padding-bottom: 4%; }
+
+/* line 83, ../sass/form.scss */
+.popup .buttons-reinit {
+  display: inline-block; }
+
+/* line 87, ../sass/form.scss */
+.form_error, .form_error_register {
+  position: relative;
+  background: indianred;
+  color: snow;
+  padding-top: 6px;
+  padding-bottom: 10px;
+  font-family: 'Raleway', cursive;
+  font-size: 1em; }
+
+/* line 97, ../sass/form.scss */
+.form_error2 {
+  display: block;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  background: indianred;
+  color: snow;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-family: 'Raleway', cursive;
+  font-size: 1.5vw; }
+
+/* line 110, ../sass/form.scss */
+.connect {
+  font-size: 2vw;
+  color: #006796;
+  display: block;
+  text-decoration: none; }
+
+/* line 117, ../sass/form.scss */
+.connect:hover {
+  color: indianred; }
+
+/* line 121, ../sass/form.scss */
+.a-connect {
+  font-size: 1vw; }
+
+/* line 126, ../sass/form.scss */
+.logo-pop {
+  margin: 0% auto;
+  padding-top: 5px;
+  display: block;
+  position: relative;
+  width: 80%;
+  margin-bottom: 3%; }
+
+/* line 3, ../sass/objStyle.scss */
+.obj-img {
+  position: absolute;
+  z-index: 55; }
+  /* line 7, ../sass/objStyle.scss */
+  .obj-img.beardMustaches {
+    width: 310px;
+    margin-left: 500px;
+    margin-top: 400px; }
+  /* line 13, ../sass/objStyle.scss */
+  .obj-img.chapeauPirate {
+    width: 600px;
+    margin-left: 355px;
+    margin-top: -50px; }
+  /* line 19, ../sass/objStyle.scss */
+  .obj-img.dog {
+    width: 280px;
+    margin-left: 220px;
+    margin-top: 150px; }
+  /* line 25, ../sass/objStyle.scss */
+  .obj-img.epee {
+    width: 300px;
+    margin-left: 251px;
+    margin-top: 270px; }
+  /* line 31, ../sass/objStyle.scss */
+  .obj-img.epeeLaser {
+    width: 400px;
+    margin-left: 170px;
+    margin-top: 200px; }
+  /* line 37, ../sass/objStyle.scss */
+  .obj-img.largeMustache {
+    width: 200px;
+    margin-left: 550px;
+    margin-top: 382px; }
+  /* line 43, ../sass/objStyle.scss */
+  .obj-img.lunette {
+    width: 300px;
+    margin-left: 500px;
+    margin-top: 100px; }
+  /* line 49, ../sass/objStyle.scss */
+  .obj-img.monkey {
+    width: 180px;
+    margin-left: 355px;
+    margin-top: 310px; }
+  /* line 55, ../sass/objStyle.scss */
+  .obj-img.policeHat {
+    width: 380px;
+    margin-left: 443px;
+    margin-top: -4px; }
+  /* line 61, ../sass/objStyle.scss */
+  .obj-img.prismaticMustache {
+    width: 200px;
+    margin-left: 550px;
+    margin-top: 400px; }
+
+@media only screen and (max-width: 2340px) {
+  /* line 69, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 73, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 230px;
+      margin-left: 390px;
+      margin-top: 310px; }
+    /* line 79, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 500px;
+      margin-left: 260px;
+      margin-top: -40px; }
+    /* line 85, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 200px;
+      margin-left: 200px;
+      margin-top: 140px; }
+    /* line 91, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 250px;
+      margin-left: 190px;
+      margin-top: 210px; }
+    /* line 97, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 300px;
+      margin-left: 140px;
+      margin-top: 150px; }
+    /* line 103, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 150px;
+      margin-left: 430px;
+      margin-top: 300px; }
+    /* line 109, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 200px;
+      margin-left: 410px;
+      margin-top: 90px; }
+    /* line 115, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 100px;
+      margin-left: 300px;
+      margin-top: 280px; }
+    /* line 121, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 290px;
+      margin-left: 343px;
+      margin-top: -4px; }
+    /* line 127, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 160px;
+      margin-left: 430px;
+      margin-top: 300px; } }
+@media only screen and (max-width: 1920px) {
+  /* line 136, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 140, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 230px;
+      margin-left: 400px;
+      margin-top: 310px; }
+    /* line 146, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 500px;
+      margin-left: 260px;
+      margin-top: -40px; }
+    /* line 152, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 200px;
+      margin-left: 220px;
+      margin-top: 140px; }
+    /* line 158, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 250px;
+      margin-left: 190px;
+      margin-top: 210px; }
+    /* line 164, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 300px;
+      margin-left: 140px;
+      margin-top: 150px; }
+    /* line 170, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 150px;
+      margin-left: 430px;
+      margin-top: 300px; }
+    /* line 176, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 200px;
+      margin-left: 410px;
+      margin-top: 90px; }
+    /* line 182, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 100px;
+      margin-left: 300px;
+      margin-top: 280px; }
+    /* line 188, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 290px;
+      margin-left: 343px;
+      margin-top: -4px; }
+    /* line 194, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 160px;
+      margin-left: 430px;
+      margin-top: 300px; } }
+@media only screen and (max-width: 1740px) {
+  /* line 203, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 207, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 200px;
+      margin-left: 250px;
+      margin-top: 210px; }
+    /* line 213, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 400px;
+      margin-left: 160px;
+      margin-top: -40px; }
+    /* line 219, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 180px;
+      margin-left: 100px;
+      margin-top: 80px; }
+    /* line 225, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 130px;
+      margin-left: 170px;
+      margin-top: 140px; }
+    /* line 231, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 200px;
+      margin-left: 110px;
+      margin-top: 110px; }
+    /* line 237, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 100px;
+      margin-left: 300px;
+      margin-top: 200px; }
+    /* line 243, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 150px;
+      margin-left: 280px;
+      margin-top: 70px; }
+    /* line 249, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 90px;
+      margin-left: 175px;
+      margin-top: 200px; }
+    /* line 255, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 190px;
+      margin-left: 243px;
+      margin-top: -4px; }
+    /* line 261, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 120px;
+      margin-left: 300px;
+      margin-top: 220px; } }
+@media only screen and (max-width: 1420px) {
+  /* line 270, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 274, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 100px;
+      margin-left: 210px;
+      margin-top: 150px; }
+    /* line 280, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 250px;
+      margin-left: 140px;
+      margin-top: -20px; }
+    /* line 286, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 110px;
+      margin-left: 80px;
+      margin-top: 60px; }
+    /* line 292, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 80px;
+      margin-left: 140px;
+      margin-top: 110px; }
+    /* line 298, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 150px;
+      margin-left: 70px;
+      margin-top: 80px; }
+    /* line 304, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 75px;
+      margin-left: 210px;
+      margin-top: 160px; }
+    /* line 310, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 100px;
+      margin-left: 205px;
+      margin-top: 40px; }
+    /* line 316, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 55px;
+      margin-left: 125px;
+      margin-top: 125px; }
+    /* line 322, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 120px;
+      margin-left: 180px;
+      margin-top: 15px; }
+    /* line 328, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 80px;
+      margin-left: 210px;
+      margin-top: 150px; } }
+@media only screen and (max-width: 1280px) {
+  /* line 337, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 341, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 100px;
+      margin-left: 210px;
+      margin-top: 150px; }
+    /* line 347, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 250px;
+      margin-left: 140px;
+      margin-top: -20px; }
+    /* line 353, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 110px;
+      margin-left: 80px;
+      margin-top: 60px; }
+    /* line 359, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 80px;
+      margin-left: 140px;
+      margin-top: 110px; }
+    /* line 365, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 150px;
+      margin-left: 70px;
+      margin-top: 80px; }
+    /* line 371, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 75px;
+      margin-left: 210px;
+      margin-top: 160px; }
+    /* line 377, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 100px;
+      margin-left: 205px;
+      margin-top: 40px; }
+    /* line 383, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 55px;
+      margin-left: 125px;
+      margin-top: 125px; }
+    /* line 389, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 120px;
+      margin-left: 180px;
+      margin-top: 15px; }
+    /* line 395, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 80px;
+      margin-left: 210px;
+      margin-top: 150px; } }
+@media only screen and (max-width: 1000px) {
+  /* line 404, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 408, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 100px;
+      margin-left: 210px;
+      margin-top: 150px; }
+    /* line 414, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 250px;
+      margin-left: 140px;
+      margin-top: -20px; }
+    /* line 420, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 110px;
+      margin-left: 80px;
+      margin-top: 60px; }
+    /* line 426, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 80px;
+      margin-left: 140px;
+      margin-top: 110px; }
+    /* line 432, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 150px;
+      margin-left: 70px;
+      margin-top: 80px; }
+    /* line 438, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 75px;
+      margin-left: 210px;
+      margin-top: 160px; }
+    /* line 444, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 100px;
+      margin-left: 205px;
+      margin-top: 40px; }
+    /* line 450, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 55px;
+      margin-left: 125px;
+      margin-top: 125px; }
+    /* line 456, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 120px;
+      margin-left: 180px;
+      margin-top: 15px; }
+    /* line 462, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 80px;
+      margin-left: 210px;
+      margin-top: 150px; } }
+@media only screen and (max-width: 750px) {
+  /* line 471, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 475, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 100px;
+      margin-left: 210px;
+      margin-top: 150px; }
+    /* line 481, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 250px;
+      margin-left: 140px;
+      margin-top: -20px; }
+    /* line 487, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 110px;
+      margin-left: 80px;
+      margin-top: 60px; }
+    /* line 493, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 80px;
+      margin-left: 140px;
+      margin-top: 110px; }
+    /* line 499, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 150px;
+      margin-left: 70px;
+      margin-top: 80px; }
+    /* line 505, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 75px;
+      margin-left: 210px;
+      margin-top: 160px; }
+    /* line 511, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 100px;
+      margin-left: 205px;
+      margin-top: 40px; }
+    /* line 517, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 55px;
+      margin-left: 125px;
+      margin-top: 125px; }
+    /* line 523, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 120px;
+      margin-left: 180px;
+      margin-top: 15px; }
+    /* line 529, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 80px;
+      margin-left: 210px;
+      margin-top: 150px; } }
+@media only screen and (max-width: 414px) {
+  /* line 538, ../sass/objStyle.scss */
+  .obj-img {
+    position: absolute;
+    z-index: 55; }
+    /* line 542, ../sass/objStyle.scss */
+    .obj-img.beardMustaches {
+      width: 100px;
+      margin-left: 210px;
+      margin-top: 150px; }
+    /* line 548, ../sass/objStyle.scss */
+    .obj-img.chapeauPirate {
+      width: 250px;
+      margin-left: 140px;
+      margin-top: -20px; }
+    /* line 554, ../sass/objStyle.scss */
+    .obj-img.dog {
+      width: 110px;
+      margin-left: 80px;
+      margin-top: 60px; }
+    /* line 560, ../sass/objStyle.scss */
+    .obj-img.epee {
+      width: 80px;
+      margin-left: 140px;
+      margin-top: 110px; }
+    /* line 566, ../sass/objStyle.scss */
+    .obj-img.epeeLaser {
+      width: 150px;
+      margin-left: 70px;
+      margin-top: 80px; }
+    /* line 572, ../sass/objStyle.scss */
+    .obj-img.largeMustache {
+      width: 75px;
+      margin-left: 210px;
+      margin-top: 160px; }
+    /* line 578, ../sass/objStyle.scss */
+    .obj-img.lunette {
+      width: 100px;
+      margin-left: 205px;
+      margin-top: 40px; }
+    /* line 584, ../sass/objStyle.scss */
+    .obj-img.monkey {
+      width: 55px;
+      margin-left: 125px;
+      margin-top: 125px; }
+    /* line 590, ../sass/objStyle.scss */
+    .obj-img.policeHat {
+      width: 120px;
+      margin-left: 180px;
+      margin-top: 15px; }
+    /* line 596, ../sass/objStyle.scss */
+    .obj-img.prismaticMustache {
+      width: 80px;
+      margin-left: 210px;
+      margin-top: 150px; } }
+@media only screen and (max-width: 2340px) {
+  /* line 15, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .booth {
+    width: 1000px;
+    height: 825px; }
+    /* line 19, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge {
+      width: 1000px;
+      height: 825px; }
+      /* line 23, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .img-enlarge {
+        width: 1000px;
+        height: 825px; }
+      /* line 28, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .close-enlarge {
+        left: 940px; }
+        /* line 31, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .close-enlarge:hover {
+          left: 935px;
+          width: 60px; }
+    /* line 38, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .imgUpload {
+      width: 1000px; }
+    /* line 42, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .myvideo {
+      width: 1000px;
+      margin-top: -105px; }
+    /* line 47, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp {
+      top: -100px; }
+      /* line 52, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .action-app .take-photo .take-photo-img {
+        left: 430px; }
+      /* line 56, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .action-app .take-photo .startbuttonUpload {
+        top: 95px;
+        left: 400px; }
+      /* line 64, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container {
+        right: 385px; }
+        /* line 71, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container .back-to-video {
+          top: 40px;
+          left: 125px; }
+    /* line 79, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .chooseFilter {
+      bottom: 150px; }
+    /* line 83, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.upload {
+      height: 855px; }
+      /* line 87, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth.upload .buttonActionApp .upload-app .input-file-trigger {
+        top: 100px; }
+    /* line 94, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.active {
+      height: 855px; }
+    /* line 99, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .myvideo {
+      margin-bottom: 0px; }
+    /* line 104, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.upload.active {
+      height: 855px; }
+  /* line 110, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img {
+    max-height: 857px; } }
+@media only screen and (max-width: 2035px) {
+  @keyframes explode {
+    0% {
+      height: 0px; }
+    25% {
+      height: 23px; }
+    50% {
+      height: 40px; }
+    100% {
+      height: 52px; } }
+  /* line 141, ../sass/appResponsive.scss */
+  html {
+    overflow-x: hidden; }
+
+  /* line 145, ../sass/appResponsive.scss */
+  body {
+    width: 105%;
+    overflow-y: scroll;
+    overflow-x: hidden; }
+
+  /* line 156, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .container-all-filters {
+    margin-left: 4%;
+    margin-right: 0px; }
+    /* line 160, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .filters {
+      width: 260px; }
+      /* line 164, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .filters .filterHideButton .filters__icon {
+        margin-left: 30px; }
+      /* line 171, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .filters .menu2 .filters-button .button {
+        width: 255px;
+        font-size: 30px;
+        height: 52px;
+        padding-top: 10px; }
+    /* line 181, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .objets-filter {
+      width: 260px; }
+      /* line 185, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .objets-filter .objHideButton .objets__icon {
+        margin-left: 30px; }
+      /* line 191, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .objets-filter .menu-objets .objets-button {
+        max-height: 645px; }
+        /* line 194, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .objets-filter .menu-objets .objets-button .button {
+          width: 255px;
+          font-size: 30px;
+          padding-top: 30px;
+          height: 52px; }
+  /* line 205, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .booth {
+    width: 1000px;
+    height: 825px; }
+    /* line 209, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge {
+      width: 1000px;
+      height: 825px; }
+      /* line 213, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .img-enlarge {
+        width: 1000px;
+        height: 825px; }
+      /* line 218, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .close-enlarge {
+        left: 940px; }
+        /* line 221, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .close-enlarge:hover {
+          left: 935px;
+          width: 60px; }
+    /* line 228, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .imgUpload {
+      width: 1000px; }
+    /* line 232, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .myvideo {
+      width: 1000px;
+      margin-top: -105px; }
+    /* line 237, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp {
+      top: -100px; }
+      /* line 242, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .action-app .take-photo .take-photo-img {
+        left: 430px; }
+      /* line 246, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .action-app .take-photo .startbuttonUpload {
+        top: 95px;
+        left: 400px; }
+      /* line 254, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container {
+        right: 385px; }
+        /* line 261, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container .back-to-video {
+          top: 40px;
+          left: 125px; }
+    /* line 269, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .chooseFilter {
+      bottom: 150px; }
+    /* line 273, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.upload {
+      height: 855px; }
+      /* line 277, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth.upload .buttonActionApp .upload-app .input-file-trigger {
+        top: 100px; }
+    /* line 284, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.active {
+      height: 855px; }
+    /* line 289, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .buttonActionApp {
+      top: -200px; }
+    /* line 293, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .myvideo {
+      margin-bottom: 0px; }
+    /* line 297, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .file-upload {
+      top: -97px; }
+  /* line 303, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .prev-img-container {
+    margin-right: 4%;
+    margin-left: -2%; }
+    /* line 307, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img {
+      width: 245px;
+      margin-left: -320px;
+      max-height: 750px; }
+      /* line 312, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev {
+        padding-top: 10px;
+        margin-left: -20px; }
+        /* line 316, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev img {
+          width: 218px; }
+        /* line 321, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev .prev-action .see-button {
+          width: 25px; }
+          /* line 324, ../sass/appResponsive.scss */
+          .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev .prev-action .see-button:hover {
+            width: 35px;
+            top: -30px; }
+        /* line 330, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev .prev-action .del-button {
+          width: 25px;
+          left: 190px; }
+          /* line 334, ../sass/appResponsive.scss */
+          .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img .container-prev .prev-action .del-button:hover {
+            width: 35px;
+            top: -30px; }
+      /* line 342, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img.scroll-container-prev {
+        width: 260px; } }
+@media only screen and (max-width: 1740px) {
+  /* line 362, ../sass/appResponsive.scss */
+  .site-container .site-pusher .header .menu {
+    font-size: 25px; }
+  /* line 369, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .container-all-filters {
+    font-size: 25px; }
+  /* line 377, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .booth {
+    width: 700px;
+    height: 600px; }
+    /* line 381, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge {
+      width: 700px;
+      height: 600px; }
+      /* line 385, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .img-enlarge {
+        width: 700px;
+        height: 600px; }
+      /* line 390, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .close-enlarge {
+        left: 660px;
+        width: 20px; }
+        /* line 394, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .close-enlarge:hover {
+          left: 655px;
+          width: 40px; }
+    /* line 401, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .imgUpload {
+      width: 700px; }
+    /* line 405, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .myvideo {
+      width: 700px;
+      margin-top: -218px; }
+    /* line 410, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp {
+      top: -210px; }
+      /* line 415, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .action-app .take-photo .take-photo-img {
+        left: 430px; }
+      /* line 419, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .action-app .take-photo .startbuttonUpload {
+        top: 95px;
+        left: 340px; }
+      /* line 427, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container {
+        right: 385px; }
+        /* line 434, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container .back-to-video {
+          top: 40px;
+          left: 225px; }
+    /* line 442, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .chooseFilter {
+      bottom: 150px; }
+    /* line 446, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.upload {
+      height: 558px; }
+      /* line 449, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth.upload .buttonActionApp {
+        top: -97px; }
+        /* line 452, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .booth.upload .buttonActionApp .upload-app .input-file-trigger {
+          top: 100px; }
+    /* line 459, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.active {
+      height: 630px; }
+    /* line 463, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge {
+      height: 600px; }
+      /* line 466, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .myvideo {
+        margin-bottom: 0px; }
+      /* line 470, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .buttonActionApp {
+        top: -310px; }
+        /* line 473, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .buttonActionApp .upload-app .input-file-trigger {
+          top: 100px; }
+    /* line 480, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .chooseFilter {
+      bottom: 255px; }
+    /* line 484, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.upload.enlarge {
+      height: 630px; }
+      /* line 487, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth.upload.enlarge .file-upload {
+        top: -210px; }
+  /* line 494, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img {
+    max-height: 600px; } }
+@media only screen and (max-width: 1420px) {
+  /* line 521, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .booth {
+    width: 500px;
+    height: 435px; }
+    /* line 525, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge {
+      width: 500px;
+      height: 435px; }
+      /* line 529, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .img-enlarge {
+        width: 500px;
+        height: 435px; }
+      /* line 534, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .close-enlarge {
+        left: 460px; }
+        /* line 537, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .booth .container-enlarge .close-enlarge:hover {
+          left: 455px;
+          width: 40px; }
+    /* line 544, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .imgUpload {
+      width: 500px; }
+    /* line 548, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .myvideo {
+      width: 500px;
+      margin-top: -293px; }
+    /* line 553, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp {
+      top: -292px; }
+      /* line 558, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .action-app .take-photo .take-photo-img {
+        left: 170px; }
+      /* line 562, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .action-app .take-photo .startbuttonUpload {
+        top: 95px;
+        left: 340px; }
+      /* line 570, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container {
+        right: 165px; }
+        /* line 577, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .booth .buttonActionApp .upload-app .input-file-container .back-to-video {
+          top: 40px;
+          left: 225px; }
+    /* line 585, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth .chooseFilter {
+      bottom: 150px; }
+    /* line 589, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.upload {
+      height: 445px; }
+      /* line 592, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth.upload .buttonActionApp {
+        top: -97px;
+        left: -125px; }
+        /* line 597, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .booth.upload .buttonActionApp .take-photo .startbuttonUpload {
+          left: 365px; }
+        /* line 603, ../sass/appResponsive.scss */
+        .site-container .site-pusher .post .elems-app .video-containter .booth.upload .buttonActionApp .upload-app .input-file-trigger {
+          top: 100px; }
+    /* line 611, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.active {
+      height: 855px; }
+    /* line 615, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge {
+      height: 445px; }
+      /* line 618, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .myvideo {
+        margin-bottom: 0px; }
+      /* line 623, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .buttonActionApp .take-photo .take-photo-img {
+        top: 20px; }
+      /* line 629, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth.enlarge .upload-app .input-file-container {
+        top: -79px; }
+    /* line 635, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.upload.active {
+      height: 478px; }
+    /* line 640, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.upload.active.enlarge .buttonActionApp {
+      top: -305px;
+      left: -125px; }
+      /* line 645, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth.upload.active.enlarge .buttonActionApp .take-photo .startbuttonUpload {
+        top: 20px; }
+      /* line 652, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth.upload.active.enlarge .buttonActionApp .upload-app .input-file-trigger {
+        top: 100px; }
+    /* line 659, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth.upload.active.enlarge .file-upload {
+      top: -282px; }
+  /* line 667, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .prev-img-container .prev-img {
+    max-height: 600px; } }
+@media only screen and (max-width: 1190px) {
+  /* line 679, ../sass/appResponsive.scss */
+  html {
+    overflow-x: hidden; }
+
+  /* line 683, ../sass/appResponsive.scss */
+  body {
+    height: 160%;
+    width: 105%;
+    overflow-y: scroll;
+    overflow-x: hidden; }
+
+  /* line 699, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .container-all-filters {
+    width: 100%;
+    position: relative;
+    margin: 0% auto;
+    top: 525px;
+    left: 200px; }
+    /* line 706, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .filters {
+      margin-left: -146px; }
+    /* line 710, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .objets-filter {
+      margin-left: -146px; }
+      /* line 714, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .container-all-filters .objets-filter .objHideButton .objets__icon {
+        left: 0px; }
+  /* line 721, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .booth {
+    margin: 0% auto; }
+  /* line 725, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .prev-img {
+    margin: 0% auto; }
+  /* line 729, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .prev-img-container {
+    position: relative;
+    margin: 0% auto;
+    top: 525px;
+    left: -203px; } }
+@media only screen and (max-width: 910px) {
+  /* line 752, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .container-all-filters {
+    margin: 0% auto; }
+  /* line 756, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .booth {
+    margin: 0% auto; }
+  /* line 760, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .prev-img-container {
+    left: -180px; }
+  /* line 764, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter .prev-img {
+    margin: 0% auto; } }
+@media only screen and (max-width: 835px) {
+  /* line 775, ../sass/appResponsive.scss */
+  html {
+    overflow-y: auto; }
+
+  /* line 782, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post {
+    padding-left: 20%; }
+    /* line 787, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .container-all-filters {
+      left: 10px; }
+    /* line 790, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth {
+      margin: 0% auto;
+      left: -335px; }
+    /* line 795, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .prev-img-container {
+      position: relative;
+      top: 525px;
+      left: -365px; } }
+@media only screen and (max-width: 750px) {
+  /* line 808, ../sass/appResponsive.scss */
+  html {
+    height: 300%; }
+
+  /* line 815, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post {
+    margin-left: 2%; }
+    /* line 819, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter {
+      position: relative; }
+      /* line 822, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .container-all-filters {
+        width: 100%; }
+      /* line 825, ../sass/appResponsive.scss */
+      .site-container .site-pusher .post .elems-app .video-containter .booth {
+        margin: 0% auto;
+        left: -457px; } }
+@media only screen and (max-width: 414px) {
+  /* line 837, ../sass/appResponsive.scss */
+  html {
+    height: 200%; }
+
+  /* line 849, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter {
+    position: relative; }
+    /* line 851, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth {
+      margin: 0% auto;
+      left: -390px; } }
+@media only screen and (max-width: 320px) {
+  /* line 871, ../sass/appResponsive.scss */
+  .site-container .site-pusher .post .elems-app .video-containter {
+    position: relative; }
+    /* line 873, ../sass/appResponsive.scss */
+    .site-container .site-pusher .post .elems-app .video-containter .booth {
+      margin: 0% auto;
+      left: -480px; } }

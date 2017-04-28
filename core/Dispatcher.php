@@ -11,6 +11,8 @@ class Dispatcher {
 		if (!$redirect){
 			$this->request = new Request();
 			Router::parse($this->request->url, $this->request);
+//			var_dump($this->request);
+			/////////////////////////////////////////////////////////////////////////////////
 		}else{
 			$this->request = $redirect;
 		}
@@ -35,14 +37,15 @@ class Dispatcher {
 
 		// Appel de la fonction qui correspond a l'action dans le controller
 		call_user_func_array(array($controller, $this->request->action), $this->request->params);
-		$controller->render($this->request->action);
+		if(empty($_SERVER['HTTP_X_REQUESTED_WITH'])){
+			$controller->render($this->request->action);
+		}
 		if ($this->request->controller === 'PagesController' && !empty($this->request->params)) {
 			$this->error('Le controller '.$this->request->controller.' a besoin de parametres !');
 		}
 	}
 	
 	function error($message) {
-//		$controller = new Controller($this->request);
 		$this->request->url = "";
 		$controller = $this->loadController();
 		$controller->e404($message);
@@ -61,7 +64,7 @@ class Dispatcher {
 			$index = new ErrorController();
 		}
 		require $file;
-		return new $name($this->request);
+        return new $name($this->request);
 	}
 }
 

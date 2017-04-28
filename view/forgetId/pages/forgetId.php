@@ -8,44 +8,25 @@
 ?>
 
 <div class="logo">
-    <img class="img_logo_Principal" src="https://www.lycee-louis-vincent.fr/images/icons/puddingcam-logo.png" alt="logo">
+    <img class="img_logo_Principal" src='<?php echo BASE_URL.DS.'webroot'.DS.'images'.DS.'logo'.DS."logo.png";?>' alt="logo">
     <h1>CAMAGRU</h1>
 </div>
 <hr>
-<form action="#" method="POST">
-	<p>Vous avez perdu <br>votre mot de passe, login,<br>
-        ou votre compte n'est pas actif ?</p>
-	<div class="forget_but">
-		Veuillez renseigner une adresse mail :<br><br>
-		<input type="text" name="email"><br>
-	</div>
-	<p class="button2">
-		<input type="submit" name="submit" value="Récuperer">
-	</p>
-</form>
-<?php
-if (!empty($this->mess_error)){
-	echo '<p class="form_error">'.$this->mess_error.'</p>';
-}
-echo $this->popup;
-?>
+<form class="formForgetId" id="formForgetId" action="#" method="POST">
+    <p class="questionUser">Vous avez perdu <br>votre mot de passe, login,<br>
+        ou votre compte n'est pas actif ?
+    </p>
+    <div class="forget_but">
+        Veuillez renseigner une adresse mail :<br><br>
+        <input id="emailForgetId" type="text" name="email" autofocus><br>
+    </div>
+    <div class="button" id="buttonForgetId" onclick="submitForgetId()">Récuperer</div>
     <hr>
     <p class="back-accueil">
-        <a class="registered" href="../">Retour accueil</a>
+        <a class="link-back-accueil" href="../">Retour accueil</a>
     </p>
-    <a class="registered" href="../register/">Not yet registered ?</a>
-    <div class="footer"></div>
-
-<script type="text/javascript">
-    function RedirectionJavascript(){
-        var send = 1;
-        <?php $_ENV['sendReinit']?> = send;
-        document.getElementById("mess-redirection").style.display = "block";
-        document.getElementById("cancel").style.display = "none";
-        document.getElementById("confirm").style.display = "none";
-        setTimeout(changePageForAccueil, 3000);
-        function changePageForAccueil(){
-            document.location.href="<?php echo BASE_URL ?>";
-        }
-    }
-</script>
+    <p class="notYetRegister">
+        <a class="link-back-accueil" href="../register/">Not yet registered ?</a>
+    </p>
+</form>
+<div class="footer"></div>
