@@ -9,7 +9,6 @@ class AppController extends Controller
 			($_SESSION['login']) || !empty($_COOKIE['camagru-log'])){
             if (!empty($_POST['filter'])) {
                 $_SESSION['filter'] = $_POST['filter'];
-                var_dump($_SESSION['filter']);
             }
             $this->loadModel('Photo');
             $this->loadModel('User');
