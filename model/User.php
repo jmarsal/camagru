@@ -55,33 +55,51 @@ class User extends Model {
 	public function addUser($login, $email, $passwd) {
 		$cle = uniqid('', true);
 		if (preg_match('/^[a-zA-Z0-9_]{3,16}$/', $login)){
-			$query = $this->db->query("SELECT COUNT(*) FROM users
-									WHERE login='".$login."'")->fetch();
-			if ($query['COUNT(*)'] == 1){
-				return $this->mess_error = 'Ce Login est deja utilise !';
-			}
-			$query = $this->db->query("SELECT COUNT(*) FROM users
-									WHERE email='".$email."'")->fetch();
-			if ($query['COUNT(*)'] == 1){
-				return $this->mess_error = 'Cet email est deja utilise !';
-			}
-			$req = $this->db->prepare("INSERT INTO `users`(`login`, `password`, `email`, `cle`)
+			$sql = "SELECT login FROM users
+					WHERE login=?";
+			try {
+                $query = $this->db->prepare($sql);
+                $d = array($login);
+                $query->execute($d);
+                $testLog = $query->fetch(PDO::FETCH_ASSOC);
+                if ($testLog['login'] === $login){
+                    return $this->mess_error = 'Ce Login est deja utilise !';
+                }
+            } catch (PDOException $e) {
+                print "Erreur : ".$e->getMessage()."";
+                die();
+            }
+            $sql = "SELECT email FROM users
+					WHERE email=?";
+            try {
+                $query = $this->db->prepare($sql);
+                $d = array($email);
+                $query->execute($d);
+                $testMail = $query->fetch(PDO::FETCH_ASSOC);
+                if ($testMail['email'] === $email){
+                    return $this->mess_error = 'Cet email est deja utilise !';
+                }
+            } catch (PDOException $e) {
+                print "Erreur : ".$e->getMessage()."";
+                die();
+            }
+            $req = $this->db->prepare("INSERT INTO `users`(`login`, `password`, `email`, `cle`)
 										VALUES (:login, :password, :email, :cle)");
-			$info = array(
+            $info = array(
                 "login" => $login,
                 "password" => $passwd,
                 "email" => $email,
                 "cle" => $cle
             );
-			if ($req->execute($info)){
+            if ($req->execute($info)) {
                 return ($info);
-			}else{
-					return (FALSE);
-			}
-		}else{
-			return (FALSE);
-		}
-	}
+            } else {
+                return (FALSE);
+            }
+        } else {
+            return (FALSE);
+        }
+    }
 
 	/**
 	 * Verifie que le param email est valide, verifie que le user existe,

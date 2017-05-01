@@ -11,7 +11,6 @@ class Dispatcher {
 		if (!$redirect){
 			$this->request = new Request();
 			Router::parse($this->request->url, $this->request);
-//			var_dump($this->request);
 			/////////////////////////////////////////////////////////////////////////////////
 		}else{
 			$this->request = $redirect;

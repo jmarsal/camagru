@@ -63,16 +63,16 @@ class RegisterController extends Controller
                 }
                 //Decommenter _sendMailRegister dans addUser
                 if ($this->formOk == 1 && ($info = $this->User->addUser($this->login,
-                        $this->email, $this->hashPasswd)) !== FALSE){
+                        $this->email, $this->hashPasswd)) != FALSE){
                     $this->mess_error = "";
                     $this->popup = str_replace('^^email^^', $this->email,
                         str_replace('^^login^^', $this->login,
                             file_get_contents(ROOT.DS.'view'.DS .'register'.DS.'pages'.DS.'popupRegister.html')));
-                    $info['popup'] = $this->popup;
                     if (empty($info['login'])){
                         $this->mess_error = $info;
                         return false;
                     }
+                    $info['popup'] = $this->popup;
                     return $info;
                 }
             }
