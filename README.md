@@ -59,4 +59,4 @@ protégées.
 
 
 ## Stack
-PHP - MySQL - SASS - CSS - MVC
+PHP 7.0.22 - MySQL 5.7.19 - SASS - CSS - Architecture MVC sans framework
