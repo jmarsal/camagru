@@ -3,7 +3,7 @@
 ## Contributeurs
 [@jmarsal](https://github.com/jmarsal)
 
-## Note Final
+## Note Finale
 `107/100`
 # Projet Camagru 42
 Ce projet vous propose de créer une petite application web permettant de réaliser des
